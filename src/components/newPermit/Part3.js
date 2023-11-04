@@ -33,28 +33,37 @@ const handleChangeArea = (e) => {
         <h3>Part 3 - Duration and Location of Work</h3> 
         
 
-        <Box component="div" sx={{display: 'inline'}}>
         <label>Set the start and end date of the permit</label>
+        <Box component="div"  sx={{display: 'inline-flex'}}>
         
+        <div>
         <InputLabel sx={{fontSize: 12}}>Start date</InputLabel>
         <FormControl required size='small' sx={{display: 'block',
-                margin: 2 }}>
-            <DatePicker value={worksDate} />
+                ml: 0.5, mr: 0.5}}>
+            <DatePicker value={worksDate}
+            slotProps={{ textField: { size: 'small' } }} />
         </FormControl>
-        
+        </div>
 
+        <div>
         <InputLabel sx={{fontSize: 12}}>Start time</InputLabel>
         <FormControl required size='small' sx={{display: 'block',
-                margin: 2 }}>
-            <TimePicker value={startTime} onChange={handleChangeStart} />
+                ml: 0.5, mr: 0.5}}>
+            <TimePicker value={startTime} 
+            slotProps={{ textField: { size: 'small' } }}
+            onChange={handleChangeStart} />
         </FormControl>
+        </div>
 
-
+        <div>
         <InputLabel sx={{fontSize: 12}}>End time</InputLabel>
         <FormControl required size='small' sx={{display: 'block',
-                margin: 2 }}>
-            <TimePicker value={endTime} onChange={handleChangeEnd} />
+                 ml: 0.5, mr: 0.5}}>
+            <TimePicker value={endTime} 
+            slotProps={{ textField: { size: 'small' } }}
+            onChange={handleChangeEnd} />
         </FormControl>
+        </div>
         </Box>
 
 
