@@ -1,5 +1,6 @@
-import { Box, Button, FormControl, FormHelperText, InputBase, MenuItem, Paper, Select } from "@mui/material"
+import { Box, Button, FormControl, FormHelperText, InputBase, InputLabel, MenuItem, Paper, Select, createTheme } from "@mui/material"
 import { useState } from "react"
+
 
 export default function Part1() {
 
@@ -33,66 +34,82 @@ const handleFireSafety= (e) => {
 }
     return(
         <Paper component="section" sx={{ 
-                width: '90%', /*This doesn't work */
+                width: '70%', /*This doesn't work */
                 bgcolor: '#ffffff',
                 borderRadius: 1,
-                padding: 3 }}
-                display="grid"
+                padding: 3 }} 
                 >
         <h3>Part 1 - Hot Works Permit Details</h3>
-        <div>
+        <div sx={{display: 'block'}}>
             Permit issuer 
             {/* information icon */}
             <Box component="section"
                 sx={{bgcolor:'#f5f5f5',
-                    width:'50%'
+                    width:'50%',
+                    padding:2
             }}>{currentUser} 
                 <div>Verified?</div>
             </Box>
         </div>
 
-        <FormControl required size="small">
+        <div>
         <label>Select type of organisation</label>
+        <FormControl required size='small' sx={{display: 'block',
+                width: '100%', margin: 2 }}>
+        <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
             <Select
             value={organisationType}
             label="Select Type *"
-            onChange={handleOrganisation}> 
+            onChange={handleOrganisation}
+            sx={{width: '50%'}}
+            > 
                 <MenuItem value="Supplier">Supplier</MenuItem>
                 <MenuItem value="Plumbing">Plumbing</MenuItem>
                 <MenuItem value="Carpentry">Carpentry</MenuItem>         
             </Select>
         </FormControl>
-                
-        <FormControl required size="small">
+        </div>
+             
+        <div>
         <label>Assign a supplier to carry out the work</label>
+        <FormControl required size='small' sx={{display: 'block',
+                margin: 2 }}>
+        <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
             <Select
             value={supplier}
             label="Verified supplier *"
-            onChange={handleSupplier}> 
+            onChange={handleSupplier}
+            sx={{width: '50%'}}> 
                 <MenuItem value="Ackrington Chambers">Ackrington Chambers</MenuItem>
                 <MenuItem value="Travis Perkins">Travis Perkins</MenuItem>
                 <MenuItem value="Wickes">Wickes</MenuItem> 
             </Select>
         </FormControl>
+        </div>
 
-        <FormControl required size="small">
-            
-        <label>Assign operator(s) to carry out the work</label>
         <div>
+        <label>Assign operator(s) to carry out the work</label>
+        <FormControl required size="small" sx={{display: 'block',
+                margin: 2 }}>
+        <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
             <Select
             value={operators[-1]}
             label="Select verified worker *"
             placeholder="Select verified worker..."
-            onChange={handleOperator}> 
+            onChange={handleOperator}
+            sx={{width: '50%'}}
+            > 
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Ralph Fiennes">Ralph Fiennes</MenuItem>
                 <MenuItem value="Bill Nighy">Bill Nighy</MenuItem> 
                 <MenuItem value="Helena Bonham Carter">Helena Bonham Carter</MenuItem> 
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
             </Select>
-        </div>
+        
         {/* <div>
         {operators.map(() => {
+
+        <InputLabel>Select verified worker</InputLabel>
         <Select
         value={operators[-1]}
         label="Select verified worker *"
@@ -111,31 +128,41 @@ const handleFireSafety= (e) => {
             <Button>ADD ANOTHER +</Button>
             
         </FormControl>
+        </div>
 
-        <FormControl required size="small">
+        <div>
         <label>Responsible person for Hot Works</label>
+        <FormControl required size="small" sx={{display: 'block',
+                width: '90%', margin: 2 }}>
+        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForHotWorks}
             label="Select verified person *"
-            onChange={handleHotWorks}> 
+            onChange={handleHotWorks}
+            sx={{width: '50%'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
             </Select>
         </FormControl>
+        </div>
 
-        <FormControl required size="small">
+        <div>
         <label>Responsible person for Fire Safety</label>
+        <FormControl required size="small" sx={{display: 'block',
+                width: '90%', margin: 2 }}>
+        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForFireSafety}
             label="Select verified person *"
-            onChange={handleFireSafety}> 
+            onChange={handleFireSafety}
+            sx={{width: '50%'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
             </Select>
         </FormControl>
-
+        </div>
 
 
         </Paper>
