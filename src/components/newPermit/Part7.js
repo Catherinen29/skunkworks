@@ -2,7 +2,13 @@ import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, F
 import { useState } from "react"
 
 
-export default function Part6() {
+export default function Part7() {
+
+const [confirmed, setConfirmed] = useState(false)
+
+const handleConfirmation = (e) => {
+    setConfirmed(!confirmed)
+}
 
     return (
         <Paper component="section" sx={{ 
@@ -13,6 +19,19 @@ export default function Part6() {
             margin: 2 }} >
         <h3>Part 7 - Declarations</h3> 
         
+        <div>
+        <Checkbox onChange={handleConfirmation} /> 
+            I confirm that cold works have been considered and deemed not suitable.
+        </div>
+
+        <div>
+        <FormControl sx={{
+                margin: 2 }}>
+        <InputLabel sx={{fontSize: 12}}>Enter description</InputLabel>
+            <TextField multiline size='small'
+             />
+        </FormControl>
+        </div>
         </Paper>
     )
 }
