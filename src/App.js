@@ -1,10 +1,14 @@
 import NewPermit from "./components/newPermit/NewPermit";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 function App() {
   
   return (
   <div className="App">
-    <NewPermit />
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+      <NewPermit />
+    </LocalizationProvider>
   </div>
   );
 }
