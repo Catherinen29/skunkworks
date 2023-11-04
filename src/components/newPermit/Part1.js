@@ -3,9 +3,12 @@ import { useState } from "react"
 
 export default function Part1() {
 
+const currentUser = "Francis Golder (me)"
 const [organisationType, setOrganisationType] = useState("")
 const [supplier, setSupplier] = useState("")
 const [operators, setOperators] = useState([])
+const [respForHotWorks, setRespForHotWorks] = useState("")
+const [respForFireSafety, setRespForFireSafety] = useState("")
 
 const handleOrganisation = (e) => {
     setOrganisationType(e.target.value)
@@ -20,6 +23,14 @@ const handleOperator = (e) => {
     console.log(operators)
 }
 
+const handleHotWorks = (e) => {
+    setRespForHotWorks(e.target.value)
+}
+
+const handleFireSafety= (e) => {
+    setRespForFireSafety(e.target.value)
+
+}
     return(
         <Paper component="section" sx={{ 
                 width: '90%', /*This doesn't work */
@@ -35,7 +46,7 @@ const handleOperator = (e) => {
             <Box component="section"
                 sx={{bgcolor:'#f5f5f5',
                     width:'50%'
-            }}>Current user 
+            }}>{currentUser} 
                 <div>Verified?</div>
             </Box>
         </div>
@@ -99,6 +110,30 @@ const handleOperator = (e) => {
             {/* Add another */}
             <Button>ADD ANOTHER +</Button>
             
+        </FormControl>
+
+        <FormControl required size="small">
+        <label>Responsible person for Hot Works</label>
+            <Select
+            value={respForHotWorks}
+            label="Select verified person *"
+            onChange={handleHotWorks}> 
+                <MenuItem value={currentUser}>{currentUser}</MenuItem>
+                <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
+                <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
+            </Select>
+        </FormControl>
+
+        <FormControl required size="small">
+        <label>Responsible person for Fire Safety</label>
+            <Select
+            value={respForFireSafety}
+            label="Select verified person *"
+            onChange={handleFireSafety}> 
+                <MenuItem value={currentUser}>{currentUser}</MenuItem>
+                <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
+                <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
+            </Select>
         </FormControl>
 
 
