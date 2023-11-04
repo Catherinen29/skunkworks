@@ -4,12 +4,12 @@ import { useState } from "react"
 
 export default function Part1() {
 
-const currentUser = "Francis Golder (me)"
-const [organisationType, setOrganisationType] = useState("")
-const [supplier, setSupplier] = useState("")
+const currentUser = 'Francis Golder (me)'
+const [organisationType, setOrganisationType] = useState('')
+const [supplier, setSupplier] = useState('')
 const [operators, setOperators] = useState([])
-const [respForHotWorks, setRespForHotWorks] = useState("")
-const [respForFireSafety, setRespForFireSafety] = useState("")
+const [respForHotWorks, setRespForHotWorks] = useState('')
+const [respForFireSafety, setRespForFireSafety] = useState('')
 
 const handleOrganisation = (e) => {
     setOrganisationType(e.target.value)
@@ -95,7 +95,6 @@ const handleFireSafety= (e) => {
             <Select
             value={operators[-1]}
             label="Select verified worker *"
-            placeholder="Select verified worker..."
             onChange={handleOperator}
             sx={{width: '50%'}}
             > 
@@ -154,7 +153,7 @@ const handleFireSafety= (e) => {
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForFireSafety}
-            label="Select verified person *"
+            // label="Select verified person *"
             onChange={handleFireSafety}
             sx={{width: '50%'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
