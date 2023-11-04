@@ -55,6 +55,11 @@ const updateActivities = (e) => {
         </FormControl>
         </div>
 
+        <Box sx={{margin: 2, padding: 2, fontSize:'small', bgcolor:'#e2f7f7', color: '#0d3c61'}}>
+            CERTCHAIN AI 
+            <p>Welding has led to the most identified accidents across the organisation. 
+            Extra precautions should be taken for any weldign work carried out. </p>
+        </Box>
 
         </Paper>
     )
