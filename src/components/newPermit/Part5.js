@@ -16,7 +16,7 @@ export default function Part5() {
                 borderRadius: 1,
                 padding: 3,
                 margin: 2 }} >
-            <h3>Part 4 - Risk Assessment</h3> 
+            <h3>Part 5 - Precautions Checklist</h3> 
              
             <div>
             <label>Responsible person for completing pre-commencement checklist</label>
