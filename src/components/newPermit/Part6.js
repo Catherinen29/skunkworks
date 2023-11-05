@@ -1,4 +1,6 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, createTheme } from "@mui/material"
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, 
+    FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, 
+    TextField, createTheme, TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 
 
@@ -19,7 +21,7 @@ const handleWatchDuration = (e) => {
 
     return (
         <Paper component="section" sx={{ 
-            width: '70%', /*This doesn't work */
+            width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
             padding: 3,
@@ -27,14 +29,24 @@ const handleWatchDuration = (e) => {
         <h3>Part 6 - Fire Watch</h3> 
         
         <div>
-        <label>Responsible person for Fire Safety</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
+            <Tooltip title='Responsible person'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+        
         <FormControl required size="small" sx={{display: 'block',
-                width: '90%', margin: 2 }}>
+                width: '90%', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={fireWatch}
             onChange={handleFireWatch}
-            sx={{width: '50%'}}> 
+            sx={{width: '25rem'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
@@ -43,14 +55,24 @@ const handleWatchDuration = (e) => {
         </div>
 
         <div>
-        <label>Set fire watch duration (min 60 mins)</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Set fire watch duration (min 60 mins)</Typography>  
+            <Tooltip title='Duration of fire watch'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+        
         <FormControl required size="small" sx={{display: 'block',
-                width: '90%', margin: 2 }}>
+                width: '25rem', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select duration</InputLabel>
             <Select
             value={watchDuration}
             onChange={handleWatchDuration}
-            sx={{width: '50%'}}> 
+            sx={{width: '25rem'}}> 
                 <MenuItem value='60'>60 mins</MenuItem>
                 <MenuItem value='90'>90 mins</MenuItem>
                 <MenuItem value='120'>120 mins</MenuItem> 
@@ -60,10 +82,11 @@ const handleWatchDuration = (e) => {
         </FormControl>
         </div>
         
-        <div>
-        <Checkbox onChange={(e) => {setPhotoRequired(e.target.checked)}} /> 
+        <Box sx={{mt: 2}}>
+        <Checkbox sx={{pl: 0}} 
+            onChange={(e) => {setPhotoRequired(e.target.checked)}} /> 
             Require thermal photographs for Fire Watch sign off
-        </div>
+        </Box>
 
         </Paper>
     )
