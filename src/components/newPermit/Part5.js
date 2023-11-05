@@ -1,7 +1,8 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, 
-    FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, 
+    FormLabel, Grid, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, 
     TextField, createTheme, TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 export default function Part5(props) {
 
@@ -21,7 +22,7 @@ const handlePrecautionPerson = (e) => {
             margin: 2 }} >
         <h3>Part 5 - Precautions Checklist</h3> 
              
-            <div>
+         
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for completing pre-commencement checklist</Typography>  
@@ -32,7 +33,9 @@ const handlePrecautionPerson = (e) => {
             </Tooltip>
         </TableRow>
         </TableBody>
-        
+
+        <Grid container spacing={2}>
+            <Grid item  xs={8}>
             <FormControl required size="small" sx={{display: 'block',
                     width: '25rem', mt: 2 }}>
             <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
@@ -45,7 +48,16 @@ const handlePrecautionPerson = (e) => {
                 <MenuItem value={users[5]}>{users[5].name}</MenuItem> 
                 </Select>
             </FormControl>
-            </div>
+            </Grid>
+        
+        {precautionPerson.verified 
+            ? <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
+                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
+                Supervisor Passport</Typography> 
+                </Grid>
+            : null }
+        </Grid>
     
             </Paper>
     )
