@@ -1,5 +1,5 @@
-import { Alert, Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, 
-    InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, TableBody, TableRow,
+import { Alert, Box, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, 
+    Select, TableBody, TableRow,
     Tooltip, Typography, createTheme } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
@@ -12,6 +12,10 @@ const [worksDate, setWorksDate] = useState()
 const [startTime, setStartTime] = useState(dayjs('2022-04-17T00:00'))
 const [endTime, setEndTime] = useState(dayjs('2022-04-17T00:00'))
 const [area, setArea] = useState('')
+
+const handleWorkStartDate = (e) => {
+    setWorksDate(e)
+}
 
 const handleChangeStart = (e) => {
     setStartTime(e)
@@ -51,6 +55,7 @@ const handleChangeArea = (e) => {
         <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
             <DatePicker value={worksDate}
+            onChange={handleWorkStartDate}
             slotProps={{ textField: { size: 'small' } }} />
         </FormControl>
         </div>
