@@ -25,7 +25,7 @@ const updateActivities = (e) => {
 
     return (
         <Paper component="section" sx={{ 
-            width: '70%',
+            width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
             padding: 3,
@@ -43,43 +43,71 @@ const updateActivities = (e) => {
         </div>
 
         <div>
-        <FormControl>
+        <FormControl sx={{width: '30rem', margin: 2}}>
             <label>Select types of activity covered by the permit</label>
-        <TableBody>
+        <TableBody sx={{mt: 2}}>
             <TableRow>
+            <Grid container spacing={2}>
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Welding inc.Thermic" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />}
                  label="Welding inc.Thermic" />
+                </Grid>
+                
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Soldering" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
-                label="Soldering" />  
+                label="Soldering" />
+                </Grid>
+            </Grid>  
             </TableRow> 
 
             <TableRow>
+            <Grid container spacing={2}>
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Brazing" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
                 label="Brazing" />
+                </Grid>
+                
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Heathland Clearing" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
-                label="Heathland Clearing" />            
+                label="Heathland Clearing" />  
+                </Grid>
+            </Grid>            
             </TableRow> 
 
             <TableRow>
+            <Grid container spacing={2}>
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Burning or Melting" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
                 label="Burning or Melting" />  
+                </Grid>
+                
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Gas cutting" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
                 label="Gas cutting" />
+                </Grid>
+            </Grid>   
             </TableRow> 
 
             <TableRow>
+            <Grid container spacing={2}>
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Disc cutting/grinding" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
                 label="Disc cutting/grinding" />
+                </Grid>
+
+                <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Hot Riveting" control={
                 <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
                 label="Hot Riveting" />
+                </Grid>
+            </Grid>   
             </TableRow> 
 
         </ TableBody>   
