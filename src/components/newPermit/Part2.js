@@ -1,5 +1,10 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, createTheme } from "@mui/material"
+import {  Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid,
+    Icon, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TableBody, TableRow, 
+    TextField, createTheme } from "@mui/material"
 import { useState } from "react"
+import AdjustIcon from '@mui/icons-material/Adjust';
+import AlbumIcon from '@mui/icons-material/Album';
+import { Album } from "@mui/icons-material";
 
 export default function Part2() {
 
@@ -20,7 +25,7 @@ const updateActivities = (e) => {
 
     return (
         <Paper component="section" sx={{ 
-            width: '70%', /*This doesn't work */
+            width: '70%',
             bgcolor: '#ffffff',
             borderRadius: 1,
             padding: 3,
@@ -29,10 +34,10 @@ const updateActivities = (e) => {
 
         <div>
             <label>Description of the Hot Works to be undertaken</label>
+            <br />
         <FormControl sx={{
                 margin: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Enter description</InputLabel>
-            <TextField multiline size='small'
+            <TextField multiline size='small' label='Enter description'
              />
         </FormControl>
         </div>
@@ -40,18 +45,44 @@ const updateActivities = (e) => {
         <div>
         <FormControl>
             <label>Select types of activity covered by the permit</label>
-        <FormLabel></FormLabel>
-        <RadioGroup>
-            <FormControlLabel value="Welding inc.Thermic" control={<Checkbox onClick={updateActivities} />} label="Welding inc.Thermic" />
-            <FormControlLabel value="Soldering" control={<Checkbox onClick={updateActivities} />} label="Soldering" />            
-            <FormControlLabel value="Brazing" control={<Checkbox onClick={updateActivities} />} label="Brazing" />
-            <FormControlLabel value="Heathland Clearing" control={<Checkbox onClick={updateActivities} />} label="Heathland Clearing" />            
-            <FormControlLabel value="Burning or Melting" control={<Checkbox onClick={updateActivities} />} label="Burning or Melting" />  
-            <FormControlLabel value="Gas cutting" control={<Checkbox onClick={updateActivities} />} label="Gas cutting" />
-            <FormControlLabel value="Disc cutting/grinding" control={<Checkbox onClick={updateActivities} />} label="Disc cutting/grinding" />
-            <FormControlLabel value="Hot Riveting" control={<Checkbox onClick={updateActivities} />} label="Hot Riveting" />
+        <TableBody>
+            <TableRow>
+            <FormControlLabel value="Welding inc.Thermic" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />}
+                 label="Welding inc.Thermic" />
+            <FormControlLabel value="Soldering" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Soldering" />  
+            </TableRow> 
 
-        </RadioGroup>
+            <TableRow>
+            <FormControlLabel value="Brazing" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Brazing" />
+            <FormControlLabel value="Heathland Clearing" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Heathland Clearing" />            
+            </TableRow> 
+
+            <TableRow>
+            <FormControlLabel value="Burning or Melting" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Burning or Melting" />  
+            <FormControlLabel value="Gas cutting" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Gas cutting" />
+            </TableRow> 
+
+            <TableRow>
+            <FormControlLabel value="Disc cutting/grinding" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Disc cutting/grinding" />
+            <FormControlLabel value="Hot Riveting" control={
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                label="Hot Riveting" />
+            </TableRow> 
+
+        </ TableBody>   
         </FormControl>
         </div>
 
