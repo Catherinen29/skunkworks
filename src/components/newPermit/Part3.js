@@ -1,4 +1,6 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, createTheme } from "@mui/material"
+import { Alert, Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, 
+    InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, TableBody, TableRow,
+    Tooltip, Typography, createTheme } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
 import { useState } from "react"
@@ -25,20 +27,28 @@ const handleChangeArea = (e) => {
 
     return(
         <Paper component="section" sx={{ 
-            width: '70%', /*This doesn't work */
+            width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
             padding: 3,
             margin: 2 }} >
         <h3>Part 3 - Duration and Location of Work</h3> 
         
-
-        <label>Set the start and end date of the permit</label>
-        <Box component="div"  sx={{display: 'inline-flex'}}>
-        
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Set the start and end date of the permit</Typography>  
+            <Tooltip title='Duration of works'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+        <br />
+        <Box component="div"  sx={{display: 'inline-flex', mt: 2}}>
         <div>
         <InputLabel sx={{fontSize: 12}}>Start date</InputLabel>
-        <FormControl required size='small' sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
             <DatePicker value={worksDate}
             slotProps={{ textField: { size: 'small' } }} />
@@ -47,7 +57,7 @@ const handleChangeArea = (e) => {
 
         <div>
         <InputLabel sx={{fontSize: 12}}>Start time</InputLabel>
-        <FormControl required size='small' sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
             <TimePicker value={startTime} 
             slotProps={{ textField: { size: 'small' } }}
@@ -55,9 +65,13 @@ const handleChangeArea = (e) => {
         </FormControl>
         </div>
 
+            <Typography sx={{color:'rgba(0, 0, 0, 0.6)', fontSize: 'small', 
+            height: '1rem', alignSelf: 'center'}}>
+                To</Typography>
+        
         <div>
         <InputLabel sx={{fontSize: 12}}>End time</InputLabel>
-        <FormControl required size='small' sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block', width: '11rem',
                  ml: 0.5, mr: 0.5}}>
             <TimePicker value={endTime} 
             slotProps={{ textField: { size: 'small' } }}
@@ -66,11 +80,20 @@ const handleChangeArea = (e) => {
         </div>
         </Box>
 
-
+        <br /> <br />
         <div>
-        
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Set the designated area for the work</Typography>  
+            <Tooltip title='Location'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
         <FormControl required size='small' sx={{display: 'block',
-                margin: 2 }}>
+                mt: 2 }}>
             <InputLabel sx={{fontSize: 12}}>Select area</InputLabel>
             <Select
                 value={area}
