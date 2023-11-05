@@ -4,10 +4,12 @@ import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText,
 import { useState } from "react"
 
 
-export default function Part6() {
+export default function Part6(props) {
+
+let users = props.users
 
 const currentUser = "Francis Golder (me)"
-const [fireWatch, setFireWatch ] = useState('')
+const [fireWatch, setFireWatch ] = useState({})
 const [watchDuration, setWatchDuration] = useState()
 const [photoRequired, setPhotoRequired] = useState(false)
 
@@ -24,7 +26,7 @@ const handleWatchDuration = (e) => {
             width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3,
+            padding: 5,
             margin: 2 }} >
         <h3>Part 6 - Fire Watch</h3> 
         
@@ -47,9 +49,9 @@ const handleWatchDuration = (e) => {
             value={fireWatch}
             onChange={handleFireWatch}
             sx={{width: '25rem'}}> 
-                <MenuItem value={currentUser}>{currentUser}</MenuItem>
-                <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
-                <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
+            <MenuItem value={users[0]}>{users[0].name}</MenuItem>
+            <MenuItem value={users[3]}>{users[3].name}</MenuItem>
+            <MenuItem value={users[5]}>{users[5].name}</MenuItem>  
             </Select>
         </FormControl>
         </div>
@@ -61,7 +63,8 @@ const handleWatchDuration = (e) => {
             <Tooltip title='Duration of fire watch'>
                 <Alert variant="outlined" severity="info" 
                     sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+                    ml: '0.5rem', px: 1, py: 0 }}
+                  ></Alert>
             </Tooltip>
         </TableRow>
         </TableBody>
@@ -84,7 +87,8 @@ const handleWatchDuration = (e) => {
         
         <Box sx={{mt: 2}}>
         <Checkbox sx={{pl: 0}} 
-            onChange={(e) => {setPhotoRequired(e.target.checked)}} /> 
+            onChange={(e) => {setPhotoRequired(e.target.checked)}} 
+            style={{color:'#00a4a9'}}/> 
             Require thermal photographs for Fire Watch sign off
         </Box>
 
