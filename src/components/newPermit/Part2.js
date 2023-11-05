@@ -51,13 +51,17 @@ const updateActivities = (e) => {
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Welding inc.Thermic" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />}
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />}
                  label="Welding inc.Thermic" />
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Soldering" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Soldering" />
                 </Grid>
             </Grid>  
@@ -67,13 +71,17 @@ const updateActivities = (e) => {
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Brazing" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Brazing" />
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Heathland Clearing" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Heathland Clearing" />  
                 </Grid>
             </Grid>            
@@ -83,13 +91,17 @@ const updateActivities = (e) => {
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Burning or Melting" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Burning or Melting" />  
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Gas cutting" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Gas cutting" />
                 </Grid>
             </Grid>   
@@ -99,13 +111,17 @@ const updateActivities = (e) => {
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Disc cutting/grinding" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Disc cutting/grinding" />
                 </Grid>
 
                 <Grid item xs={6} sx={{width: '15rem'}}>
             <FormControlLabel value="Hot Riveting" control={
-                <Checkbox onClick={updateActivities} icon={<AdjustIcon />} checkedIcon={<Album/>} />} 
+                <Checkbox onClick={updateActivities} icon={<AdjustIcon sx={{color: '#00a4a9'}} />} 
+                checkedIcon={<Album sx={{color: '#00a4a9'}}/>} 
+                     />} 
                 label="Hot Riveting" />
                 </Grid>
             </Grid>   
