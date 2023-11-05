@@ -28,22 +28,23 @@ const updateActivities = (e) => {
             width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3,
-            margin: 2 }} >
+            padding: 5,
+            margin: 2,
+            display: 'flex',
+            flexDirection: 'column' }} >
         <h3>Part 2 - Scope of Work</h3>
 
         <div>
             <label>Description of the Hot Works to be undertaken</label>
             <br />
         <FormControl sx={{
-                margin: 2 }}>
-            <TextField multiline size='small' label='Enter description'
-             />
+                mt: 2, width: '25rem'}}>
+            <TextField multiline size='small' label='Enter description' />
         </FormControl>
         </div>
 
         <div>
-        <FormControl sx={{width: '30rem', margin: 2}}>
+        <FormControl sx={{width: '30rem', mt: 2}}>
             <label>Select types of activity covered by the permit</label>
         <TableBody sx={{mt: 2}}>
             <TableRow>
@@ -114,7 +115,8 @@ const updateActivities = (e) => {
         </FormControl>
         </div>
 
-        <Box sx={{margin: 2, padding: 2, fontSize:'small', bgcolor:'#e2f7f7', color: '#0d3c61'}}>
+        <Box sx={{mt: 2, padding: 2, fontSize:'small', bgcolor:'#e2f7f7', color: '#0d3c61', 
+                alignSelf: 'center'}}>
             CERTCHAIN AI 
             <p>Welding has led to the most identified accidents across the organisation. 
             Extra precautions should be taken for any weldign work carried out. </p>
