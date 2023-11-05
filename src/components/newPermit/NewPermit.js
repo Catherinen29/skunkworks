@@ -9,6 +9,7 @@ import Part5 from "./Part5";
 import Part6 from "./Part6";
 import Part7 from "./Part7";
 import PermitIntro from "./PermitIntro";
+import BB_bg from "../../BB_bg.png"
 
 export default function NewPermit() {
 
@@ -22,7 +23,7 @@ const users = [{name: 'Francis Golder (me)', position: 'Supervisor', verified: t
 return(
 <>
 
-        <Toolbar sx={{bgcolor:  '#04535f'}}>
+        <Toolbar sx={{backgroundImage: `url(${BB_bg})`}}>
         <Button >
             {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
         <Typography sx={{color: '#ffffff', fontSize: 20}}>New Permit</Typography>
