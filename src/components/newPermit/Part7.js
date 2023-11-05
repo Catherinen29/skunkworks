@@ -12,23 +12,23 @@ const handleConfirmation = (e) => {
 
     return (
         <Paper component="section" sx={{ 
-            width: '70%', /*This doesn't work */
+            width: '40rem', /*This doesn't work */
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3,
+            padding: 5,
             margin: 2 }} >
         <h3>Part 7 - Declarations</h3> 
         
         <div>
-        <Checkbox onChange={handleConfirmation} /> 
+        <Checkbox  sx={{pl: 0}} onChange={handleConfirmation} 
+            style={{color:'#00a4a9'}} /> 
             I confirm that cold works have been considered and deemed not suitable.
         </div>
 
         <div>
         <FormControl sx={{
-                margin: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Enter description</InputLabel>
-            <TextField multiline size='small'
+                mt: 2, width: '25rem' }}>
+            <TextField multiline size='small' label='Enter description'
              />
         </FormControl>
         </div>

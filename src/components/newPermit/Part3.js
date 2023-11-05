@@ -26,11 +26,11 @@ const handleChangeArea = (e) => {
 }
 
     return(
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3,
+            padding: 5,
             margin: 2 }} >
         <h3>Part 3 - Duration and Location of Work</h3> 
         
@@ -38,7 +38,7 @@ const handleChangeArea = (e) => {
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set the start and end date of the permit</Typography>  
             <Tooltip title='Duration of works'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -86,7 +86,7 @@ const handleChangeArea = (e) => {
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set the designated area for the work</Typography>  
             <Tooltip title='Location'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info' 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -97,9 +97,9 @@ const handleChangeArea = (e) => {
             <InputLabel sx={{fontSize: 12}}>Select area</InputLabel>
             <Select
                 value={area}
-                label="Select area *"
+                label='Select area *'
                 onChange={handleChangeArea}
-                sx={{width: '50%'}}
+                sx={{width: '25rem'}}
                 > 
                 <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>
                 <MenuItem value="Hospital Block B">Hospital Block B</MenuItem>
