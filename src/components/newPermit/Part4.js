@@ -4,9 +4,10 @@ import { Alert, Box, Button, Checkbox, FormControl, FormControlLabel, FormHelper
 import { useState } from "react"
 
 
-export default function Part4() {
+export default function Part4(props) {
 
-const currentUser = "Francis Golder (me)"
+let users = props.users
+
 const [riskAssessor, setRiskAssessor] = useState('')
 
 const handleRiskAssessor = (e) => {
@@ -18,7 +19,7 @@ const handleRiskAssessor = (e) => {
             width: '40rem', /*This doesn't work */
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3,
+            padding: 5,
             margin: 2 }} >
         <h3>Part 4 - Risk Assessment</h3> 
         
@@ -34,16 +35,16 @@ const handleRiskAssessor = (e) => {
         </TableRow>
         </TableBody>
 
-        <FormControl required size="small" sx={{display: 'block', my: 2 }}>
+        <FormControl required size="small" sx={{display: 'block',
+            width: '25rem', my: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
-        
             <Select
-            value={riskAssessor}
-            onChange={handleRiskAssessor}
-            sx={{width: '25rem'}}> 
-                <MenuItem value={currentUser}>{currentUser}</MenuItem>
-                <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
-                <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
+                value={riskAssessor}
+                onChange={handleRiskAssessor}
+                sx={{width: '25rem'}}> 
+            <MenuItem value={users[2]}>{users[2].name}</MenuItem>
+            <MenuItem value={users[1]}>{users[1].name}</MenuItem>
+            <MenuItem value={users[5]}>{users[5].name}</MenuItem>  
             </Select>
         </FormControl>
         </div>
