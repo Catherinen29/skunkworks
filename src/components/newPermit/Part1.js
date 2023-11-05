@@ -1,5 +1,5 @@
 import { Alert, Box, Button, FormControl, FormHelperText, Grid, InputBase, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export default function Part1() {
@@ -7,7 +7,8 @@ export default function Part1() {
 const currentUser = {name: 'Francis Golder (me)', position: 'Supervisor'}
 const [organisationType, setOrganisationType] = useState('')
 const [supplier, setSupplier] = useState('')
-const [operators, setOperators] = useState([])
+const [operators, setOperators] = useState([''])
+const [numOfSelectFields, setNumOfSelectFields] = useState(1)
 const [respForHotWorks, setRespForHotWorks] = useState('')
 const [respForFireSafety, setRespForFireSafety] = useState('')
 
@@ -19,9 +20,16 @@ const handleSupplier = (e) => {
     setSupplier(e.target.value)
 }
 
-const handleOperator = (e) => {
-    setOperators([...operators, e.target.value])
-    console.log(operators)
+const handleOperator = (e, index) => {
+    if (!operators.includes(e.target.value)) {
+        const updatedOperators = [...operators]
+        updatedOperators[index] = e.target.value
+        setOperators(updatedOperators)
+    } 
+}
+
+const addField = () => {
+    setNumOfSelectFields(numOfSelectFields + 1)
 }
 
 const handleHotWorks = (e) => {
@@ -32,12 +40,13 @@ const handleFireSafety= (e) => {
     setRespForFireSafety(e.target.value)
 
 }
+
 return(
     <Paper component="section" sx={{ 
             width: '40rem', 
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 3 }} 
+            padding: 5 }} 
             >
     <h3>Part 1 - Hot Works Permit Details</h3>
 
@@ -138,40 +147,29 @@ return(
         
         <FormControl required size="small" sx={{display: 'block',
                 mt: 2 }}>
+        
+        <div>
         <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
+        {Array.from({length: numOfSelectFields}).map((_, index) => (
             <Select
-            value={operators[-1]}
-            label="Select verified worker *"
-            onChange={handleOperator}
-            sx={{width: '25rem'}}
-            > 
+                value={operators[index]}
+                label="Select verified worker *"
+                onChange={(e) => handleOperator(e, index)}
+                sx={{width: '25rem', mt: 2}}
+                > 
+
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Ralph Fiennes">Ralph Fiennes</MenuItem>
                 <MenuItem value="Bill Nighy">Bill Nighy</MenuItem> 
                 <MenuItem value="Helena Bonham Carter">Helena Bonham Carter</MenuItem> 
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
             </Select>
-        
-        {/* <div>
-        {operators.map(() => {
-
-        <InputLabel>Select verified worker</InputLabel>
-        <Select
-        value={operators[-1]}
-        label="Select verified worker *"
-        onChange={handleOperator}> 
-            <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
-            <MenuItem value="Ralph Fiennes">Ralph Fiennes</MenuItem>
-            <MenuItem value="Bill Nighy">Bill Nighy</MenuItem> 
-            <MenuItem value="Helena Bonham Carter">Helena Bonham Carter</MenuItem> 
-            <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
-        </Select>
-        
-        })
+        ))
         }
-        </div> */}
-            {/* Add another */}
-            <Button>ADD ANOTHER +</Button>
+        </div>
+        <div>
+            <Button  variant="outlined" onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
+        </div>
             
         </FormControl>
         </div>
