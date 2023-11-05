@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export default function Part1() {
 
-const currentUser = 'Francis Golder (me)'
+const currentUser = {name: 'Francis Golder (me)', position: 'Supervisor'}
 const [organisationType, setOrganisationType] = useState('')
 const [supplier, setSupplier] = useState('')
 const [operators, setOperators] = useState([])
@@ -51,19 +51,21 @@ return(
             </Tooltip>
         </TableRow>
 
-        <div sx={{display: 'block'}}>
             <Box component="section"
-                sx={{bgcolor:'#f5f5f5',
-                    width:'25rem',
-                    padding: 2,
-                    margin: 2
-            }}>{currentUser} 
-            {/* Job title */}
-                <Alert variant="filled" severity="success" 
-                sx={{width: '100px', height: '35px', padding: '5px', borderRadius: 50, fontSize: 12}}>
-                    Verified</Alert>
+                sx={{bgcolor:'#f5f5f5', width:'23rem', padding: 2, height: '3rem',
+                mt: 2, display: 'inline-flex', justifyContent: 'space-between'
+            }}>
+            <div>
+                <Typography>{currentUser.name} </Typography>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>
+                    {currentUser.position}</Typography>
+            </div>
+
+            <Alert variant="filled" severity="success" 
+            sx={{width: '100px', height: '35px', padding: '5px', borderRadius: 50, 
+            bgcolor: '#4caf50', fontSize: 12}}>
+                Verified</Alert>
             </Box>
-        </div>
     </TableBody>
 
 
@@ -80,7 +82,7 @@ return(
         </TableBody>
 
         <FormControl required size='small' sx={{display: 'block',
-                width: '25rem', margin: 2 }}>
+                width: '25rem', mt: 2 }}>
         <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
             <Select
             value={organisationType}
@@ -108,7 +110,7 @@ return(
         </TableBody>
         
         <FormControl required size='small' sx={{display: 'block',
-                margin: 2 }}>
+                mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
             <Select
             value={supplier}
@@ -135,7 +137,7 @@ return(
         </TableBody>
         
         <FormControl required size="small" sx={{display: 'block',
-                margin: 2 }}>
+                mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
             <Select
             value={operators[-1]}
@@ -187,7 +189,7 @@ return(
         </TableBody>
 
         <FormControl required size="small" sx={{display: 'block',
-                width: '90%', margin: 2 }}>
+                width: '90%', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForHotWorks}
@@ -214,7 +216,7 @@ return(
         </TableBody>
 
         <FormControl required size="small" sx={{display: 'block',
-                width: '90%', margin: 2 }}>
+                width: '25rem', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForFireSafety}
