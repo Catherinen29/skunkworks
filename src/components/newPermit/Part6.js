@@ -1,6 +1,5 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, 
-    FormLabel, Grid, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, 
-    TextField, createTheme, TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
+import { Box, Checkbox, FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
+    TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
@@ -8,7 +7,6 @@ export default function Part6(props) {
 
 let users = props.users
 
-const currentUser = "Francis Golder (me)"
 const [fireWatch, setFireWatch ] = useState({})
 const [watchDuration, setWatchDuration] = useState()
 const [photoRequired, setPhotoRequired] = useState(false)
@@ -22,7 +20,7 @@ const handleWatchDuration = (e) => {
 }
 
     return (
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
@@ -72,7 +70,7 @@ const handleWatchDuration = (e) => {
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set fire watch duration (min 60 mins)</Typography>  
             <Tooltip title='Duration of fire watch'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info' 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}
                   ></Alert>

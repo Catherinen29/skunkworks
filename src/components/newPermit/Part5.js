@@ -1,6 +1,5 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, 
-    FormLabel, Grid, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, 
-    TextField, createTheme, TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
+import { FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
+    TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
@@ -14,7 +13,7 @@ const handlePrecautionPerson = (e) => {
 }
 
     return (
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem', 
             bgcolor: '#ffffff',
             borderRadius: 1,
@@ -36,7 +35,7 @@ const handlePrecautionPerson = (e) => {
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-            <FormControl required size="small" sx={{display: 'block',
+            <FormControl required size='small' sx={{display: 'block',
                     width: '25rem', mt: 2 }}>
             <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
                 <Select

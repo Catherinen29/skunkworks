@@ -1,4 +1,5 @@
-import { Alert, Box, Button, FormControl, FormHelperText, Grid, InputBase, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
+import { Alert, Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
+    TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
 import { useEffect, useState } from "react"
 import Frank from '../../frank.png'
 import { AddBoxOutlined } from "@mui/icons-material"
@@ -115,13 +116,13 @@ return(
         <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
             <Select
             value={organisationType}
-            label="Select Type *"
+            label='Select Type *'
             onChange={handleOrganisation}
             sx={{width: '25rem'}}
             > 
-                <MenuItem value="Supplier">Supplier</MenuItem>
-                <MenuItem value="Plumbing">Plumbing</MenuItem>
-                <MenuItem value="Carpentry">Carpentry</MenuItem>         
+                <MenuItem value='Supplier'>Supplier</MenuItem>
+                <MenuItem value='Plumbing'>Plumbing</MenuItem>
+                <MenuItem value='Carpentry'>Carpentry</MenuItem>         
             </Select>
         </FormControl>
         </div>
@@ -131,7 +132,7 @@ return(
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Assign a supplier to carry out the work</Typography>  
             <Tooltip title='Select the supplier'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -143,12 +144,12 @@ return(
         <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
             <Select
             value={supplier}
-            label="Verified supplier *"
+            label='Verified supplier *'
             onChange={handleSupplier}
             sx={{width: '25rem'}}> 
-                <MenuItem value="Ackrington Chambers">Ackrington Chambers</MenuItem>
-                <MenuItem value="Travis Perkins">Travis Perkins</MenuItem>
-                <MenuItem value="Wickes">Wickes</MenuItem> 
+                <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
+                <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
+                <MenuItem value='Wickes'>Wickes</MenuItem> 
             </Select>
         </FormControl>
         </div>
@@ -158,14 +159,14 @@ return(
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Assign operator(s) to carry out the work</Typography>  
             <Tooltip title='Select the supplier'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity="info" 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
         </TableRow>
         </TableBody>
         
-        <FormControl required size="small" sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
         
         <div>
@@ -173,22 +174,21 @@ return(
         {Array.from({length: numOfSelectFields}).map((_, index) => (
             <Select
                 value={operators[index]}
-                label="Select verified worker *"
+                label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
                 sx={{width: '25rem', mt: 2}}
                 > 
-
-                <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
-                <MenuItem value="Ralph Fiennes">Ralph Fiennes</MenuItem>
-                <MenuItem value="Bill Nighy">Bill Nighy</MenuItem> 
-                <MenuItem value="Helena Bonham Carter">Helena Bonham Carter</MenuItem> 
-                <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
+                <MenuItem value={users[0]}>{users[0].name}</MenuItem>
+                <MenuItem value={users[1]}>{users[1].name}</MenuItem>
+                <MenuItem value={users[2]}>{users[2].name}</MenuItem>  
+                <MenuItem value={users[3]}>{users[3].name}</MenuItem>
+                <MenuItem value={users[4]}>{users[4].name}</MenuItem> 
             </Select>
         ))
         }
         </div>
         <div>
-            <Button  variant="outlined" onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
+            <Button  variant='outlined' onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
         </div>
             
         </FormControl>
@@ -199,7 +199,7 @@ return(
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Hot Works</Typography>  
             <Tooltip title='Select the name of the person'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -208,12 +208,12 @@ return(
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size="small" sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block',
                 width: '90%', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForHotWorks}
-            label="Select verified person *"
+            label='Select verified person *'
             onChange={handleHotWorks}
             sx={{width: '25rem'}}> 
                 <MenuItem value={users[0]}>{users[0].name}</MenuItem>
@@ -236,7 +236,7 @@ return(
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
             <Tooltip title='Select the name of the person'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -245,7 +245,7 @@ return(
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size="small" sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block',
                 width: '25rem', mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select

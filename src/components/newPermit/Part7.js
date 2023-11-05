@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, createTheme } from "@mui/material"
+import { Checkbox, FormControl, Paper, TextField } from "@mui/material"
 import { useState } from "react"
 
 
@@ -11,7 +11,7 @@ const handleConfirmation = (e) => {
 }
 
     return (
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem', /*This doesn't work */
             bgcolor: '#ffffff',
             borderRadius: 1,

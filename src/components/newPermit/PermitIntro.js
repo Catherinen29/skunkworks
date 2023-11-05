@@ -1,5 +1,4 @@
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography, createTheme } from "@mui/material"
-import { useState } from "react"
+import { Grid, Paper, Typography } from "@mui/material"
 import BalfourBeattyImage from '../../BalfourBeatty.png'
 
 export default function PermitIntro() {

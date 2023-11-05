@@ -1,6 +1,5 @@
-import {  Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid,
-    Icon, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TableBody, TableRow, 
-    TextField, createTheme, Typography, Tooltip, Alert } from "@mui/material"
+import {  Box, Checkbox, FormControl, FormControlLabel, Grid,
+    Paper, TableBody, TableRow, TextField, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
@@ -23,7 +22,7 @@ const updateActivities = (e) => {
 }
 
     return (
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem',
             bgcolor: '#ffffff',
             borderRadius: 1,
@@ -68,7 +67,7 @@ const updateActivities = (e) => {
             <TableRow>
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Welding inc.Thermic" control={
+            <FormControlLabel value='Welding inc.Thermic' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />}
@@ -76,7 +75,7 @@ const updateActivities = (e) => {
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Soldering" control={
+            <FormControlLabel value='Soldering' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -88,7 +87,7 @@ const updateActivities = (e) => {
             <TableRow>
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Brazing" control={
+            <FormControlLabel value='Brazing' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -96,7 +95,7 @@ const updateActivities = (e) => {
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Heathland Clearing" control={
+            <FormControlLabel value='Heathland Clearing' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -108,7 +107,7 @@ const updateActivities = (e) => {
             <TableRow>
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Burning or Melting" control={
+            <FormControlLabel value='Burning or Melting' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -116,7 +115,7 @@ const updateActivities = (e) => {
                 </Grid>
                 
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Gas cutting" control={
+            <FormControlLabel value='Gas cutting' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -128,7 +127,7 @@ const updateActivities = (e) => {
             <TableRow>
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Disc cutting/grinding" control={
+            <FormControlLabel value='Disc cutting/grinding' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 
@@ -136,7 +135,7 @@ const updateActivities = (e) => {
                 </Grid>
 
                 <Grid item xs={6} sx={{width: '15rem'}}>
-            <FormControlLabel value="Hot Riveting" control={
+            <FormControlLabel value='Hot Riveting' control={
                 <Checkbox onClick={updateActivities} icon={<RadioButtonUncheckedIcon />} 
                 checkedIcon={<RadioButtonCheckedIcon sx={{color: '#00a4a9'}}/>} 
                      />} 

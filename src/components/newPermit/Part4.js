@@ -1,6 +1,5 @@
-import { Alert, Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, 
-    Grid, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TableBody, TableRow, 
-    TextField, Typography, Tooltip, createTheme } from "@mui/material"
+import { Alert, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, 
+    Typography, Tooltip } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
@@ -15,7 +14,7 @@ const handleRiskAssessor = (e) => {
 }
 
     return (
-        <Paper component="section" sx={{ 
+        <Paper component='section' sx={{ 
             width: '40rem', /*This doesn't work */
             bgcolor: '#ffffff',
             borderRadius: 1,
@@ -28,7 +27,7 @@ const handleRiskAssessor = (e) => {
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for completing the risk assessment</Typography>  
             <Tooltip title='Select name of responsible person'>
-                <Alert variant="outlined" severity="info" 
+                <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
@@ -37,7 +36,7 @@ const handleRiskAssessor = (e) => {
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size="small" sx={{display: 'block',
+        <FormControl required size='small' sx={{display: 'block',
             width: '25rem', my: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
