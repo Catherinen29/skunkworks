@@ -5,7 +5,7 @@ import BalfourBeattyImage from '../../BalfourBeatty.png'
 export default function PermitIntro() {
 
 return (
-    <Paper component="section" sx={{ 
+    <Paper component='section' sx={{ 
         width: '40rem',
         bgcolor: '#04535f',
         borderRadius: 1,
@@ -16,29 +16,23 @@ return (
     <Grid container spacing={2}>
     <Grid item xs={4}>
         <img src={BalfourBeattyImage} width={150} height={150}></img>
-        <Box sx={{border: 1, borderRadius: '16px', height: '8rem', width: '8rem', 
-        display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <Typography sx={{fontSize: 25, fontWeight:'fontWeightBold', width: '8rem', padding: '2rem'}}>Balfour Beatty</Typography>
-        </Box>
     </Grid>
 
     <Grid item xs={8}>
         <Typography sx={{fontSize: 30}}>New Hot Works Permit</Typography> 
 
-        <h2>NHS Southampton University Central Hospital</h2>
+        <Typography sx={{fontSize:20, mt: 1}}>
+            NHS Southampton University Central Hospital</Typography>
 
-        <Typography>
-            <p sx={{color:'red'}}>Tremona Road Southampton, Hampshire SO16 6YD</p>
+        <Typography sx={{color: 'rgba(255, 255, 255, 0.7)', mt: 1}}>
+            Tremona Road Southampton, Hampshire SO16 6YD</Typography>
 
-            <p>Hot-work permits are required for any operation involving open flames or producing 
-                heat and/or sparks and must be prepared by a competent person. Hot works include brazing, 
-                torch cutting, grinding, soldering and welding.</p>
-        </Typography>
+        <Typography sx={{mt: 2}}>Hot-work permits are required for any operation involving open flames or producing 
+            heat and/or sparks and must be prepared by a competent person. Hot works include brazing, 
+            torch cutting, grinding, soldering and welding.</Typography>
     </Grid>
     </Grid>
 
-
-        {/* </Masonry> */}
         </Paper>
     )
 }
