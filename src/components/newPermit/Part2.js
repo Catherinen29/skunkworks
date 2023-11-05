@@ -1,6 +1,6 @@
 import {  Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, FormLabel, Grid,
     Icon, InputBase, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TableBody, TableRow, 
-    TextField, createTheme } from "@mui/material"
+    TextField, createTheme, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AdjustIcon from '@mui/icons-material/Adjust';
 import AlbumIcon from '@mui/icons-material/Album';
@@ -34,18 +34,37 @@ const updateActivities = (e) => {
             flexDirection: 'column' }} >
         <h3>Part 2 - Scope of Work</h3>
 
-        <div>
-            <label>Description of the Hot Works to be undertaken</label>
+        <div>    
+    <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Description of the Hot Works to be undertaken</Typography>
+            <Tooltip title='Description'>
+                <Alert variant='outlined' severity='info'
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+    </TableBody>
             <br />
-        <FormControl sx={{
-                mt: 2, width: '25rem'}}>
+
+        <FormControl sx={{width: '25rem'}}>
             <TextField multiline size='small' label='Enter description' />
         </FormControl>
         </div>
 
         <div>
         <FormControl sx={{width: '30rem', mt: 2}}>
-            <label>Select types of activity covered by the permit</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Select types of activity covered by the permit</Typography>
+            <Tooltip title='Types of activity'>
+                <Alert variant='outlined' severity='info'
+                    sx={{borderColor: '#ffffff', color: '#00a4a9',
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+    </TableBody>
+
         <TableBody sx={{mt: 2}}>
             <TableRow>
             <Grid container spacing={2}>
