@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, FormHelperText, InputBase, InputLabel, MenuItem, Paper, Select, createTheme } from "@mui/material"
+import { Alert, Box, Button, FormControl, FormHelperText, Grid, InputBase, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
 import { useState } from "react"
 
 
@@ -32,36 +32,61 @@ const handleFireSafety= (e) => {
     setRespForFireSafety(e.target.value)
 
 }
-    return(
-        <Paper component="section" sx={{ 
-                width: '70%', /*This doesn't work */
-                bgcolor: '#ffffff',
-                borderRadius: 1,
-                padding: 3 }} 
-                >
-        <h3>Part 1 - Hot Works Permit Details</h3>
+return(
+    <Paper component="section" sx={{ 
+            width: '40rem', 
+            bgcolor: '#ffffff',
+            borderRadius: 1,
+            padding: 3 }} 
+            >
+    <h3>Part 1 - Hot Works Permit Details</h3>
+
+    <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Permit issuer</Typography>  
+            <Tooltip title='Full name of person issuing the permit'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+
         <div sx={{display: 'block'}}>
-            Permit issuer 
-            {/* information icon */}
             <Box component="section"
                 sx={{bgcolor:'#f5f5f5',
-                    width:'50%',
-                    padding:2
+                    width:'25rem',
+                    padding: 2,
+                    margin: 2
             }}>{currentUser} 
-                <div>Verified?</div>
+            {/* Job title */}
+                <Alert variant="filled" severity="success" 
+                sx={{width: '100px', height: '35px', padding: '5px', borderRadius: 50, fontSize: 12}}>
+                    Verified</Alert>
             </Box>
         </div>
+    </TableBody>
+
 
         <div>
-        <label>Select type of organisation</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Select type of organisation</Typography>  
+            <Tooltip title='Select the organisation type'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+
         <FormControl required size='small' sx={{display: 'block',
-                width: '100%', margin: 2 }}>
+                width: '25rem', margin: 2 }}>
         <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
             <Select
             value={organisationType}
             label="Select Type *"
             onChange={handleOrganisation}
-            sx={{width: '50%'}}
+            sx={{width: '25rem'}}
             > 
                 <MenuItem value="Supplier">Supplier</MenuItem>
                 <MenuItem value="Plumbing">Plumbing</MenuItem>
@@ -71,7 +96,17 @@ const handleFireSafety= (e) => {
         </div>
              
         <div>
-        <label>Assign a supplier to carry out the work</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Assign a supplier to carry out the work</Typography>  
+            <Tooltip title='Select the supplier'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+        
         <FormControl required size='small' sx={{display: 'block',
                 margin: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
@@ -79,7 +114,7 @@ const handleFireSafety= (e) => {
             value={supplier}
             label="Verified supplier *"
             onChange={handleSupplier}
-            sx={{width: '50%'}}> 
+            sx={{width: '25rem'}}> 
                 <MenuItem value="Ackrington Chambers">Ackrington Chambers</MenuItem>
                 <MenuItem value="Travis Perkins">Travis Perkins</MenuItem>
                 <MenuItem value="Wickes">Wickes</MenuItem> 
@@ -88,7 +123,17 @@ const handleFireSafety= (e) => {
         </div>
 
         <div>
-        <label>Assign operator(s) to carry out the work</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Assign operator(s) to carry out the work</Typography>  
+            <Tooltip title='Select the supplier'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+        
         <FormControl required size="small" sx={{display: 'block',
                 margin: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
@@ -96,7 +141,7 @@ const handleFireSafety= (e) => {
             value={operators[-1]}
             label="Select verified worker *"
             onChange={handleOperator}
-            sx={{width: '50%'}}
+            sx={{width: '25rem'}}
             > 
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Ralph Fiennes">Ralph Fiennes</MenuItem>
@@ -130,7 +175,17 @@ const handleFireSafety= (e) => {
         </div>
 
         <div>
-        <label>Responsible person for Hot Works</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Responsible person for Hot Works</Typography>  
+            <Tooltip title='Select the name of the person'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+
         <FormControl required size="small" sx={{display: 'block',
                 width: '90%', margin: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
@@ -138,7 +193,7 @@ const handleFireSafety= (e) => {
             value={respForHotWorks}
             label="Select verified person *"
             onChange={handleHotWorks}
-            sx={{width: '50%'}}> 
+            sx={{width: '25rem'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
@@ -147,7 +202,17 @@ const handleFireSafety= (e) => {
         </div>
 
         <div>
-        <label>Responsible person for Fire Safety</label>
+        <TableBody>
+        <TableRow sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
+            <Tooltip title='Select the name of the person'>
+                <Alert variant="outlined" severity="info" 
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </TableRow>
+        </TableBody>
+
         <FormControl required size="small" sx={{display: 'block',
                 width: '90%', margin: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
@@ -155,7 +220,7 @@ const handleFireSafety= (e) => {
             value={respForFireSafety}
             // label="Select verified person *"
             onChange={handleFireSafety}
-            sx={{width: '50%'}}> 
+            sx={{width: '25rem'}}> 
                 <MenuItem value={currentUser}>{currentUser}</MenuItem>
                 <MenuItem value="Jan Goldenstein">Jan Goldenstein</MenuItem>
                 <MenuItem value="Tilda Swinton">Tilda Swinton</MenuItem> 
