@@ -2,7 +2,7 @@ import { Alert, Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Sel
     TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
 import { useEffect, useState } from "react"
 import Frank from '../../frank.png'
-import { AddBoxOutlined } from "@mui/icons-material"
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function Part1(props) {
 
@@ -66,11 +66,11 @@ return(
     </TableBody>
 
 <Grid container spacing={2}>
-        <Grid item xs={8}>    
-            <Box component='section'
-                sx={{bgcolor:'#f5f5f5', width:'23rem', padding: 2, height: '3rem',
-                mt: 2, display: 'inline-flex', justifyContent: 'space-between'
-            }}>
+    <Grid item xs={8}>    
+        <Box component='section'
+            sx={{bgcolor:'#f5f5f5', width:'23rem', padding: 2, height: '3rem',
+            mt: 2, display: 'inline-flex', justifyContent: 'space-between'
+        }}>
 
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
             <Box>
@@ -83,14 +83,18 @@ return(
             </Box>
         </Box>
 
-            <Alert variant='filled' severity='success' 
-            sx={{width: '100px', height: '35px', padding: 1, borderRadius: 50, 
-            bgcolor: '#4caf50', fontSize: 12}}>
-                Verified</Alert>
+            <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                borderRadius: 50, display: 'flex', justifyContent: 'center',
+                alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
             </Box>
-    
+        </Box>
 
-        </Grid>
+
+    </Grid>
+            
+            
 
         <Grid item xs={4} sx={{alignSelf: 'center'}}>
             <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
