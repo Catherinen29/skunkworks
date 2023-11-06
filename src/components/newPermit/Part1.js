@@ -169,7 +169,6 @@ return(
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
         
-        <div>
         <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
         {Array.from({length: numOfSelectFields}).map((_, index) => (
             <Select
@@ -186,7 +185,7 @@ return(
             </Select>
         ))
         }
-        </div>
+        
         <div>
             <Button  variant='outlined' onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
         </div>

@@ -15,7 +15,7 @@ const handleRiskAssessor = (e) => {
 
     return (
         <Paper component='section' sx={{ 
-            width: '40rem', /*This doesn't work */
+            width: '40rem', 
             bgcolor: '#ffffff',
             borderRadius: 1,
             padding: 5,
