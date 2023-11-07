@@ -151,8 +151,9 @@ return(
                 sx={{width: '25rem', mb: 2}}
                 > 
                 {workers.map((worker) => (
-            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
-                <VerifiedTag></VerifiedTag>
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
+                {worker.name}
+                {worker.verified && <VerifiedTag/>}
             </MenuItem>
         ))}
             </TextField>
@@ -191,8 +192,9 @@ return(
                 },
             }}> 
         {workers.map((worker) => (
-            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
-                <VerifiedTag></VerifiedTag>
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
+                {worker.name}
+                {worker.verified && <VerifiedTag/>}
             </MenuItem>
         ))}
             </TextField>
@@ -221,8 +223,9 @@ return(
             sx={{width: '25rem'}}> 
                 
             {workers.map((worker) => (
-            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
-                <VerifiedTag></VerifiedTag>
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
+                {worker.name}
+                {worker.verified && <VerifiedTag/>}
             </MenuItem>
             ))}
             </TextField>
