@@ -2,8 +2,23 @@ import { Box, Button, FormControl, Grid, MenuItem, Paper, TableContainer,
     TableBody, TableRow, TextField, Typography, Table} from "@mui/material"
 import { useState } from "react"
 import Frank from '../../frank.png'
-import VerifiedTag from "../common/VerifiedTag";
-import AlertIcon from "../common/AlertIcon";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import VerifiedTag from '../common/VerifiedTag'
+
+// TODO: remove static data and replace with data from database
+const workers = [{
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    verified: true,
+}, {
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    verified: true,
+}, {
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    verified: true,
+}]
 
 export default function Part1(props) {
 
@@ -174,17 +189,28 @@ return(
                 },
             }}> 
                 <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
-                <VerifiedTag></VerifiedTag>
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
                 </MenuItem>
-
                 <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton
-                <VerifiedTag></VerifiedTag>
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
                 </MenuItem>
-
-                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy
-                <VerifiedTag></VerifiedTag>
+                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy<Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
                 </MenuItem> 
-
             </TextField>
         </FormControl>
             </Grid>
