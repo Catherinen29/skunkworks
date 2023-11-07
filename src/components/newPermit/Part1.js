@@ -102,8 +102,6 @@ return(
         </Grid>
 </Grid>
 
-
-        <Box>
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Select type of organisation</Typography>  
             <Tooltip title='Select the organisation type'>
@@ -115,18 +113,18 @@ return(
 
         <FormControl required size='small' sx={{display: 'block',
                 width: '25rem', mt: 2 }}>
-        <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
-            <Select
+        <TextField
+            select
             value={organisationType}
+            label='Select organisation'
             onChange={handleOrganisation}
             sx={{width: '25rem'}}
             > 
                 <MenuItem value='Supplier'>Supplier</MenuItem>
                 <MenuItem value='Plumbing'>Plumbing</MenuItem>
                 <MenuItem value='Carpentry'>Carpentry</MenuItem>         
-            </Select>
+            </TextField>
         </FormControl>
-        </Box>
              
         <Box>
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
@@ -140,8 +138,8 @@ return(
 
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
-            <Select
+        <TextField
+            select
             value={supplier}
             label='Verified supplier *'
             onChange={handleSupplier}
@@ -149,7 +147,7 @@ return(
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
                 <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
                 <MenuItem value='Wickes'>Wickes</MenuItem> 
-            </Select>
+            </TextField>
         </FormControl>
         </Box>
 
@@ -166,9 +164,9 @@ return(
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
         
-        <InputLabel sx={{fontSize: 12}}>Select verified worker</InputLabel>
         {Array.from({length: numOfSelectFields}).map((_, index) => (
-            <Select
+            <TextField
+                select
                 value={operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
@@ -179,7 +177,7 @@ return(
                 <MenuItem value='Tilda Swinton'>Tilda Swinton</MenuItem>  
                 <MenuItem value='Bill Nighy'>Bill Nighy</MenuItem>
                 <MenuItem value='Ralph Fiennes'>Ralph Fiennes</MenuItem> 
-            </Select>
+            </TextField>
         ))
         }
         
@@ -201,65 +199,10 @@ return(
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-
-        <FormControl required size='small' sx={{display: 'flex',
-                width: '25rem', mt: 2 }}>
-        <InputLabel sx={{fontSize: 12, width: '100%'}}>Select worker</InputLabel>
-            <Select
-            value={respForHotWorks}
-            onChange={handleHotWorks}
-            sx={{width: '25rem', height: '2.5rem'}}
-            > 
-            <MenuItem value='Helena Bonham Carter' sx={{justifyContent: 'space-between'}}>Helena Bonham Carter
-                 <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                
-                </MenuItem>
-            <MenuItem value='Bill Nighy' sx={{justifyContent: "space-between"}}>Bill Nighy
-             <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>
-            <MenuItem value='Ralph Fiennes' sx={{justifyContent: "space-between"}}>Ralph Fiennes
-             <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>        
-            </Select>
-        </FormControl>
-            </Grid>
-
-            <Grid item xs={4} sx={{alignSelf: 'center'}}>
-                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
-                Verified skills to manage Hot Works</Typography> 
-                </Grid>
-        </Grid>
-
-        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
-            <Tooltip title='Select the name of the person'>
-                <Alert variant='outlined' severity='info'
-                    sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
-        </Box>
-
-        <Grid container spacing={2}>
-            <Grid item  xs={8}>
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
-            <Select
+        <TextField
+            select
             value={respForFireSafety}
             label='Select verified worker *'
             onChange={handleFireSafety}
@@ -287,7 +230,59 @@ return(
                     <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
                   </Box> 
                 </MenuItem> 
-            </Select>
+            </TextField>
+        </FormControl>
+            </Grid>
+
+            <Grid item xs={4} sx={{alignSelf: 'center'}}>
+                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
+                Verified skills to manage Hot Works</Typography> 
+                </Grid>
+        </Grid>
+
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
+            <Tooltip title='Select the name of the person'>
+                <Alert variant='outlined' severity='info'
+                    sx={{borderColor: '#ffffff', 
+                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
+            </Tooltip>
+        </Box>
+
+        <Grid container spacing={2}>
+            <Grid item  xs={8}>
+        <FormControl required size='small' sx={{display: 'block',
+                mt: 2 }}>
+        <TextField
+            select
+            value={respForFireSafety}
+            label='Select verified worker *'
+            onChange={handleFireSafety}
+            sx={{width: '25rem'}}> 
+                <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+                <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy<Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem> 
+            </TextField>
         </FormControl>
             </Grid>
         

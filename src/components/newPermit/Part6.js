@@ -44,10 +44,10 @@ const handleWatchDuration = (e) => {
         
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size="small" sx={{display: 'block',
-                width: '90%', mb: 1, mt: '2rem' }}>
+        <FormControl required size='small' sx={{display: 'block',
+            width: '25rem', mb: 1, mt: '2rem'}}>
         <TextField
-                select
+            select
             value={fireWatch}
             onChange={handleFireWatch}
             label='Select verified person'
@@ -80,14 +80,13 @@ const handleWatchDuration = (e) => {
         </Grid>
 
         <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
-                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
-                Supervisor Passport</Typography> 
-                </Grid>
+            <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
+            <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
+            Supervisor Passport</Typography> 
+        </Grid>
             
         </Grid>
 
-        <div>
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Set fire watch duration (min 60 mins)</Typography>  
@@ -115,7 +114,6 @@ const handleWatchDuration = (e) => {
                 <MenuItem value='180'>180 mins</MenuItem> 
             </TextField>
         </FormControl>
-        </div>
         
         <Box sx={{mt: 2}}>
         <Checkbox sx={{pl: 0}} 

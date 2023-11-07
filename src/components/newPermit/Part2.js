@@ -32,7 +32,6 @@ const updateActivities = (e) => {
             flexDirection: 'column' }} >
         <h3>Part 2 - Scope of Work</h3>
 
-        <div>    
     <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Description of the Hot Works to be undertaken</Typography>
@@ -46,9 +45,8 @@ const updateActivities = (e) => {
             <br />
 
         <FormControl sx={{width: '25rem'}}>
-            <TextField multiline size='small' label='Enter description' />
+            <TextField multiline rows={3} size='small' label='Enter description' />
         </FormControl>
-        </div>
 
         <div>
         <FormControl sx={{width: '30rem', mt: 2}}>
