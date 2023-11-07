@@ -1,5 +1,4 @@
-import { Grid, Paper, Typography } from "@mui/material"
-import BalfourBeattyImage from '../../BalfourBeatty.png'
+import { Box, Grid, Paper, Typography } from "@mui/material"
 
 export default function PermitIntro() {
 
@@ -12,13 +11,31 @@ return (
         margin: 2,
         color: '#ffffff' }} >
         
+    
+        
     <Grid container spacing={2}>
     <Grid item xs={4}>
-        <img src={BalfourBeattyImage} width={150} height={150}></img>
+        <Box sx={{border: 1, 
+            borderColor: 'white', 
+            borderRadius: '10%',
+            width: 150, 
+            height: 150,
+            textAlign: 'left',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+            }}>
+        <Typography sx={{fontFamily: 'Anton', 
+            fontSize: 35, pl: '15%',
+            lineHeight: 1}}>
+                Balfour
+                Beatty
+                </Typography>
+        </Box>
     </Grid>
 
     <Grid item xs={8}>
-        <Typography sx={{fontSize: 30}}>New Hot Works Permit</Typography> 
+        <Typography sx={{fontSize: 35}}>New Hot Works Permit</Typography> 
 
         <Typography sx={{fontSize:20, mt: 1}}>
             NHS Southampton University Central Hospital</Typography>
