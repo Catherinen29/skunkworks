@@ -6,10 +6,6 @@ export default function Part7() {
 
 const [confirmed, setConfirmed] = useState(false)
 
-const handleConfirmation = (e) => {
-    setConfirmed(!confirmed)
-}
-
     return (
         <Paper component='section' sx={{ 
             width: '40rem', /*This doesn't work */
@@ -20,7 +16,7 @@ const handleConfirmation = (e) => {
         <h3>Part 7 - Declarations</h3> 
         
         <div>
-        <Checkbox  sx={{pl: 0}} onChange={handleConfirmation} 
+        <Checkbox  sx={{pl: 0}} onChange={(e) => setConfirmed(!confirmed)} 
             style={{color:'#00a4a9'}} /> 
             I confirm that cold works have been considered and deemed not suitable.
         </div>

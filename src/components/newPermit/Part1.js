@@ -1,6 +1,6 @@
-import { Alert, Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TableContainer,
-    TableBody, TableRow, TextField, Tooltip, Typography, createTheme, Table} from "@mui/material"
-import { useEffect, useState } from "react"
+import { Alert, Box, Button, FormControl, Grid, MenuItem, Paper, TableContainer,
+    TableBody, TableRow, TextField, Tooltip, Typography, Table} from "@mui/material"
+import { useState } from "react"
 import Frank from '../../frank.png'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
@@ -15,14 +15,6 @@ const [numOfSelectFields, setNumOfSelectFields] = useState(1)
 const [respForHotWorks, setRespForHotWorks] = useState('')
 const [respForFireSafety, setRespForFireSafety] = useState('')
 
-const handleOrganisation = (e) => {
-    setOrganisationType(e.target.value)
-}
-
-const handleSupplier = (e) => {
-    setSupplier(e.target.value)
-}
-
 const handleOperator = (e, index) => {
     if (!operators.includes(e.target.value)) {
         const updatedOperators = [...operators]
@@ -35,17 +27,6 @@ const addField = () => {
     setNumOfSelectFields(numOfSelectFields + 1)
 }
 
-const handleHotWorks = (e) => {
-    setRespForHotWorks(e.target.value)
-    console.log('organisation: ', e.target.value)
-}
-
-const handleFireSafety= (e) => {
-    setRespForFireSafety(e.target.value)
-    console.log('organisation: ', e.target.value)
-}
-
-console.log(users)
 return(
     <Paper sx={{ 
             width: '40rem', 
@@ -117,7 +98,7 @@ return(
             select
             value={organisationType}
             label='Select organisation'
-            onChange={handleOrganisation}
+            onChange={(e) => setOrganisationType(e.target.value)}
             sx={{width: '25rem'}}
             > 
                 <MenuItem value='Supplier'>Supplier</MenuItem>
@@ -142,7 +123,7 @@ return(
             select
             value={supplier}
             label='Verified supplier *'
-            onChange={handleSupplier}
+            onChange={(e) => setSupplier(e.target.value)}
             sx={{width: '25rem'}}> 
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
                 <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
@@ -203,9 +184,9 @@ return(
                 mt: 2 }}>
         <TextField
             select
-            value={respForFireSafety}
+            value={respForHotWorks}
             label='Select verified worker *'
-            onChange={handleFireSafety}
+            onChange={(e) => setRespForHotWorks(e.target.value)}
             sx={{width: '25rem'}}> 
                 <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
                 <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
@@ -257,7 +238,7 @@ return(
             select
             value={respForFireSafety}
             label='Select verified worker *'
-            onChange={handleFireSafety}
+            onChange={(e) => setRespForFireSafety(e.target.value)}
             sx={{width: '25rem'}}> 
                 <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
                 <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 

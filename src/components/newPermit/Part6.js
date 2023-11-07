@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
+import { Box, Checkbox, FormControl, Grid, MenuItem, Paper, 
     TableBody, TableRow, TextField, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
@@ -13,13 +13,6 @@ const [fireWatch, setFireWatch ] = useState()
 const [watchDuration, setWatchDuration] = useState()
 const [photoRequired, setPhotoRequired] = useState(false)
 
-const handleFireWatch = (e) => {
-    setFireWatch(e.target.value)
-}
-
-const handleWatchDuration = (e) => {
-    setWatchDuration(parseInt(e.target.value))
-}
 
     return (
         <Paper component='section' sx={{ 
@@ -49,7 +42,7 @@ const handleWatchDuration = (e) => {
         <TextField
             select
             value={fireWatch}
-            onChange={handleFireWatch}
+            onChange={(e) => setFireWatch(e.target.value)}
             label='Select verified person'
             sx={{width: '25rem'}}> 
             <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
@@ -104,7 +97,7 @@ const handleWatchDuration = (e) => {
         <TextField
             select
             value={watchDuration}
-            onChange={handleWatchDuration}
+            onChange={(e) => setWatchDuration(parseInt(e.target.value))}
             label='Select duration'
             sx={{width: '25rem'}}> 
                 <MenuItem value='60'>60 mins</MenuItem>

@@ -1,6 +1,5 @@
-import { Alert, Box, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, 
-    Select, TextField, TableBody, TableRow,
-    Tooltip, Typography, createTheme } from "@mui/material"
+import { Alert, Box, FormControl, InputLabel, MenuItem, Paper, 
+    TextField, TableBody, TableRow, Tooltip, Typography } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
 import { useState } from "react"
@@ -12,22 +11,6 @@ const [worksDate, setWorksDate] = useState()
 const [startTime, setStartTime] = useState(dayjs('2022-04-17T00:00'))
 const [endTime, setEndTime] = useState(dayjs('2022-04-17T00:00'))
 const [area, setArea] = useState('')
-
-const handleWorkStartDate = (e) => {
-    setWorksDate(e)
-}
-
-const handleChangeStart = (e) => {
-    setStartTime(e)
-}
-
-const handleChangeEnd = (e) => {
-    setEndTime(e)
-}
-
-const handleChangeArea = (e) => {
-    setArea(e.target.value)
-}
 
     return(
         <Paper component='section' sx={{ 
@@ -55,7 +38,7 @@ const handleChangeArea = (e) => {
         <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
             <DatePicker value={worksDate}
-            onChange={handleWorkStartDate}
+            onChange={(e) => setWorksDate(e)}
             slotProps={{ textField: { size: 'small' } }} />
         </FormControl>
         </div>
@@ -66,7 +49,7 @@ const handleChangeArea = (e) => {
                 ml: 0.5, mr: 0.5}}>
             <TimePicker value={startTime} 
             slotProps={{ textField: { size: 'small' } }}
-            onChange={handleChangeStart} />
+            onChange={(e) => setStartTime(e)} />
         </FormControl>
         </div>
 
@@ -80,7 +63,7 @@ const handleChangeArea = (e) => {
                  ml: 0.5, mr: 0.5}}>
             <TimePicker value={endTime} 
             slotProps={{ textField: { size: 'small' } }}
-            onChange={handleChangeEnd} />
+            onChange={(e) => setEndTime(e)} />
         </FormControl>
         </div>
         </Box>
@@ -103,7 +86,7 @@ const handleChangeArea = (e) => {
                 select
                 value={area}
                 label='Select area'
-                onChange={handleChangeArea}
+                onChange={(e) => setArea(e.target.value)}
                 sx={{width: '25rem'}}
                 > 
                 <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>

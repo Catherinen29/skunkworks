@@ -1,4 +1,4 @@
-import { Alert, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, 
+import { Alert, FormControl, Grid, MenuItem, Paper, TableBody, TableRow, 
     Box, Typography, Tooltip, TextField } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
@@ -11,10 +11,6 @@ let users = props.users
 
 const [riskAssessor, setRiskAssessor] = useState({})
 
-const handleRiskAssessor = (e) => {
-    setRiskAssessor(e.target.value)
-    console.log(riskAssessor)
-}
 
     return (
         <Paper component='section' sx={{ 
@@ -44,7 +40,7 @@ const handleRiskAssessor = (e) => {
             <TextField
                 select
                 value={riskAssessor}
-                onChange={handleRiskAssessor}
+                onChange={(e) => setRiskAssessor(e.target.value)}
                 label='Select verified person'
                 sx={{width: '25rem'}}> 
             <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)

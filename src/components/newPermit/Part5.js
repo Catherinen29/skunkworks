@@ -1,4 +1,4 @@
-import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField,
+import { Box, FormControl, Grid, MenuItem, Paper, TextField,
     TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
@@ -10,9 +10,6 @@ export default function Part5(props) {
 let users = props.users
 const [precautionPerson, setPrecautionPerson] = useState({})
 
-const handlePrecautionPerson = (e) => {
-    setPrecautionPerson(e.target.value)
-}
 
 return (
     <Paper component='section' sx={{ 
@@ -42,7 +39,7 @@ return (
         <TextField
             select
             value={precautionPerson}
-            onChange={handlePrecautionPerson}
+            onChange={(e) => setPrecautionPerson(e.target.value)}
             label='Select verified person'
             sx={{width: '25rem'}}> 
         <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
