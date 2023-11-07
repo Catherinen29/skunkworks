@@ -212,11 +212,10 @@ return(
                 },
             }}> 
                 {workers.map((worker) => (
-                    <MenuItem value={worker.value} sx={{justifyContent: "space-between"}}>
-                    {worker.name}
-                    {worker.verified && <VerifiedTag />}
+                    <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: "space-between"}}>
+                        {worker.name}
+                        {worker.verified && <VerifiedTag />}
                     </MenuItem>
-                
                 ))}
             </TextField>
         </FormControl>
