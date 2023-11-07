@@ -1,9 +1,10 @@
-import { Alert, Box, FormControl, InputLabel, MenuItem, Paper, 
-    TextField, TableBody, TableRow, Tooltip, Typography } from "@mui/material"
+import { Box, FormControl, InputLabel, MenuItem, Paper, 
+    TextField, TableBody, TableRow, Typography } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
 import { useState } from "react"
 import dayjs from "dayjs"
+import AlertIcon from "../common/AlertIcon"
 
 export default function Part3() {
 
@@ -24,11 +25,7 @@ const [area, setArea] = useState('')
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set the start and end date of the permit</Typography>  
-            <Tooltip title='Duration of works'>
-                <Alert variant='outlined' severity='info'
-                    sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
+            <AlertIcon></AlertIcon>
         </TableRow>
         </TableBody>
         <br />
@@ -73,13 +70,10 @@ const [area, setArea] = useState('')
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set the designated area for the work</Typography>  
-            <Tooltip title='Location'>
-                <Alert variant='outlined' severity='info' 
-                    sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
+            <AlertIcon></AlertIcon>
         </TableRow>
         </TableBody>
+        
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
             <TextField

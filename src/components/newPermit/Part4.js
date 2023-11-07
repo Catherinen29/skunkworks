@@ -1,8 +1,9 @@
-import { Alert, FormControl, Grid, MenuItem, Paper, TableBody, TableRow, 
-    Box, Typography, Tooltip, TextField } from "@mui/material"
+import { FormControl, Grid, MenuItem, Paper, TableBody, TableRow, 
+    Typography, TextField } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import VerifiedTag from "../common/VerifiedTag";
+import AlertIcon from "../common/AlertIcon";
 
 export default function Part4(props) {
 
@@ -24,11 +25,7 @@ const [riskAssessor, setRiskAssessor] = useState('')
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for completing the risk assessment</Typography>  
-            <Tooltip title='Select verified worker'>
-                <Alert variant='outlined' severity='info'
-                    sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
+            <AlertIcon></AlertIcon>
         </TableRow>
         </TableBody>
 
@@ -43,28 +40,17 @@ const [riskAssessor, setRiskAssessor] = useState('')
                 label='Select verified worker'
                 sx={{width: '25rem'}}> 
             <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
-                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>
-            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein <Box sx={{width: '6rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>
+            <VerifiedTag></VerifiedTag>
+            </MenuItem>
+
+            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
+            <VerifiedTag></VerifiedTag>
+            </MenuItem>
+
             <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
-                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>  
+            <VerifiedTag></VerifiedTag>
+            </MenuItem>  
+
             </TextField>
         </FormControl>
         </Grid>

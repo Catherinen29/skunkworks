@@ -1,8 +1,9 @@
 import {  Box, Checkbox, FormControl, FormControlLabel, Grid,
-    Paper, TableBody, TableRow, TextField, Typography, Tooltip, Alert } from "@mui/material"
+    Paper, TableBody, TableRow, TextField, Typography } from "@mui/material"
 import { useState } from "react"
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import AlertIcon from "../common/AlertIcon";
 
 export default function Part2() {
 
@@ -35,11 +36,7 @@ const updateActivities = (e) => {
     <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Description of the Hot Works to be undertaken</Typography>
-            <Tooltip title='Description'>
-                <Alert variant='outlined' severity='info'
-                    sx={{borderColor: '#ffffff', 
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
+            <AlertIcon></AlertIcon>
         </TableRow>
     </TableBody>
             <br />
@@ -53,11 +50,7 @@ const updateActivities = (e) => {
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Select types of activity covered by the permit</Typography>
-            <Tooltip title='Types of activity'>
-                <Alert variant='outlined' severity='info'
-                    sx={{borderColor: '#ffffff', color: '#00a4a9',
-                    ml: '0.5rem', px: 1, py: 0 }}></Alert>
-            </Tooltip>
+            <AlertIcon></AlertIcon>
         </TableRow>
     </TableBody>
 
