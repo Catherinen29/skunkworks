@@ -23,11 +23,11 @@ const users = [{name: 'Francis Golder (me)', position: 'Supervisor', verified: t
 return(
 <>
 
-        <Toolbar sx={{backgroundImage: `url(${BB_bg})`}}>
-        <Button >
-            {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
-        <Typography sx={{color: '#ffffff', fontSize: 20}}>New Permit</Typography>
-        </Toolbar>
+    <Toolbar sx={{backgroundImage: `url(${BB_bg})`}}>
+    <Button >
+        {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
+    <Typography sx={{color: '#ffffff', fontSize: 20}}>New Permit</Typography>
+    </Toolbar>
 
     <Box 
     display='flex'

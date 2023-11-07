@@ -10,7 +10,7 @@ export default function Part6(props) {
 let users = props.users
 
 const [fireWatch, setFireWatch ] = useState()
-const [watchDuration, setWatchDuration] = useState()
+const [watchDuration, setWatchDuration] = useState('')
 const [photoRequired, setPhotoRequired] = useState(false)
 
 
