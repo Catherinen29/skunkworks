@@ -4,12 +4,11 @@ import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-
 export default function Part4(props) {
 
 let users = props.users
 
-const [riskAssessor, setRiskAssessor] = useState({})
+const [riskAssessor, setRiskAssessor] = useState('')
 
 
     return (
@@ -25,7 +24,7 @@ const [riskAssessor, setRiskAssessor] = useState({})
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for completing the risk assessment</Typography>  
-            <Tooltip title='Select verified'>
+            <Tooltip title='Select verified worker'>
                 <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
@@ -41,7 +40,7 @@ const [riskAssessor, setRiskAssessor] = useState({})
                 select
                 value={riskAssessor}
                 onChange={(e) => setRiskAssessor(e.target.value)}
-                label='Select verified person'
+                label='Select verified worker'
                 sx={{width: '25rem'}}> 
             <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
                 <Box sx={{width: '6rem', bgcolor: '#4caf50', 
@@ -70,13 +69,11 @@ const [riskAssessor, setRiskAssessor] = useState({})
         </FormControl>
         </Grid>
         
-        {riskAssessor.verified 
-            ? <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
                 Supervisor Passport</Typography> 
                 </Grid>
-            : null }
         </Grid>
 
         </Paper>

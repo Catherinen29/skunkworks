@@ -122,7 +122,7 @@ return(
         <TextField
             select
             value={supplier}
-            label='Verified supplier *'
+            label='Select supplier *'
             onChange={(e) => setSupplier(e.target.value)}
             sx={{width: '25rem'}}> 
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
@@ -151,7 +151,7 @@ return(
                 value={operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
-                sx={{width: '25rem', mt: 2}}
+                sx={{width: '25rem', mb: 2}}
                 > 
                 <MenuItem value='Francis Golder (me)'>Francis Golder (me)</MenuItem>
                 <MenuItem value='Jan Goldstein'>Jan Goldstein</MenuItem>
@@ -163,7 +163,7 @@ return(
         }
         
         <Box>
-            <Button  variant='outlined' onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
+            <Button  variant='outlined' onClick={addField} sx={{mb: 1}}>ADD ANOTHER +</Button>
         </Box>
             
         </FormControl>
