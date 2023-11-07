@@ -1,7 +1,9 @@
-import { FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
+import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField,
     TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 export default function Part5(props) {
 
@@ -36,26 +38,46 @@ const handlePrecautionPerson = (e) => {
         <Grid container spacing={2}>
             <Grid item  xs={8}>
             <FormControl required size='small' sx={{display: 'block',
-                    width: '25rem', mt: 2 }}>
-            <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
-                <Select
+                    width: '25rem', mb: 1, mt: '2rem'}}>
+            <TextField
+                select
                 value={precautionPerson}
                 onChange={handlePrecautionPerson}
+                label='Select verified person'
                 sx={{width: '25rem'}}> 
-                <MenuItem value={users[3]}>{users[3].name}</MenuItem>
-                <MenuItem value={users[4]}>{users[4].name}</MenuItem>
-                <MenuItem value={users[5]}>{users[5].name}</MenuItem> 
-                </Select>
+            <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>  
+                </TextField>
             </FormControl>
             </Grid>
         
-        {precautionPerson.verified 
-            ? <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
                 Supervisor Passport</Typography> 
                 </Grid>
-            : null }
+            
         </Grid>
     
             </Paper>

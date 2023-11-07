@@ -1,13 +1,15 @@
 import { Box, Checkbox, FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
-    TableBody, TableRow, Typography, Tooltip, Alert } from "@mui/material"
+    TableBody, TableRow, TextField, Typography, Tooltip, Alert } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 export default function Part6(props) {
 
 let users = props.users
 
-const [fireWatch, setFireWatch ] = useState({})
+const [fireWatch, setFireWatch ] = useState()
 const [watchDuration, setWatchDuration] = useState()
 const [photoRequired, setPhotoRequired] = useState(false)
 
@@ -43,31 +45,51 @@ const handleWatchDuration = (e) => {
         <Grid container spacing={2}>
             <Grid item  xs={8}>
         <FormControl required size="small" sx={{display: 'block',
-                width: '90%', mt: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
-            <Select
+                width: '90%', mb: 1, mt: '2rem' }}>
+        <TextField
+                select
             value={fireWatch}
             onChange={handleFireWatch}
+            label='Select verified person'
             sx={{width: '25rem'}}> 
-            <MenuItem value={users[0]}>{users[0].name}</MenuItem>
-            <MenuItem value={users[3]}>{users[3].name}</MenuItem>
-            <MenuItem value={users[5]}>{users[5].name}</MenuItem>  
-            </Select>
+            <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>  
+            </TextField>
         </FormControl>
         </Grid>
-        
-        {fireWatch.verified 
-            ? <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+
+        <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
                 Supervisor Passport</Typography> 
                 </Grid>
-            : null }
+            
         </Grid>
 
         <div>
         <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <TableRow sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Set fire watch duration (min 60 mins)</Typography>  
             <Tooltip title='Duration of fire watch'>
                 <Alert variant='outlined' severity='info' 
@@ -79,18 +101,19 @@ const handleWatchDuration = (e) => {
         </TableBody>
         
         <FormControl required size="small" sx={{display: 'block',
-                width: '25rem', mt: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Select duration</InputLabel>
-            <Select
+                width: '25rem', mb: 1, mt: '2rem'}}>
+        <TextField
+            select
             value={watchDuration}
             onChange={handleWatchDuration}
+            label='Select duration'
             sx={{width: '25rem'}}> 
                 <MenuItem value='60'>60 mins</MenuItem>
                 <MenuItem value='90'>90 mins</MenuItem>
                 <MenuItem value='120'>120 mins</MenuItem> 
                 <MenuItem value='150'>150 mins</MenuItem> 
                 <MenuItem value='180'>180 mins</MenuItem> 
-            </Select>
+            </TextField>
         </FormControl>
         </div>
         

@@ -27,7 +27,7 @@ const handleConfirmation = (e) => {
 
         <div>
         <FormControl sx={{
-                mt: 2, width: '25rem' }}>
+                mb: 1, mt: '1rem', width: '25rem' }}>
             <TextField multiline size='small' label='Enter description'
              />
         </FormControl>

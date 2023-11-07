@@ -1,7 +1,9 @@
 import { Alert, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TableBody, TableRow, 
-    Typography, Tooltip } from "@mui/material"
+    Box, Typography, Tooltip, TextField } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 export default function Part4(props) {
 
@@ -11,6 +13,7 @@ const [riskAssessor, setRiskAssessor] = useState({})
 
 const handleRiskAssessor = (e) => {
     setRiskAssessor(e.target.value)
+    console.log(riskAssessor)
 }
 
     return (
@@ -26,7 +29,7 @@ const handleRiskAssessor = (e) => {
         <TableBody>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for completing the risk assessment</Typography>  
-            <Tooltip title='Select name of responsible person'>
+            <Tooltip title='Select verified'>
                 <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
@@ -37,16 +40,37 @@ const handleRiskAssessor = (e) => {
         <Grid container spacing={2}>
             <Grid item  xs={8}>
         <FormControl required size='small' sx={{display: 'block',
-            width: '25rem', my: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
-            <Select
+            width: '25rem', mb: 1, mt: '2rem'}}>
+            <TextField
+                select
                 value={riskAssessor}
                 onChange={handleRiskAssessor}
+                label='Select verified person'
                 sx={{width: '25rem'}}> 
-            <MenuItem value={users[2]}>{users[2].name}</MenuItem>
-            <MenuItem value={users[1]}>{users[1].name}</MenuItem>
-            <MenuItem value={users[5]}>{users[5].name}</MenuItem>  
-            </Select>
+            <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
+                <Box sx={{width: '6rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>  
+            </TextField>
         </FormControl>
         </Grid>
         

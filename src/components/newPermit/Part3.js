@@ -1,5 +1,5 @@
 import { Alert, Box, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, 
-    Select, TableBody, TableRow,
+    Select, TextField, TableBody, TableRow,
     Tooltip, Typography, createTheme } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
@@ -99,18 +99,18 @@ const handleChangeArea = (e) => {
         </TableBody>
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
-            <InputLabel sx={{fontSize: 12}}>Select area</InputLabel>
-            <Select
+            <TextField
+                select
                 value={area}
-                label='Select area *'
+                label='Select area'
                 onChange={handleChangeArea}
                 sx={{width: '25rem'}}
                 > 
                 <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>
                 <MenuItem value="Hospital Block B">Hospital Block B</MenuItem>
                 <MenuItem value="Hospital Block C">Hospital Block C</MenuItem>
-                <MenuItem value="Hospital Block D">Hospital Block D</MenuItem>           
-            </Select>
+                <MenuItem value="Hospital Block D">Hospital Block D</MenuItem>
+            </TextField>
         </FormControl>
         </div>
         </Paper>

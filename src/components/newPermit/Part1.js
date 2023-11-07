@@ -1,5 +1,5 @@
-import { Alert, Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, 
-    TableBody, TableRow, Tooltip, Typography, createTheme } from "@mui/material"
+import { Alert, Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TableContainer,
+    TableBody, TableRow, TextField, Tooltip, Typography, createTheme, Table} from "@mui/material"
 import { useEffect, useState } from "react"
 import Frank from '../../frank.png'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -12,8 +12,8 @@ const [organisationType, setOrganisationType] = useState('')
 const [supplier, setSupplier] = useState('')
 const [operators, setOperators] = useState([])
 const [numOfSelectFields, setNumOfSelectFields] = useState(1)
-const [respForHotWorks, setRespForHotWorks] = useState({})
-const [respForFireSafety, setRespForFireSafety] = useState({})
+const [respForHotWorks, setRespForHotWorks] = useState('')
+const [respForFireSafety, setRespForFireSafety] = useState('')
 
 const handleOrganisation = (e) => {
     setOrganisationType(e.target.value)
@@ -37,15 +37,17 @@ const addField = () => {
 
 const handleHotWorks = (e) => {
     setRespForHotWorks(e.target.value)
+    console.log('organisation: ', e.target.value)
 }
 
 const handleFireSafety= (e) => {
     setRespForFireSafety(e.target.value)
+    console.log('organisation: ', e.target.value)
 }
 
 console.log(users)
 return(
-    <Paper component='section' sx={{ 
+    <Paper sx={{ 
             width: '40rem', 
             bgcolor: '#ffffff',
             borderRadius: 1,
@@ -53,9 +55,10 @@ return(
             >
     <h3>Part 1 - Hot Works Permit Details</h3>
 
-
+    <TableContainer>
+        <Table>
     <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <TableRow sx={{height: '35px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Permit issuer</Typography>
             <Tooltip title='Full name of person issuing the permit'>
                 <Alert variant='outlined' severity='info'
@@ -63,7 +66,8 @@ return(
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
         </TableRow>
-    </TableBody>
+    </TableBody></Table>
+    </TableContainer>
 
 <Grid container spacing={2}>
     <Grid item xs={8}>    
@@ -74,7 +78,7 @@ return(
 
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
             <Box>
-            <img src={Frank} width={50}></img>
+            <img src={Frank} width={50} alt="User_image"></img>
             </Box>
             <Box sx={{mx: 1}}>  
                 <Typography>{users[0].name} </Typography>
@@ -90,12 +94,8 @@ return(
                     <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
             </Box>
         </Box>
-
-
     </Grid>
             
-            
-
         <Grid item xs={4} sx={{alignSelf: 'center'}}>
             <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
                 Verified skills to manage Hot Works</Typography>
@@ -103,24 +103,21 @@ return(
 </Grid>
 
 
-        <div>
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <Box>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Select type of organisation</Typography>  
             <Tooltip title='Select the organisation type'>
                 <Alert variant="outlined" severity="info" 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
-        </TableRow>
-        </TableBody>
+        </Box>
 
         <FormControl required size='small' sx={{display: 'block',
                 width: '25rem', mt: 2 }}>
         <InputLabel sx={{fontSize: 12, width: '100%'}}>Select type</InputLabel>
             <Select
             value={organisationType}
-            label='Select Type *'
             onChange={handleOrganisation}
             sx={{width: '25rem'}}
             > 
@@ -129,20 +126,18 @@ return(
                 <MenuItem value='Carpentry'>Carpentry</MenuItem>         
             </Select>
         </FormControl>
-        </div>
+        </Box>
              
-        <div>
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <Box>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Assign a supplier to carry out the work</Typography>  
             <Tooltip title='Select the supplier'>
                 <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
-        </TableRow>
-        </TableBody>
-        
+        </Box>
+
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Verified supplier</InputLabel>
@@ -156,20 +151,18 @@ return(
                 <MenuItem value='Wickes'>Wickes</MenuItem> 
             </Select>
         </FormControl>
-        </div>
+        </Box>
 
-        <div>
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <Box>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Assign operator(s) to carry out the work</Typography>  
             <Tooltip title='Select the supplier'>
                 <Alert variant='outlined' severity="info" 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
-        </TableRow>
-        </TableBody>
-        
+        </Box>
+
         <FormControl required size='small' sx={{display: 'block',
                 mt: 2 }}>
         
@@ -181,93 +174,128 @@ return(
                 onChange={(e) => handleOperator(e, index)}
                 sx={{width: '25rem', mt: 2}}
                 > 
-                <MenuItem value={users[0]}>{users[0].name}</MenuItem>
-                <MenuItem value={users[1]}>{users[1].name}</MenuItem>
-                <MenuItem value={users[2]}>{users[2].name}</MenuItem>  
-                <MenuItem value={users[3]}>{users[3].name}</MenuItem>
-                <MenuItem value={users[4]}>{users[4].name}</MenuItem> 
+                <MenuItem value='Francis Golder (me)'>Francis Golder (me)</MenuItem>
+                <MenuItem value='Jan Goldstein'>Jan Goldstein</MenuItem>
+                <MenuItem value='Tilda Swinton'>Tilda Swinton</MenuItem>  
+                <MenuItem value='Bill Nighy'>Bill Nighy</MenuItem>
+                <MenuItem value='Ralph Fiennes'>Ralph Fiennes</MenuItem> 
             </Select>
         ))
         }
         
-        <div>
+        <Box>
             <Button  variant='outlined' onClick={addField} sx={{my: 2}}>ADD ANOTHER +</Button>
-        </div>
+        </Box>
             
         </FormControl>
-        </div>
+        </Box>
 
-        
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Hot Works</Typography>  
             <Tooltip title='Select the name of the person'>
-                <Alert variant='outlined' severity='info'
+                <Alert variant="outlined" severity="info" 
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
-        </TableRow>
-        </TableBody>
+        </Box>
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block',
-                width: '90%', mt: 2 }}>
-        <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
+
+        <FormControl required size='small' sx={{display: 'flex',
+                width: '25rem', mt: 2 }}>
+        <InputLabel sx={{fontSize: 12, width: '100%'}}>Select worker</InputLabel>
             <Select
             value={respForHotWorks}
-            label='Select verified person *'
             onChange={handleHotWorks}
-            sx={{width: '25rem'}}> 
-                <MenuItem value={users[0]}>{users[0].name}</MenuItem>
-                <MenuItem value={users[1]}>{users[1].name}</MenuItem>
-                <MenuItem value={users[5]}>{users[5].name}</MenuItem> 
+            sx={{width: '25rem', height: '2.5rem'}}
+            > 
+            <MenuItem value='Helena Bonham Carter' sx={{justifyContent: 'space-between'}}>Helena Bonham Carter
+                 <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                
+                </MenuItem>
+            <MenuItem value='Bill Nighy' sx={{justifyContent: "space-between"}}>Bill Nighy
+             <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+            <MenuItem value='Ralph Fiennes' sx={{justifyContent: "space-between"}}>Ralph Fiennes
+             <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>        
             </Select>
         </FormControl>
             </Grid>
 
-        {respForHotWorks.verified 
-            ? <Grid item xs={4} sx={{alignSelf: 'center'}}>
+            <Grid item xs={4} sx={{alignSelf: 'center'}}>
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
                 Verified skills to manage Hot Works</Typography> 
                 </Grid>
-            : null }
         </Grid>
 
-        
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
             <Tooltip title='Select the name of the person'>
                 <Alert variant='outlined' severity='info'
                     sx={{borderColor: '#ffffff', 
                     ml: '0.5rem', px: 1, py: 0 }}></Alert>
             </Tooltip>
-        </TableRow>
-        </TableBody>
+        </Box>
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
         <FormControl required size='small' sx={{display: 'block',
-                width: '25rem', mt: 2 }}>
+                mt: 2 }}>
         <InputLabel sx={{fontSize: 12}}>Select verified person</InputLabel>
             <Select
             value={respForFireSafety}
+            label='Select verified worker *'
             onChange={handleFireSafety}
             sx={{width: '25rem'}}> 
-                <MenuItem value={users[0]}>{users[0].name}</MenuItem>
-                <MenuItem value={users[2]}>{users[2].name}</MenuItem>
-                <MenuItem value={users[4]}>{users[4].name}</MenuItem> 
+                <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+                <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton
+                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem>
+                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy<Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
+                    borderRadius: 50, display: 'flex', justifyContent: 'center',
+                    alignItems: 'center'}}>
+                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
+                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
+                  </Box> 
+                </MenuItem> 
             </Select>
         </FormControl>
             </Grid>
         
-        {respForFireSafety.verified 
-            ? <Grid item xs={4} sx={{alignSelf: 'center'}}>
+        <Grid item xs={4} sx={{alignSelf: 'center'}}>
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
-                Verified skills for Hot Works Safety</Typography> 
+                Verified skills for Hot Works Fire Safety</Typography> 
                 </Grid>
-            : null }
+        
         </Grid>
 
 
