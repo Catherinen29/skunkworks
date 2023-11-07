@@ -187,7 +187,14 @@ return(
             value={respForHotWorks}
             label='Select verified worker *'
             onChange={(e) => setRespForHotWorks(e.target.value)}
-            sx={{width: '25rem'}}> 
+            sx={{
+                width: '25rem',
+                '.MuiSelect-select': {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                },
+            }}> 
                 <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
                 <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
                     borderRadius: 50, display: 'flex', justifyContent: 'center',
