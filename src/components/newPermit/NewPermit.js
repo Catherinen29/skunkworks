@@ -13,13 +13,6 @@ import BB_bg from "../../BB_bg.png"
 
 export default function NewPermit() {
 
-const users = [{name: 'Francis Golder (me)', position: 'Supervisor', verified: true},
-    {name: 'Jan Goldstein', position: 'Supervisor', verified: true},
-    {name: 'Tilda Swinton', position: 'Assistant', verified: false},
-    {name: 'Bill Nighy', position: 'Assistant', verified: false},
-    {name: 'Helena Bonham Carter', position: 'Supervisor', verified: true},
-    {name: 'Ralph Fiennes', position: 'Assistant', verified: false} ]
-
 return(
 <>
 
@@ -36,12 +29,12 @@ return(
     sx={{ bgcolor: '#eef5f5', flexDirection: 'column'}}>
 
         <PermitIntro />
-        <Part1 users={users} />
+        <Part1 />
         <Part2 />
         <Part3 />
-        <Part4 users={users} />
-        <Part5 users={users} />
-        <Part6 users={users} />
+        <Part4 />
+        <Part5 />
+        <Part6 />
         <Part7 />
     </Box>
 

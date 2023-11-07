@@ -4,25 +4,27 @@ import { useState } from "react"
 import Frank from '../../frank.png'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VerifiedTag from '../common/VerifiedTag'
+import AlertIcon from "../common/AlertIcon";
 
 // TODO: remove static data and replace with data from database
 const workers = [{
     name: 'Jan Goldstein',
     value: 'Jan Goldstein',
+    position: 'Supervisor',
     verified: true,
 }, {
     name: 'Tilda Swinton',
     value: 'Tilda Swinton',
+    position: 'Supervisor',
     verified: true,
 }, {
     name: 'Bill Nighy',
     value: 'Bill Nighy',
+    position: 'Supervisor',
     verified: true,
 }]
 
-export default function Part1(props) {
-
-let users = props.users
+export default function Part1() {
 
 const [organisationType, setOrganisationType] = useState('')
 const [supplier, setSupplier] = useState('')
@@ -50,9 +52,9 @@ return(
             borderRadius: 1,
             padding: 5 }} 
             >
-    <h3>Part 1 - Hot Works Permit Details</h3>
+    <Typography sx={{fontSize: 25}}>Part 1 - Hot Works Permit Details</Typography>
 
-    <TableContainer>
+    <TableContainer sx={{mt: 2}}>
         <Table>
     <TableBody>
         <TableRow sx={{height: '35px', display: 'flex'}}>
@@ -74,9 +76,9 @@ return(
             <img src={Frank} width={50} alt="User_image"></img>
             </Box>
             <Box sx={{mx: 1}}>  
-                <Typography>{users[0].name} </Typography>
+                <Typography>{workers[0].name}</Typography>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>
-                    {users[0].position}</Typography>
+                    {workers[0].position}</Typography>
             </Box>
         </Box>
 
@@ -148,11 +150,11 @@ return(
                 onChange={(e) => handleOperator(e, index)}
                 sx={{width: '25rem', mb: 2}}
                 > 
-                <MenuItem value='Francis Golder (me)'>Francis Golder (me)</MenuItem>
-                <MenuItem value='Jan Goldstein'>Jan Goldstein</MenuItem>
-                <MenuItem value='Tilda Swinton'>Tilda Swinton</MenuItem>  
-                <MenuItem value='Bill Nighy'>Bill Nighy</MenuItem>
-                <MenuItem value='Ralph Fiennes'>Ralph Fiennes</MenuItem> 
+                {workers.map((worker) => (
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
+                <VerifiedTag></VerifiedTag>
+            </MenuItem>
+        ))}
             </TextField>
         ))
         }
@@ -188,29 +190,11 @@ return(
                     alignItems: 'center',
                 },
             }}> 
-                <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
-                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>
-                <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton
-                <Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem>
-                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy<Box sx={{width: '6rem', height: '1.8rem', bgcolor: '#4caf50', 
-                    borderRadius: 50, display: 'flex', justifyContent: 'center',
-                    alignItems: 'center'}}>
-                    <CheckCircleIcon style={{fill: 'white', m: '0.5rem'}}></CheckCircleIcon>
-                    <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', m: '0.5rem'}}>Verified</Typography>
-                  </Box> 
-                </MenuItem> 
+        {workers.map((worker) => (
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
+                <VerifiedTag></VerifiedTag>
+            </MenuItem>
+        ))}
             </TextField>
         </FormControl>
             </Grid>
@@ -219,7 +203,7 @@ return(
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
                 Verified skills to manage Hot Works</Typography> 
                 </Grid>
-        </Grid>
+            </Grid>
 
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
@@ -228,26 +212,19 @@ return(
 
         <Grid container spacing={2}>
             <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block',
-                mt: 2 }}>
+        <FormControl required size='small' sx={{display: 'block', mt: 2 }}>
         <TextField
             select
             value={respForFireSafety}
             label='Select verified worker *'
             onChange={(e) => setRespForFireSafety(e.target.value)}
             sx={{width: '25rem'}}> 
-                <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
+                
+            {workers.map((worker) => (
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
                 <VerifiedTag></VerifiedTag>
-                </MenuItem>
-
-                <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton
-                <VerifiedTag></VerifiedTag>
-                </MenuItem>
-
-                <MenuItem value={users[1]} sx={{justifyContent: "space-between"}}>Bill Nighy
-                <VerifiedTag></VerifiedTag>
-                </MenuItem> 
-
+            </MenuItem>
+            ))}
             </TextField>
         </FormControl>
             </Grid>

@@ -31,9 +31,9 @@ const updateActivities = (e) => {
             margin: 2,
             display: 'flex',
             flexDirection: 'column' }} >
-        <h3>Part 2 - Scope of Work</h3>
+        <Typography sx={{fontSize: 25}}>Part 2 - Scope of Work</Typography>
 
-    <TableBody>
+    <TableBody sx={{mt: 2}}>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Description of the Hot Works to be undertaken</Typography>
             <AlertIcon></AlertIcon>

@@ -7,9 +7,25 @@ import AlertIcon from "../common/AlertIcon";
 
 export default function Part5(props) {
 
-let users = props.users
 const [precautionPerson, setPrecautionPerson] = useState('')
 
+// TODO: remove static data and replace with data from database
+const workers = [{
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    position: 'Supervisor',
+    verified: true,
+}]
 
 return (
     <Paper component='section' sx={{ 
@@ -18,10 +34,9 @@ return (
         borderRadius: 1,
         padding: 5,
         margin: 2 }} >
-    <h3>Part 5 - Precautions Checklist</h3> 
+    <Typography sx={{fontSize: 25}}>Part 5 - Precautions Checklist</Typography> 
             
-        
-    <TableBody>
+    <TableBody sx={{mt: 2}}>
     <TableRow sx={{height: '25px', display: 'flex'}}>
         <Typography sx={{py: '0.4rem'}}>Responsible person for completing pre-commencement checklist</Typography>  
         <AlertIcon></AlertIcon>
@@ -38,17 +53,11 @@ return (
             onChange={(e) => setPrecautionPerson(e.target.value)}
             label='Select verified person'
             sx={{width: '25rem'}}> 
-        <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
-        <VerifiedTag></VerifiedTag>
-        </MenuItem>
-
-        <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
-        <VerifiedTag></VerifiedTag>
-        </MenuItem>
-
-        <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
-        <VerifiedTag></VerifiedTag> 
-        </MenuItem>  
+        {workers.map((worker) => (
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
+                <VerifiedTag></VerifiedTag>
+            </MenuItem>
+        ))}
 
         </TextField>
     </FormControl>

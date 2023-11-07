@@ -7,12 +7,27 @@ import AlertIcon from "../common/AlertIcon";
 
 export default function Part6(props) {
 
-let users = props.users
-
 const [fireWatch, setFireWatch ] = useState()
 const [watchDuration, setWatchDuration] = useState('')
 const [photoRequired, setPhotoRequired] = useState(false)
 
+// TODO: remove static data and replace with data from database
+const workers = [{
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    position: 'Supervisor',
+    verified: true,
+}]
 
     return (
         <Paper component='section' sx={{ 
@@ -21,10 +36,10 @@ const [photoRequired, setPhotoRequired] = useState(false)
             borderRadius: 1,
             padding: 5,
             margin: 2 }} >
-        <h3>Part 6 - Fire Watch</h3> 
+        <Typography sx={{fontSize: 25}}>Part 6 - Fire Watch</Typography> 
         
         
-        <TableBody>
+        <TableBody sx={{mt: 2}}>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
             <AlertIcon></AlertIcon>
@@ -41,17 +56,11 @@ const [photoRequired, setPhotoRequired] = useState(false)
             onChange={(e) => setFireWatch(e.target.value)}
             label='Select verified person'
             sx={{width: '25rem'}}> 
-            <MenuItem value='Francis Golder (me)' sx={{justifyContent: "space-between"}}>Francis Golder (me)
-            <VerifiedTag></VerifiedTag>
+            {workers.map((worker) => (
+            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>{worker.name}
+                <VerifiedTag></VerifiedTag>
             </MenuItem>
-
-            <MenuItem value='Jan Goldstein' sx={{justifyContent: "space-between"}}>Jan Goldstein
-            <VerifiedTag></VerifiedTag>
-            </MenuItem>
-
-            <MenuItem value='Tilda Swinton' sx={{justifyContent: "space-between"}}>Tilda Swinton 
-            <VerifiedTag></VerifiedTag>
-            </MenuItem>  
+            ))}
 
             </TextField>
         </FormControl>

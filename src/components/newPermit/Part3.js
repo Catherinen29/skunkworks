@@ -20,9 +20,9 @@ const [area, setArea] = useState('')
             borderRadius: 1,
             padding: 5,
             margin: 2 }} >
-        <h3>Part 3 - Duration and Location of Work</h3> 
+        <Typography sx={{fontSize: 25}}>Part 3 - Duration and Location of Work</Typography> 
         
-        <TableBody>
+        <TableBody sx={{mt: 2}}>
         <TableRow sx={{height: '25px', display: 'flex'}}>
             <Typography sx={{py: '0.4rem'}}>Set the start and end date of the permit</Typography>  
             <AlertIcon></AlertIcon>
