@@ -1,6 +1,7 @@
 import Part1 from "./Part1";
 import Part2 from "./Part2";
-import { Box, Button, Palette, Typography, AppBar, Toolbar, Link } from "@mui/material";
+import { Box, Button, Typography, Toolbar, Link, Dialog, 
+    DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import Part3 from "./Part3";
@@ -10,11 +11,25 @@ import Part6 from "./Part6";
 import Part7 from "./Part7";
 import PermitIntro from "./PermitIntro";
 import BB_bg from "../../BB_bg.png"
+import { useState } from "react";
 
 export default function NewPermit() {
 
+// Handle saving of permit:
+const [open, setOpen] = useState(false)
+const handleOnClickOpen = () => {
+    setOpen(true)
+}
+const handleClose = () => {
+    setOpen(false)
+}
+// TODO:
+const handleSavePermit = () => {
+    console.log('Permit Saved')
+}
+
 return(
-<>
+<Box sx={{display: 'flex', flexDirection: 'column'}}>
 
     <Toolbar sx={{backgroundImage: `url(${BB_bg})`}}>
     <Button >
@@ -47,10 +62,26 @@ return(
         <Box>
         <Button variant="text" sx={{color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
         <Button variant="contained" sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>SAVE AS DRAFT{<SaveIcon sx={{ml: 1}} />}</Button>
-        <Button variant="contained" sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>CREATE PERMIT</Button>
+        <Button variant="contained" onClick={handleOnClickOpen} 
+            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
+            CREATE PERMIT</Button>
         </Box>
         </Toolbar>
 
-    </>
+    <Dialog keepMounted open={open} onClose={handleClose}
+            sx={{width: '35rem', margin: 'auto'}}>
+        <DialogTitle>Ready to create permit?</DialogTitle>            
+        <DialogContent>This will issue the permit in a pre-authorised state, 
+            assign a ticket to you in the Compliance Monitoring Dashboard, and 
+            send tack notifications to the people added to the permit.
+        </DialogContent>
+        <DialogActions sx={{mb: '0.5rem'}}>
+            <Button variant="contained" onClick={handleClose}
+                sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>GO BACK</Button>
+            <Button variant="contained" onClick={handleSavePermit}
+                sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>CREATE PERMIT </Button>
+        </DialogActions>
+    </Dialog>
+    </Box>
     )
 }
