@@ -1,12 +1,23 @@
-import {Link as RouterLink} from 'react-router-dom'
-import { Box, Button, Card, FormControl, Grid, InputAdornment, OutlinedInput, Paper, TableBody, TableRow, TextField, Toolbar, Typography } from "@mui/material";
+import { Link, useNavigate } from 'react-router-dom'
+import { Box, Button, Card, CardActionArea, CardContent, CardHeader, 
+    Dialog, DialogContent, DialogTitle, FormControl, Grid, 
+    InputAdornment, InputLabel, List, ListItem, ListItemIcon, ListItemText, MenuItem, OutlinedInput, Paper, Select, TextField,
+    Toolbar, Typography } from "@mui/material";
 import BB_bg from "../BB_bg.png"
 import Frank from '../frank.png'
 import WarningIcon from '@mui/icons-material/Warning';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import { ActivePermitTag, EmergingIssuesStatusTag,
+        CompletedStatusTag, AuthorisedStatusTag } from './PermitStatusTags';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import CloseIcon from '@mui/icons-material/Close';
+import { useEffect, useState } from 'react';
 
 
 export default function Permits() {
@@ -64,7 +75,44 @@ export default function Permits() {
         status: 'Authorised',
         activatesAt: '20 Jan 24 at 09:00 GMT',
         expiresAt: ''
+    }, {
+        type: 'Hot Works',
+        supplier: 'Helen Flannigan',
+        createdBy: 'James Burden',
+        status: 'Active',
+        activatesAt: '22 Jan at 09:00',
+        expiresAt: ''
+    }, {
+        type: 'Hot Works',
+        supplier: 'Helen Flannigan',
+        createdBy: 'James Burden',
+        status: 'Authorised',
+        activatesAt: '20 Jan 24 at 09:00 GMT',
+        expiresAt: ''
+    }, {
+        type: 'Working at Height',
+        supplier: 'JT Scaffold',
+        createdBy: 'James Burden',
+        status: 'Active',
+        activatesAt: '',
+        expiresAt: 'Today at 17:00'
+    }, {
+        type: 'Hot Works',
+        supplier: 'Miriam Bartonwell',
+        createdBy: 'James Burden',
+        status: 'Authorised',
+        activatesAt: '20 Jan 24 at 09:00 GMT',
+        expiresAt: ''
     }]
+const navigate = useNavigate()
+
+const [filter, setFilter] = useState('')
+
+const handleFilter = (e) => {
+    setFilter(e.target.value)
+    console.log('*** FILTER ***', e.target.value)
+}
+
 
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
@@ -146,31 +194,83 @@ return(
     </Grid>
     </ Toolbar>
 
-    <Paper sx={{py: 5, px: 10}}>
-        <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+    <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>
+        <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
         <Box>
-            <Typography sx={{fontSize: 20}}>Manage permits issued on this project</Typography>                 
+            <Typography sx={{fontSize: 20}}>Manage permits issued on this project</Typography>  
+                           
             {/* Search permits */}
-            <FormControl variant='outlined' 
+            <Box sx={{display: 'flex'}}>
+            <FormControl variant='outlined' size='small'
                 sx={{width: '25rem', my: 2}}>
-                {/* <InputLabel>Search permits</InputLabel>  */}
                 <OutlinedInput 
-                startAdornment={
-                        <InputAdornment position='start'>
-                            <SearchIcon></SearchIcon>
-                        </InputAdornment>
+                    startAdornment={
+                    <InputAdornment position='start'>
+                        <SearchIcon></SearchIcon>
+                    </InputAdornment>
                     }
-                        label='Search permits'
+                    label='Search permits'
                 />
             </FormControl>
             
+            {(filter == 'Date') && 
+                <Box>
+                <FormControl required 
+                size='small'
+                sx={{display: 'block',
+                m: 2, justifyContent: 'center' }}>
+                <TextField
+                    select
+                    label={
+                        <Box 
+                        sx={{display: 'flex', alignItems: 'center'}}>
+                        <DateRangeIcon sx={{mr: '1rem'}} />Today</ Box>}
+                    size='small'
+                    sx={{width: '10rem'}}
+                >
+                        <MenuItem value='Date'>Date</MenuItem>
+                </TextField>
+
+                <Button onClick={() => setFilter('')}>
+                    <CloseIcon sx={{fontSize: 30, color: 'rgba(0, 0, 0, 0.54)'}} />
+                </Button>
+
+            </FormControl>
+                </Box>
+                }
+            
+            <FormControl required 
+                size='small'
+                sx={{display: 'block',
+                m: 2, justifyContent: 'center' }}>
+                <TextField
+                    select
+                    value=''
+                    onChange={handleFilter}
+                    SelectProps={{ IconComponent: () => null }} 
+                    label={
+                        <Box 
+                        sx={{display: 'flex', alignItems: 'center'}}>
+                        <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
+                    size='small'
+                    sx={{width: '10rem'}}
+                >
+                        <MenuItem value='Date'>Date</MenuItem>
+                        <MenuItem value='Type'>Type</MenuItem>
+                        <MenuItem value='Supplier'>Supplier</MenuItem>
+                        <MenuItem value='Created by'>Created by</MenuItem> 
+                </TextField>
+            </FormControl>
+            </Box>
+
+
             {/* Filters */}
         </Box>
 
         <Box>
         <Button variant="contained" 
-            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>MANAGE TEMPLATES</Button>
-        <Button component={RouterLink} to="/newpermit" variant="contained" 
+            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', m: 1}}>MANAGE TEMPLATES</Button>
+        <Button onClick={() => navigate('/newpermit')} variant="contained" disableRipple
             sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>NEW PERMIT</Button>
         </Box>
         </Box>
@@ -178,44 +278,49 @@ return(
         {/* List of permits */}
         <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
             {permits.map((permit) => (
-                <Card sx={{width: '25rem', height: '10rem', margin: '2rem', display: 'flex'}}>
-                    <TableBody sx={{width: '100%'}}>
-                    <TableRow sx={{height: '5rem'}}>
-                        <Box sx={{display: 'flex', flexDirection: 'row'}}>
-
-                            {/* works type image */}
-                            <Box sx={{width: '40%', bgcolor: '#04535f'}}></Box>
-
-                            <Box sx={{m: '1rem'}}>
+                <Card sx={{width: '30rem', margin: '2rem', display: 'flex'}}
+                    >
+                <CardActionArea onClick={() => navigate('')} 
+                    // disableRipple
+                >
+                   
+                    <CardHeader sx={{ pb: '10px'}} />
+                    
+                    <CardContent>
+                        <List sx={{pt: 0}}>
+                            <ListItem>
+                                <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
+                                    {permit.type === 'Hot works' && <WhatshotIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
+                                </ListItemIcon>
                                 <Typography sx={{color: '#04535f', fontSize: 12}}>{permit.type}</Typography>
+                            </ListItem>
+
+                            <ListItem>
                                 <Typography>{permit.supplier}</Typography>
+                            </ListItem>
+
+                            <ListItem>
                                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
-                            </Box>
-                        </Box>
-                    </TableRow>
+                            </ListItem>
+                        </List>
+                    
                         
-                    <TableRow>
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', p: '1rem', 
                             width: '100%', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
-                        <Box sx={{
-                                width: '8rem', height: '1.8rem', borderRadius: 50, border: 1,
-                                display: 'flex', justifyContent: 'center', alignItems: 'center'}}
-                            >
-                            <Typography sx={{ fontSize: 14, alignSelf: 'center', m: '0.5rem',
-                                }}>
-                                {permit.status}
-                            </Typography>
-                        </Box>
-                        
+                        {permit.status === 'Active' && <ActivePermitTag />}
+                        {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
+                        {permit.status === 'Completed' && <CompletedStatusTag />}
+                        {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+
                         <Box sx={{mx: '1rem'}}>
                             {permit.expiresAt.length > 0 && permit.expiresAt}
                             {permit.activatesAt.length > 0 && permit.activatesAt}
                         </Box>
                     </Box>
-                    </TableRow>
-                     
-                    </TableBody>
-                    
+                    </CardContent>
+                </CardActionArea>
                 </Card>
             ))}
         </Box>
