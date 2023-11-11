@@ -46,13 +46,13 @@ export default function Permits() {
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
-        expiresAt: 'Today at 17:00'
+        expiresAt: 'Expires: Today at 17:00'
     }, {
         type: 'Hot Works',
         supplier: 'Dan Jones',
         createdBy: 'James Burden',
         status: 'Emerging issues',
-        activatesAt: '19 Jan 24 at 09:00 GMT',
+        activatesAt: 'Activates: 19 Jan 24 at 09:00 GMT',
         expiresAt: ''
     }, {
         type: 'Electrical',
@@ -60,34 +60,34 @@ export default function Permits() {
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
-        expiresAt: 'Today at 15:00'
+        expiresAt: 'Expires: Today at 15:00'
     }, {
         type: 'Electrical',
         supplier: 'Saqib Sabir',
         createdBy: 'James Burden',
         status: 'Completed',
         activatesAt: '',
-        expiresAt: '2 days ago'
+        expiresAt: 'Expires: 2 days ago'
     }, {
         type: 'Working at Height',
         supplier: 'JT Scaffold',
         createdBy: 'James Burden',
         status: 'Authorised',
-        activatesAt: '20 Jan 24 at 09:00 GMT',
+        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
         expiresAt: ''
     }, {
         type: 'Hot Works',
         supplier: 'Helen Flannigan',
         createdBy: 'James Burden',
         status: 'Active',
-        activatesAt: '22 Jan at 09:00',
+        activatesAt: 'Activates: 22 Jan at 09:00',
         expiresAt: ''
     }, {
         type: 'Hot Works',
         supplier: 'Helen Flannigan',
         createdBy: 'James Burden',
         status: 'Authorised',
-        activatesAt: '20 Jan 24 at 09:00 GMT',
+        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
         expiresAt: ''
     }, {
         type: 'Working at Height',
@@ -95,13 +95,13 @@ export default function Permits() {
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
-        expiresAt: 'Today at 17:00'
+        expiresAt: 'Expires: Today at 17:00'
     }, {
         type: 'Hot Works',
         supplier: 'Miriam Bartonwell',
         createdBy: 'James Burden',
         status: 'Authorised',
-        activatesAt: '20 Jan 24 at 09:00 GMT',
+        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
         expiresAt: ''
     }]
 const navigate = useNavigate()
@@ -213,7 +213,7 @@ return(
                 />
             </FormControl>
             
-            {(filter == 'Date') && 
+            {(filter === 'Date') && 
                 <Box>
                 <FormControl required 
                 size='small'
@@ -262,9 +262,6 @@ return(
                 </TextField>
             </FormControl>
             </Box>
-
-
-            {/* Filters */}
         </Box>
 
         <Box>
@@ -275,13 +272,59 @@ return(
         </Box>
         </Box>
 
+
+                        {/* Dialog */}
+
+
         {/* List of permits */}
         <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
-            {permits.map((permit) => (
+
+            {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
+                <Card sx={{width: '30rem', margin: '2rem', display: 'flex'}}
+                    >
+                    <CardContent>
+                        <List sx={{pt: 0}}>
+                            <ListItem>
+                                <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
+                                    {permit.type === 'Hot works' && <WhatshotIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
+                                </ListItemIcon>
+                                <Typography sx={{color: '#04535f', fontSize: 12}}>{permit.type}</Typography>
+                            </ListItem>
+
+                            <ListItem>
+                                <Typography>{permit.supplier}</Typography>
+                            </ListItem>
+
+                            <ListItem>
+                                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
+                            </ListItem>
+                        </List>
+                    
+                        
+                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', p: '1rem', 
+                            width: '100%', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+                        {permit.status === 'Active' && <ActivePermitTag />}
+                        {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
+                        {permit.status === 'Completed' && <CompletedStatusTag />}
+                        {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+
+                        <Box sx={{mx: '1rem'}}>
+                            {permit.expiresAt.length > 0 && permit.expiresAt}
+                            {permit.activatesAt.length > 0 && permit.activatesAt}
+                        </Box>
+                    </Box>
+                    </CardContent>
+                </Card>
+            ))}
+
+
+            {(filter !== 'Date') && permits.map((permit) => (
                 <Card sx={{width: '30rem', margin: '2rem', display: 'flex'}}
                     >
                 <CardActionArea onClick={() => navigate('')} 
-                    // disableRipple
+                    disableRipple
                 >
                    
                     <CardHeader sx={{ pb: '10px'}} />
@@ -323,6 +366,10 @@ return(
                 </CardActionArea>
                 </Card>
             ))}
+        </Box>
+
+        <Box>
+
         </Box>
     </Paper>
 
