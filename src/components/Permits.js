@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Box, Button, Card, CardActionArea, CardContent, CardHeader, 
-    Dialog, DialogContent, DialogTitle, FormControl, Grid, 
+    Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, 
     InputAdornment, InputLabel, List, ListItem, ListItemIcon, ListItemText, MenuItem, OutlinedInput, Paper, Select, TextField,
     Toolbar, Typography } from "@mui/material";
 import BB_bg from "../BB_bg.png"
@@ -17,6 +17,7 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useEffect, useState } from 'react';
 
 
@@ -104,15 +105,31 @@ export default function Permits() {
         activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
         expiresAt: ''
     }]
+
 const navigate = useNavigate()
 
 const [filter, setFilter] = useState('')
-
 const handleFilter = (e) => {
     setFilter(e.target.value)
     console.log('*** FILTER ***', e.target.value)
 }
 
+const [permitType, setPermitType] = useState('')
+
+const handlePermitType = (e) => {
+    setPermitType(e.target.value)
+}
+
+const [open, setOpen] = useState(false)
+const handleOnClickOpen = () => {
+    setOpen(true)
+}
+const handleClose = () => {
+    setOpen(false)
+}
+const handleStart = () => {
+
+}
 
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
@@ -237,7 +254,7 @@ return(
 
             </FormControl>
                 </Box>
-                }
+            }
             
             <FormControl required 
                 size='small'
@@ -267,13 +284,47 @@ return(
         <Box>
         <Button variant="contained" 
             sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', m: 1}}>MANAGE TEMPLATES</Button>
-        <Button onClick={() => navigate('/newpermit')} variant="contained" disableRipple
+        <Button onClick={handleOnClickOpen} variant="contained" disableRipple
             sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>NEW PERMIT</Button>
         </Box>
         </Box>
 
 
-                        {/* Dialog */}
+            {/* Pop out. 
+                User is taken to the permit template page of the 
+                type they select. */}
+
+        <Dialog keepMounted open={open} onClose={handleClose}
+            sx={{display: 'flex', flexDirection: 'column', width: '35rem', margin: 'auto'}}>
+        <DialogTitle>New Permit</DialogTitle>            
+        <DialogContent>Create temporary permits for suppliers and people assigned to this 
+            project.
+        </DialogContent>
+        <DialogActions sx={{mb: '0.5rem', display: 'flex', flexDirection: 'column'}}>
+            <FormControl size='small' sx={{width: '90%'}}>
+                <TextField 
+                    select
+                    value={permitType}
+                    label='Select a permit template'
+                    onChange={handlePermitType}
+                    size='small'
+                >
+                    <MenuItem value='Hot Works'>Hot Works</MenuItem>
+                    <MenuItem value='Electrical'>Electrical</MenuItem>
+                    <MenuItem value='Working at Height'>Working at Height</MenuItem>
+                </TextField>
+            </FormControl>
+            
+            <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
+                <Button variant="contained" onClick={handleClose}  disableElevation={true}
+                    sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
+                <Button variant="contained" onClick={() => navigate('/newpermit')}
+                    sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
+                        START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
+            </Box>
+
+        </DialogActions>
+    </Dialog>
 
 
         {/* List of permits */}

@@ -1,3 +1,4 @@
+import {Navigate, useNavigate} from 'react-router-dom'
 import Part1 from "./Part1";
 import Part2 from "./Part2";
 import { Box, Button, Typography, Toolbar, Link, Dialog, 
@@ -13,7 +14,7 @@ import PermitIntro from "./PermitIntro";
 import BB_bg from "../../BB_bg.png"
 import { useState } from "react";
 
-export default function NewPermit() {
+export default function NewHotWorksPermit() {
 
 // Handle saving of permit:
 const [open, setOpen] = useState(false)
@@ -28,11 +29,15 @@ const handleSavePermit = () => {
     console.log('Permit Saved')
 }
 
+const navigate = useNavigate()
+
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
 
-    <Toolbar sx={{backgroundImage: `url(${BB_bg})`}}>
-    <Button >
+    <Toolbar 
+    sx={{backgroundImage: `url(${BB_bg})`}}
+    >
+    <Button onClick={() => navigate('/permits')}>
         {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
     <Typography sx={{color: '#ffffff', fontSize: 20}}>New Permit</Typography>
     </Toolbar>
