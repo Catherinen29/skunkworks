@@ -296,7 +296,7 @@ return(
 
         <Dialog keepMounted open={open} onClose={handleClose}
             sx={{display: 'flex', flexDirection: 'column', width: '35rem', margin: 'auto'}}>
-        <DialogTitle>New Permit</DialogTitle>            
+        <DialogTitle variant='h5'>New Permit</DialogTitle>            
         <DialogContent>Create temporary permits for suppliers and people assigned to this 
             project.
         </DialogContent>
@@ -318,7 +318,7 @@ return(
             <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
                     sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
-                <Button variant="contained" onClick={() => navigate('/newpermit')}
+                <Button variant="contained" onClick={() => navigate('/hotworkstemplate')}
                     sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
                         START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
             </Box>

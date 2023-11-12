@@ -148,7 +148,12 @@ return(
                 value={operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
-                sx={{width: '25rem', mb: 2}}
+                sx={{width: '25rem',
+                '.MuiSelect-select': {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }, mb: 2}}
                 > 
                 {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>

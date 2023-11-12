@@ -75,10 +75,13 @@ return(
 
     <Dialog keepMounted open={open} onClose={handleClose}
             sx={{width: '35rem', margin: 'auto'}}>
-        <DialogTitle>Ready to create permit?</DialogTitle>            
-        <DialogContent>This will issue the permit in a pre-authorised state, 
-            assign a ticket to you in the Compliance Monitoring Dashboard, and 
-            send tack notifications to the people added to the permit.
+        <DialogTitle variant='h5'>Ready to create permit?</DialogTitle>            
+        <DialogContent>
+            <Typography>
+                This will issue the permit in a pre-authorised state, 
+                assign a ticket to you in the Compliance Monitoring Dashboard, and 
+                send tack notifications to the people added to the permit.
+            </Typography>
         </DialogContent>
         <DialogActions sx={{mb: '0.5rem'}}>
             <Button variant="contained" onClick={handleClose}
