@@ -3,6 +3,7 @@ import NewHotWorksPermit from "./components/newPermit/HotWorksPermitTemplate";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Permits from "./components/Permits";
+import HotWorksPermit from "./components/Permit/HotWorksPermit";
 
 function App() {
   
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/permits" element={<Permits />} />
           <Route path="/hotworkstemplate" element={<NewHotWorksPermit />} />
+          <Route path="/hotworkspermit" element={<HotWorksPermit />} />
         </Routes>
     </LocalizationProvider>
   </div>

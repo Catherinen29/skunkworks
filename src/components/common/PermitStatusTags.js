@@ -121,4 +121,39 @@ const AuthorisedStatusTag = () => {
     </>
   )
   }
-export { ActivePermitTag, EmergingIssuesStatusTag, CompletedStatusTag, AuthorisedStatusTag }
+
+const PreAuthStatusTag = () => {
+
+return (
+    <>
+    <Box
+    sx={{
+      width: '9rem',
+      height: '1.8rem',
+      bgcolor: 'rgba(255, 153, 69, 0.2)',
+      borderRadius: 50,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+    > 
+      <Typography
+        sx={{
+          color: '#e65100',
+          fontSize: 14,
+          alignSelf: 'center',
+          m: '0.5rem',
+        }}
+      >
+        Pre-authorisation
+      </Typography>
+  </Box>
+</>
+  )
+  }
+
+export { ActivePermitTag, 
+  EmergingIssuesStatusTag, 
+  CompletedStatusTag, 
+  AuthorisedStatusTag, 
+  PreAuthStatusTag }

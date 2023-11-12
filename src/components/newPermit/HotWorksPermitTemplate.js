@@ -1,10 +1,10 @@
-import {Navigate, useNavigate} from 'react-router-dom'
-import Part1 from "./Part1";
-import Part2 from "./Part2";
+import {useNavigate} from 'react-router-dom'
 import { Box, Button, Typography, Toolbar, Link, Dialog, 
     DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
+import Part1 from "./Part1";
+import Part2 from "./Part2";
 import Part3 from "./Part3";
 import Part4 from "./Part4";
 import Part5 from "./Part5";
@@ -15,6 +15,8 @@ import BB_bg from "../../BB_bg.png"
 import { useState } from "react";
 
 export default function NewHotWorksPermit() {
+
+const navigate = useNavigate()
 
 // Handle saving of permit:
 const [open, setOpen] = useState(false)
@@ -27,9 +29,8 @@ const handleClose = () => {
 // TODO:
 const handleSavePermit = () => {
     console.log('Permit Saved')
+    navigate('/hotworkspermit')
 }
-
-const navigate = useNavigate()
 
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>

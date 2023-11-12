@@ -10,7 +10,7 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
 import { ActivePermitTag, EmergingIssuesStatusTag,
-        CompletedStatusTag, AuthorisedStatusTag } from './PermitStatusTags';
+        CompletedStatusTag, AuthorisedStatusTag } from './common/PermitStatusTags'
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
