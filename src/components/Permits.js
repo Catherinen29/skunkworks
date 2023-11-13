@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { Box, Button, Card, CardContent, 
-    Dialog, DialogActions, DialogContent, DialogTitle, FormControl, 
-    InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, TextField,
+import { Alert, Box, Button, Card, CardContent, Collapse, Dialog, DialogActions, 
+    DialogContent, DialogTitle, FormControl, IconButton, 
+    InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, Snackbar, TextField,
     Typography } from "@mui/material";
 import BB_bg from "../BB_bg.png"
 import SearchIcon from '@mui/icons-material/Search';
@@ -137,6 +137,29 @@ const handleClose = () => {
 }
 const handleStart = () => {
 
+}
+
+const [showPermitCreatedMsg, setShowPermitCreatedMsg] = useState(true)
+const [showImmutableMsg, setShowImmutableMsg] = useState(true)
+
+const handleShowPermitSuccess = () => {
+    setShowPermitCreatedMsg(true)
+}
+const handleClosePermitSuccess = (event, reason) => {
+    if (reason === 'clickaway') {
+        return
+    }
+    setShowPermitCreatedMsg(false)
+}
+
+const handleShowImmutableMsg = () => {
+    setShowImmutableMsg(true)
+}
+const handleCloseImmutableMsg = (event, reason) => {
+    if (reason === 'clickaway') {
+        return
+    }
+    setShowImmutableMsg(false)
 }
 
 return(
@@ -373,8 +396,32 @@ return(
 
         <Box>
 
+        </Box>    
+        
+
+        <Box>
+        {/* <Button variant='outlined' onClick={handleShowPermitSuccess}>SHOW IT</Button> */}
+            <Snackbar open={showPermitCreatedMsg} autoHideDuration={6000} 
+                    onClose={handleClosePermitSuccess}>
+                <Alert onClose={handleClosePermitSuccess} severity='success'>
+                    Hot Works Permit #HW087327 is created and in pre-authorisation.
+                </Alert>
+            </Snackbar>    
         </Box>
+   
+
+        <Box>
+        {/* <Button variant='outlined' onClick={handleShowImmutableMsg}>SHOW IMMUTABLE MSG</Button> */}
+            <Snackbar open={showImmutableMsg} autoHideDuration={6000} 
+                    onClose={handleCloseImmutableMsg}>
+                <Alert onClose={handleCloseImmutableMsg} severity='info'>
+                Immutable record created.
+                </Alert>
+            </Snackbar>    
+        </Box>
+
     </Paper>
+
 
 </Box>
 )
