@@ -1,13 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { Box, Button, Card, CardActionArea, CardContent, CardHeader, 
-    Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, 
-    InputAdornment, InputLabel, List, ListItem, ListItemIcon, ListItemText, MenuItem, OutlinedInput, Paper, Select, TextField,
-    Toolbar, Typography } from "@mui/material";
+import { useNavigate } from 'react-router-dom'
+import { Box, Button, Card, CardContent, 
+    Dialog, DialogActions, DialogContent, DialogTitle, FormControl, 
+    InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, TextField,
+    Typography } from "@mui/material";
 import BB_bg from "../BB_bg.png"
-import Frank from '../frank.png'
-import WarningIcon from '@mui/icons-material/Warning';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
 import { ActivePermitTag, EmergingIssuesStatusTag,
         CompletedStatusTag, AuthorisedStatusTag } from './common/PermitStatusTags'
@@ -18,7 +14,9 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { useEffect, useState } from 'react';
+import PersonIcon from '@mui/icons-material/Person';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import { useState } from 'react';
 import PermitToolBar from './common/PermitToolBar';
 
 
@@ -45,6 +43,7 @@ export default function Permits() {
     const permits = [{
         type: 'Hot Works',
         supplier: 'Balfour Beatty',
+        supplierType: 'company',
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
@@ -52,6 +51,7 @@ export default function Permits() {
     }, {
         type: 'Hot Works',
         supplier: 'Dan Jones',
+        supplierType: 'person',
         createdBy: 'James Burden',
         status: 'Emerging issues',
         activatesAt: 'Activates: 19 Jan 24 at 09:00 GMT',
@@ -59,6 +59,7 @@ export default function Permits() {
     }, {
         type: 'Electrical',
         supplier: 'EEW Electrical Contractors',
+        supplierType: 'company',
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
@@ -66,6 +67,7 @@ export default function Permits() {
     }, {
         type: 'Electrical',
         supplier: 'Saqib Sabir',
+        supplierType: 'person',
         createdBy: 'James Burden',
         status: 'Completed',
         activatesAt: '',
@@ -73,6 +75,7 @@ export default function Permits() {
     }, {
         type: 'Working at Height',
         supplier: 'JT Scaffold',
+        supplierType: 'company',
         createdBy: 'James Burden',
         status: 'Authorised',
         activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
@@ -80,6 +83,7 @@ export default function Permits() {
     }, {
         type: 'Hot Works',
         supplier: 'Helen Flannigan',
+        supplierType: 'person',
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: 'Activates: 22 Jan at 09:00',
@@ -87,6 +91,7 @@ export default function Permits() {
     }, {
         type: 'Hot Works',
         supplier: 'Helen Flannigan',
+        supplierType: 'person',
         createdBy: 'James Burden',
         status: 'Authorised',
         activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
@@ -94,6 +99,7 @@ export default function Permits() {
     }, {
         type: 'Working at Height',
         supplier: 'JT Scaffold',
+        supplierType: 'company',
         createdBy: 'James Burden',
         status: 'Active',
         activatesAt: '',
@@ -101,6 +107,7 @@ export default function Permits() {
     }, {
         type: 'Hot Works',
         supplier: 'Miriam Bartonwell',
+        supplierType: 'person',
         createdBy: 'James Burden',
         status: 'Authorised',
         activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
@@ -138,81 +145,85 @@ return(
     <PermitToolBar />
 
     <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>
-        <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-        <Box>
-            <Typography sx={{fontSize: 20}}>Manage permits issued on this project</Typography>  
-                           
-            {/* Search permits */}
-            <Box sx={{display: 'flex'}}>
-            <FormControl variant='outlined' size='small'
-                sx={{width: '25rem', my: 2}}>
-                <OutlinedInput 
-                    startAdornment={
-                    <InputAdornment position='start'>
-                        <SearchIcon></SearchIcon>
-                    </InputAdornment>
-                    }
-                    label='Search permits'
-                />
-            </FormControl>
-            
-            {(filter === 'Date') && 
-                <Box>
+        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '80%'}}>
+            <Box>
+                <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
+                            
+                {/* Search permits */}
+                <Box sx={{display: 'flex'}}>
+                <FormControl variant='outlined' size='small'
+                    sx={{width: '30rem', my: 2}}>
+                    <TextField size='small'
+                    InputLabelProps={{ shrink: false, style: { marginLeft: 30 } }}
+                        InputProps= {{
+                            startAdornment: 
+                            <InputAdornment position='start'>
+                                    <SearchIcon />
+                            </InputAdornment>
+                            }}
+                        label='Search permits'
+                    />
+                </FormControl>
+                
+                {(filter === 'Date') && 
+                    <Box>
+                    <FormControl required 
+                    size='small'
+                    sx={{display: 'block',
+                    m: 2, justifyContent: 'center' }}>
+                    <TextField
+                        select
+                        label={
+                            <Box 
+                            sx={{display: 'flex', alignItems: 'center'}}>
+                            <DateRangeIcon sx={{mr: '1rem'}} />Today</ Box>}
+                        size='small'
+                        sx={{width: '10rem'}}
+                    >
+                            <MenuItem value='Date'>Date</MenuItem>
+                    </TextField>
+
+                    <Button onClick={() => setFilter('')}>
+                        <CloseIcon sx={{fontSize: 30, color: 'rgba(0, 0, 0, 0.54)'}} />
+                    </Button>
+
+                </FormControl>
+                    </Box>
+                }
+                
                 <FormControl required 
-                size='small'
-                sx={{display: 'block',
-                m: 2, justifyContent: 'center' }}>
-                <TextField
-                    select
-                    label={
-                        <Box 
-                        sx={{display: 'flex', alignItems: 'center'}}>
-                        <DateRangeIcon sx={{mr: '1rem'}} />Today</ Box>}
                     size='small'
-                    sx={{width: '10rem'}}
-                >
-                        <MenuItem value='Date'>Date</MenuItem>
-                </TextField>
-
-                <Button onClick={() => setFilter('')}>
-                    <CloseIcon sx={{fontSize: 30, color: 'rgba(0, 0, 0, 0.54)'}} />
-                </Button>
-
-            </FormControl>
+                    sx={{display: 'block',
+                    m: 2, justifyContent: 'center' }}>
+                    <TextField
+                        select
+                        value=''
+                        onChange={handleFilter}
+                        SelectProps={{ IconComponent: () => null }} 
+                        label={
+                            <Box 
+                            sx={{display: 'flex', alignItems: 'center'}}>
+                            <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
+                        size='small'
+                        sx={{width: '10rem'}}
+                    >
+                            <MenuItem value='Date'>Date</MenuItem>
+                            <MenuItem value='Type'>Type</MenuItem>
+                            <MenuItem value='Supplier'>Supplier</MenuItem>
+                            <MenuItem value='Created by'>Created by</MenuItem> 
+                    </TextField>
+                </FormControl>
                 </Box>
-            }
-            
-            <FormControl required 
-                size='small'
-                sx={{display: 'block',
-                m: 2, justifyContent: 'center' }}>
-                <TextField
-                    select
-                    value=''
-                    onChange={handleFilter}
-                    SelectProps={{ IconComponent: () => null }} 
-                    label={
-                        <Box 
-                        sx={{display: 'flex', alignItems: 'center'}}>
-                        <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
-                    size='small'
-                    sx={{width: '10rem'}}
-                >
-                        <MenuItem value='Date'>Date</MenuItem>
-                        <MenuItem value='Type'>Type</MenuItem>
-                        <MenuItem value='Supplier'>Supplier</MenuItem>
-                        <MenuItem value='Created by'>Created by</MenuItem> 
-                </TextField>
-            </FormControl>
             </Box>
-        </Box>
 
-        <Box>
-        <Button variant="contained" 
-            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', m: 1}}>MANAGE TEMPLATES</Button>
-        <Button onClick={handleOnClickOpen} variant="contained" disableRipple
-            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>NEW PERMIT</Button>
-        </Box>
+            <Box sx={{display: 'flex', flexDirection: 'row', mr: '2rem'}}>
+            <Button variant="contained" 
+                sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
+                    MANAGE TEMPLATES</Button>
+            <Button onClick={handleOnClickOpen} variant="contained" disableRipple
+                sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
+                    NEW PERMIT +</Button>
+            </Box>
         </Box>
 
 
@@ -254,16 +265,24 @@ return(
 
 
         {/* List of permits */}
-        <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
+        <Box sx={{display: 'flex', flexWrap: 'wrap', width: '80%'}}>
 
             {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
-                <Card sx={{width: '30rem', margin: '2rem', display: 'flex'}}
-                    >
-                    <CardContent>
-                        <List sx={{pt: 0}}>
+                <Card sx={{width: '25rem', m: '2rem', ml: 0, display: 'flex'}}>
+                <CardContent sx={{p: 0}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '8rem', height: '8rem', 
+                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                            bgcolor: '#04535f', color: 'white'}}>
+                            {permit.supplierType === 'company' 
+                                ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
+                                : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
+                        </Box>
+                        
+                        <List sx={{pt: 1}}>
                             <ListItem>
                                 <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
-                                    {permit.type === 'Hot works' && <WhatshotIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Hot Works' && <WhatshotIcon style={{fill: '#04535f'}} />}
                                     {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
                                     {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
                                 </ListItemIcon>
@@ -277,17 +296,20 @@ return(
                             <ListItem>
                                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
                             </ListItem>
-                        </List>
+                        </List>                            
+                    </Box>
                     
                         
-                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', p: '1rem', 
-                            width: '100%', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+                    <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+                            alignItems: 'center', flexDirection: 'row', pt: '1rem', pb: 0,
+                            borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
                         {permit.status === 'Active' && <ActivePermitTag />}
                         {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                         {permit.status === 'Completed' && <CompletedStatusTag />}
                         {permit.status === 'Authorised' && <AuthorisedStatusTag />}
 
-                        <Box sx={{mx: '1rem'}}>
+                        <Box sx={{mx: '1rem', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+                            display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
                             {permit.expiresAt.length > 0 && permit.expiresAt}
                             {permit.activatesAt.length > 0 && permit.activatesAt}
                         </Box>
@@ -298,37 +320,42 @@ return(
 
 
             {(filter !== 'Date') && permits.map((permit) => (
-                <Card sx={{width: '30rem', margin: '2rem', display: 'flex'}}
-                    >
-                <CardActionArea onClick={() => navigate('')} 
-                    disableRipple
-                >
-                   
-                    <CardHeader sx={{ pb: '10px'}} />
-                    
-                    <CardContent>
-                        <List sx={{pt: 0}}>
-                            <ListItem>
-                                <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
-                                    {permit.type === 'Hot works' && <WhatshotIcon style={{fill: '#04535f'}} />}
-                                    {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
-                                    {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
-                                </ListItemIcon>
-                                <Typography sx={{color: '#04535f', fontSize: 12}}>{permit.type}</Typography>
-                            </ListItem>
+                <Card sx={{width: '25rem', m: '2rem', ml: 0, display: 'flex'}}>
+                    <CardContent sx={{p: 0}}>
+                        <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                            <Box sx={{width: '8rem', height: '8rem', 
+                            display: 'flex', justifyContent: 'center', alignItems: 'center',
+                                bgcolor: '#04535f', color: 'white'}}>
+                                {permit.supplierType === 'company' 
+                                    ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
+                                    : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
+                            </Box>
+                            
+                            <List sx={{pt: 1}}>
+                                <ListItem>
+                                    <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
+                                        {permit.type === 'Hot Works' && <WhatshotIcon style={{fill: '#04535f'}} />}
+                                        {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
+                                        {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
+                                    </ListItemIcon>
+                                    <Typography sx={{color: '#04535f', fontSize: 12}}>{permit.type}</Typography>
+                                </ListItem>
 
-                            <ListItem>
-                                <Typography>{permit.supplier}</Typography>
-                            </ListItem>
+                                <ListItem>
+                                    <Typography>{permit.supplier}</Typography>
+                                </ListItem>
 
-                            <ListItem>
-                                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
-                            </ListItem>
-                        </List>
+                                <ListItem>
+                                    <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
+                                </ListItem>
+                            </List>                            
+                        </Box>
+  
                     
                         
-                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', p: '1rem', 
-                            width: '100%', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+                    <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+                            alignItems: 'center', flexDirection: 'row',  pl: '1rem', pt: '1rem', pb: 0,
+                            borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
                         {permit.status === 'Active' && <ActivePermitTag />}
                         {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                         {permit.status === 'Completed' && <CompletedStatusTag />}
@@ -340,7 +367,6 @@ return(
                         </Box>
                     </Box>
                     </CardContent>
-                </CardActionArea>
                 </Card>
             ))}
         </Box>
