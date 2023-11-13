@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Alert, Box, Button, Card, CardContent, Collapse, Dialog, DialogActions, 
+import { Alert, Box, Button, Card, CardActionArea, CardContent, Collapse, Dialog, DialogActions, 
     DialogContent, DialogTitle, FormControl, IconButton, 
     InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, Snackbar, TextField,
     Typography } from "@mui/material";
@@ -291,7 +291,7 @@ return(
         <Box sx={{display: 'flex', flexWrap: 'wrap', width: '80%'}}>
 
             {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
-                <Card sx={{width: '25rem', m: '2rem', ml: 0, display: 'flex'}}>
+                <Card sx={{width: '20rem', m: '2rem', ml: 0, display: 'flex'}}>
                 <CardContent sx={{p: 0}}>
                     <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '8rem', height: '8rem', 
@@ -343,8 +343,9 @@ return(
 
 
             {(filter !== 'Date') && permits.map((permit) => (
-                <Card sx={{width: '25rem', m: '2rem', ml: 0, display: 'flex'}}>
-                    <CardContent sx={{p: 0}}>
+                <Card sx={{width: '23rem', m: '2rem', ml: 0, display: 'flex'}}>
+                    <CardContent sx={{p: 0, width: '100%'}}>
+                    <CardActionArea onClick={() => navigate('/hotworkspermit')}>
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -372,23 +373,23 @@ return(
                                     <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
                                 </ListItem>
                             </List>                            
-                        </Box>
-  
-                    
-                        
-                    <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
-                            alignItems: 'center', flexDirection: 'row',  pl: '1rem', pt: '1rem', pb: 0,
-                            borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
-                        {permit.status === 'Active' && <ActivePermitTag />}
-                        {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
-                        {permit.status === 'Completed' && <CompletedStatusTag />}
-                        {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+                        </Box> 
 
-                        <Box sx={{mx: '1rem'}}>
-                            {permit.expiresAt.length > 0 && permit.expiresAt}
-                            {permit.activatesAt.length > 0 && permit.activatesAt}
-                        </Box>
-                    </Box>
+                        <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+                                alignItems: 'center', flexDirection: 'row',  pl: '0.5rem', pt: '1rem', pb: 0,
+                                borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+                            {permit.status === 'Active' && <ActivePermitTag />}
+                            {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
+                            {permit.status === 'Completed' && <CompletedStatusTag />}
+                            {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+
+                            <Box sx={{mx: '1rem'}}>
+                                {permit.expiresAt.length > 0 && permit.expiresAt}
+                                {permit.activatesAt.length > 0 && permit.activatesAt}
+                            </Box>
+                        </Box>        
+
+                    </CardActionArea>
                     </CardContent>
                 </Card>
             ))}
@@ -401,20 +402,21 @@ return(
 
         <Box>
         {/* <Button variant='outlined' onClick={handleShowPermitSuccess}>SHOW IT</Button> */}
-            <Snackbar open={showPermitCreatedMsg} autoHideDuration={6000} 
+            <Snackbar open={showPermitCreatedMsg} autoHideDuration={6000} elevation={3}
                     onClose={handleClosePermitSuccess}>
-                <Alert onClose={handleClosePermitSuccess} severity='success'>
+                <Alert onClose={handleClosePermitSuccess} severity='success'  
+                    sx={{width: '30rem', mb: '4rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
                     Hot Works Permit #HW087327 is created and in pre-authorisation.
                 </Alert>
             </Snackbar>    
         </Box>
-   
 
         <Box>
         {/* <Button variant='outlined' onClick={handleShowImmutableMsg}>SHOW IMMUTABLE MSG</Button> */}
             <Snackbar open={showImmutableMsg} autoHideDuration={6000} 
                     onClose={handleCloseImmutableMsg}>
-                <Alert onClose={handleCloseImmutableMsg} severity='info'>
+                <Alert onClose={handleCloseImmutableMsg} severity='info'
+                    sx={{width: '30rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
                 Immutable record created.
                 </Alert>
             </Snackbar>    
