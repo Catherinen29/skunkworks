@@ -1,11 +1,9 @@
-import { Box, Button, Card, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import { Verified } from "@mui/icons-material";
-import VerifiedTag from "../common/VerifiedTag";
 import Frank from '../../frank.png'
 
 export default function PermitDetails() {
@@ -27,13 +25,13 @@ return (
 
             </Box>
 
-            <Typography variant="h5">Details</Typography>
+            <Typography variant="h5" sx={{fontWeight: 500}}>Details</Typography>
 
             
         </Box>
 
         {/* Overview */}
-        <Box sx={{mx: '2rem'}}>
+        <Box sx={{mx: '2rem', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
             <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Overview</Typography>
 
             <Box sx={{my: '1rem'}}>
@@ -57,7 +55,7 @@ return (
             </Box>
             
             <Box sx={{my: '1rem'}}>
-                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Permit actions</Typography>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, mb: '0.2rem'}}>Permit actions</Typography>
                 <Button variant='outlined' sx={{borderColor: '#00a4a9', color: '#00a4a9'}}>MANAGE <EditIcon /></Button>
             </Box>
         </Box>
@@ -76,7 +74,7 @@ return (
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Balfour Beatty</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14}}>Balfour Beatty</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
                         <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,

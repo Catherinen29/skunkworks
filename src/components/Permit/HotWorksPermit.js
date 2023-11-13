@@ -26,7 +26,7 @@ return (
     <Button 
     onClick={() => navigate('/permits')}
     variant="contained" disableElevation={true}
-    sx={{bgcolor:  'white', color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
+    sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
     >
     <ArrowBackIosNewIcon fontSize='8' sx={{mr: '1rem'}} />
     <Typography>BACK TO PERMITS</Typography>
@@ -44,7 +44,7 @@ return (
                 }}><WhatshotIcon /></Box>  
 
             <Box sx={{m: '1rem'}}>
-                <Typography variant='h6'>Hot Works Permit</Typography>
+                <Typography variant='h5'  sx={{fontWeight: 500}}>Hot Works Permit</Typography>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>Section 5, Hospital Block A</Typography>
             </Box>
         </Box>
@@ -103,9 +103,7 @@ return (
     <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
         <Typography>Task list</Typography>
         <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'
-            // pt: '2rem', pl: '2rem'
-            }}>
+            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
                 Pre-authorisation tasks - 0 completed</Typography> 
             {/* DROP DOWN */}
 
@@ -120,7 +118,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Operator Signature</Typography>
+                        <Typography>Operator Signature</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                             Assigned to Jan Goldsmith</Typography>
                     </Box>
@@ -142,7 +140,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Supervisor Signature</Typography>
+                        <Typography>Supervisor Signature</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
@@ -164,7 +162,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Issuer Signature</Typography>
+                        <Typography>Issuer Signature</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
@@ -186,7 +184,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Risk Assessment</Typography>
+                        <Typography>Risk Assessment</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
@@ -207,7 +205,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Precaution Checklist</Typography>
+                        <Typography>Precaution Checklist</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Jan Goldstein</Typography>
                     </Box>
@@ -229,7 +227,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Authorise Hot Works</Typography>
+                        <Typography>Authorise Hot Works</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
@@ -257,7 +255,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Operator Sign-off</Typography>
+                        <Typography>Operator Sign-off</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Jan Goldstein</Typography>
                     </Box>
@@ -278,7 +276,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Fire Safety Sign-off</Typography>
+                        <Typography>Fire Safety Sign-off</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
@@ -300,7 +298,7 @@ return (
                         }}><TaskAltIcon /></Box>
 
                     <Box sx={{my: '0.5rem'}}>
-                        <Typography fontSize={20}>Issuer Sign-off</Typography>
+                        <Typography>Issuer Sign-off</Typography>
                         <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
                         Assigned to Francis Golder (Me)</Typography>
                     </Box>
