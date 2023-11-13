@@ -7,6 +7,7 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import TodoTag from "../common/TodoTag";
+import PermitDetails from "./PermitDetails";
 
 export default function HotWorksPermit() {
 
@@ -14,16 +15,18 @@ const navigate = useNavigate()
 
 return (
     
-<Box>
+<Box sx={{width: '100%'}}> 
 
 {/* Toolbar */}
 <PermitToolBar />
 
-<Paper sx={{bgcolor: '#f1f3f3', pb: '3rem'}}>
+<Box sx={{bgcolor: '#f1f3f3', display: 'flex'}}>
+    
+<Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 
     onClick={() => navigate('/permits')}
     variant="contained" disableElevation={true}
-    sx={{bgcolor:  'white', color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: '1rem'}}
+    sx={{bgcolor:  'white', color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
     >
     <ArrowBackIosNewIcon fontSize='8' sx={{mr: '1rem'}} />
     <Typography>BACK TO PERMITS</Typography>
@@ -32,11 +35,11 @@ return (
 
     {/* Title box */}
     <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', 
-        alignItems: 'center', ml: '1rem', width: '75%'}}>
+        alignItems: 'center', m: '2rem'}}>
         
         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
             <Box sx={{width: '7rem', height: '7rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', m: '1rem',
+                bgcolor: '#04535f', color: 'white',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}><WhatshotIcon /></Box>  
 
@@ -52,8 +55,8 @@ return (
         {/* Permit overview */}
     <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
         <Typography>Details</Typography>
-        <Card sx={{width: '80%', p: 0, my: '1rem', bgcolor: 'white'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', 
+        <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
+            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', m: '1rem',
             pt: '1rem', pl: '1rem'}}>
                 Overview</Typography> 
             {/* DROP DOWN */}
@@ -64,7 +67,7 @@ return (
             }}
         >
             <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', m: '1rem',
+                bgcolor: '#04535f', color: 'white', m: '1rem', mx: '2rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}><WhatshotIcon /></Box>
             <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>
@@ -75,7 +78,7 @@ return (
                 bgcolor: "#f1f3f3"}
             }}>
             <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', m: '1rem',
+                bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}><NewspaperIcon /></Box>
             <Typography sx={{my: '1rem'}}>Permit Details</Typography>
@@ -86,7 +89,7 @@ return (
                 bgcolor: "#f1f3f3"}
             }}>
             <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', m: '1rem',
+                bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}></Box>
             <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
@@ -95,10 +98,11 @@ return (
         </Card>
     </Box>
 
+
         {/* Task list */}
     <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
         <Typography>Task list</Typography>
-        <Card sx={{width: '80%', p: 0, my: '1rem', bgcolor: 'white'}}>
+        <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
             <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'
             // pt: '2rem', pl: '2rem'
             }}>
@@ -285,6 +289,7 @@ return (
             </Box>
 
             <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+             mb: '1rem',
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
@@ -308,12 +313,16 @@ return (
         </Card>
     </Box>
 
-        {/* Permit details */}
-    <Box>
+</Box>
 
-    </Box>
-
+<Paper sx={{width: '40%'}}>
+    {/* Permit details */}
+    <PermitDetails />    
 </Paper>
+    
+
+
+</Box>
 
 </Box>
 )
