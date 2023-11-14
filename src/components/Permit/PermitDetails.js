@@ -6,7 +6,11 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import Frank from '../../frank.png'
 
-export default function PermitDetails() {
+export default function PermitDetails({setOpenPermitDetails}) {
+
+const handleShowPermitDetails = () => {
+    setOpenPermitDetails(false)
+}
 
 return (
 
@@ -21,8 +25,10 @@ return (
                     <Typography sx={{color: '#04535f', pl: '1rem'}}>PERMIT</Typography>    
                 </Box>
                 
-                <CloseIcon />
-
+                <Button onClick={handleShowPermitDetails} sx={{color: 'rgba(0, 0, 0, 0.6)'}}>
+                    <CloseIcon />
+                </Button>
+                
             </Box>
 
             <Typography variant="h5" sx={{fontWeight: 500}}>Details</Typography>
