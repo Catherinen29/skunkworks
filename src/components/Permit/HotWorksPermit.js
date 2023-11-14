@@ -1,6 +1,7 @@
-import { Box, Button, Card, Paper, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, Drawer, Paper, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 import PermitToolBar from "../common/PermitToolBar";
 import { PreAuthStatusTag } from "../common/PermitStatusTags";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
@@ -8,10 +9,21 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import TodoTag from "../common/TodoTag";
 import PermitDetails from "./PermitDetails";
+import SideBar from "../common/SideBar";
 
 export default function HotWorksPermit() {
 
 const navigate = useNavigate()
+
+// Manage permit details sidebar.
+const [openPermitDetails, setOpenPermitDetails] = useState(true)
+
+const handleOpenPermitDetails = () => {
+    setOpenPermitDetails(true)
+}
+const handleClosePermitDetails = () => {
+    setOpenPermitDetails(false)
+}
 
 return (
     
@@ -19,6 +31,8 @@ return (
 
 {/* Toolbar */}
 <PermitToolBar />
+
+{/* <SideBar /> */}
 
 <Box sx={{bgcolor: '#f1f3f3', display: 'flex'}}>
     
@@ -61,7 +75,7 @@ return (
                 Overview</Typography> 
             {/* DROP DOWN */}
 
-        <Box sx={{display: 'flex', flexDirection: 'row', 
+        <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
             "&:hover": {
                 bgcolor: "#f1f3f3"}
             }}
@@ -71,20 +85,24 @@ return (
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}><WhatshotIcon /></Box>
             <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>
-        </Box>
+        </Card>
 
-        <Box sx={{display: 'flex', flexDirection: 'row', 
+        <Card elevation={0} sx={{
             "&:hover": {
                 bgcolor: "#f1f3f3"}
             }}>
-            <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}><NewspaperIcon /></Box>
-            <Typography sx={{my: '1rem'}}>Permit Details</Typography>
-        </Box>
+            <CardActionArea onClick={() => setOpenPermitDetails(true)}
+                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                    bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}><NewspaperIcon /></Box>
+                <Typography sx={{my: '1rem'}}>Permit Details</Typography>
+            </CardActionArea>
+            
+        </Card>
         
-        <Box sx={{display: 'flex', flexDirection: 'row', 
+        <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
             "&:hover": {
                 bgcolor: "#f1f3f3"}
             }}>
@@ -93,7 +111,7 @@ return (
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}></Box>
             <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
-        </Box>
+        </Card>
 
         </Card>
     </Box>
@@ -313,13 +331,14 @@ return (
 
 </Box>
 
-<Paper sx={{width: '40%'}}>
-    {/* Permit details */}
-    <PermitDetails />    
-</Paper>
+{openPermitDetails && 
+    <Paper sx={{width: '40%'}}>
+        {/* Permit details */}
+        <PermitDetails setOpenPermitDetails={setOpenPermitDetails} />    
+    </Paper>
+}
+
     
-
-
 </Box>
 
 </Box>
