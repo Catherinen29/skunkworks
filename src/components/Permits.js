@@ -3,6 +3,7 @@ import { Alert, Box, Button, Card, CardActionArea, CardContent, Collapse, Dialog
     DialogContent, DialogTitle, FormControl, IconButton, 
     InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, Snackbar, TextField,
     Typography } from "@mui/material";
+import Divider from '@mui/material/Divider';
 import BB_bg from "../BB_bg.png"
 import SearchIcon from '@mui/icons-material/Search';
 import { ActivePermitTag, EmergingIssuesStatusTag,
@@ -139,6 +140,8 @@ const handleStart = () => {
 
 }
 
+
+
 const [showPermitCreatedMsg, setShowPermitCreatedMsg] = useState(true)
 const [showImmutableMsg, setShowImmutableMsg] = useState(true)
 
@@ -167,11 +170,23 @@ return(
 
     <PermitToolBar />
 
-    <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>
-        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '80%'}}>
+    <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3'}}>
+        <Box>
             <Box>
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
-                            
+                
+                <Box sx={{display: 'flex', flexDirection: 'row', height: '3rem'}}>
+                    <Button variant="contained" 
+                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
+                            MANAGE TEMPLATES</Button>
+                    <Button onClick={handleOnClickOpen} variant="contained" disableRipple
+                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
+                            NEW PERMIT +</Button>
+                </Box>    
+                </Box>
+                
+
                 {/* Search permits */}
                 <Box sx={{display: 'flex'}}>
                 <FormControl variant='outlined' size='small'
@@ -239,14 +254,7 @@ return(
                 </Box>
             </Box>
 
-            <Box sx={{display: 'flex', flexDirection: 'row', mr: '2rem'}}>
-            <Button variant="contained" 
-                sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
-                    MANAGE TEMPLATES</Button>
-            <Button onClick={handleOnClickOpen} variant="contained" disableRipple
-                sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
-                    NEW PERMIT +</Button>
-            </Box>
+
         </Box>
 
 
@@ -288,12 +296,13 @@ return(
 
 
         {/* List of permits */}
-        <Box sx={{display: 'flex', flexWrap: 'wrap', width: '80%'}}>
+        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', mt: '1rem'}}>
 
             {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
-                <Card sx={{width: '20rem', m: '2rem', ml: 0, display: 'flex'}}>
-                <CardContent sx={{p: 0}}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                <Card sx={{width: '23rem', display: 'flex'}}>
+                    <CardContent sx={{p: 0, width: '100%'}}>
+                    <CardActionArea onClick={() => navigate('/hotworkspermit')}>
+                        <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '8rem', height: '8rem', 
                         display: 'flex', justifyContent: 'center', alignItems: 'center',
                             bgcolor: '#04535f', color: 'white'}}>
@@ -322,7 +331,8 @@ return(
                         </List>                            
                     </Box>
                     
-                        
+                    <Divider />                        
+                    
                     <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
                             alignItems: 'center', flexDirection: 'row', pt: '1rem', pb: 0,
                             borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
@@ -337,13 +347,14 @@ return(
                             {permit.activatesAt.length > 0 && permit.activatesAt}
                         </Box>
                     </Box>
+                    </CardActionArea>
                     </CardContent>
                 </Card>
             ))}
 
 
             {(filter !== 'Date') && permits.map((permit) => (
-                <Card sx={{width: '23rem', m: '2rem', ml: 0, display: 'flex'}}>
+                <Card sx={{width: '23rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
                     <CardActionArea onClick={() => navigate('/hotworkspermit')}>
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
@@ -375,9 +386,11 @@ return(
                             </List>                            
                         </Box> 
 
+                        <Divider />
+
                         <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
-                                alignItems: 'center', flexDirection: 'row',  pl: '0.5rem', pt: '1rem', pb: 0,
-                                borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+                                alignItems: 'center', flexDirection: 'row',  pl: '1rem', pt: '1rem', pb: 0,
+                                }}>
                             {permit.status === 'Active' && <ActivePermitTag />}
                             {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                             {permit.status === 'Completed' && <CompletedStatusTag />}
@@ -421,6 +434,7 @@ return(
                 </Alert>
             </Snackbar>    
         </Box>
+
 
     </Paper>
 

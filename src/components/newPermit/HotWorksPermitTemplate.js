@@ -29,7 +29,7 @@ const handleClose = () => {
 // TODO:
 const handleSavePermit = () => {
     console.log('Permit Saved')
-    navigate('/hotworkspermit')
+    navigate('/permits')
 }
 
 return(
