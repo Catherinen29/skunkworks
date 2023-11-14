@@ -11,14 +11,20 @@ import TodoTag from "../common/TodoTag";
 import PermitDetails from "./PermitDetails";
 import SideBar from "../common/SideBar";
 import AuthHotWorks from "./AuthHotWorks";
+import PermitView from "./PermitView";
 
-export default function HotWorksPermit() {
+export default function HWPermitOverview() {
 
 const navigate = useNavigate()
 
+// Manage Permit Overview
+const [openPermitView, setOpenPermitView] = useState(false)
+const handleOpenPermitView = () => {
+    setOpenPermitView(true)
+}
+
 // Manage permit details sidebar.
 const [openPermitDetails, setOpenPermitDetails] = useState(true)
-
 const handleOpenPermitDetails = () => {
     setOpenPermitDetails(true)
 }
@@ -367,7 +373,13 @@ return (
             <AuthHotWorks setOpenAuthHotWorks={setOpenAuthHotWorks} setShowAuthMsg={setShowAuthMsg} />
         </Paper>
     }
+
+    {/* Hot Works Permit */}
+    <Paper sx={{width: '40%'}}>
+        <PermitView setOpenPermitView={setOpenPermitView} />
+    </Paper>
 </Box>
+
 
 
 
