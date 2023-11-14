@@ -21,12 +21,15 @@ const navigate = useNavigate()
 const [openPermitView, setOpenPermitView] = useState(false)
 const handleOpenPermitView = () => {
     setOpenPermitView(true)
+    setOpenPermitDetails(false)
+    setOpenAuthHotWorks(false)
 }
 
 // Manage permit details sidebar.
 const [openPermitDetails, setOpenPermitDetails] = useState(true)
 const handleOpenPermitDetails = () => {
     setOpenPermitDetails(true)
+    setOpenPermitView(false)
 }
 const handleClosePermitDetails = () => {
     setOpenPermitDetails(false)
@@ -37,6 +40,7 @@ const [openAuthHotWorks, setOpenAuthHotWorks] = useState(false)
 const handleOpenAuthHotWorks = () => {
     setOpenAuthHotWorks(true)
     setOpenPermitDetails(false)
+    setOpenPermitView(false)
 }
 const handleCloseAuthHotWorks = () => {
     setOpenAuthHotWorks(false)
@@ -104,20 +108,23 @@ return (
         <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
             "&:hover": {
                 bgcolor: "#f1f3f3"}
-            }}
-        >
-            <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', m: '1rem', mx: '2rem',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}><WhatshotIcon /></Box>
-            <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>
+            }}>
+            <CardActionArea onClick={handleOpenPermitView}
+                sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>  
+                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                    bgcolor: '#04535f', color: 'white', m: '1rem', mx: '2rem',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}><WhatshotIcon /></Box>
+                <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>                
+            </CardActionArea>
+
         </Card>
 
         <Card elevation={0} sx={{
             "&:hover": {
                 bgcolor: "#f1f3f3"}
             }}>
-            <CardActionArea onClick={() => setOpenPermitDetails(true)}
+            <CardActionArea onClick={handleOpenPermitDetails}
                     sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
                     bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
@@ -125,7 +132,6 @@ return (
                     }}><NewspaperIcon /></Box>
                 <Typography sx={{my: '1rem'}}>Permit Details</Typography>
             </CardActionArea>
-            
         </Card>
         
         <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
@@ -375,9 +381,12 @@ return (
     }
 
     {/* Hot Works Permit */}
-    <Paper sx={{width: '40%'}}>
-        <PermitView setOpenPermitView={setOpenPermitView} />
-    </Paper>
+    {openPermitView &&
+        <Paper sx={{width: '40%'}}>
+            <PermitView setOpenPermitView={setOpenPermitView} />
+        </Paper>
+    }
+    
 </Box>
 
 
