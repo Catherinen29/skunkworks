@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, Drawer, Paper, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Drawer, Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -10,6 +10,7 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import TodoTag from "../common/TodoTag";
 import PermitDetails from "./PermitDetails";
 import SideBar from "../common/SideBar";
+import AuthHotWorks from "./AuthHotWorks";
 
 export default function HotWorksPermit() {
 
@@ -23,6 +24,25 @@ const handleOpenPermitDetails = () => {
 }
 const handleClosePermitDetails = () => {
     setOpenPermitDetails(false)
+}
+
+// Manage Authorise Permit Details
+const [openAuthHotWorks, setOpenAuthHotWorks] = useState(false)
+const handleOpenAuthHotWorks = () => {
+    setOpenAuthHotWorks(true)
+    setOpenPermitDetails(false)
+}
+const handleCloseAuthHotWorks = () => {
+    setOpenAuthHotWorks(false)
+}
+
+
+const [showAuthMsg, setShowAuthMsg] = useState(false)
+const handleShowPermitAuthorisedMsg = () => {
+    setShowAuthMsg(true)
+}
+const handleClosePermitAuthorisedMsg = (event, reason) => {   
+    setShowAuthMsg(false) 
 }
 
 return (
@@ -234,10 +254,12 @@ return (
             </Box>
 
 
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+            <Card elevation={0} sx={{px: '1rem', 
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
-                }}>
+                }}>            
+                <CardActionArea onClick={handleOpenAuthHotWorks}
+                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
                         bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
@@ -253,7 +275,8 @@ return (
                 
                 <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
                     <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
+                </CardActionArea>
+            </Card>
 
 
 
@@ -331,16 +354,34 @@ return (
 
 </Box>
 
-{openPermitDetails && 
-    <Paper sx={{width: '40%'}}>
-        {/* Permit details */}
-        <PermitDetails setOpenPermitDetails={setOpenPermitDetails} />    
-    </Paper>
-}
+    {/* Permit details */}
+    {openPermitDetails && 
+        <Paper sx={{width: '40%'}}>
+            <PermitDetails setOpenPermitDetails={setOpenPermitDetails} />    
+        </Paper>
+    }
 
-    
+    {/* Permit Authorisation */}
+    {openAuthHotWorks && 
+        <Paper sx={{width: '40%'}}>
+            <AuthHotWorks setOpenAuthHotWorks={setOpenAuthHotWorks} setShowAuthMsg={setShowAuthMsg} />
+        </Paper>
+    }
 </Box>
 
+
+
+    <Box>
+        <Snackbar open={showAuthMsg} autoHideDuration={6000} onClose={handleClosePermitAuthorisedMsg}>
+            <Alert onClose={handleClosePermitAuthorisedMsg} severity='success'
+                sx={{width: '30rem', mb: '4rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
+                Hot Works Permit #HW087327 authorisation completed. 
+                Permit has been digitally issued in the mobile app to all 
+                people assigned to the permit.
+            </Alert>
+        </Snackbar>
+    </Box>
+    
 </Box>
 )
 }
