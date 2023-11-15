@@ -406,6 +406,14 @@ return (
                 people assigned to the permit.
             </Alert>
         </Snackbar>
+
+        <Snackbar open={showAuthMsg} autoHideDuration={6000} onClose={handleClosePermitAuthorisedMsg}>
+            <Alert onClose={handleClosePermitAuthorisedMsg} severity='info'
+                sx={{width: '30rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
+                Immutable record created
+            </Alert>
+        </Snackbar>
+        
     </Box>
     
 </Box>
