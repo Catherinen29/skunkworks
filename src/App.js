@@ -6,6 +6,7 @@ import Permits from "./components/Permits";
 import HWPermitOverview from "./components/Permit/HWPermitOverview";
 import SignPermit from "./components/mobView.js/SignPermit";
 import CompletedPermit from "./components/mobView.js/CompletedPermit";
+import ProjectPermits from "./components/mobView.js/ProjectPermits";
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
           <Route path="/hwpermitoverview" element={<HWPermitOverview />} />
           <Route path="/signpermit" element={<SignPermit />} />
           <Route path="/completedpermit" element={<CompletedPermit />} />
+          <Route path="/projectpermits" element={<ProjectPermits />} />
         </Routes>
     </LocalizationProvider>
   </div>
