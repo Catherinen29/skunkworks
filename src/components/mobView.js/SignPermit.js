@@ -155,7 +155,7 @@ return (
         <Card disableElevation
             sx={{display: 'flex', flexDirection:'column', width: '100%', 
             alignItems: 'center', pt: '2rem', pb: '2rem'}}>
-            <Button variant='contained' disabled={signed === false} 
+            <Button variant='contained' disabled={signed === false} onClick={() => navigate('/completedpermit')}
                 sx={{bgcolor:'#00a4a9', width: '90%'}}>COMPLETE <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
         </Card> 
 </Card>
