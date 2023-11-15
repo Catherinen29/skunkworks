@@ -45,7 +45,7 @@ return (
                     sx={{color: 'rgba(0, 0, 0, 0.6)', fontWeight: 500}}>
                     Active
                 </Typography>
-                <Typography>
+                <Typography sx={{my: '1rem'}}>
                     No currently active permits
                 </Typography>
             </Box>

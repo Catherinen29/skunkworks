@@ -44,7 +44,8 @@ return (
                 </Button>    
             
                 <Button sx={{color: 'white'}}>
-                    <Badge badgeContent={1} color="error">
+                    <Badge badgeContent={1} style={{fontSize: 20}}
+                        color="error" overlap="circular">
                         <NotificationsIcon sx={{height: '3rem', width: '3rem'}} />
                     </Badge>
                 </Button>
