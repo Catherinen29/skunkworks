@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Permits from "./components/Permits";
 import HWPermitOverview from "./components/Permit/HWPermitOverview";
 import SignPermit from "./components/mobView.js/SignPermit";
+import CompeltedPermit from "./components/mobView.js/CompletedPermit";
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
           <Route path="/hotworkstemplate" element={<NewHotWorksPermit />} />
           <Route path="/hwpermitoverview" element={<HWPermitOverview />} />
           <Route path="/signpermit" element={<SignPermit />} />
+          <Route path="/completedpermit" element={<CompletedPermit />} />
         </Routes>
     </LocalizationProvider>
   </div>
