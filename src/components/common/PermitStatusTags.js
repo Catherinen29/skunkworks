@@ -19,7 +19,7 @@ return (
           <Typography
             sx={{
               color: 'white',
-              fontSize: 14,
+              fontSize: 13,
               alignSelf: 'center',
               m: '0.5rem',
             }}
@@ -38,7 +38,7 @@ return (
   <>
         <Box
         sx={{
-          width: '10rem',
+          width: '8rem',
           height: '1.8rem',
           bgcolor: '#ed6c02',
           borderRadius: 50,
@@ -50,7 +50,7 @@ return (
           <Typography
             sx={{
               color: 'white',
-              fontSize: 14,
+              fontSize: 12,
               alignSelf: 'center',
               m: '0.5rem',
             }}
@@ -80,7 +80,7 @@ return (
           <Typography
             sx={{
               color: 'rgba(0, 0, 0, 0.87)',
-              fontSize: 14,
+              fontSize: 13,
               alignSelf: 'center',
               m: '0.5rem',
             }}
@@ -110,7 +110,7 @@ const AuthorisedStatusTag = () => {
             <Typography
               sx={{
                 color: '#2e7d32',
-                fontSize: 14,
+                fontSize: 13,
                 alignSelf: 'center',
                 m: '0.5rem',
               }}
@@ -140,7 +140,7 @@ return (
       <Typography
         sx={{
           color: '#e65100',
-          fontSize: 14,
+          fontSize: 13,
           alignSelf: 'center',
           m: '0.5rem',
         }}
