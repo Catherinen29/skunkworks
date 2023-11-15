@@ -54,7 +54,7 @@ return (
                     sx={{
                         textOverflow: 'ellipsis',
                         overflow: 'hidden'}}> */}
-                    <Typography noWrap sx={{fontSize: 18, fontWeight: 500}}>
+                    <Typography noWrap sx={{mx: '1rem', fontSize: 18, fontWeight: 500}}>
                     NHS Southampton University Hospital
                     </Typography>
                 {/* </Box> */}
