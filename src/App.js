@@ -5,7 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Permits from "./components/Permits";
 import HWPermitOverview from "./components/Permit/HWPermitOverview";
 import SignPermit from "./components/mobView.js/SignPermit";
-import CompeltedPermit from "./components/mobView.js/CompletedPermit";
+import CompletedPermit from "./components/mobView.js/CompletedPermit";
 
 function App() {
   
