@@ -1,28 +1,31 @@
-import { Box, Grid, Toolbar, Typography } from "@mui/material"
+import { Box, Button, Grid, Toolbar, Typography } from "@mui/material"
 import WarningIcon from '@mui/icons-material/Warning';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Frank from '../../frank.png'
+import { useNavigate } from "react-router-dom";
 
 
 export default function PermitToolBar() {
 
-    const workers = [{
-        name: 'Jan Goldstein',
-        value: 'Jan Goldstein',
-        position: 'Supervisor',
-        verified: true,
-    }, {
-        name: 'Tilda Swinton',
-        value: 'Tilda Swinton',
-        position: 'Supervisor',
-        verified: true,
-    }, {
-        name: 'Bill Nighy',
-        value: 'Bill Nighy',
-        position: 'Supervisor',
-        verified: true,
-    }]
+const navigate = useNavigate()
+
+const workers = [{
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    position: 'Supervisor',
+    verified: true,
+}]
 
 return(
     <Toolbar 
@@ -90,7 +93,9 @@ return(
             <Grid item xs={4} sx={{display: 'flex', justifyContent: 'flex-end', p: 0}}>
                  {/* Notifications */}
                 <Box sx={{mx: '2rem', my: '1rem'}}>
+                    <Button onClick={() => navigate('/signpermit')}>
                     <NotificationsIcon style={{ fill: 'white'}}></NotificationsIcon>
+                    </Button>
                 </Box>
                {/* Current user info */}
                <Box sx={{flexDirection: 'column', p: '0.5rem', mx: '1rem'}}>
