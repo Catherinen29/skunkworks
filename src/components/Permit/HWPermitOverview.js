@@ -30,6 +30,7 @@ const [openPermitDetails, setOpenPermitDetails] = useState(true)
 const handleOpenPermitDetails = () => {
     setOpenPermitDetails(true)
     setOpenPermitView(false)
+    setOpenAuthHotWorks(false)
 }
 const handleClosePermitDetails = () => {
     setOpenPermitDetails(false)
@@ -376,7 +377,11 @@ return (
     {/* Permit Authorisation */}
     {openAuthHotWorks && 
         <Paper sx={{width: '40%'}}>
-            <AuthHotWorks setOpenAuthHotWorks={setOpenAuthHotWorks} setShowAuthMsg={setShowAuthMsg} />
+            <AuthHotWorks 
+                setOpenAuthHotWorks={setOpenAuthHotWorks} 
+                setShowAuthMsg={setShowAuthMsg}
+                setOpenPermitView={setOpenPermitView}
+             />
         </Paper>
     }
 

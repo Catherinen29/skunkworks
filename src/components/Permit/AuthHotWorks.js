@@ -7,7 +7,7 @@ import Frank from '../../frank.png'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AuthHotWorks({setOpenAuthHotWorks, setShowAuthMsg}) {
+export default function AuthHotWorks({setOpenAuthHotWorks, setShowAuthMsg, setOpenPermitView}) {
 
 const [agree, setAgree] = useState(false)
 const [reminder, setReminder] = useState(false)
@@ -15,7 +15,7 @@ const [reminder, setReminder] = useState(false)
 const handleAgreeButton = () => {
     if (agree) {
         setShowAuthMsg(true)
-        setOpenAuthHotWorks(false)
+        setOpenPermitView(true)
     } else {
         setReminder(true)
     }

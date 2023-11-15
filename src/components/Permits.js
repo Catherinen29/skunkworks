@@ -356,7 +356,7 @@ return(
             {(filter !== 'Date') && permits.map((permit) => (
                 <Card sx={{width: '23rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
-                    <CardActionArea onClick={() => navigate('/hotworkspermit')}>
+                    <CardActionArea onClick={() => navigate('/hwpermitoverview')}>
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
