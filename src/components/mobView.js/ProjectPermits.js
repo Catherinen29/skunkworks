@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, Grid, Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -59,6 +59,8 @@ return (
 
                 <Card sx={{bgcolor: '#04535f', color: 'white', borderRadius: 5,
                     my: '1rem', p: '2rem'}}>
+                    <CardActionArea onClick={() => navigate('/signpermit')}>
+                            
                     <Box sx={{
                         display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                         
@@ -127,6 +129,7 @@ return (
                             Activates 1 Nov 23 at 09:00
                         </Typography> 
                     </Box>
+                    </CardActionArea>
                 </Card>
             </Box>
 
