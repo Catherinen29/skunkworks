@@ -16,6 +16,7 @@ const handleAgreeButton = () => {
     if (agree) {
         setShowAuthMsg(true)
         setOpenPermitView(true)
+        handleCloseAuthHotWorks()
     } else {
         setReminder(true)
     }
@@ -27,12 +28,6 @@ const handleCloseReminder = () => {
 const handleCloseAuthHotWorks = () => {
     setOpenAuthHotWorks(false)
 }
-// const handleShowPermitAuthorisedMsg = () => {
-//     setShowAuthMsg(true)
-// }
-// const handleClosePermitAuthorisedMsg = (event, reason) => {   
-//     setShowAuthMsg(false) 
-// }
 
 return (
 
