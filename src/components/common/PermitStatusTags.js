@@ -152,8 +152,40 @@ return (
   )
   }
 
+  const ReadyPermitTag = () => {
+
+    return (
+        <>
+            <Box
+            sx={{
+              width: '10rem',
+              height: '1.8rem',
+              bgcolor: '#0288d1',
+              borderRadius: 50,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            > 
+              <Typography
+                sx={{
+                  color: 'white',
+                  fontSize: 13,
+                  alignSelf: 'center',
+                  m: '0.5rem',
+                }}
+              >
+                Ready for completion
+              </Typography>
+          </Box>
+        
+        </>
+    )
+    }
+
 export { ActivePermitTag, 
   EmergingIssuesStatusTag, 
   CompletedStatusTag, 
   AuthorisedStatusTag, 
-  PreAuthStatusTag }
+  PreAuthStatusTag,
+  ReadyPermitTag }
