@@ -5,7 +5,7 @@ import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import AlertIcon from "../common/AlertIcon";
 
-export default function Part2() {
+export default function Part2({newPermit, setNewPermit}) {
 
 const [selectedActivity, setSelectedActivity] = useState([''])
 
@@ -20,6 +20,11 @@ const updateActivities = (e) => {
 
     }
 
+}
+
+// Handle user input
+const handleInput = (e) => {
+    setNewPermit({...newPermit, [e.target.name]: e.target.value})
 }
 
     return (
@@ -42,7 +47,12 @@ const updateActivities = (e) => {
             <br />
 
         <FormControl sx={{width: '25rem'}}>
-            <TextField multiline rows={3} size='small' label='Enter description' />
+            <TextField multiline rows={3} 
+                size='small' 
+                label='Enter description'
+                name='scope'
+                value={newPermit.scope}
+                onChange={handleInput} />
         </FormControl>
 
         <div>

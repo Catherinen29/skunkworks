@@ -21,7 +21,7 @@ import { useState } from 'react';
 import PermitToolBar from './common/PermitToolBar';
 
 
-export default function Permits() {
+export default function Permits({permits}) {
 
 // TODO: remove static data and replace with data from database
     const workers = [{
@@ -41,79 +41,7 @@ export default function Permits() {
         verified: true,
     }]
 
-    const permits = [{
-        type: 'Hot Works',
-        supplier: 'Balfour Beatty',
-        supplierType: 'company',
-        createdBy: 'James Burden',
-        status: 'Active',
-        activatesAt: '',
-        expiresAt: 'Expires: Today at 17:00'
-    }, {
-        type: 'Hot Works',
-        supplier: 'Dan Jones',
-        supplierType: 'person',
-        createdBy: 'James Burden',
-        status: 'Emerging issues',
-        activatesAt: 'Activates: 19 Jan 24 at 09:00 GMT',
-        expiresAt: ''
-    }, {
-        type: 'Electrical',
-        supplier: 'EEW Electrical Contractors',
-        supplierType: 'company',
-        createdBy: 'James Burden',
-        status: 'Active',
-        activatesAt: '',
-        expiresAt: 'Expires: Today at 15:00'
-    }, {
-        type: 'Electrical',
-        supplier: 'Saqib Sabir',
-        supplierType: 'person',
-        createdBy: 'James Burden',
-        status: 'Completed',
-        activatesAt: '',
-        expiresAt: 'Expires: 2 days ago'
-    }, {
-        type: 'Working at Height',
-        supplier: 'JT Scaffold',
-        supplierType: 'company',
-        createdBy: 'James Burden',
-        status: 'Authorised',
-        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
-        expiresAt: ''
-    }, {
-        type: 'Hot Works',
-        supplier: 'Helen Flannigan',
-        supplierType: 'person',
-        createdBy: 'James Burden',
-        status: 'Active',
-        activatesAt: 'Activates: 22 Jan at 09:00',
-        expiresAt: ''
-    }, {
-        type: 'Hot Works',
-        supplier: 'Helen Flannigan',
-        supplierType: 'person',
-        createdBy: 'James Burden',
-        status: 'Authorised',
-        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
-        expiresAt: ''
-    }, {
-        type: 'Working at Height',
-        supplier: 'JT Scaffold',
-        supplierType: 'company',
-        createdBy: 'James Burden',
-        status: 'Active',
-        activatesAt: '',
-        expiresAt: 'Expires: Today at 17:00'
-    }, {
-        type: 'Hot Works',
-        supplier: 'Miriam Bartonwell',
-        supplierType: 'person',
-        createdBy: 'James Burden',
-        status: 'Authorised',
-        activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
-        expiresAt: ''
-    }]
+
 
 const navigate = useNavigate()
 
@@ -123,8 +51,8 @@ const handleFilter = (e) => {
     console.log('*** FILTER ***', e.target.value)
 }
 
+// Start new permit
 const [permitType, setPermitType] = useState('')
-
 const handlePermitType = (e) => {
     setPermitType(e.target.value)
 }
@@ -286,7 +214,8 @@ return(
             <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
                     sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
-                <Button variant="contained" onClick={() => navigate('/hotworkstemplate')}
+                <Button variant="contained" onClick={() => 
+                    permitType === 'Hot Works' && navigate('/hotworkstemplate')}
                     sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
                         START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
             </Box>

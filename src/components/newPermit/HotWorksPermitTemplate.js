@@ -13,8 +13,9 @@ import Part7 from "./Part7";
 import PermitIntro from "./PermitIntro";
 import BB_bg from "../../BB_bg.png"
 import { useState } from "react";
+import dayjs from "dayjs"
 
-export default function NewHotWorksPermit() {
+export default function NewHotWorksPermit({permits}) {
 
 const navigate = useNavigate()
 
@@ -26,9 +27,37 @@ const handleOnClickOpen = () => {
 const handleClose = () => {
     setOpen(false)
 }
+
+// Handle new permit
+const [newPermit, setNewPermit] = useState({
+    type: '',
+    supplier: '',
+    supplierType: 'company',
+    organistionType: '',
+    createdBy: '',
+    status: 'Pre-authorisation',
+    activatesAt: '',
+    expiresAt: '',
+    scope: '',
+    worksDate: '',
+    startTime: dayjs('2022-01-01T00:00'),
+    endTime: dayjs('2022-01-01T00:00'),
+    area: '',
+    activities: [],
+    operators: [],
+    respForHotWorks: '',
+    respForFireSafety: '',
+    riskAssessor: '',
+    respForChecklist: '',
+    watchDuration: ''
+})
+
+
 // TODO:
 const handleSavePermit = () => {
     console.log('Permit Saved')
+    console.log('********* NEW PERMIT: ', newPermit)
+    permits.push(newPermit)
     navigate('/permits')
 }
 
@@ -50,13 +79,20 @@ return(
     sx={{ bgcolor: '#eef5f5', flexDirection: 'column'}}>
 
         <PermitIntro />
-        <Part1 />
-        <Part2 />
-        <Part3 />
-        <Part4 />
-        <Part5 />
-        <Part6 />
-        <Part7 />
+        <Part1 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part2 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part3 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part4 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part5 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part6 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
+        <Part7 newPermit={newPermit} 
+                setNewPermit={setNewPermit} />
     </Box>
 
     <Toolbar sx={{bgcolor:  '#ffffff', display: 'flex', justifyContent: 'space-between'}}>

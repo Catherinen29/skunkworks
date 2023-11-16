@@ -6,12 +6,26 @@ import { useState } from "react"
 import dayjs from "dayjs"
 import AlertIcon from "../common/AlertIcon"
 
-export default function Part3() {
+export default function Part3({newPermit, setNewPermit}) {
 
 const [worksDate, setWorksDate] = useState()
 const [startTime, setStartTime] = useState(dayjs('2022-04-17T00:00'))
 const [endTime, setEndTime] = useState(dayjs('2022-04-17T00:00'))
 const [area, setArea] = useState('')
+
+// Handle user input
+const handleInput = (e) => {
+    setNewPermit({...newPermit, [e.target.name]: e.target.value})
+}
+const handleDateChange = (date) => {
+setNewPermit({...newPermit, worksDate: date})
+}
+const handleStartTime = (time) => {
+    setNewPermit({...newPermit, startTime: time})
+}
+const handleEndTime = (time) => {
+    setNewPermit({...newPermit, endTime: time})
+}
 
     return(
         <Paper component='section' sx={{ 
@@ -34,8 +48,10 @@ const [area, setArea] = useState('')
         <InputLabel sx={{fontSize: 12}}>Start date</InputLabel>
         <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
-            <DatePicker value={worksDate}
-            onChange={(e) => setWorksDate(e)}
+            <DatePicker 
+            name= 'worksDate'
+            value={newPermit.worksDate}
+            onChange={handleDateChange}
             slotProps={{ textField: { size: 'small' } }} />
         </FormControl>
         </div>
@@ -44,9 +60,11 @@ const [area, setArea] = useState('')
         <InputLabel sx={{fontSize: 12}}>Start time</InputLabel>
         <FormControl required size='small' sx={{display: 'block', width: '11rem',
                 ml: 0.5, mr: 0.5}}>
-            <TimePicker value={startTime} 
+            <TimePicker 
+            name= 'startTime'
+            value={newPermit.startTime} 
             slotProps={{ textField: { size: 'small' } }}
-            onChange={(e) => setStartTime(e)} />
+            onChange={handleStartTime} />
         </FormControl>
         </div>
 
@@ -58,9 +76,11 @@ const [area, setArea] = useState('')
         <InputLabel sx={{fontSize: 12}}>End time</InputLabel>
         <FormControl required size='small' sx={{display: 'block', width: '11rem',
                  ml: 0.5, mr: 0.5}}>
-            <TimePicker value={endTime} 
+            <TimePicker 
+            name= 'endTime'
+            value={newPermit.endTime} 
             slotProps={{ textField: { size: 'small' } }}
-            onChange={(e) => setEndTime(e)} />
+            onChange={handleEndTime} />
         </FormControl>
         </div>
         </Box>
@@ -78,9 +98,10 @@ const [area, setArea] = useState('')
                 mt: 2 }}>
             <TextField
                 select
-                value={area}
+                name= 'area'
+                value={newPermit.area}
                 label='Select area'
-                onChange={(e) => setArea(e.target.value)}
+                onChange={handleInput}
                 sx={{width: '25rem'}}
                 > 
                 <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>

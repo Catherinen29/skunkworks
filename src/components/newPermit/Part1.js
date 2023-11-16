@@ -24,7 +24,7 @@ const workers = [{
     verified: true,
 }]
 
-export default function Part1() {
+export default function Part1({newPermit, setNewPermit}) {
 
 const [organisationType, setOrganisationType] = useState('')
 const [supplier, setSupplier] = useState('')
@@ -39,6 +39,11 @@ const handleOperator = (e, index) => {
         updatedOperators[index] = e.target.value
         setOperators(updatedOperators)
     } 
+}
+
+// Handle user input
+const handleInput = (e) => {
+    setNewPermit({...newPermit, [e.target.name]: e.target.value})
 }
 
 const addField = () => {
@@ -101,9 +106,10 @@ return(
                 width: '25rem', mt: 2 }}>
         <TextField
             select
-            value={organisationType}
+            name='organisationType'
+            value={newPermit.organisationType}
             label='Select organisation'
-            onChange={(e) => setOrganisationType(e.target.value)}
+            onChange={handleInput}
             sx={{width: '25rem'}}
             > 
                 <MenuItem value='Supplier'>Supplier</MenuItem>
@@ -122,9 +128,10 @@ return(
                 mt: 2 }}>
         <TextField
             select
-            value={supplier}
+            name='supplier'
+            value={newPermit.supplier}
             label='Select supplier *'
-            onChange={(e) => setSupplier(e.target.value)}
+            onChange={handleInput}
             sx={{width: '25rem'}}> 
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
                 <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
@@ -145,6 +152,7 @@ return(
         {Array.from({length: numOfSelectFields}).map((_, index) => (
             <TextField
                 select
+                name='operators'
                 value={operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
@@ -185,9 +193,11 @@ return(
                 mt: 2 }}>
         <TextField
             select
-            value={respForHotWorks}
+            name='respForHotWorks'
+            value={newPermit.respForHotWorks}
             label='Select verified worker *'
-            onChange={(e) => setRespForHotWorks(e.target.value)}
+            onChange={handleInput}
+                // (e) => setRespForHotWorks(e.target.value)}
             sx={{
                 width: '25rem',
                 '.MuiSelect-select': {
@@ -222,9 +232,11 @@ return(
         <FormControl required size='small' sx={{display: 'block', mt: 2 }}>
         <TextField
             select
-            value={respForFireSafety}
+            name='respForFireSafety'
+            value={newPermit.respForFireSafety}
             label='Select verified worker *'
-            onChange={(e) => setRespForFireSafety(e.target.value)}
+            onChange={handleInput}
+                // (e) => setRespForFireSafety(e.target.value)}
             sx={{width: '25rem'}}> 
                 
             {workers.map((worker) => (

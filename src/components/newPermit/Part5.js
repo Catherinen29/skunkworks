@@ -5,7 +5,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import VerifiedTag from "../common/VerifiedTag";
 import AlertIcon from "../common/AlertIcon";
 
-export default function Part5(props) {
+export default function Part5({newPermit, setNewPermit}) {
 
 const [precautionPerson, setPrecautionPerson] = useState('')
 
@@ -26,6 +26,11 @@ const workers = [{
     position: 'Supervisor',
     verified: true,
 }]
+
+// Handle user input
+const handleInput = (e) => {
+    setNewPermit({...newPermit, [e.target.name]: e.target.value})
+}
 
 return (
     <Paper component='section' sx={{ 
@@ -49,8 +54,9 @@ return (
                 width: '25rem', mb: 1, mt: '2rem'}}>
         <TextField
             select
-            value={precautionPerson}
-            onChange={(e) => setPrecautionPerson(e.target.value)}
+            name= 'respForChecklist'
+            value={newPermit.respForChecklist}
+            onChange={handleInput}
             label='Select verified person'
             sx={{width: '25rem'}}> 
         {workers.map((worker) => (

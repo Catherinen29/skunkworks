@@ -5,9 +5,9 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import VerifiedTag from "../common/VerifiedTag";
 import AlertIcon from "../common/AlertIcon";
 
-export default function Part6(props) {
+export default function Part6({newPermit, setNewPermit}) {
 
-const [fireWatch, setFireWatch ] = useState()
+const [respForFireSafety, setRespForFireSafety ] = useState('')
 const [watchDuration, setWatchDuration] = useState('')
 const [photoRequired, setPhotoRequired] = useState(false)
 
@@ -28,6 +28,11 @@ const workers = [{
     position: 'Supervisor',
     verified: true,
 }]
+
+// Handle user input
+const handleInput = (e) => {
+    setNewPermit({...newPermit, [e.target.name]: e.target.value})
+}
 
     return (
         <Paper component='section' sx={{ 
@@ -52,8 +57,9 @@ const workers = [{
             width: '25rem', mb: 1, mt: '2rem'}}>
         <TextField
             select
-            value={fireWatch}
-            onChange={(e) => setFireWatch(e.target.value)}
+            name= 'respForFireSafety'
+            value={respForFireSafety}
+            onChange={handleInput}
             label='Select verified person'
             sx={{width: '25rem'}}> 
             {workers.map((worker) => (
@@ -86,8 +92,9 @@ const workers = [{
                 width: '25rem', mb: 1, mt: '2rem'}}>
         <TextField
             select
-            value={watchDuration}
-            onChange={(e) => setWatchDuration(parseInt(e.target.value))}
+            name= 'watchDuration'
+            value={newPermit.watchDuration}
+            onChange={handleInput}
             label='Select duration'
             sx={{width: '25rem'}}> 
                 <MenuItem value='60'>60 mins</MenuItem>
