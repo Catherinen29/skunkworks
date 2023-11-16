@@ -31,6 +31,13 @@ const [loadVisible, setLoadVisible] = useState(false)
 const [loading, setLoading] = useState(false)
 const [progress, setProgress] = useState(10)
 
+const handleSignOff = () => {
+    if (agree) {
+        setLoadVisible(true)
+    } else {
+        setReminder(true)
+    }
+}
 
 
 return (
