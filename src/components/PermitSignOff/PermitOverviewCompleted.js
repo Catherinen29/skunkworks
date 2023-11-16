@@ -17,6 +17,7 @@ import AuthHotWorks from "../Permit/AuthHotWorks";
 import PermitView from "../Permit/PermitView";
 import PermitViewCompleted from "./PermitViewCompleted";
 import IssuerSignOff from "./IssuerSignOff";
+import GoldenThreadTimeline from "./GoldenThreadTimeline";
 
 export default function PermitOverviewCompleted() {
 
@@ -74,6 +75,19 @@ const handleShowPermitAuthorisedMsg = () => {
 }
 const handleClosePermitAuthorisedMsg = (event, reason) => {   
     setShowAuthMsg(false) 
+}
+
+// Manage Golden Thread Timeline
+const [openGoldenTimeline, setOpenGoldenTimeline] = useState(false)
+const handleOpenGoldenTimeline = () => {
+    setOpenGoldenTimeline(true)
+    setOpenIssuerSignOff(false)
+    setOpenPermitDetails(false)
+    setOpenPermitViewCompleted(false)
+
+}
+const handleCloseGoldenTimeline = () => {
+    setOpenGoldenTimeline(false)
 }
 
 return (
@@ -164,15 +178,19 @@ return (
                 </CardActionArea>
             </Card>
             
-            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
+            <Card elevation={0} sx={{
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
-                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                    bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}></Box>
-                <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
+                <CardActionArea onClick={handleOpenGoldenTimeline} 
+                sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}></Box>
+                    <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>    
+                </CardActionArea>
+                
             </Card>
         </Box>
     }
@@ -448,6 +466,13 @@ return (
     {openIssuerSignOff && 
             <Paper sx={{width: '40%'}}>
                 <IssuerSignOff setOpenIssuerSignOff={setOpenIssuerSignOff} />
+            </Paper>
+        }
+
+        {/* Golden Thread Timeline */}
+        {openGoldenTimeline && 
+            <Paper sx={{width: '40%'}}>
+                <GoldenThreadTimeline setOpenGoldenTimeline={setOpenGoldenTimeline} />
             </Paper>
         }
 </Box>
