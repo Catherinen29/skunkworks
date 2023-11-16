@@ -18,6 +18,20 @@ const handleDrawerClose = () => {
 
 return (
 <>
+<Drawer variant="permanent" open={open}>
+
+{/* <DrawerHeader>
+  <IconButton onClick={handleDrawerClose}>
+    <ChevronLeftIcon />
+  </IconButton>
+</DrawerHeader> */}
+
+<Divider />
+
+<List>
+
+</List>
+</Drawer>
 </>
 )
 }
