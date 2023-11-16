@@ -9,6 +9,7 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import TodoTag from "../common/TodoTag";
+import { AuthorisedStatusTag } from "../common/PermitStatusTags";
 import PermitDetails from "./PermitDetails";
 import SideBar from "../common/SideBar";
 import AuthHotWorks from "./AuthHotWorks";
@@ -22,6 +23,9 @@ const navigate = useNavigate()
 const [showOverview, setShowOverview] = useState(true)
 const [showTaskList, setShowTaskList] = useState(true)
 const [showCompletionSignOff, setShowCompletionSignOff] = useState(true)
+
+// Manage authorised tag.
+const [permitAuthorised, setPermitAuthorised] = useState(false)
 
 // Manage Permit Overview
 const [openPermitView, setOpenPermitView] = useState(false)
@@ -100,7 +104,11 @@ return (
             </Box>
         </Box>
 
-        <PreAuthStatusTag sx={{display: 'flex', alignSelf: 'flex-end'}} />    
+    {!permitAuthorised 
+        ? <PreAuthStatusTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+        : <AuthorisedStatusTag />
+    }
+           
     </Box>
 
         {/* Permit overview */}
@@ -415,6 +423,7 @@ return (
                     setOpenAuthHotWorks={setOpenAuthHotWorks} 
                     setShowAuthMsg={setShowAuthMsg}
                     setOpenPermitView={setOpenPermitView}
+                    setPermitAuthorised={setPermitAuthorised}
                 />
             </Paper>
         }
