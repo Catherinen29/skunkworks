@@ -7,6 +7,7 @@ import { PreAuthStatusTag } from "../common/PermitStatusTags";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import TodoTag from "../common/TodoTag";
 import PermitDetails from "./PermitDetails";
 import SideBar from "../common/SideBar";
@@ -16,6 +17,11 @@ import PermitView from "./PermitView";
 export default function HWPermitOverview() {
 
 const navigate = useNavigate()
+
+// Show and hide lists
+const [showOverview, setShowOverview] = useState(true)
+const [showTaskList, setShowTaskList] = useState(true)
+const [showCompletionSignOff, setShowCompletionSignOff] = useState(true)
 
 // Manage Permit Overview
 const [openPermitView, setOpenPermitView] = useState(false)
@@ -101,296 +107,324 @@ return (
     <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
         <Typography>Details</Typography>
         <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', m: '1rem',
-            pt: '1rem', pl: '1rem'}}>
-                Overview</Typography> 
-            {/* DROP DOWN */}
-
-        <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
-            "&:hover": {
-                bgcolor: "#f1f3f3"}
-            }}>
-            <CardActionArea onClick={handleOpenPermitView}
-                sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>  
-                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                    bgcolor: '#04535f', color: 'white', m: '1rem', mx: '2rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}><WhatshotIcon /></Box>
-                <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>                
-            </CardActionArea>
-
-        </Card>
-
-        <Card elevation={0} sx={{
-            "&:hover": {
-                bgcolor: "#f1f3f3"}
-            }}>
-            <CardActionArea onClick={handleOpenPermitDetails}
-                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
-                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                    bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}><NewspaperIcon /></Box>
-                <Typography sx={{my: '1rem'}}>Permit Details</Typography>
-            </CardActionArea>
-        </Card>
-        
-        <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
-            "&:hover": {
-                bgcolor: "#f1f3f3"}
-            }}>
-            <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}></Box>
-            <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
-        </Card>
-
-        </Card>
-    </Box>
-
-
-        {/* Task list */}
-    <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
-        <Typography>Task list</Typography>
-        <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
-                Pre-authorisation tasks - 0 completed</Typography> 
-            {/* DROP DOWN */}
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+            <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', m: '1rem',
+                pt: '1rem', pl: '1rem'}}>
+                    Overview</Typography> 
+                <Button onClick={() => setShowOverview(prev => !prev)}
+                        disableRipple
+                        sx={{mx: '1rem'}}>
+                    <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                </Button>
+            </Box>
+            
+    {showOverview && 
+        <Box>
+            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                <CardActionArea onClick={handleOpenPermitView}
+                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>  
                     <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Operator Signature</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Jan Goldsmith</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Supervisor Signature</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Issuer Signature</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Risk Assessment</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Precaution Checklist</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Jan Goldstein</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-
-            <Card elevation={0} sx={{px: '1rem', 
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>            
-                <CardActionArea onClick={handleOpenAuthHotWorks}
-                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Authorise Hot Works</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                        bgcolor: '#04535f', color: 'white', m: '1rem', mx: '2rem',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}><WhatshotIcon /></Box>
+                    <Typography sx={{my: '1rem'}}>View Hot Works Permit</Typography>                
                 </CardActionArea>
+
             </Card>
 
-
-
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem' 
-            }}>
-                Completion & cancellation - 0 completed</Typography> 
-            {/* DROP DOWN */}
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+            <Card elevation={0} sx={{
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                <CardActionArea onClick={handleOpenPermitDetails}
+                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
                     <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
-
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Operator Sign-off</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Jan Goldstein</Typography>
-                    </Box>
-                </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
-
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                        bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}><NewspaperIcon /></Box>
+                    <Typography sx={{my: '1rem'}}>Permit Details</Typography>
+                </CardActionArea>
+            </Card>
+            
+            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
+                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                    bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}></Box>
+                <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
+            </Card>
+        </Box>
+    }
+            </Card>
+        </Box>
 
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Fire Safety Sign-off</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
-                    </Box>
+
+
+            {/* Task list */}
+        <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
+            <Typography>Task list</Typography>
+            <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
+                <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
+                        Pre-authorisation tasks - 0 completed</Typography> 
+                    <Button onClick={() => setShowTaskList(prev => !prev)}
+                        disableRipple
+                        sx={{mx: '1rem'}}>
+                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    </Button>
                 </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
 
-            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-             mb: '1rem',
-                "&:hover": {
-                    bgcolor: "#f1f3f3"}
-                }}>
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                        alignItems: 'center', justifyContent: 'center',
-                        }}><TaskAltIcon /></Box>
+        {showTaskList && 
+            <Box>
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
 
-                    <Box sx={{my: '0.5rem'}}>
-                        <Typography>Issuer Sign-off</Typography>
-                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                        Assigned to Francis Golder (Me)</Typography>
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Operator Signature</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                                Assigned to Jan Goldsmith</Typography>
+                        </Box>
                     </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
                 </Box>
-                
-                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-            </Box>
 
-        </Card>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Supervisor Signature</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Issuer Signature</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Risk Assessment</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Precaution Checklist</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Jan Goldstein</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+
+                <Card elevation={0} sx={{px: '1rem', 
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>            
+                    <CardActionArea onClick={handleOpenAuthHotWorks}
+                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Authorise Hot Works</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    </CardActionArea>
+                </Card>
+            </Box>
+        }
+
+
+                <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
+                    Completion & cancellation - 0 completed</Typography> 
+                    <Button onClick={() => setShowCompletionSignOff(prev => !prev)}
+                        disableRipple
+                        sx={{mx: '1rem'}}>
+                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    </Button>
+                </Box>
+
+        {showCompletionSignOff &&
+            <Box>
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Operator Sign-off</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Jan Goldstein</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Fire Safety Sign-off</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>
+
+                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                mb: '1rem',
+                    "&:hover": {
+                        bgcolor: "#f1f3f3"}
+                    }}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                            alignItems: 'center', justifyContent: 'center',
+                            }}><TaskAltIcon /></Box>
+
+                        <Box sx={{my: '0.5rem'}}>
+                            <Typography>Issuer Sign-off</Typography>
+                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Francis Golder (Me)</Typography>
+                        </Box>
+                    </Box>
+                    
+                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </Box>    
+            </Box>
+        }
+            
+            </Card>
+        </Box>
+
     </Box>
 
-</Box>
+        {/* Permit details */}
+        {openPermitDetails && 
+            <Paper sx={{width: '40%'}}>
+                <PermitDetails setOpenPermitDetails={setOpenPermitDetails} />    
+            </Paper>
+        }
 
-    {/* Permit details */}
-    {openPermitDetails && 
-        <Paper sx={{width: '40%'}}>
-            <PermitDetails setOpenPermitDetails={setOpenPermitDetails} />    
-        </Paper>
-    }
+        {/* Permit Authorisation */}
+        {openAuthHotWorks && 
+            <Paper sx={{width: '40%'}}>
+                <AuthHotWorks 
+                    setOpenAuthHotWorks={setOpenAuthHotWorks} 
+                    setShowAuthMsg={setShowAuthMsg}
+                    setOpenPermitView={setOpenPermitView}
+                />
+            </Paper>
+        }
 
-    {/* Permit Authorisation */}
-    {openAuthHotWorks && 
-        <Paper sx={{width: '40%'}}>
-            <AuthHotWorks 
-                setOpenAuthHotWorks={setOpenAuthHotWorks} 
-                setShowAuthMsg={setShowAuthMsg}
-                setOpenPermitView={setOpenPermitView}
-             />
-        </Paper>
-    }
-
-    {/* Hot Works Permit */}
-    {openPermitView &&
-        <Paper sx={{width: '40%'}}>
-            <PermitView setOpenPermitView={setOpenPermitView} />
-        </Paper>
-    }
+        {/* Hot Works Permit */}
+        {openPermitView &&
+            <Paper sx={{width: '40%'}}>
+                <PermitView setOpenPermitView={setOpenPermitView} />
+            </Paper>
+        }
     
 </Box>
 
