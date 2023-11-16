@@ -57,7 +57,7 @@ const [newPermit, setNewPermit] = useState({
 const handleSavePermit = () => {
     console.log('Permit Saved')
     console.log('********* NEW PERMIT: ', newPermit)
-    permits.push(newPermit)
+    permits.unshift(newPermit)
     navigate('/permits')
 }
 
