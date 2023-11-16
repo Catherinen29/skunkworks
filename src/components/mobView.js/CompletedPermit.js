@@ -1,4 +1,4 @@
-import { Alert, Badge, Box, Button, Card, Snackbar, Typography } from "@mui/material";
+import { Alert, Badge, Box, Button, Card, CardActionArea, Snackbar, Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -90,6 +90,7 @@ return (
             {/* Tasks */}
             <Box sx={{m: '1rem'}}>
                 <Card sx={{my: '1rem', bgcolor: '#04535f', color: 'white'}}>
+                <CardActionArea onClick={() => navigate('/finalpermits')}>
                     <Box sx={{display: 'flex', flexDirection: 'column',
                         // ml: '1rem', mr: '1.5rem', my: '2rem'
                         m: '2rem'}}>
@@ -98,7 +99,7 @@ return (
                         sx={{color: 'rgba(255, 255, 255, 0.7)'}}>
                         Specific project tasks assigned to you</Typography>
                     </Box>
-
+                </CardActionArea>
                 </Card>            
             </Box>
 
