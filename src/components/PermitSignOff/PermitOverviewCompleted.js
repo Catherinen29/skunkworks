@@ -418,7 +418,8 @@ return (
                         bgcolor: "#f1f3f3"}
                     }}>
                     <CardActionArea onClick={handleOpenIssuerSignOff}
-                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
+                            bgcolor: '#ffdd00'}}>
                     <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
                             bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 

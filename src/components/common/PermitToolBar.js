@@ -95,9 +95,9 @@ return(
 
             <Grid item xs={4} sx={{display: 'flex', justifyContent: 'flex-end', p: 0}}>
                  {/* Notifications */}
-                <Box sx={{mx: '1rem', my: '1rem'}}>
+                <Box sx={{mx: '1rem', my: '1rem', bgcolor: '#ffdd00'}}>
                     <Button onClick={() => navigate('/projectpermits')}>
-                    <NotificationsIcon style={{ fill: 'white'}}></NotificationsIcon>
+                    <NotificationsIcon style={{ fill: 'black'}}></NotificationsIcon>
                     </Button>
                 </Box>
                {/* Current user info */}
@@ -109,7 +109,6 @@ return(
                <Box sx={{p: '0.5rem'}}>
                <Avatar src={Frank} width={50} height={50} alt="User_image"
                     />
-               {/* <img src={Frank}></img> */} 
                </Box>
                
             </Grid>

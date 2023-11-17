@@ -115,7 +115,7 @@ return (
                 <Card sx={{p: '1rem'}}>
                     <Typography>Sign with your phone biometrics</Typography>
                     <Button variant="contained" onClick={handleSigning}
-                            sx={{bgcolor:  '#00a4a9', color: 'white', mt: '1rem'}}>
+                            sx={{bgcolor:  '#ffdd00', color: 'black', mt: '1rem'}}>
                         SIGN NOW </Button>
                 </Card>
             </Box> 
@@ -164,7 +164,7 @@ return (
             alignItems: 'center', pt: '2rem', pb: '2rem'}}>
             <Button variant='contained' disabled={signed === false} 
                 onClick={() => navigate('/completedpermit')}
-                sx={{bgcolor:'#00a4a9', width: '90%'}}>COMPLETE <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
+                sx={{bgcolor:'#ffdd00', color: 'black', width: '90%'}}>COMPLETE <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
         </Card> 
 </Card>
             

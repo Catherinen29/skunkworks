@@ -194,7 +194,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                bgcolor: '#04535f', color: 'white'}}>
+                                bgcolor: '#ffdd00', color: 'black'}}>
                                 <PersonIcon sx={{width: '2rem', height: '2rem'}} />
                             </Box>
                             

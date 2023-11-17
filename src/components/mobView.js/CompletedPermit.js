@@ -92,9 +92,10 @@ return (
                 <Card sx={{my: '1rem', bgcolor: '#04535f', color: 'white'}}>
                 <CardActionArea onClick={() => navigate('/finalpermits')}>
                     <Box sx={{display: 'flex', flexDirection: 'column',
-                        // ml: '1rem', mr: '1.5rem', my: '2rem'
                         m: '2rem'}}>
-                    <Typography variant="h4" sx={{mb: '1rem', fontWeight: 500}}>Tasks</Typography>
+                    <Typography variant="h4" sx={{mb: '1rem', 
+                        bgcolor: '#ffdd00', color: 'black',
+                        fontWeight: 500}}>Tasks</Typography>
                     <Typography paragraph 
                         sx={{color: 'rgba(255, 255, 255, 0.7)'}}>
                         Specific project tasks assigned to you</Typography>

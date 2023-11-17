@@ -143,7 +143,7 @@ return (
         {/* Authorise button - checkbox required */}
             <Box sx={{my: '1rem'}}>
                 <Button variant='contained' 
-                        sx={{bgcolor: '#00a4a9'}}
+                        sx={{bgcolor: '#ffdd00', color: 'black'}}
                         onClick={handleSignOff}
                         >
 

@@ -109,7 +109,7 @@ return(
                         sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
                             MANAGE TEMPLATES</Button>
                     <Button onClick={handleOnClickOpen} variant="contained" disableRipple
-                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
+                        sx={{bgcolor:  '#ffdd00', color: 'black', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
                             NEW PERMIT +</Button>
                 </Box>    
                 </Box>
@@ -197,7 +197,7 @@ return(
             project.
         </DialogContent>
         <DialogActions sx={{mb: '0.5rem', display: 'flex', flexDirection: 'column'}}>
-            <FormControl size='small' sx={{width: '90%'}}>
+            <FormControl size='small' sx={{width: '90%', bgcolor: '#ffdd00'}}>
                 <TextField 
                     select
                     value={permitType}
@@ -215,8 +215,8 @@ return(
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
                     sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
                 <Button variant="contained" onClick={() => 
-                    permitType === 'Hot Works' && navigate('/hwpermitoverview')}
-                    sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
+                    permitType === 'Hot Works' && navigate('/hotworkstemplate')}
+                    sx={{bgcolor:  '#ffdd00', fontWeight: 'bold', mx: 1}}>
                         START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
             </Box>
 
@@ -234,7 +234,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '8rem', height: '8rem', 
                         display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            bgcolor: '#04535f', color: 'white'}}>
+                            bgcolor: '#ffdd00', color: 'black'}}>
                             {permit.supplierType === 'company' 
                                 ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
                                 : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
@@ -289,7 +289,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                bgcolor: '#04535f', color: 'white'}}>
+                                bgcolor: '#ffdd00', color: 'black'}}>
                                 {permit.supplierType === 'company' 
                                     ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
                                     : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }

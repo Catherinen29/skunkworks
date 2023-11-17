@@ -69,6 +69,7 @@ return (
                             <Box sx={{border: 1, 
                                 borderColor: 'white', 
                                 borderRadius: '10%',
+                                bgcolor: '#ffdd00',
                                 width: 100, 
                                 height: 100,
                                 textAlign: 'left',
@@ -77,7 +78,8 @@ return (
                                 justifyContent: 'center'
                                 }}>
                             <Typography sx={{fontFamily: 'Anton', 
-                                fontSize: 25, pl: '15%',
+                                fontSize: 25, color: 'black',
+                                pl: '15%',
                                 lineHeight: 1}}>
                                     Balfour
                                     Beatty
