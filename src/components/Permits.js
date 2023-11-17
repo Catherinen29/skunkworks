@@ -215,7 +215,7 @@ return(
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
                     sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
                 <Button variant="contained" onClick={() => 
-                    permitType === 'Hot Works' && navigate('/hotworkstemplate')}
+                    permitType === 'Hot Works' && navigate('/hwpermitoverview')}
                     sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
                         START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
             </Box>
