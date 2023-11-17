@@ -18,7 +18,7 @@ return (
         
     
         {/* Toolbar */}
-        <Box sx={{width: '100%', pb: '1rem',
+        <Box sx={{width: '100%', py: '1rem',
             bgcolor: '#04535f', color: 'white', 
             display: 'flex', flexDirection: 'column', 
             boxShadow: 5}}>

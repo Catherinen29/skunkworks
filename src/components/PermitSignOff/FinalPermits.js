@@ -58,10 +58,10 @@ return(
 
     <PermitToolBar />
 
-    <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3'}}>
+    <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3', height: '100vh', }}>
         <Box>
             <Box>
-                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', m: 'auto'}}>
                 <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
                 
                 <Box sx={{display: 'flex', flexDirection: 'row', height: '3rem'}}>
@@ -186,7 +186,8 @@ return(
 
 
         {/* List of permits */}
-        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', mt: '1rem'}}>
+        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', 
+            mt: '1rem'}}>
         <Card sx={{width: '23rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
                     <CardActionArea onClick={() => navigate('/permitoverviewcompleted')}>
