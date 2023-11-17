@@ -19,7 +19,7 @@ return (
           <Typography
             sx={{
               color: 'white',
-              fontSize: 13,
+              fontSize: 14,
               alignSelf: 'center',
               m: '0.5rem',
             }}
@@ -80,7 +80,7 @@ return (
           <Typography
             sx={{
               color: 'rgba(0, 0, 0, 0.87)',
-              fontSize: 13,
+              fontSize: 14,
               alignSelf: 'center',
               m: '0.5rem',
             }}
@@ -110,7 +110,7 @@ const AuthorisedStatusTag = () => {
             <Typography
               sx={{
                 color: '#2e7d32',
-                fontSize: 13,
+                fontSize: 14,
                 alignSelf: 'center',
                 m: '0.5rem',
               }}
@@ -140,7 +140,7 @@ return (
       <Typography
         sx={{
           color: '#e65100',
-          fontSize: 13,
+          fontSize: 14,
           alignSelf: 'center',
           m: '0.5rem',
         }}
@@ -152,40 +152,72 @@ return (
   )
   }
 
-  const ReadyPermitTag = () => {
+const ReadyPermitTag = () => {
 
-    return (
-        <>
-            <Box
-            sx={{
-              width: '10rem',
-              height: '1.8rem',
-              bgcolor: '#0288d1',
-              borderRadius: 50,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            > 
-              <Typography
-                sx={{
-                  color: 'white',
-                  fontSize: 13,
-                  alignSelf: 'center',
-                  m: '0.5rem',
-                }}
-              >
-                Ready for completion
-              </Typography>
-          </Box>
-        
-        </>
-    )
-    }
+  return (
+      <>
+          <Box
+          sx={{
+            width: '10rem',
+            height: '1.8rem',
+            bgcolor: '#0288d1',
+            borderRadius: 50,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          > 
+            <Typography
+              sx={{
+                color: 'white',
+                fontSize: 14,
+                alignSelf: 'center',
+                m: '0.5rem',
+              }}
+            >
+              Ready for completion
+            </Typography>
+        </Box>
+      
+      </>
+  )
+  }
+
+const CompletedPermitTag = () => {
+
+  return (
+      <>
+          <Box
+          sx={{
+            width: '7rem',
+            height: '1.8rem',
+            bgcolor: '#e0e0e0',
+            borderRadius: 50,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          > 
+            <Typography
+              sx={{
+                color: 'rgba(0, 0, 0, 0.87)',
+                fontSize: 14,
+                alignSelf: 'center',
+                m: '0.5rem',
+              }}
+            >
+              Completed
+            </Typography>
+        </Box>
+      
+      </>
+  )
+  }
 
 export { ActivePermitTag, 
   EmergingIssuesStatusTag, 
   CompletedStatusTag, 
   AuthorisedStatusTag, 
   PreAuthStatusTag,
-  ReadyPermitTag }
+  ReadyPermitTag, 
+  CompletedPermitTag }
