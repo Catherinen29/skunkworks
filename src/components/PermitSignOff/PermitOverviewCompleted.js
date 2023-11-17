@@ -1,20 +1,18 @@
-import { Alert, Box, Button, Card, CardActionArea, Drawer, Paper, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import PermitToolBar from "../common/PermitToolBar";
-import { PreAuthStatusTag } from "../common/PermitStatusTags";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import TodoTag from "../common/TodoTag";
 import DoneTag from "../common/DoneTag";
-import { AuthorisedStatusTag, ReadyPermitTag } from "../common/PermitStatusTags";
+import { ReadyPermitTag, CompletedPermitTag } from "../common/PermitStatusTags";
 import PermitDetails from "../Permit/PermitDetails";
 import SideBar from "../common/SideBar";
 import AuthHotWorks from "../Permit/AuthHotWorks";
-import PermitView from "../Permit/PermitView";
 import PermitViewCompleted from "./PermitViewCompleted";
 import IssuerSignOff from "./IssuerSignOff";
 import GoldenThreadTimeline from "./GoldenThreadTimeline";
@@ -30,13 +28,16 @@ const [showCompletionSignOff, setShowCompletionSignOff] = useState(true)
 
 // Manage authorised tag.
 const [permitAuthorised, setPermitAuthorised] = useState(false)
+const [success, setSuccess] = useState(false)
 
 // Manage Permit Overview
 const [openPermitViewCompleted, setOpenPermitViewCompleted] = useState(true)
 const handleOpenPermitViewCompleted = () => {
     setOpenPermitViewCompleted(true)
     setOpenPermitDetails(false)
-    setOpenAuthHotWorks(false)
+    setOpenAuthHotWorks(false)    
+    setOpenGoldenTimeline(false)
+    setOpenIssuerSignOff(false)
 }
 
 // Manage permit details sidebar.
@@ -44,10 +45,9 @@ const [openPermitDetails, setOpenPermitDetails] = useState(false)
 const handleOpenPermitDetails = () => {
     setOpenPermitDetails(true)
     setOpenPermitViewCompleted(false)
-    setOpenAuthHotWorks(false)
-}
-const handleClosePermitDetails = () => {
-    setOpenPermitDetails(false)
+    setOpenGoldenTimeline(false)
+    setOpenIssuerSignOff(false)
+    handleCloseAuthHotWorks()
 }
 
 // Manage Authorise Permit Details
@@ -56,6 +56,7 @@ const handleOpenAuthHotWorks = () => {
     setOpenAuthHotWorks(true)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
+    setOpenGoldenTimeline(false)
 }
 const handleCloseAuthHotWorks = () => {
     setOpenAuthHotWorks(false)
@@ -67,28 +68,31 @@ const handleOpenIssuerSignOff = () => {
     setOpenIssuerSignOff(true)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
+    setOpenGoldenTimeline(false)
+}
+const handleCloseIssuerSignOff= () =>{
+    setOpenIssuerSignOff(false)
 }
 
-const [showAuthMsg, setShowAuthMsg] = useState(false)
-const handleShowPermitAuthorisedMsg = () => {
-    setShowAuthMsg(true)
-}
-const handleClosePermitAuthorisedMsg = (event, reason) => {   
-    setShowAuthMsg(false) 
-}
 
 // Manage Golden Thread Timeline
 const [openGoldenTimeline, setOpenGoldenTimeline] = useState(false)
 const handleOpenGoldenTimeline = () => {
     setOpenGoldenTimeline(true)
-    setOpenIssuerSignOff(false)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
+    handleCloseIssuerSignOff()
+}
 
+// Manage authorised message
+const [showAuthMsg, setShowAuthMsg] = useState(false)
+
+// Manage notification to user - permit completed
+const [showCompleteMsg, setShowCompleteMsg] = useState(false)
+const handleCloseCompleteMsg = () => {
+    setShowCompleteMsg(false)
 }
-const handleCloseGoldenTimeline = () => {
-    setOpenGoldenTimeline(false)
-}
+
 
 return (
     
@@ -128,7 +132,11 @@ return (
             </Box>
         </Box>
 
-    <ReadyPermitTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+    {!success 
+        ? <ReadyPermitTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+        : <CompletedPermitTag sx={{}} />
+    }
+    
            
     </Box>
 
@@ -462,21 +470,44 @@ return (
             </Paper>
         }
     
-    {/* Permit Issuer Sign Off */}
-    {openIssuerSignOff && 
+        {/* Permit Issuer Sign Off */}
+        {openIssuerSignOff && 
             <Paper sx={{width: '40%'}}>
-                <IssuerSignOff setOpenIssuerSignOff={setOpenIssuerSignOff} />
+                <IssuerSignOff 
+                    setOpenIssuerSignOff={setOpenIssuerSignOff}
+                    setOpenGoldenTimeline={setOpenGoldenTimeline} 
+                    setShowCompleteMsg={setShowCompleteMsg} 
+                    setSuccess={setSuccess} />
             </Paper>
         }
 
         {/* Golden Thread Timeline */}
         {openGoldenTimeline && 
             <Paper sx={{width: '40%'}}>
-                <GoldenThreadTimeline setOpenGoldenTimeline={setOpenGoldenTimeline} />
+                <GoldenThreadTimeline 
+                setOpenGoldenTimeline={setOpenGoldenTimeline} />
             </Paper>
         }
 </Box>
+    
 
+{/* Notifications that permit has been completed */}
+<Box>
+        <Snackbar open={showCompleteMsg} autoHideDuration={6000} onClose={handleCloseCompleteMsg}>
+            <Alert onClose={handleCloseCompleteMsg} severity='success'
+                sx={{width: '30rem', mb: '4rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
+                Hot Works Permit #HW087327 is now completed.
+            </Alert>
+        </Snackbar>
+
+        <Snackbar open={showCompleteMsg} autoHideDuration={6000} onClose={handleCloseCompleteMsg}>
+            <Alert onClose={handleCloseCompleteMsg} severity='info'
+                sx={{width: '30rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
+                Immutable record created
+            </Alert>
+        </Snackbar>
+        
+    </Box>
 
     
 </Box>
