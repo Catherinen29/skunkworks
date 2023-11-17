@@ -89,7 +89,7 @@ function App() {
   <div className="App">
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
         <Routes>
-          <Route path="/permits" element={<Permits permits={permits} />} />
+          <Route path="/" element={<Permits permits={permits} />} />
           <Route path="/hotworkstemplate" element={<NewHotWorksPermit permits={permits} />} />
           <Route path="/hwpermitoverview" element={<HWPermitOverview />} />
           <Route path="/signpermit" element={<SignPermit />} />
