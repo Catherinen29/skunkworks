@@ -28,7 +28,7 @@ const handleSigning = () => {
         setTimeout(() => {
             setAlertVisible(false)
             setSigned(true)
-        }, 3000)
+        }, 1000)
     )
 }
 const handleClose = () => {
@@ -42,20 +42,27 @@ return (
         
 
         {/* Toolbar */}
-        <Box sx={{height: '4rem', width: '100%', bgcolor: '#04535f', color: 'white', 
-        display: 'flex', alignItems: 'center', boxShadow: 5}}>
-            <Button onClick={() => navigate('/permits')} sx={{color: 'white'}}>
-                <ArrowBackIcon />
-            </Button>
-            <Typography>Task</Typography>
+        <Box sx={{width: '100%', py: '1rem',
+            bgcolor: '#04535f', color: 'white', 
+            display: 'flex', flexDirection: 'column', 
+            boxShadow: 5}}>
+                <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',
+                width: '90%', m: '1rem'}}>
+                <Button onClick={() => navigate('/permits')} sx={{color: 'white'}}>
+                    <ArrowBackIcon sx={{height: '3rem', width: '3rem'}}  />
+                </Button>
+                <Typography variant="h4" fontWeight={500}
+                        sx={{mx: '1rem'}}>Task</Typography>   
+                </Box>
+            
         </Box>
         
-        <Box sx={{bgcolor: '#eef5f5'}}>
+        <Box sx={{bgcolor: '#eef5f5', width: '100%'}}>
 
             {/* Title */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h4">Completion of Work</Typography>
-                <Typography variant="h4">Hot Works Permit</Typography>
+                <Typography variant="h3" fontWeight={500}>Completion of Work</Typography>
+                <Typography variant="h3" fontWeight={500}>Hot Works Permit</Typography>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>HW234617</Typography>
             </Box>
 
@@ -155,7 +162,8 @@ return (
         <Card disableElevation
             sx={{display: 'flex', flexDirection:'column', width: '100%', 
             alignItems: 'center', pt: '2rem', pb: '2rem'}}>
-            <Button variant='contained' disabled={signed === false} onClick={() => navigate('/completedpermit')}
+            <Button variant='contained' disabled={signed === false} 
+                onClick={() => navigate('/completedpermit')}
                 sx={{bgcolor:'#00a4a9', width: '90%'}}>COMPLETE <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
         </Card> 
 </Card>
