@@ -1,9 +1,10 @@
 import { Box, Button, Divider, List, ListItem, Typography } from "@mui/material";
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-// import { Timeline } from "@mui/icons-material";
-import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import { InstallMobile } from "@mui/icons-material";
 
 
 export default function GoldenThreadTimeline({setOpenGoldenTimeline}) {
@@ -16,7 +17,7 @@ return (
 <Box>
     
     {/* Title */}
-    <Box sx={{p: '2rem'}}>
+    <Box sx={{p: '2rem', pb: '1rem'}}>
         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <Box sx={{display: 'flex', flexDirection: 'row'}}>
                 <Box sx={{color: '#04535f'}}>
@@ -44,19 +45,19 @@ return (
 
         <Divider />
 
-    <Box sx={{my: '1rem'}}>
+    <Box sx={{border: 1}}>
 
     
     <Timeline>
     
     <Typography 
-        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: '1rem'}}>
+        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', mt: '1rem', mb: '0.5rem', mx: '1.5rem'}}>
         1 Nov 23</Typography>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />                 
+                <CheckCircleOutlineRoundedIcon sx={{fontSize: 25, my: '0.5rem', color: '#4caf50'}} />
+                <TimelineConnector sx={{width: '11%'}} />                 
             </TimelineSeparator>
                 <TimelineContent>
                     Hot Works Permit completed
@@ -65,7 +66,7 @@ return (
                 </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -77,7 +78,7 @@ return (
                 </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -89,7 +90,7 @@ return (
                 </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -102,10 +103,10 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />                 
+                <CheckCircleOutlineRoundedIcon sx={{fontSize: 25, mx: -0.3, my: '0.5rem', color: '#4caf50'}} />
+                <TimelineConnector sx={{width: '13%'}} />                 
             </TimelineSeparator>
                 <TimelineContent>
                     <Typography>Hot Works permit active</Typography>
@@ -115,7 +116,7 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -128,13 +129,13 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
             </TimelineSeparator>
                 <TimelineContent>
-                    <Typography>Precaution checklist compelted</Typography>
+                    <Typography>Precaution checklist completed</Typography>
                     <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>James Worthington | Ackrington Chambers</Typography>
                 
                     <ArrowForwardIosRoundedIcon sx={{fontSize: 14, mr: '1rem'}} />
@@ -142,10 +143,10 @@ return (
         </TimelineItem>
 
     <Typography 
-        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', m: '1rem'}}>
+        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', mt: '1rem', mx: '1.5rem'}}>
         30 Oct 23</Typography>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -158,7 +159,7 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -171,7 +172,7 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -184,7 +185,7 @@ return (
         </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />
                 <TimelineConnector />                 
@@ -198,10 +199,10 @@ return (
         </TimelineItem>
 
     <Typography 
-        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', m: '1rem'}}>
+        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', mt: '1rem', mb: '0.5rem', mx: '1.5rem'}}>
         13 Oct 23</Typography>
 
-        <TimelineItem sx={{':before': {flex: 0}}}>
+        <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <TimelineDot />              
             </TimelineSeparator>
