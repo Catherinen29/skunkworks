@@ -1,8 +1,9 @@
-import { Box, Button, Grid, Toolbar, Typography } from "@mui/material"
+import { Avatar, Box, Button, Grid, Toolbar, Typography } from "@mui/material"
 import WarningIcon from '@mui/icons-material/Warning';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Frank from '../../frank.png'
+import BB_bg from '../../BB_bg.png'
 import { useNavigate } from "react-router-dom";
 
 
@@ -29,7 +30,9 @@ const workers = [{
 
 return(
     <Toolbar 
-    sx={{bgcolor: '#04535f', display: 'flex', flexDirection: 'column'}}
+    sx={{backgroundImage: `url(${BB_bg})`, backgroundSize: '100%', 
+        backgroundRepeat: 'no-repeat',
+        display: 'flex', flexDirection: 'column'}}
     >
     
     <Grid container spacing={2} sx={{color: 'white', display: 'flex', flexDirection: 'row', pt: '1rem'}}>
@@ -92,18 +95,23 @@ return(
 
             <Grid item xs={4} sx={{display: 'flex', justifyContent: 'flex-end', p: 0}}>
                  {/* Notifications */}
-                <Box sx={{mx: '2rem', my: '1rem'}}>
+                <Box sx={{mx: '1rem', my: '1rem'}}>
                     <Button onClick={() => navigate('/projectpermits')}>
                     <NotificationsIcon style={{ fill: 'white'}}></NotificationsIcon>
                     </Button>
                 </Box>
                {/* Current user info */}
-               <Box sx={{flexDirection: 'column', p: '0.5rem', mx: '1rem'}}>
+               <Box sx={{flexDirection: 'column', p: '0.5rem'}}>
                     {/* user image */}
                     <Typography>{workers[0].name}</Typography>
                     <Typography sx={{fontSize: 12}}>{workers[0].position}</Typography>
                </Box>
-               <img src={Frank} width={50} height={50} alt="User_image"></img>
+               <Box sx={{p: '0.5rem'}}>
+               <Avatar src={Frank} width={50} height={50} alt="User_image"
+                    />
+               {/* <img src={Frank}></img> */} 
+               </Box>
+               
             </Grid>
     </Grid>
     </ Toolbar>
