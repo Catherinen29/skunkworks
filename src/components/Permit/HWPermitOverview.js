@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Card, CardActionArea, Drawer, Paper, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -42,9 +42,6 @@ const handleOpenPermitDetails = () => {
     setOpenPermitView(false)
     setOpenAuthHotWorks(false)
 }
-const handleClosePermitDetails = () => {
-    setOpenPermitDetails(false)
-}
 
 // Manage Authorise Permit Details
 const [openAuthHotWorks, setOpenAuthHotWorks] = useState(false)
@@ -65,6 +62,7 @@ const handleShowPermitAuthorisedMsg = () => {
 const handleClosePermitAuthorisedMsg = (event, reason) => {   
     setShowAuthMsg(false) 
 }
+
 
 return (
     
@@ -439,7 +437,7 @@ return (
 
 
 
-
+{/* Notifications that permit has been authorised */}
     <Box>
         <Snackbar open={showAuthMsg} autoHideDuration={6000} onClose={handleClosePermitAuthorisedMsg}>
             <Alert onClose={handleClosePermitAuthorisedMsg} severity='success'
@@ -458,7 +456,7 @@ return (
         </Snackbar>
         
     </Box>
-    
+
 </Box>
 )
 }

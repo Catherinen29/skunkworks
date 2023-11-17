@@ -1,17 +1,17 @@
-import { Box, Button, Divider, List, ListItem, Typography } from "@mui/material";
-import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
+import { Box, Button, Divider, Typography } from "@mui/material";
+import { Timeline, TimelineConnector, TimelineContent, 
+    TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
-import { InstallMobile } from "@mui/icons-material";
-
 
 export default function GoldenThreadTimeline({setOpenGoldenTimeline}) {
 
 const handleClose = () => {
     setOpenGoldenTimeline(false)
 }
+
 
 return (
 <Box>
@@ -45,23 +45,24 @@ return (
 
         <Divider />
 
-    <Box sx={{border: 1}}>
+    <Box>
 
     
     <Timeline>
     
-    <Typography 
-        sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', mt: '1rem', mb: '0.5rem', mx: '1.5rem'}}>
-        1 Nov 23</Typography>
-
+        <Typography 
+            sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', mt: '1rem', mx: '2rem'}}>
+            1 Nov 23</Typography>    
         <TimelineItem sx={{ml: '-15rem'}}>
             <TimelineSeparator>
                 <CheckCircleOutlineRoundedIcon sx={{fontSize: 25, my: '0.5rem', color: '#4caf50'}} />
-                <TimelineConnector sx={{width: '11%'}} />                 
-            </TimelineSeparator>
-                <TimelineContent>
-                    Hot Works Permit completed
-                    <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>Automated - Certchain Permits</Typography>
+                <TimelineConnector sx={{width: '3%'}} />
+                </TimelineSeparator>
+                <TimelineContent sx={{display: 'flex'}}>   
+                    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                        <Typography>Hot Works Permit completed </Typography>
+                        <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>Automated - Certchain Permits</Typography>
+                    </Box>
                     <ArrowForwardIosRoundedIcon sx={{fontSize: 14, mr: '1rem'}} />
                 </TimelineContent>
         </TimelineItem>
