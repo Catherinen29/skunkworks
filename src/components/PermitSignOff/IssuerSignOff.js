@@ -1,20 +1,21 @@
-import { Alert, Box, Button, Checkbox, Dialog, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Checkbox, Dialog, Fab, Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import CircularProgress from '@mui/material/CircularProgress';
 import Frank from '../../frank.png'
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 export default function IssuerSignOff({
-    setOpenIssuerSignOff}) {
+    setOpenIssuerSignOff, 
+    setOpenGoldenTimeline, 
+    setShowCompleteMsg, 
+    setSuccess 
+    }) {
 
 const [agree, setAgree] = useState(false)
 const [reminder, setReminder] = useState(false)
-// const [completingMsg, setCompletingMsg] = useState(false)
-
 
 
 const handleCloseIssuerSignOff = () => {
@@ -27,18 +28,49 @@ const handleCloseLoad = () => {
     setOpenIssuerSignOff(false)
 }
 
+const handleCloseReminder = () => {
+    setReminder(false)
+}
+
 const [loadVisible, setLoadVisible] = useState(false)
 const [loading, setLoading] = useState(false)
 const [progress, setProgress] = useState(10)
+const timer = useRef(10)
 
 const handleSignOff = () => {
     if (agree) {
-        setLoadVisible(true)
+        setLoadVisible(true) 
+        setProgress(0)
+        setLoading(true)
+
+        if (!loading) {
+            setSuccess(false);
+            setLoading(true);
+            timer.current = window.setTimeout(() => {
+              setSuccess(true);
+              setLoading(false);
+              setLoadVisible(false)
+              setOpenIssuerSignOff(false)
+              setOpenGoldenTimeline(true)
+              setShowCompleteMsg(true)
+            }, 4000);
+          }
+
     } else {
         setReminder(true)
     }
 }
 
+
+useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 20));
+    }, 800);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(timer.current)
+    };
+  }, []);
 
 return (
 
@@ -119,9 +151,19 @@ return (
             </Box>
         </Box>
 
+{/* Reminder to agree to terms before signing off */}
+        <Box>
+            <Snackbar open={reminder} autoHideDuration={6000}
+                onClose={handleCloseReminder}>
+                    <Alert  onClose={handleCloseReminder} severity='info'
+                    sx={{width: '30rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
+                        You must agree to the conditions to authorise this permit.
+                    </Alert>
+            </Snackbar>
+        </Box>
+
 
 {/* Load after signing */}
-
     <Dialog open={loadVisible} onClose={handleCloseLoad}>
     <Box sx={{width: '30rem', height: '18rem', 
         display: 'flex', flexDirection: 'column', 
@@ -133,23 +175,27 @@ return (
                 <Typography sx={{fontSize: 18, fontWeight: 500}}>Completing permit</Typography>
                 <Typography sx={{fontSize: 16}}>Hot Works</Typography>
             </Box>
-
-            <Box sx={{ position: 'relative', display: 'inline-flex' }}>
             
-                <CircularProgress variant="determinate" {...progress} />
-
-                <Box
+            {loading && (
+                <Box sx={{ position: 'relative', display: 'inline-flex', m: '1.5rem'}}>
+                <CircularProgress
+                    size={68}
                     sx={{
-                    top: 0, left: 0, bottom: 0, right: 0, position: 'absolute', 
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#00a4a9',
+                    position: 'absolute',
+                    top: -6,
+                    left: -6,
+                    zIndex: 1,
+                    
                     }}
-                >
-                <Typography variant="caption" component="div">
-                {`${Math.round(progress)}%`}
-                </Typography>
+                />
+                <Fab>
+                    {`${Math.round(progress)}%`}
+                </Fab>
+                
                 </Box>
-            </Box>
-            
+            )}
+
             <Button variant="contained" disableElevation 
                 onClick={handleCloseLoad}
                 sx={{bgcolor: 'white', color: '#00a4a9'}}>CANCEL</Button>
