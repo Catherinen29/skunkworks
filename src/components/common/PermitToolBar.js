@@ -37,7 +37,9 @@ return(
     
     <Grid container spacing={2} sx={{color: 'white', display: 'flex', flexDirection: 'row', pt: '1rem'}}>
     <Grid item xs={8} sx={{display: 'flex', flexDirection: 'column'}}>
-        <Typography sx={{color: '#ffffff', fontSize: 20}}>Permits</Typography>
+        <Button variant="text" 
+        onClick={() => navigate('/')}
+        sx={{color: '#ffffff', fontSize: 20, width: '6rem'}}>Permits</Button>
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
             <Typography sx={{color: '#ffffff', mt: 2, mr: 2}}>NHS Southampton University Central Hospital</Typography>
             <Box

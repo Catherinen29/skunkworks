@@ -25,7 +25,7 @@ return (
             
             <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',
                 width: '90%', m: '1rem'}}>
-                <Button onClick={() => navigate('/permits')} sx={{color: 'white'}}>
+                <Button onClick={() => navigate('/')} sx={{color: 'white'}}>
                     <ArrowBackIcon sx={{height: '3rem', width: '3rem'}} />
                 </Button>    
                 <Typography variant="h4" fontWeight={500}
