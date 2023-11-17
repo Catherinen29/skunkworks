@@ -58,7 +58,7 @@ const handleSavePermit = () => {
     console.log('Permit Saved')
     console.log('********* NEW PERMIT: ', newPermit)
     permits.unshift(newPermit)
-    navigate('/permits')
+    navigate('/')
 }
 
 return(
@@ -67,7 +67,7 @@ return(
     <Toolbar 
     sx={{backgroundImage: `url(${BB_bg})`}}
     >
-    <Button onClick={() => navigate('/permits')}>
+    <Button onClick={() => navigate('/')}>
         {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
     <Typography sx={{color: '#ffffff', fontSize: 20}}>New Permit</Typography>
     </Toolbar>
@@ -105,7 +105,7 @@ return(
         <Button variant="text" sx={{color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
         <Button variant="contained" sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>SAVE AS DRAFT{<SaveIcon sx={{ml: 1}} />}</Button>
         <Button variant="contained" onClick={handleOnClickOpen} 
-            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>
+            sx={{bgcolor:  '#ffdd00', color: 'black', fontWeight: 'bold', mx: 1}}>
             CREATE PERMIT</Button>
         </Box>
         </Toolbar>
@@ -124,7 +124,7 @@ return(
             <Button variant="contained" onClick={handleClose}
                 sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>GO BACK</Button>
             <Button variant="contained" onClick={handleSavePermit}
-                sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>CREATE PERMIT </Button>
+                sx={{bgcolor:  '#ffdd00', color: 'black', fontWeight: 'bold', mx: 1}}>CREATE PERMIT </Button>
         </DialogActions>
     </Dialog>
     </Box>

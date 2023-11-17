@@ -77,7 +77,7 @@ return (
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 
-    onClick={() => navigate('/permits')}
+    onClick={() => navigate('/')}
     variant="contained" disableElevation={true}
     sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
     >
@@ -297,7 +297,7 @@ return (
                 </Box>
 
 
-                <Card elevation={0} sx={{px: '1rem', 
+                <Card elevation={0} sx={{px: '1rem', bgcolor: '#ffdd00',
                     "&:hover": {
                         bgcolor: "#f1f3f3"}
                     }}>            
