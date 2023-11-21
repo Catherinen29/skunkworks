@@ -46,14 +46,9 @@ const handleOnClickOpen = () => {
 const handleClose = () => {
     setOpen(false)
 }
-const handleStart = () => {
-
-}
 
 const [showPermitCreatedMsg, setShowPermitCreatedMsg] = useState(true)
 const [showImmutableMsg, setShowImmutableMsg] = useState(true)
-
-
 
 return(
 <Box overflow='auto' sx={{display: 'flex', flexDirection: 'column'}}>

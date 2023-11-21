@@ -1,4 +1,5 @@
-import { Alert, Box, Button, Card, CardActionArea, Paper, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Dialog, DialogContent, DialogTitle,
+        Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -75,7 +76,6 @@ const handleCloseIssuerSignOff= () =>{
     setOpenIssuerSignOff(false)
 }
 
-
 // Manage Golden Thread Timeline
 const [openGoldenTimeline, setOpenGoldenTimeline] = useState(false)
 const handleOpenGoldenTimeline = () => {
@@ -87,6 +87,7 @@ const handleOpenGoldenTimeline = () => {
 
 // Manage authorised message
 const [showAuthMsg, setShowAuthMsg] = useState(false)
+
 
 // Manage notification to user - permit completed
 const [showCompleteMsg, setShowCompleteMsg] = useState(false)
@@ -442,7 +443,11 @@ return (
                 </Box>
                 
                 <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                {!success 
+                ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                : <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} />}
+                </Box>
+
                 </CardActionArea>
             </Card>    
         </Box>
@@ -518,7 +523,6 @@ return (
         
     </Box>
 
-    
 </Box>
 )
 }
