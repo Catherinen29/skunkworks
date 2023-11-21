@@ -96,9 +96,8 @@ const handleCloseImmutableMsg = (event, reason) => {
 }
 
 return(
-<Box sx={{display: 'flex', flexDirection: 'column'}}>
+<Box overflow='auto' sx={{display: 'flex', flexDirection: 'column'}}>
 
-    {/* <PermitToolBar /> */}
     <SideBar />
 
     <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>

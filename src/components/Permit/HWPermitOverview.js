@@ -81,14 +81,11 @@ const handleCloseMoveOn = () => {
 
 return (
     
-<Box sx={{width: '100%'}}> 
+<Box overflow='auto' sx={{width: '100%'}}> 
 
-{/* Toolbar */}
-{/* <PermitToolBar /> */}
+<SideBar />
 
-{/* <SideBar /> */}
-
-<Box sx={{bgcolor: '#f1f3f3', display: 'flex'}}>
+<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 

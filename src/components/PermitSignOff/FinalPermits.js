@@ -20,6 +20,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { useState } from 'react';
 import PermitToolBar from '../common/PermitToolBar';
+import SideBar from '../common/SideBar';
 
 
 export default function FinalPermits({permits}) {
@@ -55,11 +56,11 @@ const [showImmutableMsg, setShowImmutableMsg] = useState(true)
 
 
 return(
-<Box sx={{display: 'flex', flexDirection: 'column'}}>
+<Box overflow='auto' sx={{display: 'flex', flexDirection: 'column'}}>
 
-    {/* <PermitToolBar /> */}
+    <SideBar />
 
-    <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3', height: '100vh', }}>
+    <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3',}}>
         <Box>
             <Box>
                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', m: 'auto'}}>

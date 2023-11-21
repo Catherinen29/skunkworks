@@ -97,14 +97,11 @@ const handleCloseCompleteMsg = () => {
 
 return (
     
-<Box sx={{width: '100%'}}> 
+<Box overflow='auto' sx={{width: '100%'}}> 
 
-{/* Toolbar */}
-{/* <PermitToolBar /> */}
+<SideBar />
 
-{/* <SideBar /> */}
-
-<Box sx={{bgcolor: '#f1f3f3', display: 'flex'}}>
+<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 
@@ -164,8 +161,8 @@ return (
             </Box>
             
     {showOverview && 
-        <Box>
-            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
+        <Box sx={{ pb: 2 }}>
+            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row',
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
@@ -201,7 +198,7 @@ return (
                 <CardActionArea onClick={handleOpenGoldenTimeline} 
                 sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
                     <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                        bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
+                        bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem', 
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         }}></Box>
                     <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>    
@@ -215,246 +212,246 @@ return (
 
 
 
-            {/* Task list */}
-        <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
-            <Typography>Task list</Typography>
-            <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
-                <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
-                        Pre-authorisation tasks - 0 completed</Typography> 
-                    <Button onClick={() => setShowTaskList(prev => !prev)}
-                        disableRipple
-                        sx={{mx: '1rem'}}>
-                    {showTaskList 
-                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
-                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }    
-                    </Button>
-                </Box>
-
-        {showTaskList && 
-            <Box>
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Operator Signature</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                                Assigned to Jan Goldsmith</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Supervisor Signature</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Issuer Signature</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Risk Assessment</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Precaution Checklist</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Jan Goldstein</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-
-                <Card elevation={0} sx={{px: '1rem', 
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>            
-                    <CardActionArea onClick={handleOpenAuthHotWorks}
-                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Authorise Hot Works</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                    </CardActionArea>
-                </Card>
+        {/* Task list */}
+    <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
+        <Typography>Task list</Typography>
+        <Card sx={{p: 0, my: '1rem', bgcolor: 'white'}}>
+            <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
+                    Pre-authorisation tasks - 0 completed</Typography> 
+                <Button onClick={() => setShowTaskList(prev => !prev)}
+                    disableRipple
+                    sx={{mx: '1rem'}}>
+                {showTaskList 
+                ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }    
+                </Button>
             </Box>
-        }
 
+    {showTaskList && 
+        <Box>
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
 
-                <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
-                    Completion & cancellation - 0 completed</Typography> 
-                    <Button onClick={() => setShowCompletionSignOff(prev => !prev)}
-                        disableRipple
-                        sx={{mx: '1rem'}}>
-                    {showCompletionSignOff 
-                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
-                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }  
-                    </Button>
-                </Box>
-
-        {showCompletionSignOff &&
-            <Box>
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Operator Sign-off</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Jan Goldstein</Typography>
-                        </Box>
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Operator Signature</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                            Assigned to Jan Goldsmith</Typography>
                     </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
                 </Box>
-
-                <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Fire Safety Sign-off</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                </Box>
-
-                <Card sx={{px: '1rem',
-                    "&:hover": {
-                        bgcolor: "#f1f3f3"}
-                    }}>
-                    <CardActionArea onClick={handleOpenIssuerSignOff}
-                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                        <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                            bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
-                            alignItems: 'center', justifyContent: 'center',
-                            }}><TaskAltIcon /></Box>
-
-                        <Box sx={{my: '0.5rem'}}>
-                            <Typography>Issuer Sign-off</Typography>
-                            <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
-                            Assigned to Francis Golder (Me)</Typography>
-                        </Box>
-                    </Box>
-                    
-                    <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
-                    </CardActionArea>
-                </Card>    
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
             </Box>
-        }
-            
+
+
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Supervisor Signature</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Issuer Signature</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Risk Assessment</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Precaution Checklist</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Jan Goldstein</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+
+            <Card elevation={0} sx={{px: '1rem', 
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>            
+                <CardActionArea onClick={handleOpenAuthHotWorks}
+                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Authorise Hot Works</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </CardActionArea>
             </Card>
         </Box>
+    }
 
+
+        <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', p: '2rem', pb: '1rem'}}>
+            Completion & cancellation - 0 completed</Typography> 
+            <Button onClick={() => setShowCompletionSignOff(prev => !prev)}
+                disableRipple
+                sx={{mx: '1rem'}}>
+            {showCompletionSignOff 
+            ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+            : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }  
+            </Button>
+        </Box>
+
+    {showCompletionSignOff &&
+        <Box sx={{ pb: 2 }}>
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Operator Sign-off</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Jan Goldstein</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+            <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Fire Safety Sign-off</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <DoneTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+            </Box>
+
+            <Card elevation={0} sx={{px: '1rem',
+                "&:hover": {
+                    bgcolor: "#f1f3f3"}
+                }}>
+                <CardActionArea onClick={handleOpenIssuerSignOff}
+                    sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
+                        alignItems: 'center', justifyContent: 'center',
+                        }}><TaskAltIcon /></Box>
+
+                    <Box sx={{my: '0.5rem'}}>
+                        <Typography>Issuer Sign-off</Typography>
+                        <Typography fontSize={14} sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>
+                        Assigned to Francis Golder (Me)</Typography>
+                    </Box>
+                </Box>
+                
+                <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
+                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                </CardActionArea>
+            </Card>    
+        </Box>
+    }
+            
+    </Card>
     </Box>
+
+</Box>
 
         {/* Permit details */}
         {openPermitDetails && 
