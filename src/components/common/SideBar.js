@@ -219,7 +219,7 @@ return (
         <Grid item xs={4} sx={{display: 'flex', justifyContent: 'flex-end', p: 0}}>
               {/* Notifications */}
             <Box sx={{mx: '1rem', my: '1rem'}}>
-                <Button onClick={() => navigate('/projectpermits')}>
+                <Button>
                 <NotificationsIcon style={{ fill: '#ffffff'}}></NotificationsIcon>
                 </Button>
             </Box>
