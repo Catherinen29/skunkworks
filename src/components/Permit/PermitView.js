@@ -1,4 +1,6 @@
-import { Alert, Box, Button, Checkbox, Divider, List, ListItem, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Checkbox, Dialog, 
+    DialogContent, DialogTitle, Divider, List, ListItem, 
+    Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
@@ -12,18 +14,30 @@ import { AuthorisedStatusTag } from "../common/PermitStatusTags";
 
 export default function PermitView({setOpenPermitView}) {
 
+const navigate = useNavigate()
+
 const [agree, setAgree] = useState(false)
 
 const handleClosePermitView = () => {
     setOpenPermitView(false)
 }
 
+// Manage move on screen
+const [openMoveOn, setOpenMoveOn] = useState(false)
+const handleOpenMoveOn = () => {
+    setOpenMoveOn(true)
+}
+const handleCloseMoveOn = () => {
+    setOpenMoveOn(false)
+}
 
 return (
 
     <Box>
         {/* Title */}
-        <Box sx={{p: '2rem'}}>
+        <Card elevation={0} sx={{p: '2rem'}}>
+            <CardActionArea onClick={handleOpenMoveOn}>
+
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
                 mb: '2rem'}}>
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
@@ -46,7 +60,9 @@ return (
 
                 <Typography variant="h5" sx={{fontWeight: 500, mx: '1rem'}}>Hot Works Permit</Typography>
             </Box>
-        </Box>
+
+            </CardActionArea>
+        </Card>
 
 <Divider />
         {/* Overview */}
@@ -101,7 +117,40 @@ return (
 
 
         </Box>
+
+
+{/* Move on screen */}
+<Dialog open={openMoveOn} onClose={handleCloseMoveOn} 
+    disableElevation
+    fullScreen
+    PaperProps={{
+        sx: {
+          backgroundColor: '#15181f',
+        }}}
+    >
+    <Box sx={{display: 'flex', flexDirection: 'column', p: '4rem'}}>
+    <DialogTitle>
+        <Typography variant="h5" 
+        sx={{color: '#ffffff'}}>
+            CERTCHAIN</Typography>
+        <Typography variant="h5" 
+        sx={{color: '#717580'}}>
+            DIGITAL PERMIT DEMO</Typography>
+    </DialogTitle>
+    <DialogContent sx={{display: 'flex', justifyContent: 'center'}}>
+        <Button variant="text"
+         onClick={() => navigate('/projectpermits')}
+            sx={{width: '50rem', height: '20rem', 
+            color: '#ffffff'}}>
+        <Typography variant="h5" >SWITCH TO THE OPERATOR IN THE MOBILE APP</Typography>
+        </Button>
+    </DialogContent>
+    </Box>
+</Dialog>
+
+
 </Box>
+
 
 )
 }

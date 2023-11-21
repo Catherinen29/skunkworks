@@ -1,4 +1,5 @@
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, Dialog, DialogContent, DialogTitle, 
+    Divider, Stack, Typography } from "@mui/material";
 import { Timeline, TimelineConnector, TimelineContent, 
     TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
 import { timelineItemClasses } from '@mui/lab/TimelineItem'
@@ -6,19 +7,33 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function GoldenThreadTimeline({setOpenGoldenTimeline}) {
+
+const navigate = useNavigate()
 
 const handleClose = () => {
     setOpenGoldenTimeline(false)
 }
 
 
+// Manage move on to next stage
+const [openMoveOn, setOpenMoveOn] = useState(false)
+const handleOpenMoveOn = () => {
+    setOpenMoveOn(true)
+}
+const handleCloseMoveOn = () => {
+    setOpenMoveOn(false)
+}
+
 return (
 <>
     
     {/* Title */}
-    <Box sx={{p: '2rem', pb: '1rem'}}>
+    <Card elevation={0} sx={{p: '2rem', pb: '1rem'}}>
+        <CardActionArea onClick={handleOpenMoveOn}>
         <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <Box sx={{display: 'flex', flexDirection: 'row'}}>
                 <Box sx={{color: '#04535f'}}>
@@ -41,8 +56,8 @@ return (
         <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontWeight: 500, mb: '2rem'}}>
             NHS Southampton University Central Hospital
         </Typography>
-
-    </Box>
+        </CardActionArea>
+    </Card>
 
         <Divider />
 
@@ -269,6 +284,44 @@ return (
     </Stack>
 
     </Box>
+
+
+{/* Move on screen */}
+<Dialog open={openMoveOn} onClose={handleCloseMoveOn} 
+    disableElevation
+    fullScreen
+    PaperProps={{
+        sx: {
+          backgroundColor: '#15181f',
+        }}}
+    >
+    <Box sx={{display: 'flex', flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'start', 
+        p: '4rem'}}>
+    <DialogTitle
+        sx={{width: '50rem', mt: '5rem'}}>
+        <Typography variant="h5" 
+        sx={{color: '#ffffff'}}>
+            CERTCHAIN</Typography>
+        <Typography variant="h5" 
+        sx={{color: '#717580'}}>
+            DIGITAL PERMIT DEMO</Typography>
+    </DialogTitle>
+    <DialogContent>
+        <Button variant="text"
+        onClick={() => navigate('/')}
+            sx={{width: '50rem', height: '20rem', 
+            p: 0, 
+            color: '#ffffff',
+            display: 'flex', justifyContent: 'start',
+            alignItems: 'start'
+            }}>
+        <Typography variant="h5">COMPLETED</Typography>
+        </Button>
+    </DialogContent>
+    </Box>
+</Dialog>
 
 </>
 )
