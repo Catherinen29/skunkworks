@@ -15,10 +15,12 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import PersonIcon from '@mui/icons-material/Person';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { useState } from 'react';
 import PermitToolBar from './common/PermitToolBar';
+import SideBar from './common/SideBar';
 
 
 export default function Permits({permits}) {
@@ -96,93 +98,101 @@ const handleCloseImmutableMsg = (event, reason) => {
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
 
-    <PermitToolBar />
+    {/* <PermitToolBar /> */}
+    <SideBar />
 
-    <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3'}}>
+    <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>
         <Box>
-            <Box>
-                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
-                
-                <Box sx={{display: 'flex', flexDirection: 'row', height: '3rem'}}>
-                    <Button variant="contained" 
-                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
-                            MANAGE TEMPLATES</Button>
-                    <Button onClick={handleOnClickOpen} variant="contained" disableRipple
-                        sx={{bgcolor:  '#ffdd00', color: 'black', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
-                            NEW PERMIT +</Button>
-                </Box>    
-                </Box>
-                
-
-                {/* Search permits */}
-                <Box sx={{display: 'flex'}}>
-                <FormControl variant='outlined' size='small'
-                    sx={{width: '30rem', my: 2}}>
-                    <TextField size='small'
-                    InputLabelProps={{ shrink: false, style: { marginLeft: 30 } }}
-                        InputProps= {{
-                            startAdornment: 
-                            <InputAdornment position='start'>
-                                    <SearchIcon />
-                            </InputAdornment>
-                            }}
-                        label='Search permits'
-                    />
-                </FormControl>
-                
-                {(filter === 'Date') && 
-                    <Box>
-                    <FormControl required 
-                    size='small'
-                    sx={{display: 'block',
-                    m: 2, justifyContent: 'center' }}>
-                    <TextField
-                        select
-                        label={
-                            <Box 
-                            sx={{display: 'flex', alignItems: 'center'}}>
-                            <DateRangeIcon sx={{mr: '1rem'}} />Today</ Box>}
-                        size='small'
-                        sx={{width: '10rem'}}
-                    >
-                            <MenuItem value='Date'>Date</MenuItem>
-                    </TextField>
-
-                    <Button onClick={() => setFilter('')}>
-                        <CloseIcon sx={{fontSize: 30, color: 'rgba(0, 0, 0, 0.54)'}} />
+            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
+            
+            <Box sx={{display: 'flex', flexDirection: 'row', height: '3rem'}}>
+                <Button variant="contained" 
+                    sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, 
+                    width: '11rem', height: '2rem', 
+                    "&:hover": {
+                        bgcolor: "#008488"}}}>
+                    <Typography sx={{pt: '0.2rem', fontWeight: 500, fontSize: 14}}>
+                    MANAGE TEMPLATES</Typography>
+                </Button>
+                <Button onClick={handleOnClickOpen} variant="contained" disableRipple
+                    sx={{bgcolor:  '#00a4a9', m: 1, 
+                    width: '9rem', height: '2rem',
+                    "&:hover": {
+                        bgcolor: "#008488"}}}>
+                    <Typography sx={{pt: '0.2rem', pr: '0.5rem', fontWeight: 500, fontSize: 14}}>
+                    NEW PERMIT</Typography>
+                    <AddRoundedIcon style={{fontSize: 16}} />
                     </Button>
-
-                </FormControl>
-                    </Box>
-                }
-                
-                <FormControl required 
-                    size='small'
-                    sx={{display: 'block',
-                    m: 2, justifyContent: 'center' }}>
-                    <TextField
-                        select
-                        value=''
-                        onChange={handleFilter}
-                        SelectProps={{ IconComponent: () => null }} 
-                        label={
-                            <Box 
-                            sx={{display: 'flex', alignItems: 'center'}}>
-                            <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
-                        size='small'
-                        sx={{width: '10rem'}}
-                    >
-                            <MenuItem value='Date'>Date</MenuItem>
-                            <MenuItem value='Type'>Type</MenuItem>
-                            <MenuItem value='Supplier'>Supplier</MenuItem>
-                            <MenuItem value='Created by'>Created by</MenuItem> 
-                    </TextField>
-                </FormControl>
-                </Box>
+            </Box>    
             </Box>
+            
 
+            {/* Search permits */}
+            <Box sx={{display: 'flex'}}>
+            <FormControl variant='outlined' size='small'
+                sx={{width: '30rem', my: 2}}>
+                <TextField size='small'
+                InputLabelProps={{ shrink: false, style: { marginLeft: 30 } }}
+                    InputProps= {{
+                        startAdornment: 
+                        <InputAdornment position='start'>
+                                <SearchIcon />
+                        </InputAdornment>
+                        }}
+                    label='Search permits'
+                />
+            </FormControl>
+            
+            {(filter === 'Date') && 
+                <Box>
+                <FormControl required 
+                size='small'
+                sx={{display: 'block',
+                m: 2, justifyContent: 'center' }}>
+                <TextField
+                    select
+                    label={
+                        <Box 
+                        sx={{display: 'flex', alignItems: 'center'}}>
+                        <DateRangeIcon sx={{mr: '1rem'}} />Today</ Box>}
+                    size='small'
+                    sx={{width: '10rem'}}
+                >
+                        <MenuItem value='Date'>Date</MenuItem>
+                </TextField>
 
+                <Button onClick={() => setFilter('')}>
+                    <CloseIcon sx={{fontSize: 30, color: 'rgba(0, 0, 0, 0.54)'}} />
+                </Button>
+
+            </FormControl>
+                </Box>
+            }
+            
+            <FormControl required 
+                size='small'
+                sx={{display: 'block',
+                m: 2, justifyContent: 'center' }}>
+                <TextField
+                    select
+                    value=''
+                    onChange={handleFilter}
+                    SelectProps={{ IconComponent: () => null }} 
+                    label={
+                        <Box 
+                        sx={{display: 'flex', alignItems: 'center'}}>
+                        <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
+                    size='small'
+                    sx={{width: '10rem'}}
+                >
+                        <MenuItem value='Date'>Date</MenuItem>
+                        <MenuItem value='Type'>Type</MenuItem>
+                        <MenuItem value='Supplier'>Supplier</MenuItem>
+                        <MenuItem value='Created by'>Created by</MenuItem> 
+                </TextField>
+            </FormControl>
+            </Box>
         </Box>
 
 
@@ -197,7 +207,7 @@ return(
             project.
         </DialogContent>
         <DialogActions sx={{mb: '0.5rem', display: 'flex', flexDirection: 'column'}}>
-            <FormControl size='small' sx={{width: '90%', bgcolor: '#ffdd00'}}>
+            <FormControl size='small' sx={{width: '90%'}}>
                 <TextField 
                     select
                     value={permitType}
@@ -213,10 +223,16 @@ return(
             
             <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
-                    sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
+                    sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1,
+                    "&:hover": {
+                        bgcolor: '#ffffff', 
+                        color: "#008488"}}}>
+                        CANCEL</Button>
                 <Button variant="contained" onClick={() => 
                     permitType === 'Hot Works' && navigate('/hotworkstemplate')}
-                    sx={{bgcolor:  '#ffdd00', fontWeight: 'bold', mx: 1}}>
+                    sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1,
+                    "&:hover": {
+                        bgcolor: "#008488"}}}>
                         START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
             </Box>
 
@@ -234,7 +250,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '8rem', height: '8rem', 
                         display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            bgcolor: '#ffdd00', color: 'black'}}>
+                            bgcolor: '#04535f', color: '#ffffff'}}>
                             {permit.supplierType === 'company' 
                                 ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
                                 : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
@@ -289,7 +305,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                bgcolor: '#ffdd00', color: 'black'}}>
+                                bgcolor: '#04535f', color: '#ffffff'}}>
                                 {permit.supplierType === 'company' 
                                     ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
                                     : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
