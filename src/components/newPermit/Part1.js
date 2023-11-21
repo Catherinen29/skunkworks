@@ -1,8 +1,7 @@
-import { Box, Button, FormControl, Grid, MenuItem, Paper, TableContainer,
-    TableBody, TableRow, TextField, Typography, Table} from "@mui/material"
+import { Box, Button, FormControl, MenuItem, Paper, 
+    TextField, Typography, Avatar} from "@mui/material"
 import { useState } from "react"
 import Frank from '../../frank.png'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VerifiedTag from '../common/VerifiedTag'
 import AlertIcon from "../common/AlertIcon";
 
@@ -52,33 +51,31 @@ const addField = () => {
 
 return(
     <Paper sx={{ 
-            width: '40rem', 
+            width: '600px', 
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 5 }} 
+            p: '2rem',
+            pl: '1rem' }} 
             >
-    <Typography sx={{fontSize: 25}}>Part 1 - Hot Works Permit Details</Typography>
+    <Typography variant="h6" sx={{fontWeight: 500}}>Part 1 - Hot Works Permit Details</Typography>
 
-    <TableContainer sx={{mt: 2}}>
-        <Table>
-    <TableBody>
-        <TableRow sx={{height: '35px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Permit issuer</Typography>
+    <Box sx={{mt: '1rem', height: '35px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>Permit issuer</Typography>
             <AlertIcon></AlertIcon>
-        </TableRow>
-    </TableBody></Table>
-    </TableContainer>
+    </Box>
 
-<Grid container spacing={2}>
-    <Grid item xs={8}>    
+    <Box sx={{display: 'flex'}}>
+    <Box>    
         <Box component='section'
-            sx={{bgcolor:'#f5f5f5', width:'23rem', padding: 2, height: '3rem',
-            mt: 2, display: 'inline-flex', justifyContent: 'space-between'
+            sx={{bgcolor:'#f5f5f5', 
+            width:'21rem', padding: 2, height: '3rem', mt: '0.5rem', 
+            display: 'inline-flex', justifyContent: 'space-between', alignItems: 'center'
         }}>
 
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
             <Box>
-            <img src={Frank} width={50} alt="User_image"></img>
+                <Avatar src={Frank} 
+                sx={{width: 50, height: 50}}></Avatar>
             </Box>
             <Box sx={{mx: 1}}>  
                 <Typography>{workers[0].name}</Typography>
@@ -89,28 +86,30 @@ return(
 
         <VerifiedTag></VerifiedTag>
         </Box>
-    </Grid>
-            
-        <Grid item xs={4} sx={{alignSelf: 'center'}}>
-            <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
+    </Box>
+
+        <Box sx={{alignSelf: 'center', ml: '1rem', mt: '1rem'}}>
+            <Typography sx={{fontSize: 11, color: 'rgba(0, 0, 0, 0.6)'}}>
                 Verified skills to manage Hot Works</Typography>
-        </Grid>
-</Grid>
+        </Box>
+    </Box>
 
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Select type of organisation</Typography>  
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Select type of organisation</Typography>  
             <AlertIcon></AlertIcon>
         </Box>
 
-        <FormControl required size='small' sx={{display: 'block',
-                width: '25rem', mt: 2 }}>
+        <FormControl required sx={{display: 'block',
+                mt: 2 }}>
         <TextField
             select
             name='organisationType'
             value={newPermit.organisationType}
             label='Select organisation'
             onChange={handleInput}
-            sx={{width: '25rem'}}
+            size="small"
+            sx={{width: '23rem'}}
             > 
                 <MenuItem value='Supplier'>Supplier</MenuItem>
                 <MenuItem value='Plumbing'>Plumbing</MenuItem>
@@ -120,7 +119,8 @@ return(
              
         <Box>
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Assign a supplier to carry out the work</Typography>  
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Assign a supplier to carry out the work</Typography>  
             <AlertIcon></AlertIcon>
         </Box>
 
@@ -132,7 +132,8 @@ return(
             value={newPermit.supplier}
             label='Select supplier *'
             onChange={handleInput}
-            sx={{width: '25rem'}}> 
+            size="small"
+            sx={{width: '23rem'}}> 
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
                 <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
                 <MenuItem value='Wickes'>Wickes</MenuItem> 
@@ -142,11 +143,12 @@ return(
 
         <Box>
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Assign operator(s) to carry out the work</Typography>  
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Assign operator(s) to carry out the work</Typography>  
             <AlertIcon></AlertIcon>
         </Box>
 
-        <FormControl required size='small' sx={{display: 'block',
+        <FormControl required sx={{display: 'block',
                 mt: 2 }}>
         
         {Array.from({length: numOfSelectFields}).map((_, index) => (
@@ -156,7 +158,8 @@ return(
                 value={operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
-                sx={{width: '25rem',
+                size="small"
+                sx={{width: '23rem',
                 '.MuiSelect-select': {
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -183,23 +186,25 @@ return(
         </Box>
 
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Responsible person for Hot Works</Typography>  
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Responsible person for Hot Works</Typography>  
             <AlertIcon></AlertIcon>
         </Box>
 
-        <Grid container spacing={2}>
-            <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block',
-                mt: 2 }}>
+        <Box sx={{display: 'flex'}}>
+        <Box>
+        <FormControl required 
+            sx={{display: 'block',
+            mt: 2 }}>
         <TextField
             select
             name='respForHotWorks'
             value={newPermit.respForHotWorks}
             label='Select verified worker *'
             onChange={handleInput}
-                // (e) => setRespForHotWorks(e.target.value)}
+            size="small"
             sx={{
-                width: '25rem',
+                width: '23rem',
                 '.MuiSelect-select': {
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -214,30 +219,36 @@ return(
         ))}
             </TextField>
         </FormControl>
-            </Grid>
+        </Box>
 
-            <Grid item xs={4} sx={{alignSelf: 'center'}}>
-                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
-                Verified skills to manage Hot Works</Typography> 
-                </Grid>
-            </Grid>
+        <Box sx={{alignSelf: 'center', ml: '1rem', mt: '1rem'}}>
+            <Typography sx={{fontSize: 11, color: 'rgba(0, 0, 0, 0.6)'}}>
+            Verified skills to manage Hot Works</Typography> 
+        </Box>
+        </Box>
 
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Responsible person for Fire Safety</Typography>  
             <AlertIcon></AlertIcon>
         </Box>
 
-        <Grid container spacing={2}>
-            <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block', mt: 2 }}>
+        <Box sx={{display: 'flex', alignItems: 'center'}}>
+        <Box>
+        <FormControl required sx={{display: 'block', mt: 2 }}>
         <TextField
             select
             name='respForFireSafety'
             value={newPermit.respForFireSafety}
             label='Select verified worker *'
             onChange={handleInput}
-                // (e) => setRespForFireSafety(e.target.value)}
-            sx={{width: '25rem'}}> 
+            size="small"
+            sx={{width: '23rem',
+            '.MuiSelect-select': {
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+            }}}> 
                 
             {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
@@ -247,14 +258,14 @@ return(
             ))}
             </TextField>
         </FormControl>
-            </Grid>
+        </Box>
         
-        <Grid item xs={4} sx={{alignSelf: 'center'}}>
-                <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)'}}>
-                Verified skills for Hot Works Fire Safety</Typography> 
-                </Grid>
+        <Box sx={{alignSelf: 'center', ml: '1rem', mt: '1rem'}}>
+            <Typography sx={{fontSize: 11, color: 'rgba(0, 0, 0, 0.6)'}}>
+            Verified skills for Hot Works fire safety</Typography> 
+        </Box>
         
-        </Grid>
+        </Box>
 
 
         </Paper>

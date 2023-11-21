@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router-dom'
-import { Box, Button, Typography, Toolbar, Link, Dialog, 
+import { Box, Button, ButtonBase, Typography, Toolbar, Link, Dialog, 
     DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
@@ -65,7 +65,8 @@ return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
 
     <Toolbar 
-    sx={{backgroundImage: `url(${BB_bg})`}}
+    sx={{backgroundImage: `url(${BB_bg})`, backgroundSize: '100%', 
+        backgroundRepeat: 'no-repeat'}}
     >
     <Button onClick={() => navigate('/')}>
         {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
@@ -101,12 +102,36 @@ return(
         <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', mx: 1, fontSize: 12}}>Certchain secured</Typography>
         <Link  href="https://www.google.com" sx={{color: '#00a4a9', mx: 1, fontSize: 12}}>What is this?</Link>
         </Box>
-        <Box>
-        <Button variant="text" sx={{color: '#00a4a9', fontWeight: 'bold', mx: 1}}>CANCEL</Button>
-        <Button variant="contained" sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>SAVE AS DRAFT{<SaveIcon sx={{ml: 1}} />}</Button>
+
+        <Box sx={{display: 'flex'}}>
+        <Button variant="text" 
+            sx={{color: '#00a4a9', fontWeight: 'bold', 
+            mx: 1, 
+            "&:hover": {
+                color: "#008488"}}}>
+            <Typography sx={{pt: '0.2rem', fontWeight: 500, fontSize: 14}}>
+                CANCEL</Typography>
+        </Button>
+        <Button variant="contained" 
+            sx={{bgcolor:  '#00a4a9', 
+            mx: 1, 
+            "&:hover": {
+                bgcolor: "#008488"}}}>
+            <Typography 
+                sx={{pt: '0.2rem', 
+                fontWeight: 500, fontSize: 14,}}>
+                SAVE AS DRAFT</Typography>
+            {<SaveIcon sx={{ml: 1}} />}
+        </Button>
         <Button variant="contained" onClick={handleOnClickOpen} 
-            sx={{bgcolor:  '#ffdd00', color: 'black', fontWeight: 'bold', mx: 1}}>
-            CREATE PERMIT</Button>
+            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1,
+            "&:hover": {
+                bgcolor: "#008488"}}}>
+            <Typography 
+                sx={{pt: '0.2rem', 
+                fontWeight: 500, fontSize: 14}}>
+                CREATE PERMIT</Typography>
+        </Button>
         </Box>
         </Toolbar>
 
@@ -121,10 +146,16 @@ return(
             </Typography>
         </DialogContent>
         <DialogActions sx={{mb: '0.5rem'}}>
-            <Button variant="contained" onClick={handleClose}
-                sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1}}>GO BACK</Button>
+            <Button variant="text" onClick={handleClose}
+                sx={{color:  '#00a4a9', bgcolor: '#ffffff', fontWeight: 'bold', mx: 1, 
+                "&:hover": {
+                    color: "#008488"}}}>GO BACK</Button>
             <Button variant="contained" onClick={handleSavePermit}
-                sx={{bgcolor:  '#ffdd00', color: 'black', fontWeight: 'bold', mx: 1}}>CREATE PERMIT </Button>
+                sx={{bgcolor:  '#00a4a9', color: '#ffffff', 
+                fontWeight: 'bold', mx: 1, 
+                "&:hover": {
+                    bgcolor: "#008488"}}}>
+                CREATE PERMIT </Button>
         </DialogActions>
     </Dialog>
     </Box>

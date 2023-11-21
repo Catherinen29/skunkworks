@@ -1,5 +1,5 @@
-import { Box, Checkbox, FormControl, Grid, MenuItem, Paper, 
-    TableBody, TableRow, TextField, Typography} from "@mui/material"
+import { Box, Checkbox, FormControl, MenuItem, Paper, 
+    TextField, Typography} from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import VerifiedTag from "../common/VerifiedTag";
@@ -36,32 +36,39 @@ const handleInput = (e) => {
 
     return (
         <Paper component='section' sx={{ 
-            width: '40rem',
+            width: '600px',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 5,
+            p: '2rem', 
             margin: 2 }} >
-        <Typography sx={{fontSize: 25}}>Part 6 - Fire Watch</Typography> 
+        <Typography variant="h5" sx={{fontWeight: 500}}>Part 6 - Fire Watch</Typography> 
         
         
-        <TableBody sx={{mt: 2}}>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Responsible person for Fire Safety</Typography>  
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Responsible person for Fire Safety</Typography>  
             <AlertIcon></AlertIcon>
-        </TableRow>
-        </TableBody>
+        </Box>
         
-        <Grid container spacing={2}>
-            <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block',
-            width: '25rem', mb: 1, mt: '2rem'}}>
+        <Box sx={{display: 'flex'}}>
+        <Box>
+        <FormControl 
+            sx={{display: 'block',
+            mb: 1, mt: '1rem'}}>
         <TextField
             select
             name= 'respForFireSafety'
             value={newPermit.respForFireSafety}
             onChange={handleInput}
             label='Select verified person'
-            sx={{width: '25rem'}}> 
+            size='small' 
+            sx={{width: '23rem',
+            '.MuiSelect-select': {
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+            }
+            }}> 
             {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
                 {worker.name}
@@ -71,32 +78,35 @@ const handleInput = (e) => {
 
             </TextField>
         </FormControl>
-        </Grid>
+        </Box>
 
-        <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', 
+            ml: '1rem', mt: '0.5rem'
+            }}>
             <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
             <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
             Supervisor Passport</Typography> 
-        </Grid>
-            
-        </Grid>
+            </Box>
+        </Box>
 
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex', mt: '1rem'}}>
-            <Typography sx={{py: '0.4rem'}}>Set fire watch duration (min 60 mins)</Typography>  
+
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Set fire watch duration (min 60 mins)</Typography>  
             <AlertIcon></AlertIcon>
-        </TableRow>
-        </TableBody>
+        </Box>
         
-        <FormControl required size="small" sx={{display: 'block',
-                width: '25rem', mb: 1, mt: '2rem'}}>
+        <FormControl 
+            sx={{display: 'block',
+            width: '25rem', mb: 1, mt: '1rem'}}>
         <TextField
             select
             name= 'watchDuration'
             value={newPermit.watchDuration}
             onChange={handleInput}
             label='Select duration'
-            sx={{width: '25rem'}}> 
+            size='small' 
+            sx={{width: '15rem'}}> 
                 <MenuItem value='60'>60 mins</MenuItem>
                 <MenuItem value='90'>90 mins</MenuItem>
                 <MenuItem value='120'>120 mins</MenuItem> 
@@ -105,11 +115,12 @@ const handleInput = (e) => {
             </TextField>
         </FormControl>
         
-        <Box sx={{mt: 2}}>
-        <Checkbox sx={{pl: 0}} 
+        <Box sx={{display: 'flex', alignItems: 'center',  mt: 2}}>
+        <Checkbox sx={{pl: 0, color:'#00a4a9'}} 
             onChange={(e) => {setPhotoRequired(e.target.checked)}} 
-            style={{color:'#00a4a9'}}/> 
-            Require thermal photographs for Fire Watch sign off
+            /> 
+        <Typography sx={{fontSize: 14}}>
+            Require thermal photographs for Fire Watch sign off</Typography>
         </Box>
 
         </Paper>

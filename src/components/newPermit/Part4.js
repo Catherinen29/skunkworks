@@ -1,5 +1,5 @@
-import { FormControl, Grid, MenuItem, Paper, TableBody, TableRow, 
-    Typography, TextField } from "@mui/material"
+import { FormControl, Grid, MenuItem, Paper, 
+    Typography, TextField, Box } from "@mui/material"
 import { useState } from "react"
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import VerifiedTag from "../common/VerifiedTag";
@@ -35,48 +35,55 @@ const handleInput = (e) => {
 
     return (
         <Paper component='section' sx={{ 
-            width: '40rem', 
+            width: '600px', 
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 5,
+            p: '2rem', 
             margin: 2 }} >
-        <Typography sx={{fontSize: 25}}>Part 4 - Risk Assessment</Typography> 
+        <Typography variant="h5" sx={{fontWeight: 500}}>Part 4 - Risk Assessment</Typography> 
         
-        <TableBody sx={{mt: 2}}>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Responsible person for completing the risk assessment</Typography>  
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>
+                Responsible person for completing the risk assessment</Typography>  
             <AlertIcon></AlertIcon>
-        </TableRow>
-        </TableBody>
+        </Box>
 
-        <Grid container spacing={2}>
-            <Grid item  xs={8}>
-        <FormControl required size='small' sx={{display: 'block',
-            width: '25rem', mb: 1, mt: '2rem'}}>
-            <TextField
-                select
-                name= 'riskAssessor'
-                value={newPermit.riskAssessor}
-                onChange={handleInput}
-                label='Select verified worker'
-                sx={{width: '25rem'}}> 
-            {workers.map((worker) => (
-            <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
-                {worker.name}
-                {worker.verified && <VerifiedTag/>}
-            </MenuItem>
-            ))}
+        <Box sx={{display: 'flex'}}>
+            <Box>
+            <FormControl 
+                sx={{display: 'block',
+                mb: 1, mt: '1rem'}}>
+                <TextField
+                    select
+                    name= 'riskAssessor'
+                    value={newPermit.riskAssessor}
+                    onChange={handleInput}
+                    label='Select verified worker'
+                    size='small' 
+                    sx={{width: '23rem',
+                    '.MuiSelect-select': {
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}}> 
+                {workers.map((worker) => (
+                <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
+                    {worker.name}
+                    {worker.verified && <VerifiedTag/>}
+                </MenuItem>
+                ))}
 
-            </TextField>
-        </FormControl>
-        </Grid>
+                </TextField>
+            </FormControl>
+            </Box>
         
-        <Grid item xs={4} sx={{alignSelf: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+            <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', 
+                ml: '1rem', mt: '0.5rem'}}>
                 <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
                 Supervisor Passport</Typography> 
-                </Grid>
-        </Grid>
+            </Box>
+        </Box>
 
         </Paper>
     )

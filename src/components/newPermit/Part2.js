@@ -29,24 +29,22 @@ const handleInput = (e) => {
 
     return (
         <Paper component='section' sx={{ 
-            width: '40rem',
+            width: '600px',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 5,
+            p: '2rem', 
             margin: 2,
             display: 'flex',
             flexDirection: 'column' }} >
-        <Typography sx={{fontSize: 25}}>Part 2 - Scope of Work</Typography>
+        <Typography variant="h5" sx={{fontWeight: 500}}>Part 2 - Scope of Work</Typography>
 
-    <TableBody sx={{mt: 2}}>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Description of the Hot Works to be undertaken</Typography>
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>Description of the Hot Works to be undertaken</Typography>
             <AlertIcon></AlertIcon>
-        </TableRow>
-    </TableBody>
-            <br />
+        </Box>
 
-        <FormControl sx={{width: '25rem'}}>
+        <Box>
+        <FormControl sx={{width: '30rem', mt: '1rem'}}>
             <TextField multiline rows={3} 
                 size='small' 
                 label='Enter description'
@@ -55,16 +53,13 @@ const handleInput = (e) => {
                 onChange={handleInput} />
         </FormControl>
 
-        <div>
-        <FormControl sx={{width: '30rem', mt: 2}}>
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Select types of activity covered by the permit</Typography>
+        <FormControl sx={{width: '30rem', mt: '1rem'}}>
+        <Box sx={{height: '25px', display: 'flex'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>Select types of activity covered by the permit</Typography>
             <AlertIcon></AlertIcon>
-        </TableRow>
-    </TableBody>
+        </Box>
 
-        <TableBody sx={{mt: 2}}>
+        <TableBody sx={{mt: 1}}>
             <TableRow>
             <Grid container spacing={2}>
                 <Grid item xs={6} sx={{width: '15rem'}}>
@@ -147,10 +142,12 @@ const handleInput = (e) => {
 
         </ TableBody>   
         </FormControl>
-        </div>
+        </Box>
 
-        <Box sx={{mt: 2, padding: 2, fontSize:'small', bgcolor:'#e2f7f7', color: '#0d3c61', 
-                alignSelf: 'center'}}>
+        <Box sx={{mt: 2, p: '1rem', pb: '0.5rem',
+            fontSize:'small', 
+            bgcolor:'#e2f7f7', color: '#0d3c61', 
+                }}>
             CERTCHAIN AI 
             <p>Welding has led to the most identified accidents across the organisation. 
             Extra precautions should be taken for any weldign work carried out. </p>

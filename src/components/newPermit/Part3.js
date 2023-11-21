@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, MenuItem, Paper, 
-    TextField, TableBody, TableRow, Typography } from "@mui/material"
+    TextField, Typography } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
 import { useState } from "react"
@@ -8,7 +8,7 @@ import AlertIcon from "../common/AlertIcon"
 
 export default function Part3({newPermit, setNewPermit}) {
 
-const [worksDate, setWorksDate] = useState()
+const [worksDate, setWorksDate] = useState(dayjs('2023-01-01T00:00'))
 const [startTime, setStartTime] = useState(dayjs('2022-04-17T00:00'))
 const [endTime, setEndTime] = useState(dayjs('2022-04-17T00:00'))
 const [area, setArea] = useState('')
@@ -29,80 +29,79 @@ const handleEndTime = (time) => {
 
     return(
         <Paper component='section' sx={{ 
-            width: '40rem',
+            width: '600px',
             bgcolor: '#ffffff',
             borderRadius: 1,
-            padding: 5,
+            p: '2rem', 
             margin: 2 }} >
-        <Typography sx={{fontSize: 25}}>Part 3 - Duration and Location of Work</Typography> 
+        <Typography variant="h5" sx={{fontWeight: 500}}>Part 3 - Duration and Location of Work</Typography> 
         
-        <TableBody sx={{mt: 2}}>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Set the start and end date of the permit</Typography>  
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>Set the start and end date of the permit</Typography>  
             <AlertIcon></AlertIcon>
-        </TableRow>
-        </TableBody>
-        <br />
-        <Box component="div"  sx={{display: 'inline-flex', mt: 2}}>
-        <div>
+        </Box>
+
+        <Box component="div"  sx={{display: 'flex', mt: 2}}>
+        <Box>
         <InputLabel sx={{fontSize: 12}}>Start date</InputLabel>
-        <FormControl required size='small' sx={{display: 'block', width: '11rem',
-                ml: 0.5, mr: 0.5}}>
+        <FormControl
+            sx={{display: 'block', width: '11rem',
+            m: 0.5, ml: 0
+            }}>
             <DatePicker 
             name= 'worksDate'
             value={newPermit.worksDate}
             onChange={handleDateChange}
             slotProps={{ textField: { size: 'small' } }} />
         </FormControl>
-        </div>
+        </Box>
 
-        <div>
-        <InputLabel sx={{fontSize: 12}}>Start time</InputLabel>
-        <FormControl required size='small' sx={{display: 'block', width: '11rem',
-                ml: 0.5, mr: 0.5}}>
+        <Box>
+        <InputLabel sx={{fontSize: 12, ml: '0.5rem'}}>Start time</InputLabel>
+        <FormControl 
+            sx={{display: 'block', width: '11rem',
+            m: 0.5}}>
             <TimePicker 
             name= 'startTime'
             value={newPermit.startTime} 
             slotProps={{ textField: { size: 'small' } }}
             onChange={handleStartTime} />
         </FormControl>
-        </div>
+        </Box>
 
             <Typography sx={{color:'rgba(0, 0, 0, 0.6)', fontSize: 'small', 
-            height: '1rem', alignSelf: 'center'}}>
+            height: '1rem', alignSelf: 'center', pt: '1rem', mx: '0.3rem'}}>
                 To</Typography>
         
-        <div>
-        <InputLabel sx={{fontSize: 12}}>End time</InputLabel>
-        <FormControl required size='small' sx={{display: 'block', width: '11rem',
-                 ml: 0.5, mr: 0.5}}>
+        <Box>
+        <InputLabel sx={{fontSize: 12, ml: '0.5rem'}}>End time</InputLabel>
+        <FormControl 
+            sx={{display: 'block', width: '11rem',
+            m: 0.5}}>
             <TimePicker 
             name= 'endTime'
             value={newPermit.endTime} 
             slotProps={{ textField: { size: 'small' } }}
             onChange={handleEndTime} />
         </FormControl>
-        </div>
+        </Box>
         </Box>
 
-        <br /> <br />
-        <div>
-        <TableBody>
-        <TableRow sx={{height: '25px', display: 'flex'}}>
-            <Typography sx={{py: '0.4rem'}}>Set the designated area for the work</Typography>  
+        <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
+            <Typography sx={{py: '0.4rem', fontSize: 14, fontWeight: 500}}>Set the designated area for the work</Typography>  
             <AlertIcon></AlertIcon>
-        </TableRow>
-        </TableBody>
+        </Box>
         
-        <FormControl required size='small' sx={{display: 'block',
-                mt: 2 }}>
+        <FormControl required sx={{display: 'block',
+                mb: 1, mt: 2 }}>
             <TextField
                 select
                 name= 'area'
                 value={newPermit.area}
                 label='Select area'
                 onChange={handleInput}
-                sx={{width: '25rem'}}
+                size='small' 
+                sx={{width: '23rem'}}
                 > 
                 <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>
                 <MenuItem value="Hospital Block B">Hospital Block B</MenuItem>
@@ -110,7 +109,6 @@ const handleEndTime = (time) => {
                 <MenuItem value="Hospital Block D">Hospital Block D</MenuItem>
             </TextField>
         </FormControl>
-        </div>
         </Paper>
     )
 }
