@@ -2,6 +2,7 @@ import { Alert, Box, Button, Checkbox, Dialog, Fab, Snackbar, Typography } from 
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import CircularProgress from '@mui/material/CircularProgress';
 import Frank from '../../frank.png'
@@ -11,7 +12,7 @@ export default function IssuerSignOff({
     setOpenIssuerSignOff, 
     setOpenGoldenTimeline, 
     setShowCompleteMsg, 
-    setSuccess 
+    setSuccess
     }) {
 
 const [agree, setAgree] = useState(false)
@@ -149,8 +150,9 @@ return (
                             bgcolor: "#008488"}}}
                         onClick={handleSignOff}
                         >
-
-                    AUTHORISE AND ISSUE PERMIT <CheckCircleIcon sx={{pl: '1rem'}} /></Button>
+                    <Typography>SIGN-OFF PERMIT</Typography>
+                    <CheckCircleOutlineRoundedIcon sx={{ml: '0rem', height: '1rem'}} />
+                </Button>
             </Box>
         </Box>
 

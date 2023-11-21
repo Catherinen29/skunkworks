@@ -2,6 +2,7 @@ import { Alert, Box, Button, Checkbox, Divider, Snackbar, Typography } from "@mu
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import Frank from '../../frank.png'
 import { useState } from "react";
@@ -115,7 +116,8 @@ return (
                         onClick={handleAgreeButton}
                         >
 
-                    AUTHORISE AND ISSUE PERMIT <CheckCircleIcon sx={{pl: '1rem'}} /></Button>
+                    <Typography>AUTHORISE AND ISSUE PERMIT</Typography>
+                    <CheckCircleOutlineRoundedIcon sx={{pl: '1rem'}} /></Button>
             </Box>
         </Box>
 
