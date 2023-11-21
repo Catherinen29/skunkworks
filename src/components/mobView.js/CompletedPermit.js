@@ -1,4 +1,6 @@
-import { Alert, Badge, Box, Button, Card, CardActionArea, Snackbar, Typography } from "@mui/material";
+import { Alert, Badge, Box, Button, Card, CardActionArea, 
+    Dialog, DialogContent, DialogTitle, Snackbar, Stack, 
+    Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -28,6 +30,14 @@ const handleClose = () => {
     setOpen(false)
 }
 
+// Manage move on screen
+const [openMoveOn, setOpenMoveOn] = useState(false)
+const handleOpenFirstMoveOn = () => {
+    setOpenMoveOn(true)
+}
+const handleCloseMoveOn = () => {
+    setOpenMoveOn(false)
+}
 return (
     
     <Card sx={{width: '50%', display: 'flex', flexDirection:'column', m: 'auto', 
@@ -97,7 +107,7 @@ return (
                 display: 'flex', alignItems: 'flex-start'
                 }}>
 
-                <CardActionArea onClick={() => navigate('/finalpermits')}>
+                <CardActionArea onClick={handleOpenFirstMoveOn}>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                     <Typography variant="h5" sx={{mb: '1rem', 
                         fontWeight: 500}}>Tasks</Typography>
@@ -248,6 +258,50 @@ return (
                         
             </Snackbar>
         </Box>
+
+
+{/* Move on screen */}
+<Dialog open={openMoveOn} onClose={handleCloseMoveOn} 
+    disableElevation
+    fullScreen
+    PaperProps={{
+        sx: {
+          backgroundColor: '#15181f',
+        }}}
+    >
+    <Box sx={{display: 'flex', flexDirection: 'column', 
+        justifyContent: 'center', alignItems: 'center', 
+        p: '4rem'}}>
+    <DialogTitle
+     sx={{width: '65rem', ml: '5rem', mt: '5rem'}}
+    >
+        <Typography variant="h5" 
+        sx={{color: '#ffffff'}}>
+            CERTCHAIN</Typography>
+        <Typography variant="h5" 
+        sx={{color: '#717580'}}>
+            DIGITAL PERMIT DEMO</Typography>
+    </DialogTitle>
+    <DialogContent 
+    // sx={{display: 'flex', justifyContent: 'start', p: 0}}
+    >
+        <Button variant="text"
+         onClick={() => navigate('/finalpermits')}
+            sx={{width: '65rem', height: '20rem', 
+            color: '#ffffff'}}>
+        <Stack sx={{display: 'flex', alignItems: 'start'}}>
+        <Typography variant="h5" sx={{m: '1rem'}}>
+            {`>>`} FAST FORWARD TO THE END OF DAY</Typography>
+        <Typography variant="h5" sx={{m: '1rem'}}>
+        PERMIT ISSUER AND FIRE WATCHER HAVE SIGNED OFF THEIR WORK IN THE MOBILE APP</Typography>
+        <Typography variant="h5" sx={{m: '1rem'}}>
+            SWITCH BACK TO THE ISSUER IN THE WEB APP</Typography>
+        </Stack>
+        </Button>
+    </DialogContent>
+    </Box>
+</Dialog>
+
     </Card>
                 
     )
