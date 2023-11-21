@@ -102,7 +102,10 @@ return (
                     </Box>
                     
                     <Button variant="outlined" 
-                        sx={{borderColor: '#00a4a9', color: '#00a4a9'}}>
+                        sx={{borderColor: '#00a4a9', color: '#00a4a9', 
+                        "&:hover": {
+                            bgcolor: "white",
+                            color: "#008488"}}}>
                         ADD MORE +</Button>   
                 </Card>
             </Box>
@@ -114,8 +117,12 @@ return (
                 <Typography sx={{fontSize: 14, fontWeight: 500, color: 'rgba(0, 0, 0, 0.6)', my: '1rem'}}>Digitial Signature</Typography>
                 <Card sx={{p: '1rem'}}>
                     <Typography>Sign with your phone biometrics</Typography>
-                    <Button variant="contained" onClick={handleSigning}
-                            sx={{bgcolor:  '#ffdd00', color: 'black', mt: '1rem'}}>
+                    <Button variant="contained" 
+                        disableElevation
+                        onClick={handleSigning}
+                        sx={{bgcolor:  '#00a4a9', mt: '1rem',
+                        "&:hover": {
+                            bgcolor: "#008488"}}}>
                         SIGN NOW </Button>
                 </Card>
             </Box> 
@@ -161,10 +168,15 @@ return (
 
         <Card disableElevation
             sx={{display: 'flex', flexDirection:'column', width: '100%', 
-            alignItems: 'center', pt: '2rem', pb: '2rem'}}>
+            alignItems: 'center', pt: '1rem', pb: '3rem'}}>
             <Button variant='contained' disabled={signed === false} 
                 onClick={() => navigate('/completedpermit')}
-                sx={{bgcolor:'#ffdd00', color: 'black', width: '90%'}}>COMPLETE <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
+                sx={{bgcolor:'#00a4a9', color: '#ffffff', width: '90%',
+                "&:hover": {
+                    bgcolor: "#008488"}}}>
+                    <Typography>COMPLETE
+                    </Typography> 
+                    <CheckCircleOutlineIcon sx={{mx: '1rem'}} /></Button>
         </Card> 
 </Card>
             
