@@ -12,10 +12,12 @@ import WorkIcon from '@mui/icons-material/Work';
 import FlagCircleIcon from '@mui/icons-material/FlagCircle';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import CloseIcon from '@mui/icons-material/Close';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import mob_bg from '../../mob_bg.png'
 import BB_bg from '../../BB_bg.png'
 import { useState } from "react";
 import { CheckCircleOutline } from "@mui/icons-material";
+import NoTasksTag from "../common/NoTasksTag";
 
 export default function CompletedPermit() {
 
@@ -57,7 +59,7 @@ return (
                 whiteSpace: 'nowrap', mr: '1rem', 
                 fontSize: 18}}> 
                <ApartmentIcon sx={{height: '3rem', width: '3rem'}} /> 
-                    <Typography noWrap variant="h4" 
+                    <Typography noWrap variant="h5" 
                         sx={{mx: '1rem', fontWeight: 500}}>
                     NHS Southampton University Hospital
                     </Typography>
@@ -78,7 +80,7 @@ return (
         
         <Box sx={{bgcolor: '#eef5f5'}}>
 
-            {/* Verfied */}
+            {/* Verified */}
             <Box sx={{m: '1rem', p: '1rem',
                 height: '3rem', display: 'flex', alignItems: 'center',
                 bgcolor: '#4caf50', color: 'white', borderRadius: 1}}>
@@ -88,26 +90,44 @@ return (
 
 
             {/* Tasks */}
-            <Box sx={{m: '1rem'}}>
-                <Card sx={{my: '1rem', bgcolor: '#04535f', color: 'white'}}>
+            <Box sx={{m: '1rem', display: 'flex', flexDirection: 'row'}}>
+                <Card sx={{my: '1rem', p: '1.5rem', pb: '1rem', 
+                width: '100%', height: '7rem',
+                bgcolor: '#04535f', color: 'white',
+                display: 'flex', alignItems: 'flex-start'
+                }}>
+
                 <CardActionArea onClick={() => navigate('/finalpermits')}>
-                    <Box sx={{display: 'flex', flexDirection: 'column',
-                        m: '2rem'}}>
-                    <Typography variant="h4" sx={{mb: '1rem', 
-                        bgcolor: '#ffdd00', color: 'black',
+                    <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                    <Typography variant="h5" sx={{mb: '1rem', 
                         fontWeight: 500}}>Tasks</Typography>
                     <Typography paragraph 
                         sx={{color: 'rgba(255, 255, 255, 0.7)'}}>
                         Specific project tasks assigned to you</Typography>
                     </Box>
                 </CardActionArea>
+
+                <Box sx={{display: 'flex', flexDirection: 'column', 
+                        justifyContent: 'space-between', height: '100%'}}>
+                    <NoTasksTag />   
+                    
+                    <Button variant="text"
+                        sx={{display: 'flex', alignSelf: 'flex-end',
+                        color: '#ffffff', width: '5rem'
+                        }}>
+                    <Typography sx={{fontWeight: 500, fontSize: 18, px: '0.5rem'}}>
+                        VIEW</Typography>
+                        <KeyboardArrowRightRoundedIcon />
+                    </Button>
+                </Box>
+                    
                 </Card>            
             </Box>
 
         
             {/* My Wallet */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h5">
+                <Typography variant="h5" fontWeight={500}>
                     My Wallet</Typography>
 
             <Box sx={{p: 0, my: '1rem', display: 'flex', flexFlow: 'row wrap', gap: '1rem'}}>
@@ -126,8 +146,12 @@ return (
                             required for your job role(s) on this project
                         </ Typography>
                         <Button 
-                            sx={{position: 'absolute', bottom: 0, right: 0, m: '0.5rem'}}>
-                            VIEW</Button>
+                            sx={{position: 'absolute', 
+                            bottom: 0, right: 0, m: '0.5rem',
+                            color: '#00a4a9'}}>
+                            VIEW
+                            <KeyboardArrowRightRoundedIcon />
+                            </Button>
                     </Card>
 
                     <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
@@ -143,7 +167,12 @@ return (
                             Work permits issued to you on this project
                         </Typography>
                         <Button
-                            sx={{position: 'absolute', bottom: 0, right: 0, m: '0.5rem'}}>VIEW</Button>
+                            sx={{position: 'absolute', 
+                            bottom: 0, right: 0, m: '0.5rem',
+                            color: '#00a4a9'}}>
+                            VIEW
+                            <KeyboardArrowRightRoundedIcon />
+                            </Button>
                     </Card>
 
                     <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
@@ -158,7 +187,12 @@ return (
                             Health & Safety details
                         </Typography> 
                         <Button
-                            sx={{position: 'absolute', bottom: 0, right: 0, m: '0.5rem'}}>VIEW</Button>
+                            sx={{position: 'absolute', 
+                            bottom: 0, right: 0, m: '0.5rem',
+                            color: '#00a4a9'}}>
+                            VIEW
+                            <KeyboardArrowRightRoundedIcon />
+                            </Button>
                     </Card>
 
                     <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
@@ -172,7 +206,12 @@ return (
                             Permit deadlines
                         </Typography>
                         <Button
-                            sx={{position: 'absolute', bottom: 0, right: 0, m: '0.5rem'}}>VIEW</Button>
+                            sx={{position: 'absolute', 
+                            bottom: 0, right: 0, m: '0.5rem',
+                            color: '#00a4a9'}}>
+                            VIEW
+                            <KeyboardArrowRightRoundedIcon />
+                            </Button>
                     </Card>        
                     
             </Box>
