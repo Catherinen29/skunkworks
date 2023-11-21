@@ -15,6 +15,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import PersonIcon from '@mui/icons-material/Person';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { useState } from 'react';
@@ -56,7 +57,7 @@ const [showImmutableMsg, setShowImmutableMsg] = useState(true)
 return(
 <Box sx={{display: 'flex', flexDirection: 'column'}}>
 
-    <PermitToolBar />
+    {/* <PermitToolBar /> */}
 
     <Paper sx={{py: 5, px: 8, bgcolor: '#f1f3f3', height: '100vh', }}>
         <Box>
@@ -66,11 +67,23 @@ return(
                 
                 <Box sx={{display: 'flex', flexDirection: 'row', height: '3rem'}}>
                     <Button variant="contained" 
-                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '10rem', height: '2rem'}}>
-                            MANAGE TEMPLATES</Button>
+                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, 
+                        width: '11rem', height: '2rem', 
+                        "&:hover": {
+                            bgcolor: "#008488"}}}>
+                        <Typography sx={{pt: '0.2rem', fontWeight: 500, fontSize: 14}}>
+                        MANAGE TEMPLATES</Typography>    
+                    </Button>
                     <Button onClick={handleOnClickOpen} variant="contained" disableRipple
-                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, width: '8rem', height: '2rem'}}>
-                            NEW PERMIT +</Button>
+                        sx={{bgcolor:  '#00a4a9', m: 1, fontSize: 12, 
+                        width: '9rem', height: '2rem',
+                        display: 'flex', 
+                        "&:hover": {
+                            bgcolor: "#008488"}}}>
+                        <Typography sx={{pt: '0.2rem', pr: '0.5rem', fontWeight: 500, fontSize: 14}}>
+                        NEW PERMIT</Typography>
+                        <AddRoundedIcon style={{fontSize: 16}} />
+                    </Button>
 
                 </Box>    
                 </Box>
@@ -118,8 +131,7 @@ return(
                     </Box>
                 }
                 
-                <FormControl required 
-                    size='small'
+                <FormControl
                     sx={{display: 'block',
                     m: 2, justifyContent: 'center' }}>
                     <TextField
@@ -194,7 +206,7 @@ return(
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
-                                bgcolor: '#ffdd00', color: 'black'}}>
+                                bgcolor: '#04535f', color: '#ffffff'}}>
                                 <PersonIcon sx={{width: '2rem', height: '2rem'}} />
                             </Box>
                             
@@ -232,6 +244,60 @@ return(
                     </CardContent>
                 </Card>
                 
+        {(filter !== 'Date') && permits.map((permit) => (
+            <Card sx={{width: '23rem', display: 'flex'}}>
+                <CardContent sx={{p: 0, width: '100%'}}>
+                <CardActionArea onClick={() => navigate('/hwpermitoverview')}>
+                    <Box sx={{display: 'flex', flexDirection: 'row'}}>
+                        <Box sx={{width: '8rem', height: '8rem', 
+                        display: 'flex', justifyContent: 'center', alignItems: 'center',
+                            bgcolor: '#04535f', color: 'white'}}>
+                            {permit.supplierType === 'company' 
+                                ? <ApartmentIcon sx={{width: '2rem', height: '2rem'}} /> 
+                                : <PersonIcon sx={{width: '2rem', height: '2rem'}} /> }
+                        </Box>
+                        
+                        <List sx={{pt: 1}}>
+                            <ListItem>
+                                <ListItemIcon style={{fill: '#04535f', minWidth: 38}}>
+                                    {permit.type === 'Hot Works' && <WhatshotIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Working at Height' && <LandscapeIcon style={{fill: '#04535f'}} />}
+                                    {permit.type === 'Electrical' && <ElectricBoltIcon style={{fill: '#04535f'}} />}
+                                </ListItemIcon>
+                                <Typography sx={{color: '#04535f', fontSize: 12}}>{permit.type}</Typography>
+                            </ListItem>
+
+                            <ListItem>
+                                <Typography>{permit.supplier}</Typography>
+                            </ListItem>
+
+                            <ListItem>
+                                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Created by: {permit.createdBy}</Typography>
+                            </ListItem>
+                        </List>                            
+                    </Box> 
+
+                    <Divider />
+
+                    <Box sx={{display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+                            alignItems: 'center', flexDirection: 'row',  pl: '1rem', pt: '1rem', pb: 0,
+                            }}>
+                        {permit.status === 'Active' && <ActivePermitTag />}
+                        {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
+                        {permit.status === 'Completed' && <CompletedStatusTag />}
+                        {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+
+                        <Box sx={{mx: '1rem'}}>
+                            {permit.expiresAt.length > 0 && permit.expiresAt}
+                            {permit.activatesAt.length > 0 && permit.activatesAt}
+                        </Box>
+                    </Box>        
+
+                </CardActionArea>
+                </CardContent>
+            </Card>
+        ))}
+
         {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
                 <Card sx={{width: '23rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
