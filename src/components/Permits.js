@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Alert, Box, Button, Card, CardActionArea, CardContent, Collapse, Dialog, DialogActions, 
     DialogContent, DialogTitle, FormControl, IconButton, 
-    InputAdornment, List, ListItem, ListItemIcon, MenuItem, Paper, Snackbar, TextField,
+    InputAdornment, InputLabel, List, ListItem, ListItemIcon, MenuItem, OutlinedInput, Paper, Snackbar, TextField,
     Typography } from "@mui/material";
 import Divider from '@mui/material/Divider';
 import BB_bg from "../BB_bg.png"
@@ -70,8 +70,11 @@ const handleStart = () => {
 
 }
 
+// Manage searchbar label
+const [shrink, setShrink] = useState(false)
 
 
+// Manage snackbars confirming successful creation of permit
 const [showPermitCreatedMsg, setShowPermitCreatedMsg] = useState(true)
 const [showImmutableMsg, setShowImmutableMsg] = useState(true)
 
@@ -132,13 +135,14 @@ return(
             <FormControl variant='outlined' size='small'
                 sx={{width: '30rem', my: 2}}>
                 <TextField size='small'
-                InputLabelProps={{ shrink: false, style: { marginLeft: 30 } }}
-                    InputProps= {{
-                        startAdornment: 
-                        <InputAdornment position='start'>
-                                <SearchIcon />
-                        </InputAdornment>
-                        }}
+                onFocus={() => setShrink(true)}
+                InputLabelProps={{ style: { ml: '10rem', shrink } }}
+                InputProps= {{
+                    startAdornment: 
+                    <InputAdornment position='start'>
+                            <SearchIcon />
+                    </InputAdornment>
+                    }}
                     label='Search permits'
                 />
             </FormControl>
@@ -195,9 +199,9 @@ return(
         </Box>
 
 
-            {/* Pop out. 
-                User is taken to the permit template page of the 
-                type they select. */}
+        {/* Pop out. 
+            User is taken to the permit template page of the 
+            type they select. */}
 
         <Dialog keepMounted open={open} onClose={handleClose}
             sx={{display: 'flex', flexDirection: 'column', width: '35rem', margin: 'auto'}}>
@@ -222,7 +226,7 @@ return(
             
             <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
-                    sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 'bold', mx: 1,
+                    sx={{bgcolor:  'white', color: '#00a4a9', fontWeight: 500, mx: 1,
                     "&:hover": {
                         bgcolor: '#ffffff', 
                         color: "#008488"}}}>
@@ -232,7 +236,9 @@ return(
                     sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1,
                     "&:hover": {
                         bgcolor: "#008488"}}}>
-                        START <ArrowForwardIosIcon fontSize='12px' sx={{ml: 1, mt: -0.5}} /></Button>
+                    <Typography sx={{pt: '0.2rem', pr: '0.5rem', fontWeight: 500, fontSize: 14}}>
+                    START</Typography>
+                    <ArrowForwardIosIcon fontSize='12px' sx={{mt: '0.1rem'}} /></Button>
             </Box>
 
         </DialogActions>
