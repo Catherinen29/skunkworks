@@ -26,9 +26,6 @@ const [showOverview, setShowOverview] = useState(true)
 const [showTaskList, setShowTaskList] = useState(true)
 const [showCompletionSignOff, setShowCompletionSignOff] = useState(true)
 
-// Manage authorised tag.
-const [permitAuthorised, setPermitAuthorised] = useState(false)
-
 // Manage Permit Overview
 const [openPermitView, setOpenPermitView] = useState(false)
 const handleOpenPermitView = () => {
@@ -75,9 +72,10 @@ const handleCloseMoveOn = () => {
     setOpenMoveOn(false)
     setTasksDone(true)
 }
-// const handleTasks = () => {
-//     setTasksDone(true)
-// }
+
+// Manage authorised tag.
+const [permitAuthorised, setPermitAuthorised] = useState(false)
+
 
 return (
     
@@ -263,7 +261,10 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!tasksDone 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
                 </Box>
 
 
@@ -285,7 +286,10 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!tasksDone 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
                 </Box>
 
 
@@ -307,7 +311,10 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!tasksDone 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
                 </Box>
 
                 <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
@@ -328,7 +335,10 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!tasksDone 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
                 </Box>
 
 
@@ -350,9 +360,12 @@ return (
                             Assigned to Francis Golder (Me)</Typography>
                         </Box>
                     </Box>
-                    
+
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!permitAuthorised 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
                     </CardActionArea>
                 </Card>
             </Box>
@@ -391,7 +404,7 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
                 </Box>
 
                 <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
@@ -412,7 +425,7 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
                 </Box>
 
                 <Box sx={{display: 'flex', flexDirection: 'row', px: '1rem', justifyContent: 'space-between',
@@ -434,7 +447,8 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    
                 </Box>    
             </Box>
         }
@@ -472,6 +486,7 @@ return (
     
 </Box>
 
+{/* Move on screen */}
 <Dialog open={openMoveOn} onClose={handleCloseMoveOn} 
     disableElevation
     fullScreen
@@ -480,7 +495,6 @@ return (
           backgroundColor: '#15181f',
         }}}
     >
-    
     <Box sx={{display: 'flex', flexDirection: 'column', p: '4rem'}}>
     <DialogTitle>
         <Typography variant="h5" 
