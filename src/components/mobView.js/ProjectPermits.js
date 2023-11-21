@@ -69,7 +69,6 @@ return (
                             <Box sx={{border: 1, 
                                 borderColor: 'white', 
                                 borderRadius: '10%',
-                                bgcolor: '#ffdd00',
                                 width: 100, 
                                 height: 100,
                                 textAlign: 'left',
@@ -78,7 +77,7 @@ return (
                                 justifyContent: 'center'
                                 }}>
                             <Typography sx={{fontFamily: 'Anton', 
-                                fontSize: 25, color: 'black',
+                                fontSize: 25, color: '#ffffff',
                                 pl: '15%',
                                 lineHeight: 1}}>
                                     Balfour
@@ -117,7 +116,7 @@ return (
                             <Typography
                                 sx={{
                                 color: 'white',
-                                fontSize: 13,
+                                fontSize: 16,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
@@ -184,21 +183,20 @@ return (
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <Box
                             sx={{
-                            width: '8rem',
+                            width: '7rem',
                             height: '1.8rem',
                             bgcolor: '#d32f2f',
                             borderRadius: 50,
                             display: 'flex',
                             justifyContent: 'center',
-                            alignItems: 'center',
-                            mr: '1rem'
+                            alignItems: 'center'
                             }}
                             > 
                             <InfoIcon />
                             <Typography
                                 sx={{
                                 color: 'white',
-                                fontSize: 13,
+                                fontSize: 16,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
@@ -252,7 +250,7 @@ return (
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <Box
                             sx={{
-                            width: '8rem',
+                            width: '7rem',
                             height: '1.8rem',
                             bgcolor: '#d32f2f',
                             borderRadius: 50,
@@ -266,7 +264,7 @@ return (
                             <Typography
                                 sx={{
                                 color: 'white',
-                                fontSize: 13,
+                                // fontSize: 13,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
