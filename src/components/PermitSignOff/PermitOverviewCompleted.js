@@ -7,6 +7,7 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import TodoTag from "../common/TodoTag";
 import DoneTag from "../common/DoneTag";
 import { ReadyPermitTag, CompletedPermitTag } from "../common/PermitStatusTags";
@@ -99,7 +100,7 @@ return (
 <Box sx={{width: '100%'}}> 
 
 {/* Toolbar */}
-<PermitToolBar />
+{/* <PermitToolBar /> */}
 
 {/* <SideBar /> */}
 
@@ -109,7 +110,12 @@ return (
     <Button 
     onClick={() => navigate('/finalpermits')}
     variant="contained" disableElevation={true}
-    sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
+    sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0,
+    "&:hover": {
+        fontWeight: 'bold',
+        bgcolor: '#f1f3f3',
+        color: "#04535f"}
+    }}
     >
     <ArrowBackIosNewIcon fontSize='8' sx={{mr: '1rem'}} />
     <Typography>BACK TO PERMITS</Typography>
@@ -151,7 +157,9 @@ return (
                 <Button onClick={() => setShowOverview(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                    <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                {showOverview 
+                ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }
                 </Button>
             </Box>
             
@@ -217,7 +225,9 @@ return (
                     <Button onClick={() => setShowTaskList(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    {showTaskList 
+                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }    
                     </Button>
                 </Box>
 
@@ -365,7 +375,9 @@ return (
                     <Button onClick={() => setShowCompletionSignOff(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    {showCompletionSignOff 
+                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }  
                     </Button>
                 </Box>
 
@@ -418,8 +430,7 @@ return (
                         bgcolor: "#f1f3f3"}
                     }}>
                     <CardActionArea onClick={handleOpenIssuerSignOff}
-                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
-                            bgcolor: '#ffdd00'}}>
+                        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                     <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
                             bgcolor: '#04535f', color: 'white', m: '1rem', display: 'flex', 
