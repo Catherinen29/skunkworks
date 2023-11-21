@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Card, CardActionArea, Paper, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Dialog, DialogContent, DialogTitle, Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
@@ -8,12 +8,14 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import TodoTag from "../common/TodoTag";
 import { AuthorisedStatusTag } from "../common/PermitStatusTags";
 import PermitDetails from "./PermitDetails";
 import SideBar from "../common/SideBar";
 import AuthHotWorks from "./AuthHotWorks";
 import PermitView from "./PermitView";
+import DoneTag from "../common/DoneTag";
 
 export default function HWPermitOverview() {
 
@@ -63,13 +65,26 @@ const handleClosePermitAuthorisedMsg = (event, reason) => {
     setShowAuthMsg(false) 
 }
 
+// Manage move on to next stage
+const [openMoveOn, setOpenMoveOn] = useState(false)
+const [tasksDone, setTasksDone] = useState(false)
+const handleOpenMoveOn = () => {
+    setOpenMoveOn(true)
+}
+const handleCloseMoveOn = () => {
+    setOpenMoveOn(false)
+    setTasksDone(true)
+}
+// const handleTasks = () => {
+//     setTasksDone(true)
+// }
 
 return (
     
 <Box sx={{width: '100%'}}> 
 
 {/* Toolbar */}
-<PermitToolBar />
+{/* <PermitToolBar /> */}
 
 {/* <SideBar /> */}
 
@@ -79,7 +94,11 @@ return (
     <Button 
     onClick={() => navigate('/')}
     variant="contained" disableElevation={true}
-    sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0}}
+    sx={{color: '#00a4a9', bgcolor: '#f1f3f3', m: '2rem', mb: 0,
+    "&:hover": {
+        fontWeight: 'bold',
+        bgcolor: '#f1f3f3',
+        color: "#04535f"}}}
     >
     <ArrowBackIosNewIcon fontSize='8' sx={{mr: '1rem'}} />
     <Typography>BACK TO PERMITS</Typography>
@@ -87,27 +106,38 @@ return (
     
 
     {/* Title box */}
-    <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', 
-        alignItems: 'center', m: '2rem'}}>
-        
-        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+    <Card elevation={0}
+        sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', 
+        alignItems: 'center', m: '2rem', 
+        bgcolor: '#f1f3f3',
+        "&:hover": {
+            bgcolor: "#f1f3f3"}
+            }}>
+        <CardActionArea onClick={handleOpenMoveOn} disableRipple 
+            sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Box
+            sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'
+            }}>
+            
             <Box sx={{width: '7rem', height: '7rem', borderRadius: '10%', 
                 bgcolor: '#04535f', color: 'white',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}><WhatshotIcon /></Box>  
+                }}><WhatshotIcon />
+            </Box>  
 
-            <Box sx={{m: '1rem'}}>
+            <Box sx={{my: '1rem', mx: '2rem'}}>
                 <Typography variant='h5'  sx={{fontWeight: 500}}>Hot Works Permit</Typography>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>Section 5, Hospital Block A</Typography>
             </Box>
         </Box>
 
-    {!permitAuthorised 
-        ? <PreAuthStatusTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
-        : <AuthorisedStatusTag />
-    }
-           
-    </Box>
+        {!permitAuthorised 
+            ? <PreAuthStatusTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+            : <AuthorisedStatusTag />
+        }
+        
+        </CardActionArea>
+    </Card>
 
         {/* Permit overview */}
     <Box sx={{bgcolor: '#f1f3f3', m: '2rem'}}>
@@ -120,7 +150,9 @@ return (
                 <Button onClick={() => setShowOverview(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                    <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                {showOverview 
+                ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }
                 </Button>
             </Box>
             
@@ -182,7 +214,9 @@ return (
                     <Button onClick={() => setShowTaskList(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    {showTaskList 
+                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }    
                     </Button>
                 </Box>
 
@@ -206,7 +240,11 @@ return (
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center', pr: '1rem'}}>
-                        <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} /></Box>
+                    {!tasksDone 
+                    ? <TodoTag sx={{display: 'flex', alignSelf: 'flex-end'}} />
+                    : <DoneTag />}
+                    </Box>
+                        
                 </Box>
 
 
@@ -297,7 +335,7 @@ return (
                 </Box>
 
 
-                <Card elevation={0} sx={{px: '1rem', bgcolor: '#ffdd00',
+                <Card elevation={0} sx={{px: '1rem', 
                     "&:hover": {
                         bgcolor: "#f1f3f3"}
                     }}>            
@@ -330,7 +368,9 @@ return (
                     <Button onClick={() => setShowCompletionSignOff(prev => !prev)}
                         disableRipple
                         sx={{mx: '1rem'}}>
-                        <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />      
+                    {showCompletionSignOff 
+                    ? <KeyboardArrowDownIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> 
+                    : <KeyboardArrowRightRoundedIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} /> }  
                     </Button>
                 </Box>
 
@@ -435,7 +475,34 @@ return (
     
 </Box>
 
-
+<Dialog open={openMoveOn} onClose={handleCloseMoveOn} 
+    disableElevation
+    fullScreen
+    PaperProps={{
+        sx: {
+          backgroundColor: '#15181f',
+        }}}
+    >
+    
+    <Box sx={{display: 'flex', flexDirection: 'column', p: '4rem'}}>
+    <DialogTitle>
+        <Typography variant="h5" 
+        sx={{color: '#ffffff'}}>
+            CERTCHAIN</Typography>
+        <Typography variant="h5" 
+        sx={{color: '#717580'}}>
+            DIGITAL PERMIT DEMO</Typography>
+    </DialogTitle>
+    <DialogContent sx={{display: 'flex', justifyContent: 'center'}}>
+        <Button variant="text"
+        onClick={handleCloseMoveOn}
+            sx={{width: '20rem', height: '20rem', 
+            color: '#ffffff'}}>
+        <Typography variant="h5" >FAST FORWARD {`>>>`}</Typography>
+        </Button>
+    </DialogContent>
+    </Box>
+</Dialog>
 
 {/* Notifications that permit has been authorised */}
     <Box>
