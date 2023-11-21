@@ -40,7 +40,7 @@ const timer = useRef(10)
 const handleSignOff = () => {
     if (agree) {
         setLoadVisible(true) 
-        setProgress(0)
+        setProgress(10)
         setLoading(true)
 
         if (!loading) {
@@ -53,7 +53,7 @@ const handleSignOff = () => {
               setOpenIssuerSignOff(false)
               setOpenGoldenTimeline(true)
               setShowCompleteMsg(true)
-            }, 4000);
+            }, 2500);
           }
 
     } else {
@@ -64,7 +64,7 @@ const handleSignOff = () => {
 
 useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 20));
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 30));
     }, 800);
     return () => {
       clearInterval(timer);
@@ -143,7 +143,10 @@ return (
         {/* Authorise button - checkbox required */}
             <Box sx={{my: '1rem'}}>
                 <Button variant='contained' 
-                        sx={{bgcolor: '#ffdd00', color: 'black'}}
+                        sx={{bgcolor: '#00a4a9',
+                        color: '#ffffff',
+                        "&:hover": {
+                            bgcolor: "#008488"}}}
                         onClick={handleSignOff}
                         >
 
