@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Checkbox, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Checkbox, Divider, Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -59,8 +59,10 @@ return (
             
         </Box>
 
+<Divider />
+
         {/* Overview */}
-        <Box sx={{mx: '2rem', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+        <Box sx={{m: '2rem'}}>
             <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Authorise Hot Works Permit</Typography>
 
 
@@ -75,10 +77,10 @@ return (
                         <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14}}>Balfour Beatty</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
-                        <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,
+                        <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
                             display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <CheckCircleIcon style={{ fill: 'white', height: '1rem'}}></CheckCircleIcon>
-                            <Typography sx={{color: 'white', fontSize: 12, alignSelf: 'center', mr: '0.5rem'}}>
+                            <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', mr: '0.5rem'}}>
                                 Verified
                             </Typography>
                         </Box>
@@ -106,8 +108,10 @@ return (
         {/* Authorise button - checkbox required */}
             <Box sx={{my: '1rem'}}>
                 <Button variant='contained' 
-                        sx={{bgcolor: '#ffdd00',
-                        color: 'black'}}
+                        sx={{bgcolor: '#00a4a9',
+                        color: '#ffffff',
+                        "&:hover": {
+                            bgcolor: "#008488"}}}
                         onClick={handleAgreeButton}
                         >
 

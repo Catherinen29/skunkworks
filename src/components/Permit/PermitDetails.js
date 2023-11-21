@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
@@ -36,8 +36,10 @@ return (
             
         </Box>
 
+        <Divider />
+        
         {/* Overview */}
-        <Box sx={{mx: '2rem', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+        <Box sx={{m: '2rem'}}>
             <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Overview</Typography>
 
             <Box sx={{my: '1rem'}}>
@@ -61,8 +63,15 @@ return (
             </Box>
             
             <Box sx={{my: '1rem'}}>
-                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, mb: '0.2rem'}}>Permit actions</Typography>
-                <Button variant='outlined' sx={{borderColor: '#00a4a9', color: '#00a4a9'}}>MANAGE <EditIcon /></Button>
+                <Typography 
+                sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, mb: '0.2rem'}}>
+                    Permit actions</Typography>
+                <Button variant='outlined' 
+                sx={{borderColor: '#00a4a9', color: '#00a4a9', 
+                "&:hover": {
+                    color: "#008488",
+                    bgcolor: '#ffffff'}}}>
+                    MANAGE <EditIcon /></Button>
             </Box>
         </Box>
 
