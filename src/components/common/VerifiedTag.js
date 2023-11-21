@@ -6,8 +6,8 @@ const VerifiedTag = () => {
   return (
     <Box
       sx={{
-        width: '6rem',
-        height: '1.8rem',
+        width: '5rem',
+        height: '1.5rem',
         bgcolor: '#4caf50',
         borderRadius: 50,
         display: 'flex',
@@ -15,13 +15,16 @@ const VerifiedTag = () => {
         alignItems: 'center',
       }}
     >
-      <CheckCircleIcon style={{ fill: 'white', m: '0.5rem' }}></CheckCircleIcon>
+      <CheckCircleIcon 
+        style={{ fill: 'white', 
+          m: '0.5rem', 
+          height: '1.2rem' }}></CheckCircleIcon>
       <Typography
         sx={{
           color: 'white',
-          fontSize: 14,
+          fontSize: 12,
           alignSelf: 'center',
-          m: '0.5rem',
+          mr: '0.5rem',
         }}
       >
         Verified
