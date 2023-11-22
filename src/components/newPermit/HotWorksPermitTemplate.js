@@ -15,7 +15,7 @@ import BB_bg from "../../BB_bg.png"
 import { useState } from "react";
 import dayjs from "dayjs"
 
-export default function NewHotWorksPermit({permits, setPermitCreated}) {
+export default function NewHotWorksPermit({permits, setPermits, setPermitCreated, workers}) {
 
 const navigate = useNavigate()
 
@@ -30,13 +30,13 @@ const handleClose = () => {
 
 // Handle new permit
 const [newPermit, setNewPermit] = useState({
-    type: '',
+    type: 'Hot Works',
     supplier: '',
     supplierType: 'company',
-    organistionType: '',
-    createdBy: '',
+    organisationType: '',
+    createdBy: 'Francis Golder',
     status: 'Pre-authorisation',
-    activatesAt: '',
+    activatesAt: 'Activates at: Today at 15:00',
     expiresAt: '',
     scope: '',
     worksDate: '',
@@ -49,15 +49,41 @@ const [newPermit, setNewPermit] = useState({
     respForFireSafety: '',
     riskAssessor: '',
     respForChecklist: '',
+    respForFireWatch: '',
     watchDuration: ''
 })
+
+const handlePopulateFields = () => {
+    setNewPermit({
+        type: 'Hot Works',
+        supplier: 'Travis Perkins',
+        supplierType: 'company',
+        organisationType: 'Carpentry',
+        createdBy: 'Jan Goldstein',
+        status: 'Pre-authorisation',
+        activatesAt: 'Activates at: Today at 15:00',
+        expiresAt: '',
+        scope: 'The Hot Works permit for welding on a construction worksite...',
+        worksDate: dayjs('2023-12-04T00:00'),
+        startTime: dayjs('2023-12-04T00:00'),
+        endTime: dayjs('2023-12-04T00:00'),
+        area: 'Section 5, Hospital Block A',
+        activities: ['Brazing', 'Soldering'],
+        operators: 'Tilda Swinton',
+        respForHotWorks: 'Tilda Swinton',
+        respForFireSafety: 'Tilda Swinton',
+        riskAssessor: 'Tilda Swinton',
+        respForChecklist: 'Tilda Swinton',
+        respForFireWatch: 'Tilda Swinton',
+        watchDuration: '90 mins'
+    })
+}
 
 
 // TODO:
 const handleSavePermit = () => {
-    console.log('Permit Saved')
-    console.log('********* NEW PERMIT: ', newPermit)
-    permits.unshift(newPermit)
+    setPermits([newPermit, ...permits])
+    console.log('FIRST PERMIT: ', permits[0].respForChecklist)
     setPermitCreated(true)
     navigate('/')
 }
@@ -113,7 +139,7 @@ return(
             <Typography sx={{pt: '0.2rem', fontWeight: 500, fontSize: 14}}>
                 CANCEL</Typography>
         </Button>
-        <Button variant="contained" 
+        <Button variant="contained" onClick={handlePopulateFields}
             sx={{bgcolor:  '#00a4a9', 
             mx: 1, 
             "&:hover": {
