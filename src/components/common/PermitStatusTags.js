@@ -38,7 +38,7 @@ return (
   <>
         <Box
         sx={{
-          width: '8rem',
+          width: '10rem',
           height: '1.8rem',
           bgcolor: '#ed6c02',
           borderRadius: 50,
@@ -50,7 +50,7 @@ return (
           <Typography
             sx={{
               color: 'white',
-              fontSize: 12,
+              fontSize: 14,
               alignSelf: 'center',
               m: '0.5rem',
             }}
