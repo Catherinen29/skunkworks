@@ -57,8 +57,8 @@ const handleInput = (e) => {
             mb: 1, mt: '1rem'}}>
         <TextField
             select
-            name= 'respForFireSafety'
-            value={newPermit.respForFireSafety}
+            name= 'respForFireWatch'
+            value={newPermit.respForFireWatch}
             onChange={handleInput}
             label='Select verified person'
             size='small' 

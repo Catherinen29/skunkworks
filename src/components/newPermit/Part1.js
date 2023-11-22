@@ -25,18 +25,15 @@ const workers = [{
 
 export default function Part1({newPermit, setNewPermit}) {
 
-const [organisationType, setOrganisationType] = useState('')
-const [supplier, setSupplier] = useState('')
 const [operators, setOperators] = useState([])
 const [numOfSelectFields, setNumOfSelectFields] = useState(1)
-const [respForHotWorks, setRespForHotWorks] = useState('')
-const [respForFireSafety, setRespForFireSafety] = useState('')
 
 const handleOperator = (e, index) => {
     if (!operators.includes(e.target.value)) {
         const updatedOperators = [...operators]
         updatedOperators[index] = e.target.value
         setOperators(updatedOperators)
+        setNewPermit({...newPermit,  [e.target.name]: updatedOperators})
     } 
 }
 
