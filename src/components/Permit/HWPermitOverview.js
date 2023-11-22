@@ -83,7 +83,7 @@ return (
 
 <SideBar />
 
-<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem'}}>
+<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem', justifyContent: 'center'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 

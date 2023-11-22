@@ -195,7 +195,7 @@ return(
 
         {/* List of permits */}
         <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', 
-            mt: '1rem'}}>
+            justifyContent: 'center', mt: '1rem'}}>
         <Card sx={{width: '23rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
                     <CardActionArea onClick={() => navigate('/permitoverviewcompleted')}>
