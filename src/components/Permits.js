@@ -22,30 +22,10 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import PermitToolBar from './common/PermitToolBar';
 import SideBar from './common/SideBar';
 import { ActivePermitTag, EmergingIssuesStatusTag,
-        CompletedStatusTag, AuthorisedStatusTag } from './common/PermitStatusTags'
+        CompletedStatusTag, AuthorisedStatusTag, PreAuthStatusTag } from './common/PermitStatusTags'
 
 
-export default function Permits({permits, permitCreated, setPermitCreated}) {
-
-// TODO: remove static data and replace with data from database
-    const workers = [{
-        name: 'Jan Goldstein',
-        value: 'Jan Goldstein',
-        position: 'Supervisor',
-        verified: true,
-    }, {
-        name: 'Tilda Swinton',
-        value: 'Tilda Swinton',
-        position: 'Supervisor',
-        verified: true,
-    }, {
-        name: 'Bill Nighy',
-        value: 'Bill Nighy',
-        position: 'Supervisor',
-        verified: true,
-    }]
-
-
+export default function Permits({permits, permitCreated, setPermitCreated, workers}) {
 
 const navigate = useNavigate()
 
@@ -288,6 +268,7 @@ return(
                         {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                         {permit.status === 'Completed' && <CompletedStatusTag />}
                         {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+                        {permit.status === 'Pre-authorisation' && <PreAuthStatusTag />}
 
                         <Box sx={{mx: '1rem', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
                             display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
@@ -343,6 +324,7 @@ return(
                             {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                             {permit.status === 'Completed' && <CompletedStatusTag />}
                             {permit.status === 'Authorised' && <AuthorisedStatusTag />}
+                            {permit.status === 'Pre-authorisation' && <PreAuthStatusTag />}
 
                             <Box sx={{mx: '1rem'}}>
                                 {permit.expiresAt.length > 0 && permit.expiresAt}

@@ -13,7 +13,7 @@ import { useState } from "react";
 
 function App() {
 
-  const permits = [{
+  const [permits, setPermits] = useState([{
     type: 'Hot Works',
     supplier: 'Balfour Beatty',
     supplierType: 'company',
@@ -85,6 +85,24 @@ function App() {
     status: 'Authorised',
     activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
     expiresAt: ''
+}])
+
+// TODO: remove static data and replace with data from database
+const workers = [{
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    position: 'Supervisor',
+    verified: true,
+}, {
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    position: 'Supervisor',
+    verified: true,
 }]
 
 const [permitCreated, setPermitCreated] = useState(false)
@@ -96,9 +114,11 @@ const [permitCreated, setPermitCreated] = useState(false)
           <Route path="/" element={<Permits 
                 permits={permits} 
                 permitCreated={permitCreated}
-                setPermitCreated={setPermitCreated} />} />
+                setPermitCreated={setPermitCreated} 
+                workers={workers} />} />
           <Route path="/hotworkstemplate" element={<NewHotWorksPermit 
                 permits={permits}
+                setPermits={setPermits}
                 setPermitCreated={setPermitCreated} />} />
           <Route path="/hwpermitoverview" element={<HWPermitOverview />} />
           <Route path="/signpermit" element={<SignPermit />} />
