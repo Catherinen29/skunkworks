@@ -152,7 +152,7 @@ return(
             <TextField
                 select
                 name='operators'
-                value={operators[index]}
+                value={newPermit.operators[index]}
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
                 size="small"

@@ -109,11 +109,11 @@ const handleInput = (e) => {
             label='Select duration'
             size='small' 
             sx={{width: '15rem'}}> 
-                <MenuItem value='60'>60 mins</MenuItem>
-                <MenuItem value='90'>90 mins</MenuItem>
-                <MenuItem value='120'>120 mins</MenuItem> 
-                <MenuItem value='150'>150 mins</MenuItem> 
-                <MenuItem value='180'>180 mins</MenuItem> 
+                <MenuItem value='60 mins'>60 mins</MenuItem>
+                <MenuItem value='90 mins'>90 mins</MenuItem>
+                <MenuItem value='120 mins'>120 mins</MenuItem> 
+                <MenuItem value='150 mins'>150 mins</MenuItem> 
+                <MenuItem value='180 mins'>180 mins</MenuItem> 
             </TextField>
         </FormControl>
         

@@ -4,6 +4,7 @@ import { DatePicker } from "@mui/x-date-pickers"
 import { TimePicker } from "@mui/x-date-pickers"
 import { useState } from "react"
 import dayjs from "dayjs"
+import 'dayjs/locale/en-gb';
 import AlertIcon from "../common/AlertIcon"
 
 export default function Part3({newPermit, setNewPermit}) {

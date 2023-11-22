@@ -43,8 +43,8 @@ const [newPermit, setNewPermit] = useState({
     startTime: dayjs('2022-01-01T00:00'),
     endTime: dayjs('2022-01-01T00:00'),
     area: '',
-    activities: [],
-    operators: [],
+    activities: [''],
+    operators: [''],
     respForHotWorks: '',
     respForFireSafety: '',
     riskAssessor: '',
@@ -64,12 +64,12 @@ const handlePopulateFields = () => {
         activatesAt: 'Activates at: Today at 15:00',
         expiresAt: '',
         scope: 'The Hot Works permit for welding on a construction worksite...',
-        worksDate: dayjs('2023-12-04T00:00'),
-        startTime: dayjs('2023-12-04T00:00'),
-        endTime: dayjs('2023-12-04T00:00'),
-        area: 'Section 5, Hospital Block A',
+        worksDate: dayjs('2022-04-17'),
+        startTime: dayjs('2022-04-17T10:00'),
+        endTime: dayjs('2022-04-17T14:30'),
+        area: 'Hospital Block A',
         activities: ['Brazing', 'Soldering'],
-        operators: 'Tilda Swinton',
+        operators: ['Tilda Swinton'],
         respForHotWorks: 'Tilda Swinton',
         respForFireSafety: 'Tilda Swinton',
         riskAssessor: 'Tilda Swinton',
@@ -83,7 +83,7 @@ const handlePopulateFields = () => {
 // TODO:
 const handleSavePermit = () => {
     setPermits([newPermit, ...permits])
-    console.log('FIRST PERMIT: ', permits[0].respForChecklist)
+    console.log('FIRST PERMIT: ', newPermit)
     setPermitCreated(true)
     navigate('/')
 }
