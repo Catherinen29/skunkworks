@@ -23,19 +23,19 @@ const handleCloseMoveOn = () => {
 
 
 return (
-    
-    <Card sx={{width: '50%', display: 'flex', flexDirection:'column', m: 'auto', 
+<Box sx={{bgcolor: '#C8C8C8'}}>
+    <Card sx={{width: '600px', display: 'flex', flexDirection:'column', m: 'auto', 
         justifyContent: 'center', alignItems: 'center'}}>
         
     
         {/* Toolbar */}
-        <Box sx={{width: '100%', py: '1rem',
+        <Box sx={{width: '100%', pt: '3rem', pb: '1rem',
             bgcolor: '#04535f', color: 'white', 
             display: 'flex', flexDirection: 'column', 
             boxShadow: 5}}>
             
             <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',
-                width: '90%', m: '1rem'}}>
+                width: '90%', mx: '1rem'}}>
                 <Button onClick={() => navigate('/')} sx={{color: 'white'}}>
                     <ArrowBackIcon sx={{height: '3rem', width: '3rem'}} />
                 </Button>    
@@ -52,24 +52,24 @@ return (
         
             {/* Active permits */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h5"
+                <Typography variant="h4"
                     sx={{color: 'rgba(0, 0, 0, 0.6)', fontWeight: 500}}>
                     Active
                 </Typography>
-                <Typography sx={{my: '1rem'}}>
+                <Typography sx={{my: '1rem', fontSize: 22}}>
                     No currently active permits
                 </Typography>
             </Box>
 
             {/* Authorised permits */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h5"
+                <Typography variant="h4"
                     sx={{color: 'rgba(0, 0, 0, 0.6)', fontWeight: 500}}>
                     Authorised
                 </Typography>
 
                 <Card sx={{bgcolor: '#04535f', color: 'white', borderRadius: 5,
-                    my: '1rem', p: '2rem'}}>
+                    my: '1.5rem', p: '2rem'}}>
                     <CardActionArea onClick={handleOpenMoveOn}>
                             
                     <Box sx={{
@@ -98,23 +98,23 @@ return (
                         </Grid>
                         </Grid>
 
-                        <Box sx={{width: '18rem', color: 'rgba(255, 255, 255, 0.7)', 
+                        <Box sx={{width: '22rem', color: 'rgba(255, 255, 255, 0.7)', 
                         display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                            <Typography sx={{fontSize: 14}}>Issued by Balfour Beatty</Typography>
-                            <Typography sx={{fontSize: 14}}>HW087327</Typography>
+                            <Typography sx={{fontSize: 18}}>Issued by Balfour Beatty</Typography>
+                            <Typography sx={{fontSize: 18}}>HW087327</Typography>
                         </Box>
                     </Box>
 
-                    <Box sx={{my: '1rem'}}>
-                        <Typography variant="h5" fontWeight={500}>Hot Works Permit</Typography>
-                        <Typography sx={{fontSize: 18}}>NHS Southampton University Central Hospital</Typography>                
+                    <Box sx={{my: '2rem'}}>
+                        <Typography variant="h4" fontWeight={500}>Hot Works Permit</Typography>
+                        <Typography sx={{fontSize: 22}}>NHS Southampton University Central Hospital</Typography>                
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <Box
                             sx={{
-                            width: '8rem',
-                            height: '1.8rem',
+                            width: '9rem',
+                            height: '2rem',
                             bgcolor: '#4caf50',
                             borderRadius: 50,
                             display: 'flex',
@@ -127,7 +127,7 @@ return (
                             <Typography
                                 sx={{
                                 color: 'white',
-                                fontSize: 16,
+                                fontSize: 18,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
@@ -137,7 +137,7 @@ return (
                         </Box>
 
                         <Typography 
-                            sx={{color: 'rgba(255, 255, 255, 0.7)', fontSize: 14}}>
+                            sx={{color: 'rgba(255, 255, 255, 0.7)', fontSize: 18}}>
                             Activates 1 Nov 23 at 09:00
                         </Typography> 
                     </Box>
@@ -147,7 +147,7 @@ return (
 
             {/* Expired permits */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h5"
+                <Typography variant="h4"
                     sx={{color: 'rgba(0, 0, 0, 0.6)', fontWeight: 500}}>
                     Expired
                 </Typography>
@@ -179,23 +179,23 @@ return (
                         </Grid>
                         </Grid>
 
-                        <Box sx={{width: '18rem', color: 'rgba(255, 255, 255, 0.7)', 
+                        <Box sx={{width: '22rem', color: 'rgba(255, 255, 255, 0.7)', 
                         display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                            <Typography sx={{fontSize: 14}}>Issued by Balfour Beatty</Typography>
-                            <Typography sx={{fontSize: 14}}>HW087314</Typography>
+                            <Typography sx={{fontSize: 18}}>Issued by Balfour Beatty</Typography>
+                            <Typography sx={{fontSize: 18}}>HW087314</Typography>
                         </Box>
                     </Box>
 
                     <Box sx={{my: '1rem'}}>
-                        <Typography variant="h5" fontWeight={500}>Hot Works Permit</Typography>
-                        <Typography sx={{fontSize: 18}}>NHS Southampton University Central Hospital</Typography>                
+                        <Typography variant="h4" fontWeight={500}>Hot Works Permit</Typography>
+                        <Typography sx={{fontSize: 22}}>NHS Southampton University Central Hospital</Typography>                
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <Box
                             sx={{
                             width: '7rem',
-                            height: '1.8rem',
+                            height: '2rem',
                             bgcolor: '#d32f2f',
                             borderRadius: 50,
                             display: 'flex',
@@ -207,7 +207,7 @@ return (
                             <Typography
                                 sx={{
                                 color: 'white',
-                                fontSize: 16,
+                                fontSize: 18,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
@@ -246,36 +246,35 @@ return (
                         </Grid>
                         </Grid>
 
-                        <Box sx={{width: '18rem', color: 'rgba(255, 255, 255, 0.7)', 
+                        <Box sx={{width: '22rem', color: 'rgba(255, 255, 255, 0.7)', 
                         display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                            <Typography sx={{fontSize: 14}}>Issued by Balfour Beatty</Typography>
-                            <Typography sx={{fontSize: 14}}>HW087309</Typography>
+                            <Typography sx={{fontSize: 18}}>Issued by Balfour Beatty</Typography>
+                            <Typography sx={{fontSize: 18}}>HW087309</Typography>
                         </Box>
                     </Box>
 
                     <Box sx={{my: '1rem'}}>
-                        <Typography variant="h5" fontWeight={500}>Hot Works Permit</Typography>
-                        <Typography sx={{fontSize: 18}}>NHS Southampton University Central Hospital</Typography>                
+                        <Typography variant="h4" fontWeight={500}>Hot Works Permit</Typography>
+                        <Typography sx={{fontSize: 22}}>NHS Southampton University Central Hospital</Typography>                
                     </Box>
                     
                     <Box sx={{display: 'flex', alignItems: 'center'}}>
                         <Box
                             sx={{
                             width: '7rem',
-                            height: '1.8rem',
+                            height: '2rem',
                             bgcolor: '#d32f2f',
                             borderRadius: 50,
                             display: 'flex',
                             justifyContent: 'center',
-                            alignItems: 'center',
-                            mr: '1rem'
+                            alignItems: 'center'
                             }}
                             > 
                             <InfoIcon />
                             <Typography
                                 sx={{
                                 color: 'white',
-                                // fontSize: 13,
+                                fontSize: 18,
                                 alignSelf: 'center',
                                 m: '0.5rem',
                                 }}
@@ -323,6 +322,6 @@ return (
 
 
 </Card>
-                
+</Box>        
     )
     }

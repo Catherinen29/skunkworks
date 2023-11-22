@@ -39,8 +39,9 @@ const handleCloseMoveOn = () => {
     setOpenMoveOn(false)
 }
 return (
-    
-    <Card sx={{width: '50%', display: 'flex', flexDirection:'column', m: 'auto', 
+<Box sx={{bgcolor: '#C8C8C8'}}>
+
+    <Card sx={{width: '600px', display: 'flex', flexDirection:'column', m: 'auto', 
         justifyContent: 'center', alignItems: 'center'}}>
         
     
@@ -65,11 +66,12 @@ return (
             
             <Box sx={{mx: '1rem'}}>
                <Box sx={{
+                // overflow: "hidden", textOverflow: "ellipsis",
                 display: 'flex', alignItems: 'center',
-                whiteSpace: 'nowrap', mr: '1rem', 
+                whiteSpace: 'noWrap', mr: '1rem', 
                 fontSize: 18}}> 
                <ApartmentIcon sx={{height: '3rem', width: '3rem'}} /> 
-                    <Typography noWrap variant="h5" 
+                    <Typography noWrap variant="h4" 
                         sx={{mx: '1rem', fontWeight: 500}}>
                     NHS Southampton University Hospital
                     </Typography>
@@ -78,11 +80,11 @@ return (
 
                 <Box sx={{display: 'flex', alignItems: 'center', my: '0.5rem'}}>
                     <PersonIcon sx={{height: '3rem', width: '3rem'}} />
-                    <Typography sx={{ml: '1rem', fontSize: 20}}>James Worthington</Typography>
+                    <Typography sx={{ml: '1rem', fontSize: 22}}>James Worthington</Typography>
                 </Box>
                 <Box sx={{display: 'flex', alignItems: 'center', my: '0.5rem'}}>
                     <WorkIcon sx={{height: '3rem', width: '3rem'}} />
-                    <Typography sx={{ml: '1rem', fontSize: 20}}>Welder</Typography> 
+                    <Typography sx={{ml: '1rem', fontSize: 22}}>Welder</Typography> 
                 </Box>
             </Box>
             
@@ -303,6 +305,7 @@ return (
 </Dialog>
 
     </Card>
-                
+
+</Box>  
     )
     }
