@@ -1,10 +1,12 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import Frank from '../../frank.png'
+import James from '../../james.png'
+import Jackie from '../../jackie.png'
 
 export default function PermitDetails({setOpenPermitDetails}) {
 
@@ -85,7 +87,7 @@ return (
                 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
-                        <img src={Frank} width={50} alt="User_image" />
+                        <Avatar src={Frank} width={50} height={50} alt="User_image" />
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
@@ -113,7 +115,7 @@ return (
 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
-                        <img src={Frank} width={50} alt="User_image" />
+                        <Avatar src={James} width={50} height={50} alt="User_image" />
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>James Worthington</Typography>
@@ -141,7 +143,7 @@ return (
 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
-                        <img src={Frank} width={50} alt="User_image" />
+                        <Avatar src={Jackie} width={50} height={50} alt="User_image" /> 
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Jackie Mason</Typography>

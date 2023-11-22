@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Checkbox, Divider, Snackbar, Typography } from "@mui/material";
+import { Alert, Avatar, Box, Button, Checkbox, Divider, Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -71,7 +71,7 @@ return (
                 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
-                        <img src={Frank} width={50} alt="User_image" />
+                        <Avatar src={Frank} width={50} alt="User_image" />
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
