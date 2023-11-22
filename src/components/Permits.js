@@ -71,6 +71,12 @@ const handleCloseImmutableMsg = (event, reason) => {
     setPermitCreated(false)
 }
 
+const navigateAway = () => {
+    handleCloseImmutableMsg()
+    handleClosePermitSuccess()
+    navigate('/hwpermitoverview')
+}
+
 return(
 <Box overflow='auto' 
 // sx={{display: 'flex', flexDirection: 'column'}}
@@ -78,7 +84,7 @@ return(
     
     <SideBar />
 
-    <Box sx={{py: 5, px: 10, bgcolor: '#f1f3f3', 
+    <Box sx={{py: 5, pl: 15, pr: 10, bgcolor: '#f1f3f3', 
         display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <Box>
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -179,7 +185,7 @@ return(
             User is taken to the permit template page of the 
             type they select. */}
 
-        <Dialog keepMounted open={open} onClose={handleClose}
+    <Dialog keepMounted open={open} onClose={handleClose}
             sx={{display: 'flex', flexDirection: 'column', width: '35rem', margin: 'auto'}}>
         <DialogTitle variant='h5'>New Permit</DialogTitle>            
         <DialogContent>Create temporary permits for suppliers and people assigned to this 
@@ -227,9 +233,9 @@ return(
             justifyContent: 'center', mt: '1rem'}}>
 
             {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
-                <Card sx={{width: '23rem', display: 'flex'}}>
+                <Card sx={{width: '25rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
-                    <CardActionArea onClick={() => navigate('/hotworkspermit')}>
+                    <CardActionArea onClick={navigateAway}>
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{width: '8rem', height: '8rem', 
                         display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -283,9 +289,9 @@ return(
 
 
             {(filter !== 'Date') && permits.map((permit) => (
-                <Card sx={{width: '23rem', display: 'flex'}}>
+                <Card sx={{width: '25rem', display: 'flex'}}>
                     <CardContent sx={{p: 0, width: '100%'}}>
-                    <CardActionArea onClick={() => navigate('/hwpermitoverview')}>
+                    <CardActionArea onClick={navigateAway}>
                         <Box sx={{display: 'flex', flexDirection: 'row'}}>
                             <Box sx={{width: '8rem', height: '8rem', 
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
