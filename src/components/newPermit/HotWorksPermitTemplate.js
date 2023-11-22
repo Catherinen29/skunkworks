@@ -15,7 +15,7 @@ import BB_bg from "../../BB_bg.png"
 import { useState } from "react";
 import dayjs from "dayjs"
 
-export default function NewHotWorksPermit({permits}) {
+export default function NewHotWorksPermit({permits, setPermitCreated}) {
 
 const navigate = useNavigate()
 
@@ -58,6 +58,7 @@ const handleSavePermit = () => {
     console.log('Permit Saved')
     console.log('********* NEW PERMIT: ', newPermit)
     permits.unshift(newPermit)
+    setPermitCreated(true)
     navigate('/')
 }
 

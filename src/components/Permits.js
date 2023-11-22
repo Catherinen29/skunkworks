@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import { Alert, Box, Button, Card, CardActionArea, CardContent, Collapse, Dialog, DialogActions, 
+import { useState } from 'react';
+
+import { Alert, Box, Button, Card, CardActionArea, CardContent, Collapse, CssBaseline, Dialog, DialogActions, 
     DialogContent, DialogTitle, FormControl, IconButton, 
     InputAdornment, InputLabel, List, ListItem, ListItemIcon, MenuItem, OutlinedInput, Paper, Snackbar, TextField,
     Typography } from "@mui/material";
 import Divider from '@mui/material/Divider';
 import BB_bg from "../BB_bg.png"
 import SearchIcon from '@mui/icons-material/Search';
-import { ActivePermitTag, EmergingIssuesStatusTag,
-        CompletedStatusTag, AuthorisedStatusTag } from './common/PermitStatusTags'
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
@@ -18,12 +18,14 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import PersonIcon from '@mui/icons-material/Person';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import { useState } from 'react';
+
 import PermitToolBar from './common/PermitToolBar';
 import SideBar from './common/SideBar';
+import { ActivePermitTag, EmergingIssuesStatusTag,
+        CompletedStatusTag, AuthorisedStatusTag } from './common/PermitStatusTags'
 
 
-export default function Permits({permits}) {
+export default function Permits({permits, permitCreated, setPermitCreated}) {
 
 // TODO: remove static data and replace with data from database
     const workers = [{
@@ -75,35 +77,29 @@ const [shrink, setShrink] = useState(false)
 
 
 // Manage snackbars confirming successful creation of permit
-const [showPermitCreatedMsg, setShowPermitCreatedMsg] = useState(true)
-const [showImmutableMsg, setShowImmutableMsg] = useState(true)
-
-const handleShowPermitSuccess = () => {
-    setShowPermitCreatedMsg(true)
-}
 const handleClosePermitSuccess = (event, reason) => {
     if (reason === 'clickaway') {
         return
     }
-    setShowPermitCreatedMsg(false)
+    setPermitCreated(false)
 }
 
-const handleShowImmutableMsg = () => {
-    setShowImmutableMsg(true)
-}
 const handleCloseImmutableMsg = (event, reason) => {
     if (reason === 'clickaway') {
         return
     }
-    setShowImmutableMsg(false)
+    setPermitCreated(false)
 }
 
 return(
-<Box overflow='auto' sx={{display: 'flex', flexDirection: 'column'}}>
-
+<Box overflow='auto' 
+// sx={{display: 'flex', flexDirection: 'column'}}
+>
+    
     <SideBar />
 
-    <Paper sx={{py: 5, px: 10, bgcolor: '#f1f3f3'}}>
+    <Box sx={{py: 5, px: 10, bgcolor: '#f1f3f3', 
+        display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         <Box>
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <Typography variant='h6' sx={{fontWeight: 500, mb: '1rem'}}>Manage 37 permits issued on this project</Typography>  
@@ -231,8 +227,9 @@ return(
                         bgcolor: '#ffffff', 
                         color: "#008488"}}}>
                         CANCEL</Button>
-                <Button variant="contained" onClick={() => 
-                    permitType === 'Hot Works' && navigate('/hotworkstemplate')}
+                <Button variant="contained" 
+                    onClick={() => 
+                        permitType === 'Hot Works' && navigate('/hotworkstemplate')}
                     sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1,
                     "&:hover": {
                         bgcolor: "#008488"}}}>
@@ -246,7 +243,8 @@ return(
 
 
         {/* List of permits */}
-        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', mt: '1rem'}}>
+        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: '2rem', 
+            justifyContent: 'center', mt: '1rem'}}>
 
             {(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
                 <Card sx={{width: '23rem', display: 'flex'}}>
@@ -364,8 +362,7 @@ return(
         
 
         <Box>
-        {/* <Button variant='outlined' onClick={handleShowPermitSuccess}>SHOW IT</Button> */}
-            <Snackbar open={showPermitCreatedMsg} autoHideDuration={6000} elevation={3}
+            <Snackbar open={permitCreated} autoHideDuration={6000} elevation={3}
                     onClose={handleClosePermitSuccess}>
                 <Alert onClose={handleClosePermitSuccess} severity='success'  
                     sx={{width: '30rem', mb: '4rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
@@ -375,8 +372,7 @@ return(
         </Box>
 
         <Box>
-        {/* <Button variant='outlined' onClick={handleShowImmutableMsg}>SHOW IMMUTABLE MSG</Button> */}
-            <Snackbar open={showImmutableMsg} autoHideDuration={6000} 
+            <Snackbar open={permitCreated} autoHideDuration={6000} 
                     onClose={handleCloseImmutableMsg}>
                 <Alert onClose={handleCloseImmutableMsg} severity='info'
                     sx={{width: '30rem', boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)"}}>
@@ -386,7 +382,7 @@ return(
         </Box>
 
 
-    </Paper>
+    </Box>
 
 
 </Box>

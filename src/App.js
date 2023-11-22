@@ -9,6 +9,7 @@ import CompletedPermit from "./components/mobView.js/CompletedPermit";
 import ProjectPermits from "./components/mobView.js/ProjectPermits";
 import FinalPermits from "./components/PermitSignOff/FinalPermits";
 import PermitOverviewCompleted from "./components/PermitSignOff/PermitOverviewCompleted";
+import { useState } from "react";
 
 function App() {
 
@@ -85,12 +86,20 @@ function App() {
     activatesAt: 'Activates: 20 Jan 24 at 09:00 GMT',
     expiresAt: ''
 }]
+
+const [permitCreated, setPermitCreated] = useState(false)
+
   return (
   <div className="App">
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
         <Routes>
-          <Route path="/" element={<Permits permits={permits} />} />
-          <Route path="/hotworkstemplate" element={<NewHotWorksPermit permits={permits} />} />
+          <Route path="/" element={<Permits 
+                permits={permits} 
+                permitCreated={permitCreated}
+                setPermitCreated={setPermitCreated} />} />
+          <Route path="/hotworkstemplate" element={<NewHotWorksPermit 
+                permits={permits}
+                setPermitCreated={setPermitCreated} />} />
           <Route path="/hwpermitoverview" element={<HWPermitOverview />} />
           <Route path="/signpermit" element={<SignPermit />} />
           <Route path="/completedpermit" element={<CompletedPermit />} />
