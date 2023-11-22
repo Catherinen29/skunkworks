@@ -218,10 +218,14 @@ return(
         </FormControl>
         </Box>
 
+        {newPermit.respForHotWorks !== '' && 
         <Box sx={{alignSelf: 'center', ml: '1rem', mt: '1rem'}}>
             <Typography sx={{fontSize: 11, color: 'rgba(0, 0, 0, 0.6)'}}>
             Verified skills to manage Hot Works</Typography> 
         </Box>
+        }
+        
+
         </Box>
 
         <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
@@ -257,11 +261,13 @@ return(
         </FormControl>
         </Box>
         
+        {newPermit.respForFireSafety !== '' && 
         <Box sx={{alignSelf: 'center', ml: '1rem', mt: '1rem'}}>
             <Typography sx={{fontSize: 11, color: 'rgba(0, 0, 0, 0.6)'}}>
             Verified skills for Hot Works fire safety</Typography> 
         </Box>
-        
+        }
+
         </Box>
 
 

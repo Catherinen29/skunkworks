@@ -33,12 +33,12 @@ const handleInput = (e) => {
 }
 
 return (
-    <Paper component='section' sx={{ 
-        width: '600px', 
-        bgcolor: '#ffffff',
-        borderRadius: 1,
-        p: '2rem', 
-        margin: 2 }} >
+<Paper component='section' sx={{ 
+    width: '600px', 
+    bgcolor: '#ffffff',
+    borderRadius: 1,
+    p: '2rem', 
+    margin: 2 }} >
     <Typography variant="h5" sx={{fontWeight: 500}}>Part 5 - Precautions Checklist</Typography> 
             
     <Box sx={{height: '25px', display: 'flex', mt: '1rem'}}>
@@ -76,14 +76,17 @@ return (
     </FormControl>
     </Box>
         
+        {newPermit.respForChecklist !== '' && 
         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', 
                 ml: '1rem', mt: '0.5rem'}}>
             <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
             <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
             Supervisor Passport</Typography> 
         </Box>
+        }
+
     </Box>
     
-            </Paper>
+</Paper>
     )
 }

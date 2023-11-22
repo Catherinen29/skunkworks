@@ -77,12 +77,15 @@ const handleInput = (e) => {
             </FormControl>
             </Box>
         
+            {newPermit.riskAssessor !== '' &&
             <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', 
                 ml: '1rem', mt: '0.5rem'}}>
                 <AssignmentIndIcon sx={{color: 'rgba(0, 0, 0, 0.6)'}} />
                 <Typography sx={{fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', ml: 1}}>
                 Supervisor Passport</Typography> 
             </Box>
+            }
+
         </Box>
 
         </Paper>
