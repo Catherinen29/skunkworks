@@ -58,7 +58,7 @@ const AppBar = styled(MuiAppBar, {
   
 return(
     
-    <AppBar position="fixed" open={open}>
+    <AppBar position="sticky" open={open}>
     <Toolbar 
     sx={{backgroundImage: `url(${Bbackground})`, backgroundSize: '100%', border: 0,
         backgroundRepeat: 'no-repeat'

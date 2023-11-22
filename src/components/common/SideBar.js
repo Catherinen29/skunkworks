@@ -133,9 +133,11 @@ return (
 
 <Box sx={{display: 'flex'}}>
 
-    <CssBaseline />
+<CssBaseline />
 
-    <AppBar position="fixed" open={open}>
+{/* <PermitToolBar /> */}
+
+    <AppBar position="sticky" open={open} style={{top: 0}}>
     <Toolbar 
     sx={{backgroundImage: `url(${Bbackground})`, backgroundSize: '100%', border: 0,
         backgroundRepeat: 'no-repeat'
