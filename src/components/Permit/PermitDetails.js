@@ -38,11 +38,13 @@ return (
             
         </Box>
 
-        <Divider />
+    <Divider />
         
         {/* Overview */}
-        <Box sx={{m: '2rem'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Overview</Typography>
+        <Box sx={{m: '1.5rem'}}>
+            <Typography                 
+                sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontWeight: 500}}>
+                Overview</Typography>
 
             <Box sx={{my: '1rem'}}>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Permit number</Typography>
@@ -79,13 +81,17 @@ return (
             </Box>
         </Box>
 
+    <Divider />
 
         {/* Team */}
-        <Box sx={{m: '2rem'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Team</Typography>
+        <Box sx={{m: '1rem'}}>
+            <Typography 
+                sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontWeight: 500, 
+                mt: '2rem', ml: '1rem'}}>
+                Team</Typography>
 
-            <Box sx={{my: '1rem'}}>
-                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Authoriser:</Typography>
+            <Box sx={{m: '1rem'}}>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Authoriser:</Typography>
                 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
@@ -93,18 +99,20 @@ return (
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14}}>Balfour Beatty</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Balfour Beatty</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
-                        <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,
+                        <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
                             display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <CheckCircleIcon style={{ fill: 'white', height: '1rem'}}></CheckCircleIcon>
-                            <Typography sx={{color: 'white', fontSize: 12, alignSelf: 'center', mr: '0.5rem'}}>
+                            <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', mr: '0.5rem'}}>
                                 Verified
                             </Typography>
                         </Box>
 
-                        <AssignmentIndIcon sx={{mx: '0.5rem', width: '1rem', height: '1rem', color: '#04535f', }} />
+                        <AssignmentIndIcon 
+                            sx={{mx: '0.5rem', width: '1rem', height: '1rem', 
+                            color: '#04535f', }} />
                         <Typography sx={{fontSize: 14}}>Supervisor</Typography>    
                     </Box>
                     
@@ -112,8 +120,8 @@ return (
                 </Box>
             </Box>
 
-            <Box sx={{my: '1rem'}}>
-                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Operator(s):</Typography>
+            <Box sx={{mx: '1rem'}}>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Operator(s):</Typography>
 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
@@ -121,13 +129,13 @@ return (
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>James Worthington</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Ackrington Chambers</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Ackrington Chambers</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
-                        <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,
+                    <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
                             display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <CheckCircleIcon style={{ fill: 'white', height: '1rem'}}></CheckCircleIcon>
-                            <Typography sx={{color: 'white', fontSize: 12, alignSelf: 'center', mr: '0.5rem'}}>
+                            <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', mr: '0.5rem'}}>
                                 Verified
                             </Typography>
                         </Box>
@@ -140,8 +148,8 @@ return (
                 </Box>
             </Box>
 
-            <Box sx={{my: '1rem'}}>
-                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Fire Safety:</Typography>
+            <Box sx={{m: '1rem'}}>
+                <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Fire Safety:</Typography>
 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
@@ -149,13 +157,13 @@ return (
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Jackie Mason</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12}}>Ackrington Chambers</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Ackrington Chambers</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
-                        <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,
+                    <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
                             display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <CheckCircleIcon style={{ fill: 'white', height: '1rem'}}></CheckCircleIcon>
-                            <Typography sx={{color: 'white', fontSize: 12, alignSelf: 'center', mr: '0.5rem'}}>
+                            <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', mr: '0.5rem'}}>
                                 Verified
                             </Typography>
                         </Box>

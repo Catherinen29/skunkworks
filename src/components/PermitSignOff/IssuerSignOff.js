@@ -94,12 +94,15 @@ return (
 
             <Typography variant="h5" sx={{fontWeight: 500}}>Issuer Sign-off</Typography>
 
-            
         </Box>
+
 <Divider />
+
         {/* Overview */}
-        <Box sx={{m: '2rem'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Sign-off Hot Works Permit</Typography>
+        <Box sx={{m: '1.5rem'}}>
+            <Typography 
+                sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontWeight: 500}}>
+                Sign-off Hot Works Permit</Typography>
 
 
             <Box sx={{my: '1rem'}}>
@@ -133,7 +136,7 @@ return (
         {/* Checkbox */}
         
         <Box sx={{display: 'flex', flexDirection: 'row'}}>
-            <Checkbox  sx={{pl: 0}} onChange={() => setAgree(prev => !prev)} 
+            <Checkbox  sx={{py: 0, pl: 0, pr: 1, alignSelf: 'flex-start'}} onChange={() => setAgree(prev => !prev)} 
             style={{color:'#00a4a9'}} />
             <Typography>I understand the permit conditions and the fire and safety 
                         precautions and my role as the responsible person. 
@@ -150,8 +153,9 @@ return (
                             bgcolor: "#008488"}}}
                         onClick={handleSignOff}
                         >
-                    <Typography>SIGN-OFF PERMIT</Typography>
-                    <CheckCircleOutlineRoundedIcon sx={{ml: '0rem', height: '1rem'}} />
+                    <Typography sx={{fontWeight: 500}}>SIGN-OFF PERMIT</Typography>
+                    <CheckCircleOutlineRoundedIcon 
+                    sx={{ml: '0.5rem', height: '1.5rem', width: '1.5rem'}} />
                 </Button>
             </Box>
         </Box>

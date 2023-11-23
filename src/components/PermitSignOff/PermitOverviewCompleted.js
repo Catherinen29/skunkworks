@@ -102,7 +102,8 @@ return (
 
 <SideBar />
 
-<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem'}}>
+<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', 
+    display: 'flex', justifyContent: 'center'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 
@@ -130,7 +131,7 @@ return (
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}><WhatshotIcon /></Box>  
 
-            <Box sx={{m: '1rem'}}>
+            <Box sx={{my: '1rem', mx: '2rem'}}>
                 <Typography variant='h5'  sx={{fontWeight: 500}}>Hot Works Permit</Typography>
                 <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', my: '0.5rem'}}>Section 5, Hospital Block A</Typography>
             </Box>

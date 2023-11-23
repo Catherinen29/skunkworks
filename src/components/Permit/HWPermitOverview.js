@@ -83,7 +83,8 @@ return (
 
 <SideBar />
 
-<Box sx={{bgcolor: '#f1f3f3', display: 'flex', ml: '4rem', justifyContent: 'center'}}>
+<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', 
+    display: 'flex', justifyContent: 'center'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
     <Button 
@@ -152,7 +153,7 @@ return (
             </Box>
             
     {showOverview && 
-        <Box>
+        <Box sx={{ pb: 2 }}>
             <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
@@ -182,15 +183,19 @@ return (
                 </CardActionArea>
             </Card>
             
-            <Card elevation={0} sx={{display: 'flex', flexDirection: 'row', 
+            <Card elevation={0} sx={{
                 "&:hover": {
                     bgcolor: "#f1f3f3"}
                 }}>
-                <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
-                    bgcolor: '#04535f', color: 'white', mx: '2rem', mt: '1rem', mb: '2rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}></Box>
-                <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>
+                <CardActionArea
+                sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <Box sx={{width: '2rem', height: '2rem', borderRadius: '10%', 
+                        bgcolor: '#04535f', color: 'white', mx: '2rem', my: '1rem', 
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        }}></Box>
+                    <Typography sx={{my: '1rem'}}>Golden Thread Timeline</Typography>    
+                </CardActionArea>
+                
             </Card>
         </Box>
     }

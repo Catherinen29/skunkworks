@@ -61,11 +61,13 @@ return (
             
         </Card>
 
-<Divider />
+    <Divider />
 
         {/* Overview */}
-        <Box sx={{m: '2rem'}}>
-            <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Authorise Hot Works Permit</Typography>
+        <Box sx={{m: '1.5rem'}}>
+            <Typography 
+                sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14, fontWeight: 500}}>
+                Authorise Hot Works Permit</Typography>
 
 
             <Box sx={{my: '1rem'}}>
@@ -87,8 +89,10 @@ return (
                             </Typography>
                         </Box>
 
-                        <AssignmentIndIcon sx={{mx: '0.5rem', width: '1.2rem', height: '1.2rem', color: '#04535f', }} />
-                        <Typography sx={{fontSize: 15}}>Supervisor</Typography>    
+                        <AssignmentIndIcon 
+                            sx={{mx: '0.5rem', width: '1rem', height: '1rem', 
+                            color: '#04535f', }} />
+                        <Typography sx={{fontSize: 14}}>Supervisor</Typography>    
                     </Box>
                     
                     </Box>
@@ -97,8 +101,8 @@ return (
 
 
         {/* Checkbox */}
-        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
-            <Checkbox  sx={{p: 0}} onChange={(e) => setAgree(!agree)} 
+        <Box sx={{display: 'flex', flexDirection: 'row'}}>
+            <Checkbox  sx={{py: 0, pl: 0, pr: 1, alignSelf: 'flex-start'}} onChange={(e) => setAgree(!agree)} 
             style={{color:'#00a4a9'}} />
             <Typography>I understand the permit conditions and the fire safety 
                         precautions and my role as the responsible person. 
