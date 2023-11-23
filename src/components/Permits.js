@@ -126,18 +126,20 @@ export default function Permits({ permits, permitCreated, setPermitCreated, work
 
 					{/* Search permits */}
 					<Box sx={{ display: 'flex' }}>
-						<FormControl variant='outlined' size='small'
-							sx={{ width: '30rem', my: 2 }}>
-							<TextField size='small'
+						<FormControl variant="outlined" size="small" sx={{ width: '30rem', my: 2 }}>
+							<TextField
+								size="small"
 								onFocus={() => setShrink(true)}
 								InputLabelProps={{ style: { ml: '10rem', shrink } }}
 								InputProps={{
-									startAdornment:
-										<InputAdornment position='start'>
+									startAdornment: (
+										<InputAdornment position="start">
 											<SearchIcon />
 										</InputAdornment>
+									),
 								}}
-								label='Search permits'
+								label="Search permits"
+								placeholder="Enter your search query"
 							/>
 						</FormControl>
 
