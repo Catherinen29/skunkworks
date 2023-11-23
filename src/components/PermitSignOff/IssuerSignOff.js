@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Checkbox, Dialog, Fab, Snackbar, Typography } from "@mui/material";
+import { Alert, Avatar, Box, Button, Checkbox, Dialog, Divider, Fab, Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -79,7 +79,7 @@ return (
         {/* Title */}
         <Box sx={{p: '2rem'}}>
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
-                mb: '2rem'}}>
+                mb: '1rem'}}>
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{color: '#04535f'}}>
                         <TaskAltIcon /></Box>
@@ -96,9 +96,9 @@ return (
 
             
         </Box>
-
+<Divider />
         {/* Overview */}
-        <Box sx={{mx: '2rem', borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'}}>
+        <Box sx={{m: '2rem'}}>
             <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>Sign-off Hot Works Permit</Typography>
 
 
@@ -106,17 +106,17 @@ return (
                 
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{my: '1rem'}}>
-                        <img src={Frank} width={50} alt="User_image" />
+                        <Avatar src={Frank} width={50} alt="User_image" />
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14}}>Balfour Beatty</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Balfour Beatty</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
-                        <Box sx={{width: '4.55rem', height: '1.4rem', bgcolor: '#4caf50', borderRadius: 50,
+                        <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
                             display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <CheckCircleIcon style={{ fill: 'white', height: '1rem'}}></CheckCircleIcon>
-                            <Typography sx={{color: 'white', fontSize: 12, alignSelf: 'center', mr: '0.5rem'}}>
+                            <Typography sx={{color: 'white', fontSize: 14, alignSelf: 'center', mr: '0.5rem'}}>
                                 Verified
                             </Typography>
                         </Box>
