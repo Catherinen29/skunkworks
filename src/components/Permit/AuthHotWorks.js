@@ -1,4 +1,5 @@
-import { Alert, Avatar, Box, Button, Checkbox, Divider, Snackbar, Typography } from "@mui/material";
+import { Alert, Avatar, Box, Button, Card, Checkbox, Divider, 
+    Snackbar, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -39,9 +40,9 @@ return (
 
     <Box>
         {/* Title */}
-        <Box sx={{p: '2rem'}}>
+        <Card elevation={0} sx={{p: '2rem'}}>
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
-                mb: '2rem'}}>
+                mb: '1rem'}}>
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{color: '#04535f'}}>
                         <TaskAltIcon /></Box>
@@ -58,7 +59,7 @@ return (
             <Typography variant="h5" sx={{fontWeight: 500}}>Authorise Hot Works Permit</Typography>
 
             
-        </Box>
+        </Card>
 
 <Divider />
 
@@ -75,7 +76,7 @@ return (
                     </Box>
                     <Box sx={{m: '1rem'}}>
                         <Typography>Francis Golder (Me)</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 14}}>Balfour Beatty</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 13}}>Balfour Beatty</Typography>
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', my: '0.5rem'}}>
                         <Box sx={{width: '5rem', height: '1.5rem', bgcolor: '#4caf50', borderRadius: 50,
@@ -86,8 +87,8 @@ return (
                             </Typography>
                         </Box>
 
-                        <AssignmentIndIcon sx={{mx: '0.5rem', width: '1rem', height: '1rem', color: '#04535f', }} />
-                        <Typography sx={{fontSize: 14}}>Supervisor</Typography>    
+                        <AssignmentIndIcon sx={{mx: '0.5rem', width: '1.2rem', height: '1.2rem', color: '#04535f', }} />
+                        <Typography sx={{fontSize: 15}}>Supervisor</Typography>    
                     </Box>
                     
                     </Box>
@@ -96,9 +97,8 @@ return (
 
 
         {/* Checkbox */}
-        
-        <Box sx={{display: 'flex', flexDirection: 'row'}}>
-            <Checkbox  sx={{pl: 0}} onChange={(e) => setAgree(!agree)} 
+        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
+            <Checkbox  sx={{p: 0}} onChange={(e) => setAgree(!agree)} 
             style={{color:'#00a4a9'}} />
             <Typography>I understand the permit conditions and the fire safety 
                         precautions and my role as the responsible person. 
@@ -116,8 +116,9 @@ return (
                         onClick={handleAgreeButton}
                         >
 
-                    <Typography>AUTHORISE AND ISSUE PERMIT</Typography>
-                    <CheckCircleOutlineRoundedIcon sx={{pl: '1rem'}} /></Button>
+                    <Typography sx={{fontWeight: 500}}>AUTHORISE AND ISSUE PERMIT</Typography>
+                    <CheckCircleOutlineRoundedIcon 
+                    sx={{ml: '0.5rem', height: '1.5rem', width: '1.5rem'}} /></Button>
             </Box>
         </Box>
 

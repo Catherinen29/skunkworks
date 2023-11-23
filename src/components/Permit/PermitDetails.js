@@ -70,10 +70,12 @@ return (
                     Permit actions</Typography>
                 <Button variant='outlined' 
                 sx={{borderColor: '#00a4a9', color: '#00a4a9', 
+                width: '8rem', height: '2.5rem',
                 "&:hover": {
                     color: "#008488",
                     bgcolor: '#ffffff'}}}>
-                    MANAGE <EditIcon /></Button>
+                    <Typography sx={{fontWeight: 500, mr: '0.5rem'}}>MANAGE</Typography>
+                     <EditIcon /></Button>
             </Box>
         </Box>
 

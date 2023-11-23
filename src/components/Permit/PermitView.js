@@ -39,7 +39,7 @@ return (
             <CardActionArea onClick={handleOpenMoveOn}>
 
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',
-                mb: '2rem'}}>
+                mb: '1rem'}}>
                 <Box sx={{display: 'flex', flexDirection: 'row'}}>
                     <Box sx={{color: '#04535f'}}>
                     <NewspaperIcon /></Box>
