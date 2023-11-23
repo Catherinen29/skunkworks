@@ -97,7 +97,7 @@ return (
                 height: '3rem', display: 'flex', alignItems: 'center',
                 bgcolor: '#4caf50', color: 'white', borderRadius: 1}}>
                 <CheckCircleIcon sx={{height: '2rem', width: '2rem'}} />
-                <Typography sx={{ml: '0.5rem', fontSize: 18}}>You're fully verified</Typography>
+                <Typography sx={{ml: '0.5rem', fontSize: 20}}>You're fully verified</Typography>
             </Box>
 
 
@@ -111,10 +111,11 @@ return (
 
                 <CardActionArea onClick={handleOpenFirstMoveOn}>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                    <Typography variant="h5" sx={{mb: '1rem', 
+                    <Typography variant="h4" sx={{mb: '1rem', 
                         fontWeight: 500}}>Tasks</Typography>
                     <Typography paragraph 
-                        sx={{color: 'rgba(255, 255, 255, 0.7)'}}>
+                        sx={{color: 'rgba(255, 255, 255, 0.7)', 
+                        fontSize: 18}}>
                         Specific project tasks assigned to you</Typography>
                     </Box>
                 </CardActionArea>
@@ -139,21 +140,21 @@ return (
         
             {/* My Wallet */}
             <Box sx={{m: '2rem'}}>
-                <Typography variant="h5" fontWeight={500}>
+                <Typography variant="h4" fontWeight={500}>
                     My Wallet</Typography>
 
             <Box sx={{p: 0, my: '1rem', display: 'flex', flexFlow: 'row wrap', gap: '1rem'}}>
                 
-                    <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
+                    <Card sx={{px: '1rem', width: '40%', height: '18rem', position: 'relative'}}>
                         
-                        <Box sx={{width: '2rem', height: '2rem', my: '1rem',
+                        <Box sx={{width: '2.5rem', height: '2.5rem', my: '1rem',
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             borderRadius: 1, bgcolor: '#00a4a9', color: 'white'}}>
-                            <AssignmentIndIcon sx={{height: '1.8rem', width: '1.8rem'}} />    
+                            <AssignmentIndIcon sx={{height: '2.3rem', width: '2.3rem'}} />    
                         </Box>
                         
-                        <Typography variant='h5' sx={{fontWeight: 500}}>Passports</ Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>
+                        <Typography sx={{fontSize: 30, fontWeight: 500}}>Passports</ Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 18, mt: '0.5rem'}}>
                             Your skills, knowledge, and experience 
                             required for your job role(s) on this project
                         </ Typography>
@@ -161,69 +162,69 @@ return (
                             sx={{position: 'absolute', 
                             bottom: 0, right: 0, m: '0.5rem',
                             color: '#00a4a9'}}>
-                            VIEW
+                            <Typography sx={{fontSize: 18, fontWeight: 500}}>VIEW</Typography>
                             <KeyboardArrowRightRoundedIcon />
-                            </Button>
+                        </Button>
                     </Card>
 
-                    <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
+                    <Card sx={{px: '1rem', width: '40%', height: '18rem', position: 'relative'}}>
                         
-                        <Box sx={{width: '2rem', height: '2rem', my: '1rem',
+                        <Box sx={{width: '2.5rem', height: '2.5rem', my: '1rem',
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             borderRadius: 1, bgcolor: '#00a4a9', color: 'white'}}>
-                                <NewspaperIcon sx={{height: '1.8rem', width: '1.8rem'}} />
+                                <NewspaperIcon sx={{height: '2.3rem', width: '2.3rem'}} />
                         </Box>
                         
-                        <Typography variant='h5' sx={{fontWeight: 500}}>Permits</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>
+                        <Typography sx={{fontSize: 30, fontWeight: 500}}>Permits</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 18, mt: '0.5rem'}}>
                             Work permits issued to you on this project
                         </Typography>
-                        <Button
+                        <Button 
                             sx={{position: 'absolute', 
                             bottom: 0, right: 0, m: '0.5rem',
                             color: '#00a4a9'}}>
-                            VIEW
+                            <Typography sx={{fontSize: 18, fontWeight: 500}}>VIEW</Typography>
                             <KeyboardArrowRightRoundedIcon />
-                            </Button>
+                        </Button>
                     </Card>
 
-                    <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
+                    <Card sx={{px: '1rem', width: '40%', height: '18rem', position: 'relative'}}>
                         <Box sx={{width: '2rem', height: '2rem', my: '1rem',
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             borderRadius: 1, bgcolor: '#00a4a9', color: 'white'}}>
                                 <FlagCircleIcon sx={{height: '1.8rem', width: '1.8rem'}} />
                         </Box>
                         
-                        <Typography variant='h5' sx={{fontWeight: 500}}>Flags</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>
+                        <Typography sx={{fontSize: 30, fontWeight: 500}}>Flags</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 18, mt: '0.5rem'}}>
                             Health & Safety details
                         </Typography> 
-                        <Button
+                        <Button 
                             sx={{position: 'absolute', 
                             bottom: 0, right: 0, m: '0.5rem',
                             color: '#00a4a9'}}>
-                            VIEW
+                            <Typography sx={{fontSize: 18, fontWeight: 500}}>VIEW</Typography>
                             <KeyboardArrowRightRoundedIcon />
-                            </Button>
+                        </Button>
                     </Card>
 
-                    <Card sx={{px: '1rem', width: '40%', height: '15rem', position: 'relative'}}>
+                    <Card sx={{px: '1rem', width: '40%', height: '18rem', position: 'relative'}}>
                         <Box sx={{width: '2rem', height: '2rem', my: '1rem',
                             display: 'flex', justifyContent: 'center', alignItems: 'center',
                             borderRadius: 1, bgcolor: '#00a4a9', color: 'white'}}>
                                 <DirectionsWalkIcon sx={{height: '1.8rem', width: '1.8rem'}} />
                         </Box>
-                        <Typography variant='h5' sx={{fontWeight: 500}}>Other</Typography>
-                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)'}}>
+                        <Typography sx={{fontSize: 30, fontWeight: 500}}>Other</Typography>
+                        <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 18, mt: '0.5rem'}}>
                             Permit deadlines
                         </Typography>
-                        <Button
+                        <Button 
                             sx={{position: 'absolute', 
                             bottom: 0, right: 0, m: '0.5rem',
                             color: '#00a4a9'}}>
-                            VIEW
+                            <Typography sx={{fontSize: 18, fontWeight: 500}}>VIEW</Typography>
                             <KeyboardArrowRightRoundedIcon />
-                            </Button>
+                        </Button>
                     </Card>        
                     
             </Box>

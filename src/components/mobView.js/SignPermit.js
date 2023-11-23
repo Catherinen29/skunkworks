@@ -173,14 +173,14 @@ return (
                 <Typography sx={{fontSize: 20, fontWeight: 500, color: 'rgba(0, 0, 0, 0.6)', my: '1rem'}}>Digitial Signature</Typography>
                 <Card elevation={0}
                     sx={{p: '1rem'}}>
-                    <Typography>Signed</Typography>
+                    <Typography sx={{fontSize: 20}}>Signed</Typography>
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                        <Avatar src={james} />
+                        <Avatar src={james} sx={{width: 50, height: 50}} />
                         <Box sx={{mx: '1rem', my: '0.5rem'}}>
-                            <Typography>James Worthington</Typography>
+                            <Typography sx={{fontSize: 20}}>James Worthington</Typography>
                             <Typography 
-                                sx={{color: 'green', display: 'flex', alignItems: 'center', fontSize: 12}}>
-                                <CheckCircleIcon sx={{color: 'green', height: '1rem', width: '1rem', mr: '0.5rem'}} />
+                                sx={{color: 'green', display: 'flex', alignItems: 'center', fontSize: 18}}>
+                                <CheckCircleIcon sx={{color: 'green', height: '1.5rem', width: '1.5rem', mr: '0.5rem'}} />
                                 Verified
                             </Typography>
                         </Box>
