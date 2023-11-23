@@ -7,21 +7,21 @@ return (
     <>
         <Box
         sx={{
-            width: '6rem',
-            height: '1.8rem',
+            width: '7rem',
+            height: '1.9rem',
             bgcolor: '#033f49',
             borderRadius: 50,
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
+            // alignItems: 'center',
         }}
         > 
             <Typography
             sx={{
                 color: '#a5babe',
-                fontSize: 16,
+                fontSize: 18,
                 alignSelf: 'center',
-                m: '0.5rem',
+                // m: '0.5rem',
             }}
             >
             NO TASKS
