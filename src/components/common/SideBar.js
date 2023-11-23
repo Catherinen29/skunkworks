@@ -9,7 +9,7 @@ import mob_bg from '../../mob_bg.png'
 import BB_bg from '../../BB_bg.png'
 import Bbackground from '../../Bbackground.png'
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
@@ -282,41 +282,50 @@ return (
       
       <ListItem disablePadding
           sx={{display: 'block'}}>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/hwpermitoverview')}>
               <ListItemIcon>
-              <HealthAndSafetyIcon sx={{fontSize: 25, color: '#04535f'}} />
+              <HealthAndSafetyIcon sx={{fontSize: 20, color: '#04535f'}} />
               </ListItemIcon>
-              <ListItemText>Health & Safety</ListItemText>
+              <ListItemText>1. Main permit page</ListItemText>
             </ListItemButton>
       </ListItem> 
 
       <ListItem disablePadding
         sx={{display: 'block'}}>
-          <ListItemButton>
+          <ListItemButton onClick={() => navigate('/completedpermit')}>
             <ListItemIcon>
               <GroupRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Responsibilities</ListItemText>
+            <ListItemText>
+              <Typography>2. Mobile view - </Typography>
+              <Typography>completed permit</Typography>
+            </ListItemText>
           </ListItemButton>
       </ListItem>
 
       <ListItem disablePadding
         sx={{display: 'block'}}>
-          <ListItemButton>
+          <ListItemButton onClick={() => navigate('/hotworkstemplate')}>
             <ListItemIcon>
               <ApartmentIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Sites</ListItemText>
+            <ListItemText>
+              <Typography>3. Permit template</Typography>
+              <Typography> / form</Typography>
+            </ListItemText>
           </ListItemButton>
       </ListItem> 
 
     <ListItem disablePadding
         sx={{display: 'block'}}>
-          <ListItemButton>
+          <ListItemButton onClick={() => navigate('/permitoverviewcompleted')}>
             <ListItemIcon>
               <NewspaperRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Your details</ListItemText>
+            <ListItemText>
+              <Typography>4. Overview - </Typography>
+              <Typography>Golden thread timeline</Typography>
+            </ListItemText>
           </ListItemButton>
     </ListItem>
 
@@ -326,7 +335,7 @@ return (
             <ListItemIcon>
               <DescriptionRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Permits</ListItemText>
+            <ListItemText></ListItemText>
           </ListItemButton>
     </ListItem>
 
@@ -336,7 +345,7 @@ return (
             <ListItemIcon>
               <WidgetsRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Golden Threads</ListItemText>
+            <ListItemText></ListItemText>
           </ListItemButton>
     </ListItem>
 
@@ -346,7 +355,7 @@ return (
             <ListItemIcon>
               <SettingsRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
             </ListItemIcon>
-            <ListItemText>Settings</ListItemText>
+            <ListItemText></ListItemText>
           </ListItemButton>
     </ListItem>
 
