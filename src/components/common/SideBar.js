@@ -139,10 +139,10 @@ export default function SideBar() {
 
       {/* <PermitToolBar /> */}
 
-      <AppBar position="sticky" open={open} style={{ top: 0 }}>
+      <AppBar position="sticky" open={open}>
         <Toolbar
           sx={{
-            backgroundImage: `url(${Bbackground})`, backgroundSize: '100%', border: 0,
+            backgroundImage: `url(${Bbackground})`, backgroundSize: 'cover', border: 0,
             backgroundRepeat: 'no-repeat'
           }}
         >
