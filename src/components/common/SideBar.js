@@ -1,7 +1,9 @@
-import { AppBar, Avatar, Box, Button, Card, CardActionArea, Divider, Drawer, 
-  IconButton, Grid, List, ListItem, ListItemButton, ListItemIcon, 
-  ListItemText, Toolbar, Typography } from "@mui/material";
-import MuiDrawer, {DrawerProps} from '@mui/material/Drawer'
+import {
+  AppBar, Avatar, Box, Button, Card, CardActionArea, Divider, Drawer,
+  IconButton, Grid, List, ListItem, ListItemButton, ListItemIcon,
+  ListItemText, Toolbar, Typography
+} from "@mui/material";
+import MuiDrawer, { DrawerProps } from '@mui/material/Drawer'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import PermitToolBar from "./PermitToolBar";
@@ -32,141 +34,143 @@ export default function SideBar() {
   const navigate = useNavigate()
 
   const workers = [{
-      name: 'Jan Goldstein',
-      value: 'Jan Goldstein',
-      position: 'Supervisor',
-      verified: true,
+    name: 'Jan Goldstein',
+    value: 'Jan Goldstein',
+    position: 'Supervisor',
+    verified: true,
   }, {
-      name: 'Tilda Swinton',
-      value: 'Tilda Swinton',
-      position: 'Supervisor',
-      verified: true,
+    name: 'Tilda Swinton',
+    value: 'Tilda Swinton',
+    position: 'Supervisor',
+    verified: true,
   }, {
-      name: 'Bill Nighy',
-      value: 'Bill Nighy',
-      position: 'Supervisor',
-      verified: true,
+    name: 'Bill Nighy',
+    value: 'Bill Nighy',
+    position: 'Supervisor',
+    verified: true,
   }]
 
 
 
-const [open, setOpen] = useState(false)
-const handleDrawerOpen = () => {
-  setOpen(true)
-}
-const handleDrawerClose = () => {
-  setOpen(false)
-}
+  const [open, setOpen] = useState(false)
+  const handleDrawerOpen = () => {
+    setOpen(true)
+  }
+  const handleDrawerClose = () => {
+    setOpen(false)
+  }
 
-const theme = useTheme();
+  const theme = useTheme();
 
-const drawerWidth = 240;
+  const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: 'hidden',
-});
-
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: 'hidden',
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  position: 'relative',
-  bottom: open ? drawerWidth : 0, 
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
+  const openedMixin = (theme) => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-  }),
-}))
+    overflowX: 'hidden',
+  });
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
+  const closedMixin = (theme) => ({
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    width: `calc(${theme.spacing(7)} + 1px)`,
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(${theme.spacing(8)} + 1px)`,
+    },
+  });
+
+  const DrawerHeader = styled('div')(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+  }));
+
+  const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== 'open',
+  })(({ theme, open }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    position: 'relative',
+    bottom: open ? drawerWidth : 0,
     ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
+  }))
+
+  const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+    ({ theme, open }) => ({
+      width: drawerWidth,
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
+      boxSizing: 'border-box',
+      ...(open && {
+        ...openedMixin(theme),
+        '& .MuiDrawer-paper': openedMixin(theme),
+      }),
+      ...(!open && {
+        ...closedMixin(theme),
+        '& .MuiDrawer-paper': closedMixin(theme),
+      }),
     }),
-  }),
-);
+  );
 
-return (
+  return (
 
-<Box sx={{display: 'flex'}}>
+    <Box sx={{ display: 'flex', position: 'fixed', width: "100%", zIndex: 2 }}>
 
-<CssBaseline />
+      <CssBaseline />
 
-{/* <PermitToolBar /> */}
+      {/* <PermitToolBar /> */}
 
-    <AppBar position="sticky" open={open} style={{top: 0}}>
-    <Toolbar 
-    sx={{backgroundImage: `url(${Bbackground})`, backgroundSize: '100%', border: 0,
-        backgroundRepeat: 'no-repeat'
-      }}
+      <AppBar position="sticky" open={open}>
+        <Toolbar
+          sx={{
+            backgroundImage: `url(${Bbackground})`, backgroundSize: 'cover', border: 0,
+            backgroundRepeat: 'no-repeat'
+          }}
         >
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        onClick={handleDrawerOpen}
-        edge="start"
-    
-        sx={{
-          marginRight: 5,
-          ...(open && { display: 'none' }),
-        }}
-      >
-        <MenuRoundedIcon />
-      </IconButton>
-    
-    <Grid container spacing={2} sx={{color: 'white', display: 'flex', flexDirection: 'row', pt: '0.5rem'}}>
-    <Grid item xs={8} sx={{display: 'flex', flexDirection: 'column'}}>
-    <Typography variant="h5"
-        sx={{color: '#ffffff', fontWeight: 500,
-        width: '6rem', p: 0, 
-        }}>Permits</Typography>
-        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-            <Typography sx={{color: '#ffffff', mr: 2}}>NHS Southampton University Central Hospital</Typography>
-            <Box
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <MenuRoundedIcon />
+          </IconButton>
+
+          <Grid container spacing={2} sx={{ color: 'white', display: 'flex', flexDirection: 'row', pt: '0.5rem' }}>
+            <Grid item xs={8} sx={{ display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="h5"
                 sx={{
+                  color: '#ffffff', fontWeight: 500,
+                  width: '6rem', p: 0,
+                }}>Permits</Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Typography sx={{ color: '#ffffff', mr: 2 }}>NHS Southampton University Central Hospital</Typography>
+                <Box
+                  sx={{
                     width: '10rem',
                     height: '1.8rem',
                     m: 2,
@@ -175,194 +179,199 @@ return (
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    }}
-                    >
-                <WarningIcon style={{ fill: 'white', m: '0.5rem' }}></WarningIcon>
-                <Typography
-                    sx={{
-                    color: 'white',
-                    fontSize: 14,
-                    alignSelf: 'center',
-                    m: '0.5rem',
-                    }}
+                  }}
                 >
+                  <WarningIcon style={{ fill: 'white', m: '0.5rem' }}></WarningIcon>
+                  <Typography
+                    sx={{
+                      color: 'white',
+                      fontSize: 14,
+                      alignSelf: 'center',
+                      m: '0.5rem',
+                    }}
+                  >
                     Emerging risks
-                </Typography>
-            </Box>
+                  </Typography>
+                </Box>
 
-            <Box
-                sx={{
+                <Box
+                  sx={{
                     width: '10rem',
-                    height: '1.8rem', 
+                    height: '1.8rem',
                     m: 2,
                     bgcolor: '#3f9710',
                     borderRadius: 50,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    }}
-                    >
-                <HealthAndSafetyIcon style={{ fill: 'white', m: '0.5rem' }}></HealthAndSafetyIcon>
-                <Typography
-                    sx={{
-                    color: 'white',
-                    fontSize: 14,
-                    alignSelf: 'center',
-                    m: '0.5rem',
-                    }}
+                  }}
                 >
+                  <HealthAndSafetyIcon style={{ fill: 'white', m: '0.5rem' }}></HealthAndSafetyIcon>
+                  <Typography
+                    sx={{
+                      color: 'white',
+                      fontSize: 14,
+                      alignSelf: 'center',
+                      m: '0.5rem',
+                    }}
+                  >
                     Compliance
-                </Typography>
-            </Box>
-        </Box>
+                  </Typography>
+                </Box>
+              </Box>
 
-        </Grid>
+            </Grid>
 
-        <Grid item xs={4} sx={{display: 'flex', justifyContent: 'flex-end', p: 0}}>
+            <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end', p: 0 }}>
               {/* Notifications */}
-            <Box sx={{mx: '1rem', my: '1rem'}}>
+              <Box sx={{ mx: '1rem', my: '1rem' }}>
                 <Button>
-                <NotificationsIcon style={{ fill: '#ffffff'}}></NotificationsIcon>
+                  <NotificationsIcon style={{ fill: '#ffffff' }}></NotificationsIcon>
                 </Button>
-            </Box>
-            {/* Current user info */}
-            <Box sx={{flexDirection: 'column', p: '0.5rem'}}>
+              </Box>
+              {/* Current user info */}
+              <Box sx={{ flexDirection: 'column', p: '0.5rem' }}>
                 {/* user image */}
                 <Typography>{workers[0].name}</Typography>
-                <Typography sx={{fontSize: 12}}>{workers[0].position}</Typography>
-            </Box>
-            <Box sx={{p: '0.5rem'}}>
-            <Avatar src={Frank} width={50} height={50} alt="User_image"
+                <Typography sx={{ fontSize: 12 }}>{workers[0].position}</Typography>
+              </Box>
+              <Box sx={{ p: '0.5rem' }}>
+                <Avatar src={Frank} width={50} height={50} alt="User_image"
                 />
-            </Box>
-        </Grid>
+              </Box>
+            </Grid>
 
-    </Grid>
-    </Toolbar>
-  </AppBar>
+          </Grid>
+        </Toolbar>
+      </AppBar>
 
 
-  <Drawer variant="permanent" open={open}>
-    <DrawerHeader sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-      <Card elevation={0}>
-        <CardActionArea
-            onClick={() => navigate('/')}>
-          <Box sx={{my: '1.5rem', 
-              ml: '0.5rem',
-              border: 3, 
-              borderColor: '#04535f', 
-              borderRadius: '10%',
-              width: 60, 
-              height: 60,
-              textAlign: 'left',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Card elevation={0}>
+            <CardActionArea
+              onClick={() => navigate('/')}>
+              <Box sx={{
+                my: '1.5rem',
+                ml: '0.5rem',
+                border: 3,
+                borderColor: '#04535f',
+                borderRadius: '10%',
+                width: 60,
+                height: 60,
+                textAlign: 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
               }}>
-          <Typography sx={{fontFamily: 'Anton', color: '#04535f', fontSize: 14,
-              pl: '10%',
-              lineHeight: 1}}>
-              Balfour</Typography>
-          <Typography sx={{fontFamily: 'Anton', color: '#04535f', fontSize: 14,
-              pl: '10%',
-              lineHeight: 1}}>
-              Beatty</Typography>
-          </Box>
+                <Typography sx={{
+                  fontFamily: 'Anton', color: '#04535f', fontSize: 14,
+                  pl: '10%',
+                  lineHeight: 1
+                }}>
+                  Balfour</Typography>
+                <Typography sx={{
+                  fontFamily: 'Anton', color: '#04535f', fontSize: 14,
+                  pl: '10%',
+                  lineHeight: 1
+                }}>
+                  Beatty</Typography>
+              </Box>
 
-        </CardActionArea>
-      </Card>
+            </CardActionArea>
+          </Card>
 
-      <IconButton onClick={handleDrawerClose} sx={{color: "#04535f"}}>
-        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-      </IconButton>
-    </DrawerHeader>
-    <Divider />
-    
-    <List>
-      
-      <ListItem disablePadding
-          sx={{display: 'block'}}>
+          <IconButton onClick={handleDrawerClose} sx={{ color: "#04535f" }}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+
+        <List>
+
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
             <ListItemButton onClick={() => navigate('/hwpermitoverview')}>
               <ListItemIcon>
-              <HealthAndSafetyIcon sx={{fontSize: 20, color: '#04535f'}} />
+                <HealthAndSafetyIcon sx={{ fontSize: 20, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>1. Main permit page</ListItemText>
             </ListItemButton>
-      </ListItem> 
+          </ListItem>
 
-      <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton onClick={() => navigate('/completedpermit')}>
-            <ListItemIcon>
-              <GroupRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography>2. Mobile view - </Typography>
-              <Typography>completed permit</Typography>
-            </ListItemText>
-          </ListItemButton>
-      </ListItem>
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton onClick={() => navigate('/completedpermit')}>
+              <ListItemIcon>
+                <GroupRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography>2. Mobile view - </Typography>
+                <Typography>completed permit</Typography>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-      <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton onClick={() => navigate('/hotworkstemplate')}>
-            <ListItemIcon>
-              <ApartmentIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography>3. Permit template</Typography>
-              <Typography> / form</Typography>
-            </ListItemText>
-          </ListItemButton>
-      </ListItem> 
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton onClick={() => navigate('/hotworkstemplate')}>
+              <ListItemIcon>
+                <ApartmentIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography>3. Permit template</Typography>
+                <Typography> / form</Typography>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-    <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton onClick={() => navigate('/permitoverviewcompleted')}>
-            <ListItemIcon>
-              <NewspaperRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography>4. Overview - </Typography>
-              <Typography>Golden thread timeline</Typography>
-            </ListItemText>
-          </ListItemButton>
-    </ListItem>
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton onClick={() => navigate('/permitoverviewcompleted')}>
+              <ListItemIcon>
+                <NewspaperRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography>4. Overview - </Typography>
+                <Typography>Golden thread timeline</Typography>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-    <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton>
-            <ListItemIcon>
-              <DescriptionRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText></ListItemText>
-          </ListItemButton>
-    </ListItem>
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <DescriptionRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText></ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-    <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton>
-            <ListItemIcon>
-              <WidgetsRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText></ListItemText>
-          </ListItemButton>
-    </ListItem>
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <WidgetsRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText></ListItemText>
+            </ListItemButton>
+          </ListItem>
 
-    <ListItem disablePadding
-        sx={{display: 'block'}}>
-          <ListItemButton>
-            <ListItemIcon>
-              <SettingsRoundedIcon sx={{fontSize: 25, color: '#04535f'}} />
-            </ListItemIcon>
-            <ListItemText></ListItemText>
-          </ListItemButton>
-    </ListItem>
+          <ListItem disablePadding
+            sx={{ display: 'block' }}>
+            <ListItemButton>
+              <ListItemIcon>
+                <SettingsRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
+              </ListItemIcon>
+              <ListItemText></ListItemText>
+            </ListItemButton>
+          </ListItem>
 
 
-    </List>
-  </Drawer>
-      
-</Box>
-)
+        </List>
+      </Drawer>
+
+    </Box>
+  )
 }
