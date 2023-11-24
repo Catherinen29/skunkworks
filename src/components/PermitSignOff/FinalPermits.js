@@ -53,8 +53,9 @@ return(
 
     <SideBar />
 
-    <Box sx={{py: 5, pl: 15, pr: 10, bgcolor: '#f1f3f3', mt: '6rem', 
-        display: 'flex', flexDirection: 'column', justifyContent: 'center'
+    <Box sx={{py: 5, pl: 15, pr: 10, mt: '6rem', bgcolor: '#f1f3f3', 
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        minHeight: '100vh'
         }}>
         <Box>
             <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', m: 'auto'}}>
@@ -92,6 +93,16 @@ return(
                 sx={{width: '30rem', my: 2}}>
                 <TextField 
                 size='small'
+				sx={{
+					"& label.Mui-focused": {
+					  color: "#00a4a9"
+					},
+					"& .MuiOutlinedInput-root": {
+					"&.Mui-focused fieldset": {
+					  borderColor: "#00a4a9"
+					}
+				  }
+				}}
                 InputLabelProps={{ style: { ml: 30 } }}
                 InputProps= {{
                     startAdornment: 
@@ -108,8 +119,18 @@ return(
                 <Box>
                 <FormControl required 
                 size='small'
-                sx={{display: 'block',
-                m: 2, justifyContent: 'center' }}>
+                sx={{
+                    display: 'block',
+                    m: 2, justifyContent: 'center', 
+                    "& label.Mui-focused": {
+                        color: "#00a4a9"
+                    },
+                    "& .MuiOutlinedInput-root": {
+                    "&.Mui-focused fieldset": {
+                        borderColor: "#00a4a9"
+                    }
+                }
+                }}>
                 <TextField
                     select
                     label={
@@ -143,7 +164,15 @@ return(
                         sx={{display: 'flex', alignItems: 'center'}}>
                         <FilterListIcon sx={{mr: '1rem'}} />Add filters</ Box>}
                     size='small'
-                    sx={{width: '10rem'}}
+                    sx={{width: '10rem', 
+					"& label.Mui-focused": {
+					  color: "#00a4a9"
+					},
+					"& .MuiOutlinedInput-root": {
+					"&.Mui-focused fieldset": {
+					  borderColor: "#00a4a9"
+					}
+				  }}}
                 >
                     <MenuItem value='Date'>Date</MenuItem>
                     <MenuItem value='Type'>Type</MenuItem>
@@ -163,11 +192,12 @@ return(
         <Dialog keepMounted open={open} onClose={handleClose}
             sx={{display: 'flex', flexDirection: 'column', width: '35rem', margin: 'auto'}}>
         <DialogTitle variant='h5'>New Permit</DialogTitle>            
-        <DialogContent>Create temporary permits for suppliers and people assigned to this 
+        <DialogContent sx={{width: '30rem'}}>Create temporary permits for suppliers and people assigned to this 
             project.
         </DialogContent>
-        <DialogActions sx={{mb: '0.5rem', display: 'flex', flexDirection: 'column'}}>
-            <FormControl size='small' sx={{width: '90%'}}>
+        <DialogActions sx={{display: 'flex', flexDirection: 'column', 
+            mb: '0.5rem', px: '24px'}}>
+            <FormControl size='small' sx={{width: '100%'}}>
                 <TextField 
                     select
                     value={permitType}
@@ -181,13 +211,15 @@ return(
                 </TextField>
             </FormControl>
             
-            <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '1rem'}}>
+            <Box sx={{display: 'flex', alignSelf: 'flex-end', mt: '2rem'}}>
                 <Button variant="contained" onClick={handleClose}  disableElevation={true}
-                    sx={{bgcolor: 'white', color: '#00a4a9', fontWeight: 500, mx: 1,
-                    "&:hover": {
-                        bgcolor: '#ffffff',
-                        color: "#008488"
-                    }}}>CANCEL</Button>
+                    sx={{bgcolor: '#ffffff', color: '#00a4a9', fontWeight: 500, mx: 1,
+                        "&:hover": {
+                            bgcolor: '#ffffff',
+                            color: "#008488"
+                        }
+                    }}>
+                    CANCEL</Button>
                 <Button variant="contained"
 					onClick={() =>
 						permitType === 'Hot Works' && navigate('/hotworkstemplate')}
