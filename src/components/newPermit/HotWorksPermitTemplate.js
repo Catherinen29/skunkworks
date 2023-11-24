@@ -107,7 +107,7 @@ return(
     display='flex'
     alignItems='center'
     justifycontent='center'
-    sx={{ bgcolor: '#eef5f5', mt: '4rem', flexDirection: 'column'}}>
+    sx={{ bgcolor: '#eef5f5', my: '4rem', flexDirection: 'column'}}>
 
         <PermitIntro />
         <Part1 newPermit={newPermit} 
@@ -136,7 +136,7 @@ return(
             justifyContent: 'center', alignItems: 'center'}}>
 
         <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', mx: 1, fontSize: 12}}>Certchain secured</Typography>
-        <Link  href="https://www.google.com" sx={{color: '#00a4a9', mx: 1, fontSize: 12}}>What is this?</Link>
+        <Link  href="https://certchain.net/" sx={{color: '#00a4a9', mx: 1, fontSize: 12}}>What is this?</Link>
         </Box>
 
         <Box sx={{display: 'flex'}}>
