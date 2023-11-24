@@ -1,8 +1,8 @@
-import { Alert, Box, Button, Card, CardActionArea, Dialog, DialogContent, DialogTitle, Paper, Snackbar, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, CardActionArea, Dialog, DialogContent, 
+    DialogTitle, Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import PermitToolBar from "../common/PermitToolBar";
 import { PreAuthStatusTag } from "../common/PermitStatusTags";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
@@ -83,10 +83,10 @@ return (
 
 <SideBar />
 
-<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', 
+<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', mt: '6rem',
     display: 'flex', justifyContent: 'center'}}>
     
-<Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
+<Box sx={{bgcolor: '#f1f3f3', width: '80%'}}>
     <Button 
     onClick={() => navigate('/')}
     variant="contained" disableElevation={true}

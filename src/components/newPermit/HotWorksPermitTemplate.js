@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router-dom'
-import { Box, Button, ButtonBase, Typography, Toolbar, Link, Dialog, 
+import { Box, Button, Typography, Toolbar, Link, Dialog, 
     DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
@@ -89,11 +89,13 @@ const handleSavePermit = () => {
 }
 
 return(
-<Box sx={{display: 'flex', flexDirection: 'column'}}>
+<Box sx={{display: 'flex',  flexDirection: 'column', width: '100%'}}>
 
     <Toolbar 
     sx={{backgroundImage: `url(${BB_bg})`, backgroundSize: '100%', 
-        backgroundRepeat: 'no-repeat'}}
+        backgroundRepeat: 'no-repeat', position: 'fixed', 
+        zIndex: 2, boxShadow: 3,
+        width: '100%', height: '4rem'}}
     >
     <Button onClick={() => navigate('/')}>
         {<CloseIcon sx={{color: '#ffffff'}} />} </Button>
@@ -104,7 +106,7 @@ return(
     display='flex'
     alignItems='center'
     justifycontent='center'
-    sx={{ bgcolor: '#eef5f5', flexDirection: 'column'}}>
+    sx={{ bgcolor: '#eef5f5', mt: '4rem', flexDirection: 'column'}}>
 
         <PermitIntro />
         <Part1 newPermit={newPermit} 
@@ -123,9 +125,15 @@ return(
                 setNewPermit={setNewPermit} />
     </Box>
 
-    <Toolbar sx={{bgcolor:  '#ffffff', display: 'flex', justifyContent: 'space-between'}}>
+    <Toolbar sx={{bgcolor:  '#ffffff', 
+        display: 'flex', justifyContent: 'space-between', 
+        position: 'fixed', zIndex: 2,
+        bottom: 0, boxShadow: 3,
+        width: '100%', height: '4rem'}}>
+
         <Box sx={{display: 'flex', flexDirection: 'row', height: 30, 
             justifyContent: 'center', alignItems: 'center'}}>
+
         <Typography sx={{color: 'rgba(0, 0, 0, 0.6)', mx: 1, fontSize: 12}}>Certchain secured</Typography>
         <Link  href="https://www.google.com" sx={{color: '#00a4a9', mx: 1, fontSize: 12}}>What is this?</Link>
         </Box>
@@ -151,7 +159,8 @@ return(
             {<SaveIcon sx={{ml: 1}} />}
         </Button>
         <Button variant="contained" onClick={handleOnClickOpen} 
-            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', mx: 1,
+            sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', 
+            ml: '1rem', mr: '3rem',
             "&:hover": {
                 bgcolor: "#008488"}}}>
             <Typography 
@@ -160,7 +169,7 @@ return(
                 CREATE PERMIT</Typography>
         </Button>
         </Box>
-        </Toolbar>
+    </Toolbar>
 
     <Dialog keepMounted open={open} onClose={handleClose}
             sx={{width: '35rem', margin: 'auto'}}>
