@@ -60,12 +60,22 @@ const handleInput = (e) => {
                     onChange={handleInput}
                     label='Select verified worker'
                     size='small' 
-                    sx={{width: '23rem',
-                    '.MuiSelect-select': {
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                    }}}> 
+                    sx={{
+                        width: '23rem',
+                        '.MuiSelect-select': {
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                        }, 
+                        "& label.Mui-focused": {
+                            color: "#00a4a9"
+                        },
+                        "& .MuiOutlinedInput-root": {
+                        "&.Mui-focused fieldset": {
+                            borderColor: "#00a4a9"
+                        }
+                        }
+                  }}> 
                 {workers.map((worker) => (
                 <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
                     {worker.name}

@@ -106,7 +106,16 @@ return(
             label='Select organisation'
             onChange={handleInput}
             size="small"
-            sx={{width: '23rem'}}
+            sx={{width: '23rem', 
+                "& label.Mui-focused": {
+                color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+                }
+              }
+            }}
             > 
                 <MenuItem value='Supplier'>Supplier</MenuItem>
                 <MenuItem value='Plumbing'>Plumbing</MenuItem>
@@ -130,7 +139,16 @@ return(
             label='Select supplier *'
             onChange={handleInput}
             size="small"
-            sx={{width: '23rem'}}> 
+            sx={{width: '23rem',
+                "& label.Mui-focused": {
+                color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+                }
+                } 
+            }}> 
                 <MenuItem value='Ackrington Chambers'>Ackrington Chambers</MenuItem>
                 <MenuItem value='Travis Perkins'>Travis Perkins</MenuItem>
                 <MenuItem value='Wickes'>Wickes</MenuItem> 
@@ -156,12 +174,20 @@ return(
                 label='Select verified worker *'
                 onChange={(e) => handleOperator(e, index)}
                 size="small"
-                sx={{width: '23rem',
+                sx={{width: '23rem', mb: 2,
                 '.MuiSelect-select': {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                }, mb: 2}}
+                },
+                "& label.Mui-focused": {
+                color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+                }
+                }}}
                 > 
                 {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
@@ -207,6 +233,14 @@ return(
                     justifyContent: 'space-between',
                     alignItems: 'center',
                 },
+                "& label.Mui-focused": {
+                color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+                }
+                } 
             }}> 
         {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
@@ -244,12 +278,22 @@ return(
             label='Select verified worker *'
             onChange={handleInput}
             size="small"
-            sx={{width: '23rem',
-            '.MuiSelect-select': {
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-            }}}> 
+            sx={{
+                width: '23rem',
+                '.MuiSelect-select': {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                },
+                "& label.Mui-focused": {
+                color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+                }
+              }
+            }}> 
                 
             {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>

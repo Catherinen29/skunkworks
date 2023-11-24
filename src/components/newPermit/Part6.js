@@ -67,7 +67,15 @@ const handleInput = (e) => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
+            }, 
+            "& label.Mui-focused": {
+              color: "#00a4a9"
+            },
+            "& .MuiOutlinedInput-root": {
+            "&.Mui-focused fieldset": {
+              borderColor: "#00a4a9"
             }
+          }
             }}> 
             {workers.map((worker) => (
             <MenuItem key={worker.value} value={worker.value} sx={{justifyContent: 'space-between'}}>
@@ -108,7 +116,16 @@ const handleInput = (e) => {
             onChange={handleInput}
             label='Select duration'
             size='small' 
-            sx={{width: '15rem'}}> 
+            sx={{width: '15rem', 
+                "& label.Mui-focused": {
+                    color: "#00a4a9"
+                },
+                "& .MuiOutlinedInput-root": {
+                "&.Mui-focused fieldset": {
+                    borderColor: "#00a4a9"
+                }
+                }
+            }}> 
                 <MenuItem value='60 mins'>60 mins</MenuItem>
                 <MenuItem value='90 mins'>90 mins</MenuItem>
                 <MenuItem value='120 mins'>120 mins</MenuItem> 

@@ -51,7 +51,12 @@ export default function Part3({ newPermit, setNewPermit }) {
           <FormControl
             sx={{
               display: 'block', width: '11rem',
-              m: 0.5, ml: 0
+              m: 0.5, ml: 0, 
+              "& .MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+              }
+              }
             }}>
             <DatePicker
               name='worksDate'
@@ -66,7 +71,12 @@ export default function Part3({ newPermit, setNewPermit }) {
           <FormControl
             sx={{
               display: 'block', width: '11rem',
-              m: 0.5
+              m: 0.5, 
+              "& .MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+              }
+              }
             }}>
             <TimePicker
               name='startTime'
@@ -87,7 +97,12 @@ export default function Part3({ newPermit, setNewPermit }) {
           <FormControl
             sx={{
               display: 'block', width: '11rem',
-              m: 0.5
+              m: 0.5, 
+              "& .MuiOutlinedInput-root": {
+              "&.Mui-focused fieldset": {
+                borderColor: "#00a4a9"
+              }
+              }
             }}>
             <TimePicker
               name='endTime'
@@ -114,7 +129,17 @@ export default function Part3({ newPermit, setNewPermit }) {
           label='Select area'
           onChange={handleInput}
           size='small'
-          sx={{ width: '23rem' }}
+          sx={{ 
+            width: '23rem',
+            "& label.Mui-focused": {
+              color: "#00a4a9"
+            },
+            "& .MuiOutlinedInput-root": {
+            "&.Mui-focused fieldset": {
+              borderColor: "#00a4a9"
+            }
+            } 
+          }}
         >
           <MenuItem value="Hospital Block A">Hospital Block A</MenuItem>
           <MenuItem value="Hospital Block B">Hospital Block B</MenuItem>

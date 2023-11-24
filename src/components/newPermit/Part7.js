@@ -30,6 +30,16 @@ const [confirmed, setConfirmed] = useState(false)
                 rows={3} 
                 size='small' 
                 label='Enter description'
+				sx={{
+					"& label.Mui-focused": {
+					  color: "#00a4a9"
+					},
+					"& .MuiOutlinedInput-root": {
+					"&.Mui-focused fieldset": {
+					  borderColor: "#00a4a9"
+					}
+				  }
+				}}
              />
         </FormControl>
 

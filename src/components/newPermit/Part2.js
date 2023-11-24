@@ -50,7 +50,17 @@ const handleInput = (e) => {
                 label='Enter description'
                 name='scope'
                 value={newPermit.scope}
-                onChange={handleInput} />
+                onChange={handleInput}
+				sx={{
+					"& label.Mui-focused": {
+					  color: "#00a4a9"
+					},
+					"& .MuiOutlinedInput-root": {
+					"&.Mui-focused fieldset": {
+					  borderColor: "#00a4a9"
+					}
+				  }
+				}} />
         </FormControl>
 
         <FormControl sx={{width: '30rem', mt: '1rem'}}>
