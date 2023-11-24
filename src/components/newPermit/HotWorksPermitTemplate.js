@@ -54,6 +54,7 @@ const [newPermit, setNewPermit] = useState({
 })
 
 const handlePopulateFields = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setNewPermit({
         type: 'Hot Works',
         supplier: 'Travis Perkins',

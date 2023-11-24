@@ -1,9 +1,8 @@
-import { Alert, Box, Button, Card, CardActionArea, Dialog, DialogContent, DialogTitle,
+import { Alert, Box, Button, Card, CardActionArea, 
         Paper, Snackbar, Typography } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import PermitToolBar from "../common/PermitToolBar";
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
@@ -35,6 +34,7 @@ const [success, setSuccess] = useState(false)
 // Manage Permit Overview
 const [openPermitViewCompleted, setOpenPermitViewCompleted] = useState(true)
 const handleOpenPermitViewCompleted = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenPermitViewCompleted(true)
     setOpenPermitDetails(false)
     setOpenAuthHotWorks(false)    
@@ -45,6 +45,7 @@ const handleOpenPermitViewCompleted = () => {
 // Manage permit details sidebar.
 const [openPermitDetails, setOpenPermitDetails] = useState(false)
 const handleOpenPermitDetails = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenPermitDetails(true)
     setOpenPermitViewCompleted(false)
     setOpenGoldenTimeline(false)
@@ -55,6 +56,7 @@ const handleOpenPermitDetails = () => {
 // Manage Authorise Permit Details
 const [openAuthHotWorks, setOpenAuthHotWorks] = useState(false)
 const handleOpenAuthHotWorks = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenAuthHotWorks(true)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
@@ -67,6 +69,7 @@ const handleCloseAuthHotWorks = () => {
 // Manage Issuer Sign Off
 const [openIssuerSignOff, setOpenIssuerSignOff] = useState(false)
 const handleOpenIssuerSignOff = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenIssuerSignOff(true)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
@@ -79,6 +82,7 @@ const handleCloseIssuerSignOff= () =>{
 // Manage Golden Thread Timeline
 const [openGoldenTimeline, setOpenGoldenTimeline] = useState(false)
 const handleOpenGoldenTimeline = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenGoldenTimeline(true)
     setOpenPermitDetails(false)
     setOpenPermitViewCompleted(false)
@@ -102,7 +106,7 @@ return (
 
 <SideBar />
 
-<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', 
+<Box sx={{bgcolor: '#f1f3f3', ml: '4rem', mt: '6rem',
     display: 'flex', justifyContent: 'center'}}>
     
 <Box sx={{bgcolor: '#f1f3f3', pb: '3rem', width: '80%'}}>
