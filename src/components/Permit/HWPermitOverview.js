@@ -29,6 +29,7 @@ const [showCompletionSignOff, setShowCompletionSignOff] = useState(true)
 // Manage Permit Overview
 const [openPermitView, setOpenPermitView] = useState(false)
 const handleOpenPermitView = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenPermitView(true)
     setOpenPermitDetails(false)
     setOpenAuthHotWorks(false)
@@ -37,6 +38,7 @@ const handleOpenPermitView = () => {
 // Manage permit details sidebar.
 const [openPermitDetails, setOpenPermitDetails] = useState(true)
 const handleOpenPermitDetails = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenPermitDetails(true)
     setOpenPermitView(false)
     setOpenAuthHotWorks(false)
@@ -45,6 +47,7 @@ const handleOpenPermitDetails = () => {
 // Manage Authorise Permit Details
 const [openAuthHotWorks, setOpenAuthHotWorks] = useState(false)
 const handleOpenAuthHotWorks = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
     setOpenAuthHotWorks(true)
     setOpenPermitDetails(false)
     setOpenPermitView(false)
