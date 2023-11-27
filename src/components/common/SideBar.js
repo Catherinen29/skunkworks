@@ -290,6 +290,10 @@ export default function SideBar() {
         </DrawerHeader>
         <Divider />
 
+
+{/* TO DO:
+AMEND TEXT & FONT SIZING IN LIST */}
+
         <List>
 
           <ListItem disablePadding
@@ -298,7 +302,7 @@ export default function SideBar() {
               <ListItemIcon>
                 <HealthAndSafetyIcon sx={{ fontSize: 20, color: '#04535f' }} />
               </ListItemIcon>
-              <ListItemText>1. Main permit page</ListItemText>
+              <ListItemText fontSize={10}>1. Main permit page</ListItemText>
             </ListItemButton>
           </ListItem>
 
@@ -309,8 +313,7 @@ export default function SideBar() {
                 <GroupRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography>2. Mobile view - </Typography>
-                <Typography>completed permit</Typography>
+                <Typography fontSize={10}>2. Mobile view - completed permit</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -322,8 +325,7 @@ export default function SideBar() {
                 <ApartmentIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography>3. Permit template</Typography>
-                <Typography> / form</Typography>
+                <Typography fontSize={10}>3. Permit template / form</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -335,8 +337,7 @@ export default function SideBar() {
                 <NewspaperRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography>4. Overview - </Typography>
-                <Typography>Golden thread timeline</Typography>
+                <Typography fontSize={10}>4. Overview - Golden thread timeline</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
