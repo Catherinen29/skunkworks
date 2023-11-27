@@ -180,7 +180,7 @@ export default function SideBar() {
                 <Box
                   sx={{
                     width: '10rem',
-                    height: '1.8rem',
+                    height: '1.5rem',
                     m: 1,
                     bgcolor: '#ed6c02',
                     borderRadius: 50,
@@ -189,23 +189,23 @@ export default function SideBar() {
                     alignItems: 'center',
                   }}
                 >
-                  <WarningIcon style={{ fill: 'white', m: '0.5rem' }}></WarningIcon>
+                  <WarningIcon style={{ fill: 'white', fontSize: 16 }}></WarningIcon>
                   <Typography
                     sx={{
                       color: 'white',
                       fontSize: 14,
                       alignSelf: 'center',
-                      m: '0.5rem',
+                      ml: '0.3rem',
                     }}
                   >
-                    Emerging risks
+                    Emerging risks (4)
                   </Typography>
                 </Box>
 
                 <Box
                   sx={{
                     width: '10rem',
-                    height: '1.8rem',
+                    height: '1.5rem',
                     m: 1,
                     bgcolor: '#3f9710',
                     borderRadius: 50,
@@ -214,16 +214,16 @@ export default function SideBar() {
                     alignItems: 'center',
                   }}
                 >
-                  <HealthAndSafetyIcon style={{ fill: 'white', m: '0.5rem' }}></HealthAndSafetyIcon>
+                  <HealthAndSafetyIcon style={{ fill: 'white', fontSize: 16 }}></HealthAndSafetyIcon>
                   <Typography
                     sx={{
                       color: 'white',
                       fontSize: 14,
                       alignSelf: 'center',
-                      m: '0.5rem',
+                      ml: '0.3rem',
                     }}
                   >
-                    Compliance
+                    Compliance (84%)
                   </Typography>
                 </Box>
               </Box>
