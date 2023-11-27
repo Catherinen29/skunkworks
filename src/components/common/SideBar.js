@@ -34,6 +34,11 @@ export default function SideBar() {
   const navigate = useNavigate()
 
   const workers = [{
+    name: 'Francis Golder',
+    value: 'Francis Golder',
+    position: 'Supervisor',
+    verified: true,
+  }, {
     name: 'Jan Goldstein',
     value: 'Jan Goldstein',
     position: 'Supervisor',
