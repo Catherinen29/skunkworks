@@ -140,33 +140,35 @@ return(
         </Box>
 
         <Box sx={{display: 'flex'}}>
-        <Button variant="text" 
-            sx={{color: '#00a4a9', fontWeight: 'bold', 
+        <Button variant="text" size='medium'
+            sx={{color: '#00a4a9', 
             mx: 1, 
             "&:hover": {
                 color: "#008488"}}}>
-            <Typography sx={{pt: '0.2rem', fontWeight: 500, fontSize: 14}}>
+            <Typography sx={{fontWeight: 500}}>
                 CANCEL</Typography>
         </Button>
-        <Button variant="contained" onClick={handlePopulateFields}
+        <Button variant="contained" size='medium'
+            endIcon={<SaveIcon />}
+            onClick={handlePopulateFields}
             sx={{bgcolor:  '#00a4a9', 
             mx: 1, 
             "&:hover": {
                 bgcolor: "#008488"}}}>
             <Typography 
-                sx={{pt: '0.2rem', 
-                fontWeight: 500, fontSize: 14,}}>
+                sx={{ fontWeight: 500 }}>
                 SAVE AS DRAFT</Typography>
-            {<SaveIcon sx={{ml: 1}} />}
+            
         </Button>
-        <Button variant="contained" onClick={handleOnClickOpen} 
+        <Button variant="contained" size='medium'
+            onClick={handleOnClickOpen} 
             sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', 
             ml: '1rem', mr: '3rem',
             "&:hover": {
                 bgcolor: "#008488"}}}>
             <Typography 
-                sx={{pt: '0.2rem', 
-                fontWeight: 500, fontSize: 14}}>
+                sx={{
+                fontWeight: 500}}>
                 CREATE PERMIT</Typography>
         </Button>
         </Box>
@@ -183,16 +185,23 @@ return(
             </Typography>
         </DialogContent>
         <DialogActions sx={{mb: '0.5rem'}}>
-            <Button variant="text" onClick={handleClose}
-                sx={{color:  '#00a4a9', bgcolor: '#ffffff', fontWeight: 'bold', mx: 1, 
+            <Button variant="text" size='medium'
+                onClick={handleClose}
+                sx={{color:  '#00a4a9', bgcolor: '#ffffff', fontWeight: 'bold', 
+                mx: 1, 
                 "&:hover": {
-                    color: "#008488"}}}>GO BACK</Button>
-            <Button variant="contained" onClick={handleSavePermit}
-                sx={{bgcolor:  '#00a4a9', color: '#ffffff', 
-                fontWeight: 'bold', mx: 1, 
+                    color: "#008488"}}}>
+                <Typography sx={{fontWeight: 500}}>GO BACK</Typography>
+            </Button>
+            <Button variant="contained" size='medium'
+                onClick={handleSavePermit}
+                sx={{bgcolor:  '#00a4a9', fontWeight: 'bold', 
+                color: '#ffffff', 
+                mx: 1, 
                 "&:hover": {
                     bgcolor: "#008488"}}}>
-                CREATE PERMIT </Button>
+                <Typography sx={{fontWeight: 500}}>CREATE PERMIT</Typography> 
+            </Button>
         </DialogActions>
     </Dialog>
     </Box>

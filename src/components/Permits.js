@@ -85,29 +85,29 @@ return (
 				<Typography variant='h6' sx={{ fontWeight: 500, mb: '1rem' }}>Manage 37 permits issued on this project</Typography>
 
 				<Box sx={{ display: 'flex', flexDirection: 'row', height: '3rem' }}>
-					<Button variant="contained"
-						sx={{bgcolor: '#00a4a9', m: 1, fontSize: 12,
-						width: '11rem', height: '2rem',
+					<Button variant="contained" 
+						size='medium'
+						sx={{bgcolor: '#00a4a9', m: 1, 
 						"&:hover": {
 							bgcolor: "#008488"}
 						}}>
-						<Typography sx={{ pt: '0.2rem', fontWeight: 500, fontSize: 14 }}>
+						<Typography sx={{ fontWeight: 500 }}>
 						MANAGE TEMPLATES</Typography>
 					</Button>
-					<Button onClick={handleOnClickOpen} variant="contained" disableRipple
+					<Button variant="contained" size='medium'
+						endIcon={<AddRoundedIcon />} disableRipple
+						onClick={handleOnClickOpen} 
 						sx={{
 						bgcolor: '#00a4a9', m: 1,
-						width: '9rem', height: '2rem',
 						"&:hover": {
 							bgcolor: "#008488"}
 						}}>
-						<Typography sx={{ pt: '0.2rem', pr: '0.5rem', fontWeight: 500, fontSize: 14 }}>
+						<Typography sx={{fontWeight: 500 }}>
 						NEW PERMIT</Typography>
-						<AddRoundedIcon style={{ fontSize: 16 }} />
 						</Button>
 
-					</Box>
 				</Box>
+			</Box>
 
 
 			{/* Search permits */}
@@ -246,26 +246,31 @@ return (
 			</FormControl>
 
 			<Box sx={{ display: 'flex', alignSelf: 'flex-end', mt: '2rem' }}>
-				<Button variant="contained" onClick={handleClose} disableElevation={true}
-					sx={{bgcolor: '#ffffff', color: '#00a4a9', fontWeight: 500, mx: 1,
-						"&:hover": {
-							bgcolor: '#ffffff',
-							color: "#008488"
-						}
-					}}>
-					CANCEL</Button>
-				<Button variant="contained"
+			<Button variant="text" size='medium'
+				sx={{color: '#00a4a9', 
+				mx: 1, 
+				"&:hover": {
+					color: "#008488"}}}>
+				<Typography sx={{fontWeight: 500}}>
+					CANCEL</Typography>
+			</Button>
+				<Button variant="contained" size='medium' 
+					endIcon={<ArrowForwardIosIcon />}
 					onClick={() =>
 						permitType === 'Hot Works' && navigate('/hotworkstemplate')}
-					sx={{
-						bgcolor: '#00a4a9', fontWeight: 'bold', 
+					sx={{bgcolor: '#00a4a9', 
 						"&:hover": {
 							bgcolor: "#008488"
+						},
+						'& .MuiButton-endIcon': {
+							transform: 'scale(0.7)',
+							ml: 0,
+							p:0, 
 						}
 					}}>
-					<Typography sx={{ pt: '0.2rem', pr: '0.5rem', fontWeight: 500, fontSize: 14 }}>
-						START</Typography>
-					<ArrowForwardIosIcon fontSize='12px' sx={{ mt: '0.1rem' }} /></Button>
+					<Typography sx={{ fontWeight: 500 }}>
+						START</Typography> 
+					</Button>
 			</Box>
 
 		</DialogActions>

@@ -200,8 +200,9 @@ return(
         }
         
         <Box>
-            <Button  variant='outlined' onClick={addField} 
-            sx={{mb: 1, color: '#00a4a9'}}>
+            <Button  variant='outlined' size='medium'
+                onClick={addField} 
+                sx={{mb: 1, color: '#00a4a9'}}>
                 ADD ANOTHER +</Button>
         </Box>
             

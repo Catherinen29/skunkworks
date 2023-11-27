@@ -112,17 +112,17 @@ return (
 
         {/* Authorise button - checkbox required */}
             <Box sx={{my: '1rem'}}>
-                <Button variant='contained' 
-                        sx={{bgcolor: '#00a4a9',
-                        color: '#ffffff',
-                        "&:hover": {
-                            bgcolor: "#008488"}}}
-                        onClick={handleAgreeButton}
-                        >
+                <Button variant='contained' size='medium'
+                endIcon={<CheckCircleOutlineRoundedIcon  />}
+                    sx={{bgcolor: '#00a4a9',
+                    color: '#ffffff',
+                    "&:hover": {
+                        bgcolor: "#008488"}}}
+                    onClick={handleAgreeButton}
+                    >
 
-                    <Typography sx={{fontWeight: 500}}>AUTHORISE AND ISSUE PERMIT</Typography>
-                    <CheckCircleOutlineRoundedIcon 
-                    sx={{ml: '0.5rem', height: '1.5rem', width: '1.5rem'}} /></Button>
+                <Typography sx={{fontWeight: 500}}>AUTHORISE AND ISSUE PERMIT</Typography>
+                </Button>
             </Box>
         </Box>
 

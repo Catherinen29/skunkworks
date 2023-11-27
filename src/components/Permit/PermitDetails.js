@@ -70,14 +70,15 @@ return (
                 <Typography 
                 sx={{color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, mb: '0.2rem'}}>
                     Permit actions</Typography>
-                <Button variant='outlined' 
-                sx={{borderColor: '#00a4a9', color: '#00a4a9', 
-                width: '8rem', height: '2.5rem',
-                "&:hover": {
-                    color: "#008488",
-                    bgcolor: '#ffffff'}}}>
-                    <Typography sx={{fontWeight: 500, mr: '0.5rem'}}>MANAGE</Typography>
-                     <EditIcon /></Button>
+                <Button variant='outlined' size='medium'
+                    endIcon={<EditIcon />}
+                    sx={{borderColor: '#00a4a9', color: '#00a4a9', 
+                    width: '8rem', height: '2.5rem',
+                    "&:hover": {
+                        color: "#008488",
+                        bgcolor: '#ffffff'}}}>
+                <Typography sx={{ fontWeight: 500 }}>MANAGE</Typography>
+                </Button>
             </Box>
         </Box>
 
