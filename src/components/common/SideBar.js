@@ -160,20 +160,23 @@ export default function SideBar() {
             <MenuRoundedIcon />
           </IconButton>
 
-          <Grid container spacing={2} sx={{ color: 'white', display: 'flex', flexDirection: 'row', pt: '0.5rem' }}>
-            <Grid item xs={8} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Grid container spacing={2} 
+                sx={{ color: 'white', display: 'flex', flexDirection: 'row', p: 0 }}>
+            <Grid item xs={8} sx={{ display: 'flex', flexDirection: 'column', mt: '1rem',pb: '1rem' }}>
               <Typography variant="h5"
                 sx={{
                   color: '#ffffff', fontWeight: 500,
-                  width: '6rem', p: 0,
-                }}>Permits</Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <Typography sx={{ color: '#ffffff', mr: 2 }}>NHS Southampton University Central Hospital</Typography>
+                  width: '6rem', p: 0}}>
+                    Permits</Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <Typography 
+                  sx={{ color: '#ffffff', mr: 2 }}>
+                    NHS Southampton University Central Hospital</Typography>
                 <Box
                   sx={{
                     width: '10rem',
                     height: '1.8rem',
-                    m: 2,
+                    m: 1,
                     bgcolor: '#ed6c02',
                     borderRadius: 50,
                     display: 'flex',
@@ -198,7 +201,7 @@ export default function SideBar() {
                   sx={{
                     width: '10rem',
                     height: '1.8rem',
-                    m: 2,
+                    m: 1,
                     bgcolor: '#3f9710',
                     borderRadius: 50,
                     display: 'flex',
@@ -222,20 +225,20 @@ export default function SideBar() {
 
             </Grid>
 
-            <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end', p: 0 }}>
+            <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end', mt: '1rem'}}>
               {/* Notifications */}
-              <Box sx={{ mx: '1rem', my: '1rem' }}>
+              <Box sx={{ mx: '1rem' }}>
                 <Button>
                   <NotificationsIcon style={{ fill: '#ffffff' }}></NotificationsIcon>
                 </Button>
               </Box>
               {/* Current user info */}
-              <Box sx={{ flexDirection: 'column', p: '0.5rem' }}>
+              <Box sx={{ flexDirection: 'column', px: '0.5rem' }}>
                 {/* user image */}
                 <Typography>{workers[0].name}</Typography>
                 <Typography sx={{ fontSize: 12 }}>{workers[0].position}</Typography>
               </Box>
-              <Box sx={{ p: '0.5rem' }}>
+              <Box sx={{ px: '0.5rem' }}>
                 <Avatar src={Frank} width={50} height={50} alt="User_image"
                 />
               </Box>
