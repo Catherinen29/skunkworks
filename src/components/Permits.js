@@ -280,7 +280,10 @@ return (
 
 		{(filter === 'Date') && permits.filter((permit) => permit.expiresAt.includes('Today')).map((permit) => (
 			<Card sx={{ width: '25rem', display: 'flex' }}>
-			<CardContent sx={{ p: 0, width: '100%' }}>
+			<CardContent sx={{ p: 0, width: '100%',
+				'&:last-child': {
+					'padding-bottom': 0}   
+				}}>
 				<CardActionArea onClick={navigateAway}>
 				<Box sx={{ display: 'flex', flexDirection: 'row' }}>
 					<Box sx={{
@@ -293,7 +296,7 @@ return (
 							: <PersonIcon sx={{ width: '2rem', height: '2rem' }} />}
 					</Box>
 
-					<List sx={{ pt: 1 }}>
+					<List sx={{ pt: 1, pb: 0 }}>
 						<ListItem>
 							<ListItemIcon style={{ fill: '#04535f', minWidth: 38 }}>
 								{permit.type === 'Hot Works' && <WhatshotIcon style={{ fill: '#04535f' }} />}
@@ -317,7 +320,7 @@ return (
 
 				<Box sx={{
 					display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
-					alignItems: 'center', flexDirection: 'row', pt: '1rem', pb: 0,
+					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '1rem', 
 					borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'
 				}}>
 					{permit.status === 'Active' && <ActivePermitTag />}
@@ -342,7 +345,10 @@ return (
 
 		{(filter !== 'Date') && permits.map((permit) => (
 			<Card sx={{ width: '25rem', display: 'flex' }}>
-				<CardContent sx={{ p: 0, width: '100%' }}>
+				<CardContent sx={{width: '100%', p: 0,
+				'&:last-child': {
+					'padding-bottom': 0}  
+					}}>
 				<CardActionArea onClick={navigateAway}>
 					<Box sx={{ display: 'flex', flexDirection: 'row' }}>
 						<Box sx={{
@@ -355,7 +361,7 @@ return (
 								: <PersonIcon sx={{ width: '2rem', height: '2rem' }} />}
 						</Box>
 
-						<List sx={{ pt: 1 }}>
+						<List sx={{ pt: 1, pb: 0 }}>
 							<ListItem>
 								<ListItemIcon style={{ fill: '#04535f', minWidth: 38 }}>
 									{permit.type === 'Hot Works' && <WhatshotIcon style={{ fill: '#04535f' }} />}
@@ -379,7 +385,7 @@ return (
 
 				<Box sx={{
 					display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
-					alignItems: 'center', flexDirection: 'row', pl: '1rem', pt: '1rem', pb: 0,
+					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '0.5rem', 
 				}}>
 					{permit.status === 'Active' && <ActivePermitTag />}
 					{permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
