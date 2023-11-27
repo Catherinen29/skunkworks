@@ -7,8 +7,8 @@ return (
     <>
         <Box
         sx={{
-          width: '6rem',
-          height: '1.8rem',
+          width: '4rem',
+          height: '1.5rem',
           bgcolor: '#4caf50',
           borderRadius: 50,
           display: 'flex',
@@ -38,8 +38,8 @@ return (
   <>
         <Box
         sx={{
-          width: '10rem',
-          height: '1.8rem',
+          width: '9rem',
+          height: '1.5rem',
           bgcolor: '#ed6c02',
           borderRadius: 50,
           display: 'flex',
@@ -69,7 +69,7 @@ return (
         <Box
         sx={{
           width: '6rem',
-          height: '1.8rem',
+          height: '1.5rem',
           bgcolor: '#e0e0e0',
           borderRadius: 50,
           display: 'flex',
@@ -99,7 +99,7 @@ const AuthorisedStatusTag = () => {
           <Box
           sx={{
             width: '6rem',
-            height: '1.8rem',
+            height: '1.5rem',
             bgcolor: '#ebf2eb',
             borderRadius: 50,
             display: 'flex',
@@ -129,7 +129,7 @@ return (
     <Box
     sx={{
       width: '9rem',
-      height: '1.8rem',
+      height: '1.5rem',
       bgcolor: 'rgba(255, 153, 69, 0.2)',
       borderRadius: 50,
       display: 'flex',
@@ -159,7 +159,7 @@ const ReadyPermitTag = () => {
           <Box
           sx={{
             width: '10rem',
-            height: '1.8rem',
+            height: '1.5rem',
             bgcolor: '#0288d1',
             borderRadius: 50,
             display: 'flex',
@@ -190,7 +190,7 @@ const CompletedPermitTag = () => {
           <Box
           sx={{
             width: '7rem',
-            height: '1.8rem',
+            height: '1.5rem',
             bgcolor: '#e0e0e0',
             borderRadius: 50,
             display: 'flex',
