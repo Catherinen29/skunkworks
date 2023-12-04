@@ -10,8 +10,11 @@ import ProjectPermits from "./components/mobView.js/ProjectPermits";
 import FinalPermits from "./components/PermitSignOff/FinalPermits";
 import PermitOverviewCompleted from "./components/PermitSignOff/PermitOverviewCompleted";
 import { useState } from "react";
+import { ThemeProvider, createTheme } from "@mui/material";
 
 function App() {
+
+const theme = createTheme()
 
   const [permits, setPermits] = useState([{
     type: 'Hot Works',
@@ -109,6 +112,7 @@ const [permitCreated, setPermitCreated] = useState(false)
 
   return (
   <div className="App">
+    <ThemeProvider theme={theme}>
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
         <Routes>
           <Route path="/" element={<Permits 
@@ -128,6 +132,7 @@ const [permitCreated, setPermitCreated] = useState(false)
           <Route path="/permitoverviewcompleted" element={<PermitOverviewCompleted />} />
         </Routes>
     </LocalizationProvider>
+    </ThemeProvider>
   </div>
   );
 }

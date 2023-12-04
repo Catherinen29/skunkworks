@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material"
 
-
 const ActivePermitTag = () => {
 
 return (
@@ -35,11 +34,11 @@ return (
 const EmergingIssuesStatusTag = () => {
 
 return (
-  <>
+
         <Box
         sx={{
-          width: '9rem',
-          height: '1.5rem',
+          width: '10rem',
+          height: '1.5rem', 
           bgcolor: '#ed6c02',
           borderRadius: 50,
           display: 'flex',
@@ -58,7 +57,7 @@ return (
             Emerging issues (1)
           </Typography>
       </Box>
-  </>
+
 )
 }
 
