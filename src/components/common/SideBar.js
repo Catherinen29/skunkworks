@@ -307,7 +307,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
               <ListItemIcon>
                 <HealthAndSafetyIcon sx={{ fontSize: 20, color: '#04535f' }} />
               </ListItemIcon>
-              <ListItemText fontSize={10}>Compliane</ListItemText>
+              <ListItemText fontSize={12}>Compliance</ListItemText>
             </ListItemButton>
           </ListItem>
 
@@ -318,7 +318,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <GroupRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>People</Typography>
+                <Typography>People</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -330,7 +330,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <ApartmentIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>Portfolio</Typography>
+                <Typography>Portfolio</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -342,7 +342,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <NewspaperRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>Cases</Typography>
+                <Typography>Cases</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -354,7 +354,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <DescriptionRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>Permits</Typography>
+                <Typography>Permits</Typography>
               </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -366,7 +366,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <WidgetsRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>Golden Thread Timeline</Typography>
+                <Typography>Golden Thread Timeline</Typography>
                 </ListItemText>
             </ListItemButton>
           </ListItem>
@@ -378,7 +378,7 @@ AMEND TEXT & FONT SIZING IN LIST */}
                 <SettingsRoundedIcon sx={{ fontSize: 25, color: '#04535f' }} />
               </ListItemIcon>
               <ListItemText>
-                <Typography fontSize={10}>Settings</Typography>
+                <Typography>Settings</Typography>
                 </ListItemText>
             </ListItemButton>
           </ListItem>
