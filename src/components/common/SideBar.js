@@ -233,7 +233,7 @@ export default function SideBar() {
             <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'flex-end', mt: '1rem'}}>
               {/* Notifications */}
               <Box sx={{ mx: '1rem' }}>
-                <Button>
+                <Button disableRipple>
                   <NotificationsIcon style={{ fill: '#ffffff' }}></NotificationsIcon>
                 </Button>
               </Box>
@@ -294,10 +294,6 @@ export default function SideBar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-
-
-{/* TO DO:
-AMEND TEXT & FONT SIZING IN LIST */}
 
         <List>
 
@@ -383,8 +379,8 @@ AMEND TEXT & FONT SIZING IN LIST */}
             </ListItemButton>
           </ListItem>
 
-
         </List>
+
       </Drawer>
 
     </Box>
