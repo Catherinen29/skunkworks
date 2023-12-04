@@ -286,8 +286,11 @@ return(
         </Card>
                 
         {(filter !== 'Date') && permits.map((permit) => (
-            <Card sx={{width: '25rem', display: 'flex'}}>
-                <CardContent sx={{p: 0, width: '100%'}}>
+            <Card sx={{width: '30%', display: 'flex'}}>
+                <CardContent sx={{p: 0, width: '100%',
+				'&:last-child': {
+					'padding-bottom': 0}   
+				}}>
                 <CardActionArea onClick={() => navigate('/hwpermitoverview')}>
                     <Box sx={{display: 'flex', flexDirection: 'row'}}>
                         <Box sx={{
@@ -322,16 +325,33 @@ return(
 
                 <Divider />
 
-                    <Box sx={{
-                        display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
-                        alignItems: 'center', flexDirection: 'row',  pl: '1rem', pt: '1rem', pb: 0,
-                    }}>
+                    <Box 
+                    sx={(theme) => ({
+                        alignSelf: 'center',
+                        [theme.breakpoints.up("lg")]: {
+                        display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
+                        alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '1rem', 
+                        },
+                        
+                        [theme.breakpoints.down("lg")]: {
+                            display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
+                            alignItems: 'center', flexDirection: 'column', py: '0.5rem', 
+                        },
+                        
+                    })}>
                         {permit.status === 'Active' && <ActivePermitTag />}
                         {permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
                         {permit.status === 'Completed' && <CompletedStatusTag />}
                         {permit.status === 'Authorised' && <AuthorisedStatusTag />}
 
-                        <Box sx={{mx: '1rem'}}>
+                        <Box sx={(theme) => ({
+                            color: 'rgba(0, 0, 0, 0.6)', mx: '1rem',
+                            [theme.breakpoints.down("lg")]: {
+                                    mt: '0.5rem',
+                                    pb: 0
+						},
+						
+					})}>
                             {permit.expiresAt.length > 0 && permit.expiresAt}
                             {permit.activatesAt.length > 0 && permit.activatesAt}
                         </Box>

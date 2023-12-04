@@ -77,14 +77,14 @@ return (
 	<SideBar />
 
 	<Box sx={{py: 5, pl: 15, pr: 10, mt: '6rem', bgcolor: '#f1f3f3',
-		display: 'flex', flexDirection: 'column', 
+		display: 'flex', flexDirection: 'column', alignItems: 'center',
 		minHeight: '100vh'
 		}}>
-		<Box>
+		<Box sx={{width: '96%'}}>
 			<Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
 				<Typography variant='h6' sx={{ fontWeight: 500, mb: '1rem' }}>Manage 37 permits issued on this project</Typography>
 
-				<Box sx={{ display: 'flex', flexDirection: 'row', height: '3rem' }}>
+				<Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', height: '3rem' }}>
 					<Button variant="contained" 
 						size='medium'
 						sx={{bgcolor: '#00a4a9', m: 1, 
@@ -325,8 +325,7 @@ return (
 
 				<Box sx={{
 					display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
-					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '1rem', 
-					borderTop: 1, borderColor: 'rgba(0, 0, 0, 0.12)'
+					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '1rem'
 				}}>
 					{permit.status === 'Active' && <ActivePermitTag />}
 					{permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
@@ -349,25 +348,43 @@ return (
 
 
 		{(filter !== 'Date') && permits.map((permit) => (
-			<Card sx={{ width: '25rem', display: 'flex' }}>
-				<CardContent sx={{width: '100%', p: 0,
+			<Card sx={{ width: '30%', display: 'flex' }}>
+				<CardContent sx={{p: 0, width: '100%',
 				'&:last-child': {
 					'padding-bottom': 0}  
 					}}>
 				<CardActionArea onClick={navigateAway}>
 					<Box sx={{ display: 'flex', flexDirection: 'row' }}>
-						<Box sx={{
+						<Box 
+						// sx={{
+						// 	width: '8rem', height: '8rem',
+						// 	display: 'flex', justifyContent: 'center', alignItems: 'center',
+						// 	bgcolor: '#04535f', color: '#ffffff'
+						// }}
+						sx={(theme) => ({
 							width: '8rem', height: '8rem',
 							display: 'flex', justifyContent: 'center', alignItems: 'center',
-							bgcolor: '#04535f', color: '#ffffff'
-						}}>
+							bgcolor: '#04535f', color: '#ffffff',
+							alignSelf: 'center',
+							[theme.breakpoints.down("lg")]: {
+							width: '7rem', height: '7rem',
+							display: 'flex', alignSelf: 'center',
+							alignItems: 'center', flexDirection: 'row', 
+							fontSize: 12
+							 },
+							  
+						})}>
 							{permit.supplierType === 'company'
 								? <ApartmentIcon sx={{ width: '2rem', height: '2rem' }} />
 								: <PersonIcon sx={{ width: '2rem', height: '2rem' }} />}
 						</Box>
 
 						<List sx={{ pt: 1, pb: 0 }}>
-							<ListItem>
+							<ListItem 
+								sx={(theme) => ({
+									[theme.breakpoints.down("lg")]: {py: 0}
+								})
+								}>
 								<ListItemIcon style={{ fill: '#04535f', minWidth: 38 }}>
 									{permit.type === 'Hot Works' && <WhatshotIcon style={{ fill: '#04535f' }} />}
 									{permit.type === 'Working at Height' && <LandscapeIcon style={{ fill: '#04535f' }} />}
@@ -377,28 +394,63 @@ return (
 							</ListItem>
 
 							<ListItem>
-								<Typography>{permit.supplier}</Typography>
+								<Typography 
+								sx={(theme) => ({
+									fontSize: 16,
+									[theme.breakpoints.down("md")]: 
+										{fontSize: 14},
+										p: 0
+								})}
+								>
+								{permit.supplier}</Typography>
 							</ListItem>
 
 							<ListItem>
-								<Typography sx={{ color: 'rgba(0, 0, 0, 0.6)', fontSize: 12 }}>Created by: {permit.createdBy}</Typography>
+								<Typography 
+								sx={(theme) => ({
+									color: 'rgba(0, 0, 0, 0.6)', fontSize: 12, 
+									[theme.breakpoints.down("lg")]: {py: 0}
+								})
+								}
+								>Created by: {permit.createdBy}</Typography>
 							</ListItem>
 						</List>
 					</Box>
 
 			<Divider />
 
-				<Box sx={{
+				<Box 
+				sx={(theme) => ({
+					alignSelf: 'center',
+					[theme.breakpoints.up("lg")]: {
 					display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
-					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '0.5rem', 
-				}}>
+					alignItems: 'center', flexDirection: 'row', pl: '1rem', py: '1rem', 
+					 },
+					
+					 [theme.breakpoints.down("lg")]: {
+						display: 'flex', color: 'rgba(0, 0, 0, 0.6)', fontSize: 12,
+						alignItems: 'center', flexDirection: 'column', py: '0.5rem', 
+					},
+				  	
+				})}
+				>
 					{permit.status === 'Active' && <ActivePermitTag />}
 					{permit.status === 'Emerging issues' && <EmergingIssuesStatusTag />}
 					{permit.status === 'Completed' && <CompletedStatusTag />}
 					{permit.status === 'Authorised' && <AuthorisedStatusTag />}
 					{permit.status === 'Pre-authorisation' && <PreAuthStatusTag />}
 
-					<Box sx={{ mx: '1rem' }}>
+					<Box 
+					sx={(theme) => ({mx: '1rem',
+					[theme.breakpoints.down("lg")]: {
+							color: 'red', 
+							mt: '0.5rem',
+							pb: 0
+						},
+						
+					})
+					}
+					>
 						{permit.expiresAt.length > 0 && permit.expiresAt}
 						{permit.activatesAt.length > 0 && permit.activatesAt}
 					</Box>

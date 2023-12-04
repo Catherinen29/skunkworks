@@ -140,10 +140,9 @@ return (
                     color: 'rgba(0, 0, 0, 0.6)', my: '1rem'}}>
                         Digitial Signature</Typography>
                 <Card elevation={0}
-                    sx={{p: '1rem'}}>
+                    sx={{p: '1rem', height: '6rem'}}>
                     <Typography sx={{fontSize: 22}}>Sign with your phone biometrics</Typography>
                     <Button variant="contained" 
-                        disableElevation
                         onClick={handleSigning}
                         sx={{bgcolor:  '#00a4a9', mt: '1rem', 
                         fontSize: 18,
@@ -172,7 +171,7 @@ return (
             <Box sx={{m: '2rem'}}>
                 <Typography sx={{fontSize: 20, fontWeight: 500, color: 'rgba(0, 0, 0, 0.6)', my: '1rem'}}>Digitial Signature</Typography>
                 <Card elevation={0}
-                    sx={{p: '1rem'}}>
+                    sx={{p: '1rem', height: '6rem'}}>
                     <Typography sx={{fontSize: 20}}>Signed</Typography>
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                         <Avatar src={james} sx={{width: 50, height: 50}} />
